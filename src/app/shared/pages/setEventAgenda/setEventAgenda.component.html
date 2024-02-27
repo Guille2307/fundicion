@@ -1,0 +1,327 @@
+<ion-header class="menu">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" type="button" class="back" (click)="goBack()">
+        <i class="icon icon_w_icons_arrow_nav_left"></i>
+      </ion-button>
+    </ion-buttons>
+    <ion-title size="small" *ngIf="editEventId === undefined">
+      {{ "AGENDA.edit.setEvent.title" | translate }}
+    </ion-title>
+    <ion-title size="small" *ngIf="editEventId !== undefined">
+      {{ "AGENDA.edit.setEvent.titleEdit" | translate }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <div id="img-container" class="img-container">
+    <ion-button
+      fill="clear"
+      class="change-img-button"
+      id="add-button"
+      (click)="presentAlertImage($event)"
+    >
+      <i class="icon icon_w_icons_picture_add"></i>
+    </ion-button>
+  </div>
+
+  <form
+    [formGroup]="eventForm"
+    (ngSubmit)="setEvent()"
+    accept-charset="utf-8"
+    class="form-container"
+  >
+    <div class="form-group-container">
+      <div class="label-container">
+        <label class="form-label">{{
+          "AGENDA.edit.setEvent.labelTitleEvent" | translate
+        }}</label>
+        <label *ngIf="!eventForm.controls.title.validator" class="optional">{{
+          "AGENDA.edit.labelOptional" | translate
+        }}</label>
+      </div>
+      <div class="input-container">
+        <input
+          type="text"
+          formControlName="title"
+          class="form-input"
+          placeholder="{{ 'AGENDA.edit.setEvent.labelTitleEvent' | translate }}"
+        />
+        <tooltip-error
+          *ngIf="
+            eventForm.controls.title.validator &&
+            eventForm.controls.title.invalid &&
+            showTooltip
+          "
+        ></tooltip-error>
+      </div>
+    </div>
+
+    <div class="form-group-container">
+      <div class="label-container">
+        <label class="form-label">{{
+          "AGENDA.edit.setEvent.labelCategoryEvent" | translate
+        }}</label>
+        <label
+          *ngIf="!eventForm.controls.category.validator"
+          class="optional"
+          >{{ "AGENDA.edit.labelOptional" | translate }}</label
+        >
+      </div>
+      <div class="input-container">
+        <input
+          type="text"
+          formControlName="category"
+          class="form-input"
+          placeholder="{{
+            'AGENDA.edit.setEvent.labelCategoryEvent' | translate
+          }}"
+        />
+        <tooltip-error
+          *ngIf="
+            eventForm.controls.category.validator &&
+            eventForm.controls.category.invalid &&
+            showTooltip
+          "
+        ></tooltip-error>
+      </div>
+    </div>
+
+    <div class="form-group-container">
+      <div class="label-container">
+        <label class="form-label">{{
+          "AGENDA.edit.setEvent.labelSpeaker" | translate
+        }}</label>
+        <label
+          *ngIf="!eventForm.controls.speakers.validator"
+          class="optional"
+          >{{ "AGENDA.edit.labelOptional" | translate }}</label
+        >
+      </div>
+      <div class="input-container">
+        <ion-select
+          class="form-input btn"
+          multiple="true"
+          placeholder="{{ 'AGENDA.edit.setEvent.labelSpeaker' | translate }}"
+          [compareWith]="compareWith"
+          formControlName="speakers"
+        >
+          <ion-select-option
+            *ngFor="let speaker of speakers"
+            [value]="speaker"
+            >{{ speaker.name }}</ion-select-option
+          >
+        </ion-select>
+        <tooltip-error
+          *ngIf="
+            eventForm.controls.speakers.validator &&
+            eventForm.controls.title.invalid &&
+            showTooltip
+          "
+        ></tooltip-error>
+      </div>
+    </div>
+
+    <div class="form-group-container">
+      <div class="label-container">
+        <label class="form-label">{{
+          "AGENDA.edit.setEvent.labelDateTime" | translate
+        }}</label>
+        <label *ngIf="!eventForm.controls.starts.validator" class="optional">{{
+          "AGENDA.edit.labelOptional" | translate
+        }}</label>
+      </div>
+      <div class="input-container">
+        <input
+          type="text"
+          readonly="true"
+          formControlName="starts"
+          class="form-input btn"
+          placeholder="{{
+            'AGENDA.edit.setEvent.placeholderDateTime' | translate
+          }}"
+          (click)="openCalendarPopover()"
+        />
+        <tooltip-error
+          *ngIf="
+            eventForm.controls.starts.validator &&
+            eventForm.controls.starts.invalid &&
+            showTooltip
+          "
+        ></tooltip-error>
+      </div>
+    </div>
+
+    <div class="form-group-container">
+      <div class="label-container">
+        <label class="form-label">{{
+          "AGENDA.edit.setEvent.labelLocation" | translate
+        }}</label>
+        <label
+          *ngIf="!eventForm.controls.location.validator"
+          class="optional"
+          >{{ "AGENDA.edit.labelOptional" | translate }}</label
+        >
+      </div>
+      <div class="input-container">
+        <input
+          type="text"
+          formControlName="location"
+          class="form-input"
+          placeholder="{{ 'AGENDA.edit.setEvent.labelLocation' | translate }}"
+        />
+        <tooltip-error
+          *ngIf="
+            eventForm.controls.location.validator &&
+            eventForm.controls.location.invalid &&
+            showTooltip
+          "
+        ></tooltip-error>
+      </div>
+    </div>
+
+    <div class="form-group-container" id="textarea-container-info">
+      <div class="label-container">
+        <label class="form-label">{{
+          "AGENDA.edit.setEvent.labelInfo" | translate
+        }}</label>
+        <label
+          *ngIf="!eventForm.controls.description.validator"
+          class="optional"
+          >{{ "AGENDA.edit.labelOptional" | translate }}</label
+        >
+      </div>
+      <div class="input-container textarea">
+        <textarea
+          formControlName="description"
+          rows="2"
+          class="form-textarea"
+          id="textarea-info"
+          placeholder="{{ 'AGENDA.edit.setEvent.labelInfo' | translate }}"
+        ></textarea>
+        <tooltip-error
+          *ngIf="
+            eventForm.controls.description.validator &&
+            eventForm.controls.description.invalid &&
+            showTooltip
+          "
+        ></tooltip-error>
+      </div>
+    </div>
+
+    <div class="form-group-container" id="textarea-container-iframe">
+      <div class="label-container">
+        <label class="form-label">{{
+          "AGENDA.edit.setEvent.labelIframe" | translate
+        }}</label>
+        <label *ngIf="!eventForm.controls.iframe.validator" class="optional">{{
+          "AGENDA.edit.labelOptional" | translate
+        }}</label>
+      </div>
+      <div class="input-container textarea">
+        <textarea
+          formControlName="iframe"
+          rows="2"
+          class="form-textarea"
+          id="textarea-iframe"
+          placeholder="{{ 'AGENDA.edit.setEvent.labelIframe' | translate }}"
+        ></textarea>
+        <tooltip-error
+          *ngIf="
+            eventForm.controls.iframe.validator &&
+            eventForm.controls.iframe.invalid &&
+            showTooltip
+          "
+        ></tooltip-error>
+      </div>
+    </div>
+
+    <div class="form-group-container" id="textarea-container-url">
+      <div class="label-container">
+        <label class="form-label">{{
+          "AGENDA.edit.setEvent.urlSale" | translate
+        }}</label>
+        <label
+          *ngIf="!eventForm.controls.url_venta.validator"
+          class="optional"
+          >{{ "AGENDA.edit.labelOptional" | translate }}</label
+        >
+      </div>
+      <div class="input-container textarea">
+        <textarea
+          formControlName="url_venta"
+          rows="2"
+          class="form-textarea"
+          id="textarea-url"
+          placeholder="{{ 'AGENDA.edit.setEvent.urlSale' | translate }}"
+        ></textarea>
+        <tooltip-error
+          *ngIf="
+            eventForm.controls.url_venta.validator &&
+            eventForm.controls.url_venta.invalid &&
+            showTooltip
+          "
+        ></tooltip-error>
+      </div>
+    </div>
+
+    <div class="form-group-container">
+      <div class="label-container">
+        <label class="form-label label-toggle">{{
+          "AGENDA.edit.setEvent.labelStreaming" | translate
+        }}</label>
+        <ion-toggle color="success" formControlName="streaming"></ion-toggle>
+      </div>
+    </div>
+
+    <div class="button-container">
+      <button
+        type="submit"
+        class="btn-form"
+        [ngClass]="{ disabled: !isFormDisabled() }"
+        *ngIf="editEventId === undefined"
+      >
+        <div class="ion-activatable ripple-parent">
+          <i class="icon left icon_w_icons_add"></i>
+          <ion-title size="large">
+            {{ "AGENDA.edit.setEvent.newEventButton" | translate }}
+          </ion-title>
+          <ion-ripple-effect></ion-ripple-effect>
+        </div>
+      </button>
+      <tooltip-error
+        [isButton]="true"
+        *ngIf="showTooltip && !isFormDisabled()"
+      ></tooltip-error>
+      <button
+        type="submit"
+        class="btn-form"
+        [ngClass]="{ disabled: !isFormDisabled() }"
+        *ngIf="editEventId !== undefined"
+      >
+        <div class="ion-activatable ripple-parent">
+          <i class="icon left icon_w_icons_add"></i>
+          <ion-title size="large">
+            {{ "AGENDA.edit.setEvent.editEventButton" | translate }}
+          </ion-title>
+          <ion-ripple-effect></ion-ripple-effect>
+        </div>
+      </button>
+    </div>
+  </form>
+  <div class="button-container delete">
+    <button
+      class="btn-form delete"
+      *ngIf="editEventId !== undefined"
+      (click)="deleteEvent()"
+    >
+      <div class="ion-activatable ripple-parent">
+        <i class="icon left icon_w_icons_delete"></i>
+        <ion-title size="large">
+          {{ "AGENDA.edit.deleteCard.alert.title" | translate }}
+        </ion-title>
+        <ion-ripple-effect></ion-ripple-effect>
+      </div>
+    </button>
+  </div>
+</ion-content>

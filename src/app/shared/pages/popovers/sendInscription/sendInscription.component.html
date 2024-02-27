@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-title size="large">
+    {{ 'JOB_OFFERS.inscription.title' | translate }}
+  </ion-title>
+</ion-header>
+<div class="content">
+  <div class="request">
+    <ion-label class="title">
+      {{"JOB_OFFERS.inscription.request" | translate}}
+    </ion-label>
+    <ion-label class="caracteres">
+      [{{getCaracteresTextarea()}}/1000]
+    </ion-label>
+  </div>
+  <textarea id="textarea" rows="13" maxlength="1000" [(ngModel)]="textarea"
+    placeholder='{{"JOB_OFFERS.inscription.textarea" | translate}}'></textarea>
+  <ion-button *ngIf="profileFiles.length !== 0" fill="clear" class="add-button" (click)="openPopover($event)">
+    <i class="icon icon_w_icons_doc"></i>
+    {{"JOB_OFFERS.inscription.addButton" | translate}}
+  </ion-button>
+  <input type="file" id="file-selector-no-profile" multiple accept="application/pdf"
+    style="display: none;">
+  <ion-button *ngIf="profileFiles.length === 0" fill="clear" class="add-button" (click)="addFile()">
+    <i class="icon icon_w_icons_doc"></i>
+    {{"JOB_OFFERS.inscription.addButton" | translate}}
+  </ion-button>
+  <ion-list class="list-files">
+    <ion-item detail="false" class="file-item" *ngFor="let file of files; let i = index">
+      <ion-button fill="clear" type="button" class="delete" (click)="deleteFile(file, i)">
+        <i class="icon icon_w_icons_remove_circle"></i>
+      </ion-button>
+      <div class="file-btn-container">
+        <div class="icon-doc-container">
+          <i class="icon icon_w_icons_doc"></i>
+        </div>
+        <ion-title class="attached-button" size="large">{{setDocName(file.document)}}</ion-title>
+        <!-- <a target="_blank" class="attached-button" href="{{file.document | fileUser}}">{{setDocName(file.document)}}</a> -->
+        <!-- <div class="arrow-container">
+          <i class="icon icon_w_icons_arrow_nav_right"></i>
+        </div> -->
+      </div>
+    </ion-item>
+  </ion-list>
+  <div class="buttons-container">
+    <ion-button fill="clear" class="cancel" (click)="cancelButtonClick()">
+      {{"JOB_OFFERS.inscription.cancelButton" | translate}}
+    </ion-button>
+    <ion-button fill="clear" class="submit" [disabled]="isButtonDisabled()" (click)="sendButtonClick()">
+      {{"JOB_OFFERS.inscription.submitButton" | translate}}
+    </ion-button>
+  </div>
+</div>

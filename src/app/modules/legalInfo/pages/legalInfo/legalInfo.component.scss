@@ -1,0 +1,36 @@
+@import "../../../../../assets/scss/partials/variables";
+@import "../../../../../assets/scss/partials/colors";
+
+ion-content.img-back {
+  --background: url("../../../../../assets/img/background.webp") no-repeat center
+    center / cover;
+  --overflow: hidden;
+
+  .scrim {
+    height: 100%;
+    background: rgba(0, 0, 0, 0.42);
+  }
+
+  .toolbar {
+    z-index: 1;
+    position: relative;
+    width: 100%;
+    background: white;
+    height: 44px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+
+    ion-title {
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      padding: 0 50px;
+    }
+  }
+
+  .tabs-container {
+    --overflow: hidden;
+  }
+}
+

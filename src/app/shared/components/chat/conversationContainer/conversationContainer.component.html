@@ -1,0 +1,94 @@
+<ion-header *ngIf="showHeader" class="menu side">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="goBack()">
+        <i class="icon icon_w_icons_arrow_nav_left"></i>
+      </ion-button>
+    </ion-buttons>
+    <ion-nav-link [component]="infoPage" style="cursor: pointer">
+      <ion-title size="small">
+        {{ name }}
+      </ion-title>
+    </ion-nav-link>
+    <ion-buttons *ngIf="sub === 'PREMIUM'" slot="primary">
+      <ion-nav-link [component]="videocallPage">
+        <ion-button fill="clear" (click)="goToVideocall()">
+          <ion-icon class="icon" name="videocam"></ion-icon>
+        </ion-button>
+      </ion-nav-link>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row
+      class="message-container"
+      *ngFor="let message of messages | async; let i = index"
+    >
+      <div class="date" *ngIf="showDate(message.createdAt, i)">
+        {{ setDate(message.createdAt) | translate | titlecase }}<br />
+      </div>
+      <ion-col
+        *ngIf="!message.videocall"
+        size="9"
+        class="message first-msg"
+        [offset]="isMyMsg(message) ? 3 : 0"
+        [ngClass]="{
+          'my-message': isMyMsg(message),
+          'other-message': !isMyMsg(message)
+        }"
+      >
+        <span *ngIf="chat.isGroup && !isMyMsg(message)" class="name-msg-group"
+          >{{ message.name }}<br
+        /></span>
+        <span>{{ message.msg }}</span>
+        <div class="time ion-text-right">
+          <br />{{ message.createdAt | date : "HH:mm" }}
+        </div>
+        <div class="corner"></div>
+      </ion-col>
+      <ion-col
+        *ngIf="message.videocall"
+        size="9"
+        class="message videocall"
+        [offset]="2"
+      >
+        <ion-nav-link [component]="videocallPage">
+          <span>{{ message.msg | translate }}</span>
+          <div class="time ion-text-right">
+            <br />{{ message.createdAt | date : "HH:mm" }}
+          </div>
+        </ion-nav-link>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="light">
+    <ion-row class="ion-align-items-center">
+      <ion-col size="10">
+        <ion-textarea
+          autoGrow="false"
+          class="message-input"
+          rows="1"
+          maxLength="1000"
+          [(ngModel)]="newMsg"
+          (keyup.enter)="sendMessage()"
+        >
+        </ion-textarea>
+      </ion-col>
+      <ion-col size="2">
+        <ion-button
+          expand="block"
+          fill="clear"
+          color="primary"
+          [disabled]="newMsg === ''"
+          class="msg-btn"
+          (click)="sendMessage()"
+        >
+          <i class="icon icon_w_icons_paper_plane"></i>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

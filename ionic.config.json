@@ -1,0 +1,7 @@
+{
+  "name": "Fundicion",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

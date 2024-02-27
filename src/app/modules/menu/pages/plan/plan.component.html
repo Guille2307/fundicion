@@ -1,0 +1,28 @@
+<ion-header class="menu">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      {{ "PLAN.title" | translate }}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="restartPos()">
+        <i class="icon icon_w_icons_retract"></i>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end" class="mobile">
+      <chat-and-profile></chat-and-profile>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <iframe
+      width="1200"
+      height="680"
+      src="https://my.matterport.com/show/?m=JJBPcTtAM6U"
+      frameborder="0"
+    ></iframe>
+  </ion-grid>
+</ion-content>

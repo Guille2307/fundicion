@@ -1,0 +1,17 @@
+<ion-content>
+  <ion-list>
+    <div *ngFor="let option of contextmenuOptions">
+      <ion-item
+        detail="false"
+        lines="none"
+        button
+        (click)="selectAction(option.action)"
+        detail="false"
+      >
+        <ion-label class="text-wrap">
+          {{ option.name | translate }}
+        </ion-label>
+      </ion-item>
+    </div>
+  </ion-list>
+</ion-content>

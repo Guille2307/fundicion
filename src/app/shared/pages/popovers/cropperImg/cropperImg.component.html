@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-title size="large">
+    {{ "EDIT_PROFILE.editProfileImg.title" | translate }}
+  </ion-title>
+</ion-header>
+<div class="content">
+  <input type="file" (change)="fileChangeEvent($event)" id="img-selector" simple class="input-file" accept="image/png, image/jpg, image/jpeg" />
+
+  <image-cropper [imageBase64]="base64String" [maintainAspectRatio]="true" [aspectRatio]="4 / 4" format="png"
+    (imageCropped)="imageCropped($event)"></image-cropper>
+
+  <div class="buttons-container">
+    <ion-button fill="clear" class="cancel" (click)="cancelPopOver()">{{
+      "EDIT_PROFILE.editProfileImg.buttonGoBack" | translate }}</ion-button>
+    <ion-button fill="clear" class="submit" (click)="closePopover()">
+      {{ "EDIT_PROFILE.editProfileImg.buttonConfirm" | translate }}
+    </ion-button>
+  </div>
+</div>

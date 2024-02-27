@@ -1,0 +1,59 @@
+@import "../../../../assets/scss/partials/variables";
+@import "../../../../assets/scss/partials/typography";
+
+.search-bar {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  background: transparent;
+  border: 2px solid $interactive;
+  border-radius: 25px;
+  height: 42px;
+  padding: 6px 12px;
+  margin: 10px auto;
+  font-size: 15px;
+
+  .icon {
+    color: $interactive;
+    font-size: 27px;
+  }
+
+  input {
+    font-size: 15px;
+    color: black;
+    border: none;
+    width: 100%;
+    padding-left: 0 5px;
+    background-color: transparent;
+  }
+
+  button {
+    padding: 0;
+    height: 26px;
+    width: 36px;
+    background: transparent;
+  }
+}
+
+// @media screen and (max-width: 1028px) {
+//   ion-searchbar {
+//     top: 3px !important;
+//     margin-left: 40px;
+//     width: 88% !important;
+//     --icon-color: white !important;
+//     color: white;
+//   }
+// }
+.block {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+
+  & i {
+    font-size: 27px;
+  }
+}
+
+button {
+  background-color: transparent;
+}

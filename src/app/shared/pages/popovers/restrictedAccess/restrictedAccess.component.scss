@@ -1,0 +1,58 @@
+@import "../../../../../assets/scss/partials/variables";
+@import "../../../../../assets/scss/partials/typography";
+
+ion-header {
+  height: 40px;
+  background: $cancel;
+  display: flex;
+
+  ion-title {
+    text-align: center;
+    @include principal5(white);
+    margin: auto;
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 100%;
+  margin: auto;
+  overflow-x: auto;
+  position: relative;
+
+  .warning-container {
+    width: 90%;
+    display: flex;
+    margin: 10px auto;
+
+    i {
+      display: flex;
+      margin: auto 20px;
+      font-size: 22px;
+      color: $emphasis;
+    }
+
+    ion-label {
+      color: $emphasis;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .login-container {
+    padding: 0 10px;
+    display: grid;
+    padding-bottom: 70px;
+
+    div {
+      display: grid;
+      text-align: center;
+
+      ion-label {
+        font-size: 14px;
+        color: black;
+      }
+    }
+  }
+}

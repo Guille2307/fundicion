@@ -1,0 +1,141 @@
+<ion-content class="container">
+  <embed-video *ngIf="user" [socialmedia]="user.socialmedia"></embed-video>
+  <div class="header-container">
+    <div id="img-container" class="img-container"></div>
+    <div class="info-img-container">
+      <img
+        *ngIf="userId !== null"
+        src="{{ userId | imageProfile }}"
+        class="profile-img"
+        onerror="this.onerror=null;this.src='assets/img/no_image_user.webp'"
+      />
+      <img
+        *ngIf="userId === null"
+        class="profile-img"
+        src="assets/img/no_image_user.webp"
+      />
+      <div class="edit-profile-container">
+        <div class="name-container">
+          <ion-title size="small">
+            {{ isValueNull(user.name) ? user.name : "" }}
+            {{ isValueNull(user.surnames) ? user.surnames : "" }}
+          </ion-title>
+          <ion-title
+            size="small"
+            class="username"
+            *ngIf="isValueNull(user.username)"
+            >@{{ user.username }}</ion-title
+          >
+        </div>
+      </div>
+      <div class="btn-container">
+        <custom-button
+          [transparent]="true"
+          [iconLeft]="'icon_w_icons_edit_box'"
+          [translation]="'PROFILE.button'"
+          (onClick)="editProfile()"
+        ></custom-button>
+      </div>
+    </div>
+  </div>
+
+  <ion-list class="info-profile-container margin" *ngIf="form">
+    <ion-item
+      *ngIf="user.socialmedia"
+      detail="false"
+      style="--background: transparent; --inner-border-width: 0px"
+    >
+      <socialmedia
+        style="width: 100%"
+        [socialmedia]="user.socialmedia"
+      ></socialmedia>
+    </ion-item>
+
+    <ion-item
+      detail="false"
+      class="data"
+      *ngFor="let item of profileSvc.getDataBySub('EMPLOYEE')"
+    >
+      <div *ngIf="item.showOnProfile && item.show" [ngSwitch]="item.component">
+        <div *ngSwitchCase="'input'" class="flex">
+          <i class="icon {{ item.icon }}"></i>
+          <ion-card-subtitle>
+            <ion-title
+              size="large"
+              class="value"
+              *ngIf="isValueNull(form[item.formControlName])"
+            >
+              {{ form[item.formControlName] }}</ion-title
+            >
+            <ion-title
+              class="no-value"
+              *ngIf="!isValueNull(form[item.formControlName])"
+              >{{ item.noValue | translate }}
+            </ion-title>
+          </ion-card-subtitle>
+        </div>
+        <div *ngSwitchCase="'url'" class="flex">
+          <i class="icon {{ item.icon }}"></i>
+          <ion-card-subtitle>
+            <a
+              target="_blank"
+              class="value"
+              href="{{ setUrl(form[item.formControlName]) }}"
+              *ngIf="isValueNull(form[item.formControlName])"
+              >{{ form[item.formControlName] }}</a
+            >
+            <ion-title
+              size="large"
+              class="value"
+              *ngIf="isValueNull(form[item.formControlName])"
+            >
+              {{ form[item.formControlName] }}</ion-title
+            >
+            <ion-title
+              class="no-value"
+              *ngIf="!isValueNull(form[item.formControlName])"
+              >{{ item.noValue | translate }}
+            </ion-title>
+          </ion-card-subtitle>
+        </div>
+        <div *ngSwitchCase="'textarea'" class="textarea">
+          <div class="flex">
+            <i class="icon {{ item.icon }}"></i>
+            <ion-card-subtitle>
+              <ion-title>{{ item.translation | translate }}</ion-title>
+            </ion-card-subtitle>
+            <div class="line"></div>
+          </div>
+          <div>
+            <div class="value" *ngIf="isValueNull(form[item.formControlName])">
+              {{ form[item.formControlName] }}
+            </div>
+            <div
+              class="no-value"
+              *ngIf="!isValueNull(form[item.formControlName])"
+            >
+              {{ item.noValue | translate }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </ion-item>
+
+    <ion-item detail="false" class="data file" *ngFor="let file of filenames">
+      <div class="file-btn-container">
+        <div class="icon-doc-container">
+          <i class="icon icon_w_icons_doc"></i>
+        </div>
+        <a
+          target="_blank"
+          class="attached-button"
+          href="{{ file.document | fileUser }}"
+          >{{ setDocName(file.document) }}</a
+        >
+        <div class="arrow-container">
+          <i class="icon icon_w_icons_arrow_nav_right"></i>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

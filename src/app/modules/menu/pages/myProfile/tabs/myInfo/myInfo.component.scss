@@ -1,0 +1,294 @@
+@import "../../../../../../../assets/scss/partials/variables";
+@import "../../../../../../../assets/scss/partials/typography";
+@import "../../../../../../../assets/scss/partials/mixins";
+
+.container {
+  z-index: 0;
+  width: 100%;
+  padding: 50px 0;
+  text-align: left;
+  grid-template-columns: 100%;
+  --overflow: auto;
+  position: relative;
+
+  .margin {
+    width: 460px;
+    margin: 0 auto;
+    background: white;
+  }
+
+  .header-container {
+    position: relative;
+
+    .img-container {
+      z-index: 1;
+      position: static;
+      height: 94px;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .info-img-container {
+      z-index: 2;
+      position: absolute;
+      top: 0;
+      height: 94px;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.56);
+      display: flex;
+      justify-content: space-around;
+
+      .profile-img {
+        height: 70px;
+        min-width: 70px;
+        width: 70px;
+        border-radius: 50%;
+        margin: auto 20px;
+        object-fit: cover;
+      }
+
+      .edit-profile-container {
+        display: flex;
+        height: 100%;
+        width: 70%;
+
+        .name-container {
+          margin: auto;
+          width: 100%;
+          margin-left: 0;
+
+          ion-title {
+            @include principal5(white);
+            font-size: 20px;
+            padding: 0;
+            display: inline-flex;
+            width: 100%;
+            margin: 1px;
+            display: contents;
+            text-align: left;
+
+            &.username {
+              font-size: 14px;
+              font-weight: 400;
+              font-style: normal;
+              text-transform: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .btn-container {
+    display: flex;
+    width: 200px;
+    margin: auto 10px;
+  }
+
+  .edit-profile-button {
+    @include boton(24px, 1px, white, transparent, white, 20px, $interactive);
+  }
+
+  mat-tab-group {
+    height: auto;
+  }
+
+  .info-profile-container {
+    padding: 0;
+    background: transparent;
+
+    ion-card-subtitle {
+      margin-left: 10px;
+      width: 90%;
+    }
+
+    .data {
+      --background: transparent;
+      --inner-border-width: 0;
+      --min-height: 0 !important;
+
+      div {
+        height: auto;
+        width: 100%;
+
+        &.flex {
+          height: 48px;
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      &.no-padding {
+        --padding-start: 0;
+        --inner-padding-end: 0;
+      }
+
+      .bold {
+        font-weight: 900;
+      }
+
+      .icon {
+        font-size: 25px;
+        color: $fontColor;
+        display: flex;
+        margin: auto 0;
+      }
+
+      .value {
+        width: 90%;
+        @include subtitulo1($fontColor);
+        font-style: normal;
+        margin: auto;
+        display: contents;
+        text-align: left;
+      }
+
+      .no-value {
+        width: 90%;
+        @include subtitulo1(rgba($fontColor, 0.7));
+        margin: auto;
+        display: contents;
+        text-align: left;
+      }
+
+      .textarea {
+        height: auto;
+
+        .icon {
+          width: 34px;
+        }
+
+        ion-card-subtitle {
+          height: auto;
+          width: 70%;
+        }
+
+        ion-title {
+          @include principal5($fontColor);
+          padding: 0;
+          text-align: left;
+        }
+
+        .line {
+          display: block;
+          height: 2px;
+          background: $fontColor;
+          width: 70%;
+          margin: auto;
+        }
+      }
+
+      &.file {
+        margin: 8px 0;
+
+        .file-btn-container {
+          position: relative;
+          display: flex;
+          width: 100%;
+          height: 43px;
+          background: $backgroundColor;
+          border: 1px solid $fontColor;
+          border-radius: 15px;
+          text-align: left;
+
+          &:active {
+            border-color: $emphasis;
+
+            .attached-button {
+              color: $selectedText;
+            }
+          }
+
+          &:hover {
+            border-color: $emphasis;
+
+            .arrow-container {
+              i {
+                color: $emphasis;
+              }
+            }
+          }
+
+          .icon-doc-container {
+            position: absolute;
+            width: 50px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            background: rgba($fontColor, 0.05);
+            cursor: pointer;
+            z-index: 0;
+          }
+
+          .arrow-container {
+            position: absolute;
+            width: 40px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+            right: 0;
+            border-left: rgba($fontColor, 0.05) solid 1px;
+            cursor: pointer;
+            z-index: 0;
+
+            i {
+              color: $interactive;
+            }
+          }
+
+          .attached-button {
+            text-decoration: none;
+            display: block;
+            align-items: center;
+            text-transform: inherit;
+            color: $fontColor;
+            font-weight: 700;
+            width: 100%;
+            padding: 10px;
+            padding-left: 60px;
+            padding-right: 50px;
+            cursor: pointer;
+            font-size: 18px;
+            z-index: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+.internet {
+  font-size: 20px !important;
+}
+@media screen and (max-width: 600px) {
+  .margin {
+    width: 100% !important;
+    background: transparent !important;
+  }
+
+  .info-img-container {
+    width: 100% !important;
+
+    .edit-profile-container {
+      .name-container {
+        ion-title {
+          font-size: 22px !important;
+
+          &.username {
+            font-size: 16px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1028px) {
+  .btn-container {
+    display: none !important;
+  }
+}

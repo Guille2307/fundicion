@@ -1,0 +1,737 @@
+{
+    "LANGUAGE": {
+        "title": "Idioma",
+        "name": "Galego",
+        "id": "GL",
+        "flag": "assets/img/flags/gl.webp"
+    },
+    "LOGIN": {
+        "firstTime": {
+            "label": "Esta é a miña primeira vez",
+            "button": "Crear conta"
+        },
+        "haveAccount": {
+            "label": "Xa teño conta",
+            "button": "Iniciar sesión"
+        },
+        "withoutAccount": {
+            "label": "Acceder sin conta",
+            "popover": {
+                "title": "Acceso restrinxido",
+                "info": "Para acceder nesta opción é necesario que inicies sesión na aplicación.",
+                "btnCancel": "Cancelar"
+            }
+        },
+        "footer": {
+            "savedAccounts": {
+                "label": "Contas gardadas",
+                "button": "Acceder"
+            },
+            "info": {
+                "privacyPolicies": "Políticas de Privacidade",
+                "termsOfUse": "Condicións de uso",
+                "development": "Desenvolvido por woutick!"
+            }
+        }
+    },
+    "SAVED_LOGIN": {
+        "label": "Ola de novo",
+        "button": "Acceder á miña conta",
+        "notTheUser": {
+            "label": "Non son eu",
+            "button": "Iniciar sesión con outra conta"
+        }
+    },
+    "LOGIN_ACCOUNT": {
+        "title": "Inicio de sesión",
+        "labelUser": "Correo",
+        "labelPass": "Contrasinal",
+        "labelForget": "Esquecín o meu contrasinal",
+        "button": "Iniciar sesión",
+        "error": "Correo ou contrasinal erróneos",
+        "alert": {
+            "error": {
+                "title": "Erro",
+                "message": "Fallo de sesión,"
+            },
+            "errorMail": {
+                "title": "Erro",
+                "message": "Introduce unha dirección de correo válida."
+            }
+        }
+    },
+    "TOOLTIP": {
+        "required": "Campo obrigatorio",
+        "button": "Faltan datos por cumplimentar. Revisa os campos en vermello."
+    },
+    "CREATE_ACCOUNT": {
+        "title": "Rexistro",
+        "labelName": "Nome",
+        "labelLastname": "Apelidos",
+        "labelUsername": "Nome de usuario",
+        "labelMail": "Correo",
+        "labelPass": "Contrasinal",
+        "labelRepPass": "Repite contrasinal",
+        "labelRemAccess": "Recordar o meu acceso",
+        "labelPolitics": "Teño lido e acepto as Políticas de Privacidade, as Condicións de Uso e as Políticas de Cookies",
+        "labelComercial": "Acepto recibir comunicacións comerciais e/ou de marketing",
+        "labelOptional": "Opcional",
+        "button": "Aceptar",
+        "alert": {
+            "success": {
+                "title": "¡XENIAL!",
+                "message": "Xa tes conta na aplicación. No seguinte paso poderás completar o teu perfil coa información que consideres,"
+            },
+            "error": {
+                "title": "Erro",
+                "message": "Fallo ó completar o rexistro,"
+            }
+        }
+    },
+    "MENU": {
+        "dateSameMonth": "Do {{dayStart}} ó\n {{dayEnd}} {{monthEnd}} {{year}}",
+        "dateDifferentMonth": "Do {{dayStart}} {{monthStart}} ó\n {{dayEnd}} {{monthEnd}} {{year}}",
+        "agenda": "Axenda",
+        "tickets": "Entradas",
+        "infoEvent": "Información",
+        "infoEventTabs": {
+            "info": "Información",
+            "program": "Programa",
+            "artists": "Ponentes",
+            "gallery": "Galería",
+            "participants": "Participantes"
+        },
+        "activities": "Actividades e outros",
+        "activitiesTabs": {
+            "foodtrucks": "Foodtrucks",
+            "polls": "Enquisas"
+        },
+        "streamings": "Retransmisións",
+        "coworking": "Coworking",
+        "mapEvent": "Mapa do evento",
+        "myProfile": "O meu perfil",
+        "myProfileTabs": {
+            "myInfo": "O meu perfil",
+            "myPurse": "O meu moedeiro",
+            "myCompanyProfile": "Perfil da miña empresa",
+            "myMeetings": "As miñas reunións"
+        },
+        "jobOffers": "Ofertas de emprego",
+        "meetings": "Reunións",
+        "assistants": "Asistentes",
+        "chat": "Mensaxes",
+        "sponsors": "Patrocinadores",
+        "companies": "Empresas participantes",
+        "exhibitors": "Expositores",
+        "chatHelp": "Atención ó cliente",
+        "legalInfo": "Información legal",
+        "logout": "Pechar sesión",
+        "notifications": "Notificacións",
+        "gamification": "Gamificación",
+        "accreditation": "Acreditacións",
+        "plan": "Plano"
+    },
+    "NOTIFICATIONS_CHAT": {
+        "title": "Notificaciones",
+        "input": "Escribe aquí...",
+        "notification": "Notificación"
+    },
+    "EDIT_PROFILE": {
+        "title": "Editando o meu perfil",
+        "infoEdit": "Edita a túa información e decide se queres declarala coma información pública ou privada",
+        "labelName": "Nome",
+        "labelLastname": "Apelidos",
+        "labelUsername": "Nome de usuario",
+        "labelMail": "Correo",
+        "labelJob": "Cargo laboral",
+        "labelStudies": "Titulación académica",
+        "labelCompany": "Empresa",
+        "labeluniversity": "Universidade",
+        "labelSector": "Sector",
+        "labelPhone": "Teléfono",
+        "labelLocation": "Ubicación",
+        "labelInfo": "Información",
+        "labelAttached": "Adxunto",
+        "buttonAttached": "Adxuntar arquivo en pdf",
+        "labelMaxSize": "(Máx. 2MB)",
+        "labelOtherRRSS": "Redes sociais",
+        "labelSite": "Web",
+        "labelVideoUrl": "Enlace vídeo promocional",
+        "labelOptional": "Opcional",
+        "buttonChangePass": "Cambiar o meu contrasinal",
+        "buttonManageNoti": "Xestionar notificacións",
+        "labelComercial": "Acepto recibir comunicacións comerciais e/ou de marketing",
+        "toastPublic": "O campo {{field}} agora é público",
+        "toastPrivate": "El campo {{field}} agora é privado",
+        "editProfileImg": {
+            "title": "Editar foto",
+            "buttonGoBack": "Voltar atrás",
+            "buttonConfirm": "Confirmar"
+        },
+        "alertImage": {
+            "title": "Atención",
+            "message": "A image ten que ser en formato .jpg con un tamaño inferior a 2MB."
+        },
+        "alert": {
+            "success": {
+                "title": "Éxito",
+                "message": "Os cambios foron gardados satisfatoriamente"
+            },
+            "error": {
+                "title": "Erro",
+                "message": "Fallo ó gardar os datos,"
+            }
+        },
+        "socialmedia": {
+            "linkedin": "https://www.linkedin.com/in/...",
+            "twitter": "https://twitter.com/...",
+            "facebook": "https://www.facebook.com/...",
+            "instagram": "https://www.instagram.com/...",
+            "spotify": "https://open.spotify.com/user/..."
+        }
+    },
+    "AGENDA": {
+        "labelTab1": "Programa",
+        "labelTab2": "A miña axenda",
+        "info": "Fai clic na campaíña para que che avisemos cando o evento vaia ter lugar. Podes buscar os teus eventos marcados no buscador.",
+        "infoEdit": "Fai clic na tarxeta para editala, e na equis para borrala.",
+        "edit": {
+            "buttonCreate": "Nuevo evento",
+            "deleteCard": {
+                "alert": {
+                    "title": "Eliminar evento",
+                    "message": "¿Desexas eliminar este evento definitivamente?"
+                }
+            },
+            "setEvent": {
+                "title": "Nuevo evento",
+                "titleEdit": "Editar evento",
+                "labelTitleEvent": "Nome do evento",
+                "labelCategoryEvent": "Categoría do evento",
+                "labelSpeaker": "Ponente",
+                "labelLocation": "Ubicación do evento",
+                "labelDate": "Data",
+                "labelTime": "Hora",
+                "placeholderTime": "HH:MM",
+                "labelDateTime": "Data e hora",
+                "placeholderDateTime": "AAAA-MM-DD HH:MM:SS",
+                "labelInfo": "Información",
+                "labelIframe": "Código do iframe",
+                "urlSale": "Url de venta",
+                "labelStreaming": "¿Ten streaming?",
+                "newEventButton": "Crear evento",
+                "editEventButton": "Actualizar evento",
+                "alert": {
+                    "success": {
+                        "title": "Éxito",
+                        "message": "Creouse o evento satisfactoriamente"
+                    }
+                }
+            },
+            "alert": {
+                "title": "Éxito",
+                "message": "O evento actualizouse correctamente"
+            },
+            "labelOptional": "Opcional"
+        },
+        "activityCard": {
+            "noSpeaker": "Sen ponente",
+            "noLocation": "Sen ubicación"
+        },
+        "noEvents": "Non hai programa dispoñible",
+        "infoActivity": {
+            "title": "Ponencia",
+            "speaker": "Ponente",
+            "labelInfo": "Información",
+            "noSpeaker": "Sen ponente",
+            "noLocation": "Sen ubicación",
+            "noInfo": "Sen información",
+            "buttonStreaming": "Ir ó streaming",
+            "buttonUrlSale": "Comprar entradas"
+        },
+        "noPrograms": "Non engadiches ningunha charla",
+        "schedule": {
+            "weekdays": {
+                "0": "Domingo",
+                "1": "Luns",
+                "2": "Martes",
+                "3": "Mércores",
+                "4": "Xoves",
+                "5": "Venres",
+                "6": "Sábado"
+            },
+            "abbreviations": {
+                "0": "Dom.",
+                "1": "Lun.",
+                "2": "Mar.",
+                "3": "Mér.",
+                "4": "Xov.",
+                "5": "Ven.",
+                "6": "Sáb."
+            },
+            "months": {
+                "0": "enero",
+                "1": "febreiro",
+                "2": "marzo",
+                "3": "abril",
+                "4": "maio",
+                "5": "xuño",
+                "6": "xullo",
+                "7": "agosto",
+                "8": "setembro",
+                "9": "octubre",
+                "10": "novembro",
+                "11": "decembro",
+                "all": "todos"
+            }
+        }
+    },
+    "PROFILE": {
+        "button": "Editar perfil",
+        "labelTab1": "O meu QR",
+        "labelTab2": "Perfil público",
+        "labelTab3": "Perfil privado",
+        "noJob": "Non especificou posto de traballo",
+        "noCompany": "Non especioficou empresa",
+        "noStudies": "Non especificou titulación académica",
+        "noPhone": "Non especificou teléfono",
+        "noEmail": "Non especificou correo",
+        "noLocation": "Non especificou ubicación",
+        "noInfo": "Non especificou descripción",
+        "noAttached": "Non dispoñe de adxuntos",
+        "noSite": "Non especificou ningún enlace",
+        "noSector": "Non especificado o seu sector",
+        "studientOf": "Estudiante de {{study}}",
+        "on": "en",
+        "labelInfo": "Información",
+        "labelTags": "Etiquetas",
+        "labelOptional": "Opcional",
+        "labelAddTags": "Engade etiquetas para filtrar contactos",
+        "labelAnnotations": "Anotacións",
+        "annotationsPlaceholder": "Fai aquí as anotacións que precises",
+        "labelParticipeIn": "Participa en",
+        "labelMyCatalog": "O meu catálogo",
+        "btnAddOffer": "Engadir oferta de emprego",
+        "labelContact": "Contacto"
+    },
+    "ASSISTANTS": {
+        "noAssistants": "Non hai asistentes",
+        "info": {
+            "title": "Perfil de {{name}}",
+            "buttonMessage": "Chat",
+            "contextmenu": {
+                "mute": "Silenciar",
+                "unmute": "Desilenciar",
+                "ban": "Bloquear",
+                "unban": "Desbloquear"
+            }
+        }
+    },
+    "COMPANIES": {
+        "noCompanies": "Non hai empresas",
+        "info": {
+            "title": "Perfil de bodega",
+            "buttonMessage": "Chat",
+            "buttonMeeting": "Meeting"
+        },
+        "profile": {
+            "titleInfo": "Información",
+            "titleContact": "Contacto e Notas",
+            "titleOffers": "Ofertas de Emprego",
+            "buttonChat": "Abrir chat con {{name}}",
+            "buttonMeets": "Solicitar entrevista con {{name}}"
+        }
+    },
+    "JOB_OFFERS": {
+        "noOffers": "Non hai ofertas de emprego",
+        "noRequests": "Non hai solicitudes",
+        "title": "A miñas ofertas",
+        "tabMyOffers": "Solicitantes",
+        "noPremiumCompany": "Non tes dispoñible esta funcionabilidade.",
+        "card": {
+            "noTitle": "Sen nome de posto",
+            "noLocation": "Sen localización",
+            "noCompany": "Sen especificar",
+            "noContract": "Sen tipo de contrato",
+            "noSalary": "Sen especificar",
+            "noSchedule": "Sen horario",
+            "noSector": "Sen sector",
+            "noRequirements": "Non hai requisitos mínimos",
+            "noDescription": "Non hai descripción do posto"
+        },
+        "btnInscription": "Inscribirme na oferta",
+        "btnReviewRequest": "Revisar solicitude",
+        "alreadryRequested": "Xa inscribiches nesta oferta",
+        "labelSector": "Sector Empresarial",
+        "labelNVacancies": "Número de vacantes",
+        "labelType": "Tipo de contrato",
+        "labelSchedule": "Horario",
+        "labelRequirements": "Requisitos mínimos",
+        "description": "Descrición",
+        "inscription": {
+            "title": "Inscrición",
+            "request": "Solicitude",
+            "textarea": "Escribe a túa mensaxe para solicitar a reunión...",
+            "addButton": "Engadir adxunto PDF",
+            "cancelButton": "Voltar",
+            "submitButton": "Aceptar",
+            "addFiles": {
+                "title": "Engadir adxunto",
+                "chooseFiles": "Elixe adxuntos",
+                "max": "Máximo 1",
+                "addFilesButton": "Engadir adxuntos dende o dispositivo",
+                "goBackButton": "Voltar",
+                "addButton": "Engadir"
+            },
+            "alert": {
+                "success": {
+                    "title": "Éxito",
+                    "message": "Realizouse a inscrición satisfactoriamente"
+                },
+                "error": {
+                    "title": "Erro",
+                    "message": "Fallo na inscripción,"
+                }
+            }
+        },
+        "setOffer": {
+            "title": "Nova oferta de emprego",
+            "labelTitleOffer": "Nome do posto ofertado",
+            "labelSector": "Sector Empresarial",
+            "labelLocation": "Lugar",
+            "labelNVacancies": "Número de vacantes",
+            "labelType": "Tipo de contrato",
+            "labelSchedule": "Horario",
+            "labelRequirements": "Requisitos mínimos",
+            "labelDescription": "Descrición",
+            "newOfferButton": "Crear oferta",
+            "alert": {
+                "success": {
+                    "title": "Éxito",
+                    "message": "Creouse a oferta de emprego satisfactoriamente,"
+                },
+                "error": {
+                    "title": "Erro",
+                    "message": "Fallo na oferta de emprego,"
+                }
+            }
+        },
+        "deleteOffer": {
+            "alert": {
+                "title": "Eliminar oferta",
+                "message": "¿Desexas eliminar esta oferta de emprego definitivamente?"
+            }
+        },
+        "editOffer": {
+            "title": "Editando oferta",
+            "saveButton": "Gardar oferta",
+            "deleteButton": "Eliminar oferta",
+            "alert": {
+                "title": "Éxito",
+                "message": "A oferta de emprego actualizouse correctamente"
+            }
+        }
+    },
+    "JOB_REQUESTS": {
+        "card": {
+            "noName": "Sen nombre",
+            "on": "en",
+            "noProfession": "Non estuda actualmente",
+            "noRequest": "Sen solicitude"
+        }
+    },
+    "INFO_EVENT": {
+        "info": {
+            "organization": "Organiza",
+            "info": "Información",
+            "terms": "Condicións"
+        },
+        "speakers": {
+            "noCategory": "Non especificou categoría",
+            "noSector": "Non especificou sector",
+            "noPhone": "Non especificou teléfono",
+            "noEmail": "Non especificou correo",
+            "noLocation": "Non especificou ubicación",
+            "noSite": "Non especificou enlaces",
+            "noInfo": "Non especificou descrición"
+        }
+    },
+    "GALLERY": {
+        "title": "Galería",
+        "noPhotos": "Actualmente non hai fotografías"
+    },
+    "STREAMINGS": {
+        "noStreamings": "Non hai shows en streaming para este evento",
+        "room": "Sala {{room}}",
+        "live": "Emitindo",
+        "notLive": "Pendiente de emisión",
+        "end": "Emisión finalizada",
+        "tabs": {
+            "info": "Información",
+            "chat": "Chat",
+            "assistants": "Asistentes"
+        },
+        "noInfo": "Sen información",
+        "input": "Escribe aquí..."
+    },
+    "CHAT": {
+        "title": "Mensaxes",
+        "noChat": "Non tes ningunha conversa",
+        "yesterday": "Onte",
+        "today": "Hoxe",
+        "btnNewGroup": "Novo grupo",
+        "btnNewChat": "Novo chat",
+        "btnCancel": "Cancelar",
+        "btnNext": "Seg.",
+        "btnBack": "Voltar",
+        "inputNameGroup": "Nome do grupo",
+        "me": "Eu:",
+        "noMessages": "Todavía non tes mensaxes",
+        "enterVideocall": "Preme aquí para entrar na videochamada",
+        "chatInfo": "Info. do chat",
+        "groupInfo": "Info. do grupo",
+        "admin": "Admin.",
+        "addPeople": "Engadir participantes",
+        "groupNamePlaceholder": "Nome do grupo",
+        "saveNameGroup": "Gardar",
+        "add": "Engadir",
+        "leaveGroup": "Saír do grupo",
+        "remove": "Eliminar",
+        "removeUser": "¿Queres eliminar a {{name}} do grupo?",
+        "discard": "Descartar",
+        "discardUser": "¿Queres descartar como admin. a {{name}}?",
+        "makeAdmin": "Facer admin.",
+        "makeAdminUser": "¿Queres facer admin. a {{name}}?",
+        "leave": "Saír",
+        "leaveUser": "¿Saír de {{nameGroup}}?",
+        "contextmenu": {
+            "showProfile": "Ver perfil",
+            "remove": "Eliminar",
+            "removeAdmin": "Descartar como admin.",
+            "makeAdmin": "Facer admin."
+        }
+    },
+    "LEGAL_INFO": {
+        "title": "Información legal",
+        "cookies": {
+            "title": "Políticas de Cookies"
+        },
+        "privacy": {
+            "title": "Política de Privacidade"
+        },
+        "terms": {
+            "title": "Condicións de Uso"
+        }
+    },
+    "LOADING": "Cargando...",
+    "NO_RESULTS": "Sen resultados",
+    "UPLOAD_IMG": {
+        "alert": {
+            "success": {
+                "title": "¡ÉXITO!",
+                "message": "Imaxe actualizada correctamente"
+            },
+            "error": {
+                "title": "Erro",
+                "message": "Fallo na actualización da imaxe"
+            }
+        }
+    },
+    "UPLOAD_FILE": {
+        "alert": {
+            "success": {
+                "title": "¡ÉXITO!",
+                "message": "Adxunto actualizado correctamente"
+            },
+            "error": {
+                "title": "Erro",
+                "message": "Fallo na actualización do arquivo adxunto"
+            }
+        }
+    },
+    "CHANGE_PASS": {
+        "title": "Cambio de contrasinal",
+        "labelPass": "Novo contrasinal",
+        "labelRepPass": "Repite contrasinal",
+        "button": "Guardar contrasinal",
+        "back": "Voltar",
+        "forgot": {
+            "lbl": "Introduce o teu correo electrónico para atopar a túa conta",
+            "placeholder": "Correo",
+            "button": "Comprobar correo",
+            "alert": {
+                "title": "Éxito",
+                "message": "Se o teu correo electrónico está na nosa base de datos, recibirás un correo para cambiar o teu contrasinal."
+            }
+        },
+        "alert": {
+            "success": {
+                "title": "Éxito",
+                "message": "Os cambios foron gardados satisfatoriamente,"
+            },
+            "error": {
+                "title": "Erro",
+                "message": "Fallo no gardado dos cambios,"
+            }
+        },
+        "toastLength": "O contrasinal debe ter máis de 6 caracteres",
+        "toastDifferentPass": "Os contrasinais non coinciden"
+    },
+    "SPONSORS": {
+        "noSponsors": "Actualmente non hai patrocinadores",
+        "PATROCINADOR": "Patrocinador",
+        "PATROCINADOR PRINCIPAL": "Patrocinador principal"
+    },
+    "MEETINGS": {
+        "title": "Reunións",
+        "noMeetings": "Non tes reunións programadas",
+        "noCompanies": "Non hai expositores para solicitar reunións",
+        "requestMeeting": {
+            "title": "Solicita un meet a...",
+            "labelRequest": "Solicitude",
+            "textarea": "Escribe a tá mensaxe para solicitar a reunión...",
+            "buttonAdd": "Engadir adxunto PDF",
+            "labelTemplateMeeting": "Usar mensaxe como plantilla para solicitar reunións",
+            "labelWarning1": "Este contacto che responderá por métodos alleos a esta app",
+            "labelNoDate": "Sen cita",
+            "buttonChooseDate": "Elexir cita",
+            "buttonModifyDate": "Modificar cita",
+            "buttonAccept": "Aceptar e enviar solicitude"
+        },
+        "reviewMeeting": {
+            "title": "Revisando meet",
+            "titleOffer": "Revisando solicitude",
+            "labelRequest": "Solicitude pola oferta",
+            "labelJob": "{{profession}} en {{company}}",
+            "status": {
+                "timeLeft": "Faltan {{timeLeft}}",
+                "enterMeeting": "Entrar na reunión",
+                "aproved": "Aprovada",
+                "celebrated": "Celebrada",
+                "declined": "Declinada"
+            },
+            "labelOpenChat": "Abrir chat con {{name}}",
+            "labelAnnotations": "Anotacións",
+            "labelOptional": "Opcional",
+            "labelPresentation": "Mensaxe orixinal"
+        },
+        "startMeeting": {
+            "title": "ESTÁS EN UN MEET CON...",
+            "labelTiempoRestante": "TIEMPO RESTANTE",
+            "labelReunionFinalizada": "Reunión finalizada",
+            "tabs": {
+                "0": "Chat",
+                "1": "Meeter",
+                "2": "Anotacións",
+                "meet": {
+                    "labelBtnInfoStudent": "Ver perfil de {{name}}",
+                    "labelProfession": "en",
+                    "labelInformacion": "INFORMACIÓN",
+                    "labelSiguienteReunion": "Seguinte reunión ás",
+                    "labelCargoEn": "Cargo en "
+                },
+                "annotations": {
+                    "labelEtiqueta": "ETIQUETAS",
+                    "labelOpcional": "Opcional",
+                    "lableAnotaciones": "ANOTACIÓNS",
+                    "label1": "Engade etiquetas para filtrar meeters",
+                    "label2": "Fai aquí as anotacións que precises",
+                    "buttonSave": "Gardar anotación",
+                    "toast": "Anotación gardada"
+                }
+            },
+            "lableVerPerfil": "Ver perfil de",
+            "lableInformacion": "INFORMACIÓN",
+            "labelSiguienteReunion": "Seguinte reunión a las",
+            "labelCargo": "Cargo en",
+            "tabAnotaciones": {
+                "labelValoraMeet": "VALORA O MEET",
+                "labelOpcional": "Opcional",
+                "labelEtiquetas": "ETIQUETAS",
+                "textEtiquetas": "Engadee etiquetas para filtrar meeters",
+                "labelAnotaciones": "ANOTACIONES",
+                "textAnotaciones": "Fai aquí as anotacións que precises"
+            },
+            "tabChat": {
+                "labelEscribe": "Escribe no chat..."
+            },
+            "popOverEndMeet": {
+                "title": "¿QUÉ CHE PARECEU O MEET?",
+                "labelEtiquetas": "ETIQUETAS",
+                "labelAnotaciones": "ANOTACIÓNS",
+                "lableBtnFavoritos": "Favoritos",
+                "labelTextArea": "Fai aquí as anotacións que precises",
+                "labelOpcional": "Opcional",
+                "labelBtnAceptExit": "Aceptar e saír",
+                "labelBtnNextMeet": "SEGUINTE REUNIÓN"
+            },
+            "labelNoMeets": "Non tes máis reunións"
+        },
+        "calendar": {
+            "title": "Escolle a túa cita",
+            "labelAvailable": "Dispoñible o {{date}}...",
+            "labelHourSelect": "Selecciona unha data para mostrar as horas",
+            "buttonGoBack": "Voltar atrás",
+            "buttonConfirm": "Confirmar",
+            "weekdays": {
+                "monday": "L",
+                "tuesday": "M",
+                "wednesday": "Mi",
+                "thursday": "X",
+                "friday": "V",
+                "saturday": "S",
+                "domingo": "D"
+            }
+        },
+        "viewStudent": {
+            "labelRequest": "Solicitar",
+            "labelRequested": "Solicitada",
+            "labelDeclined": "Declinada",
+            "labelUbication": "Online a través da app",
+            "labelInfo": "Preme na tarxeta para acceder",
+            "labelCelebrated": "Reunión celebrada",
+            "labelNoAnnotations": "Non hai anotacións"
+        },
+        "viewCompany": {
+            "labelCelebrated": "Reunión celebrada",
+            "labelNoAnnotations": "Non hai anotacións"
+        },
+        "setUpMeetingHours": {
+            "title": "Configurar a miña axenda",
+            "cardAvailble": "Dispoñible",
+            "cardUnavailble": "Non dispoñible",
+            "cardReserved": "Reservada",
+            "popover": {
+                "title": "Configurar cita",
+                "date": "{{date}} de {{hour}} a {{endHour}}",
+                "labelToggle": "Mostrar como \"NON DISPOÑIBLE\"",
+                "buttonGoBack": "Voltar",
+                "buttonAccept": "Aplicar"
+            }
+        },
+        "associateNewMeetDate": {
+            "title": "ASOCIAR NOVA CITA",
+            "labelButtonAvailable": "Manter cita dispoñible sen reserva",
+            "labelPendientesReserva": "PENDENTES DE RESERVA",
+            "labelDenegados": "DENEGADOS",
+            "labelReservadosOtraCita": "RESERVADOS EN OUTRA CITA",
+            "labelButtonOtrasCitas": "SOLICITAR OUTRAS CITAS",
+            "labelCargoEn": "Cargo en "
+        }
+    },
+    "ACCREDITATION": {
+        "title": "Acreditacións"
+    },
+    "SEARCHBAR": "Escribe que queres buscar...",
+    "NOTIFICATIONS": {
+        "title": "Notificación",
+        "go": "Ir"
+    },
+    "PLAN": {
+        "title": "Plano"
+    },
+    "EXTERNAL_LINK": {
+        "tourGuide": "Guia de Turismo",
+        "howToGet": "Cómo chegar"
+    }
+}

@@ -1,0 +1,8 @@
+@import "../../../../../assets/scss/partials/variables";
+@import "../../../../../assets/scss/partials/typography";
+
+@media screen and (max-width: 1388px) {
+  ion-button.chat {
+    display: flex !important;
+  }
+}

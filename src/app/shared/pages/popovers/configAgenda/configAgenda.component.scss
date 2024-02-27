@@ -1,0 +1,51 @@
+@import "../../../../../assets/scss/partials/variables";
+@import "../../../../../assets/scss/partials/typography";
+
+ion-header {
+  height: 40px;
+  background: #1d1d1b;
+  display: flex;
+
+  ion-title {
+    text-align: center;
+    @include principal5(white);
+    margin: auto;
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 100%;
+  margin: auto;
+
+  .date {
+    @include subtitulo2(black);
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+    // display: contents;
+    margin: 15px 0;
+  }
+
+  .toggle-container {
+    display: flex;
+    width: 90%;
+    margin: 5px auto;
+    height: 60px;
+
+    label {
+      width: 80%;
+      height: 18px;
+      font-size: 16px;
+      font-weight: 400;
+      margin: auto;
+    }
+
+    ion-toggle {
+      z-index: 0;
+      margin: auto;
+      --background-checked: rgba(101, 138, 55, 0.6);
+      --handle-background-checked: #8ec24d;
+    }
+  }
+}

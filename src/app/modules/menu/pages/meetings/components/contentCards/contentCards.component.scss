@@ -1,0 +1,122 @@
+@import "../../../../../../../assets/scss/partials/variables";
+@import "../../../../../../../assets/scss/partials/typography";
+
+.meetings,
+.companies {
+  width: 100%;
+  height: auto;
+  background-color: $backgroundColor;
+  display: grid;
+  grid-template-columns: auto;
+  overflow-y: auto;
+
+  ion-item-divider {
+    margin-top: 5px;
+    transform: translate3d(0px, 0px, 0px);
+    background: transparent;
+    border: none;
+
+    label {
+      @include principal5(black);
+      width: auto;
+      position: absolute;
+      background: $backgroundColor;
+      border-right: 10px solid $backgroundColor;
+    }
+
+    .line {
+      display: block;
+      height: 2px;
+      background: black;
+      width: 100%;
+      margin: auto;
+    }
+  }
+
+  ion-card {
+    position: relative;
+    background: white;
+    border-radius: 20px;
+    height: 130px;
+    cursor: pointer;
+    margin: 10px;
+    text-align: center;
+
+    .img-container {
+      height: 100%;
+      display: flex;
+
+      img {
+        padding-right: 50px;
+        max-width: 260px;
+        max-height: 100px;
+        margin: auto;
+        object-fit: cover;
+      }
+    }
+
+    .request-container {
+      position: absolute;
+      width: 40px;
+      height: 110px;
+      top: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 15px;
+      border-left: rgba(0, 0, 0, 0.05) solid 2px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      z-index: 0;
+
+      i {
+        color: $interactive;
+        height: auto;
+        margin: auto;
+        font-size: 30px;
+      }
+
+      .request-text {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+        height: auto;
+        margin: auto;
+        text-align: center;
+        color: $interactive;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+ion-title.no-meetings,
+ion-title.no-companies {
+  text-align: center;
+  margin: auto;
+  display: grid;
+  height: 100px;
+  @include subtitulo1(rgba(0, 0, 0, 0.5));
+}
+
+meeting-card {
+  transform: none !important;
+  position: relative !important;
+}
+
+@media screen and (min-width: 600px) {
+  .meetings,
+  .companies {
+    margin: auto !important;
+    width: 460px !important;
+
+    img {
+      max-width: 360px !important;
+      max-height: 110px !important;
+    }
+  }
+}

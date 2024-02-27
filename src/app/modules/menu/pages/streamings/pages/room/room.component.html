@@ -1,0 +1,65 @@
+<ion-header class="menu">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button *ngIf="oneStreaming"></ion-menu-button>
+      <ion-button *ngIf="!oneStreaming" fill="clear" (click)="goBack()">
+        <i class="icon icon_w_icons_arrow_nav_left"></i>
+      </ion-button>
+    </ion-buttons>
+    <ion-title *ngIf="streaming">
+      <!-- {{ 'STREAMINGS.room' | translate : { room: roomNumber } }} -->
+      {{ streaming.title }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<div class="stream-container" *ngIf="streaming">
+  <div class="stream" style="padding:56.25% 0 0 0;position:relative;">
+    <iframe [src]="streaming.safeUrl"
+      frameborder="0" allow="autoplay; fullscreen" allowfullscreen
+      style="position:absolute;top:0;left:0;width:100%;height:100%;background:black;">
+    </iframe>
+  </div>
+  <div>
+    <ion-segment class="tabs small-tabs" (ionChange)="segmentChanged($event)" [(ngModel)]="selectedTab">
+      <ion-segment-button value="info">
+        <ion-label>{{ 'STREAMINGS.tabs.info' | translate }}</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="chat">
+        <ion-label>{{ 'STREAMINGS.tabs.chat' | translate }}</ion-label>
+      </ion-segment-button>
+      <!-- <ion-segment-button value="assistants">
+        <ion-label>{{ 'STREAMINGS.tabs.assistants' | translate }}</ion-label>
+      </ion-segment-button> -->
+    </ion-segment>
+    <div class="switch-container" [ngSwitch]="selectedTab">
+      <div *ngSwitchCase="'info'" class="info">
+        <ion-title class="value" *ngIf="isValueNull(streaming.information)">
+          {{streaming.info}}
+        </ion-title>
+        <ion-title class="no-value" *ngIf="!isValueNull(streaming.information)">
+          {{ 'STREAMINGS.noInfo' | translate }}
+        </ion-title>
+      </div>
+      <div *ngSwitchCase="'chat'" class="chat">
+        <ion-content class="ion-padding" [scrollEvents]="true">
+          <ion-grid>
+            <ion-row class="message-container" *ngFor="let message of messages | async; let i = index">
+              <div class="date" *ngIf="showDate(message.createdAt, i)">{{setDate(message.createdAt) | translate}}<br></div>
+              <ion-col size="9" class="message"
+                [ngClass]="{ 'my-message': isMyMsg(message), 'other-message': !isMyMsg(message) }">
+                <span class="hour">{{message.createdAt | date:'HH:mm' }}</span><span class="username" (click)="goToProfile(message.from)">{{ message.username }}:</span><span>{{ message.msg }}</span>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-content>
+        <ion-footer>
+          <ion-toolbar color="light">
+            <ion-item>
+              <ion-input [disabled]="imBanned" [(ngModel)]="newMsg" placeholder="{{ 'STREAMINGS.input' | translate }}" (keyup.enter)="sendMessage()"></ion-input>
+            </ion-item>
+          </ion-toolbar>
+        </ion-footer>
+      </div>
+    </div>
+  </div>
+</div>

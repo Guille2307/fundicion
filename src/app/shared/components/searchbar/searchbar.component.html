@@ -1,0 +1,21 @@
+<div class="block">
+  <div>
+    <button (click)="goBack()">
+      <i class="icon icon_w_icons_arrow_nav_left"></i>
+    </button>
+  </div>
+
+  <div class="search-bar">
+    <i class="icon icon_w_icons_search_small"></i>
+    <input
+      id="searchbar"
+      placeholder="{{ 'SEARCHBAR' | translate }}"
+      type="search"
+      autocomplete="off"
+      [(ngModel)]="query"
+    />
+    <button *ngIf="query.trim() !== ''" (click)="deleteQueryValue()">
+      <i class="icon icon_w_icons_cancel_circle"></i>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,385 @@
+@import "../../../../../../../assets/scss/partials/variables";
+@import "../../../../../../../assets/scss/partials/typography";
+
+ion-content {
+  --overflow: auto;
+}
+
+.content-container {
+  width: 90%;
+  margin: auto;
+}
+
+.header-container {
+  z-index: 0;
+  width: 100%;
+  text-align: left;
+  grid-template-columns: 100%;
+  background: $backgroundColor;
+  overflow: auto;
+  position: relative;
+  cursor: pointer;
+
+  .img-container {
+    z-index: 1;
+    position: static;
+    height: 100px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .info-img-container {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    height: 100px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.56);
+    display: flex;
+    justify-content: space-around;
+
+    .profile-img {
+      width: 72px;
+      height: 72px;
+      margin: auto 20px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .edit-profile-container {
+      display: flex;
+      height: 100%;
+      width: 70%;
+
+      .name-container {
+        margin: auto;
+        width: 100%;
+        margin-left: 0;
+
+        ion-title {
+          @include principal3(white);
+          padding: 0;
+          display: inline-flex;
+          width: 100%;
+          margin: 1px;
+          display: contents;
+          text-align: left;
+
+          &.username,
+          &.studies {
+            font-size: 16px;
+            font-weight: 400;
+            font-style: normal;
+            text-transform: none;
+          }
+        }
+      }
+    }
+  }
+
+  .arrow-profile-container {
+    display: none;
+    margin: auto;
+    border: 2px solid white;
+    border-radius: 50%;
+
+    .icon {
+      color: white;
+      font-size: 35px;
+    }
+  }
+}
+
+.info-offer-container {
+  display: grid;
+  grid-template-columns: 100%;
+  margin-bottom: 20px;
+
+  label {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    @include principal8(black);
+    font-size: 16px !important;
+
+    &.offer-name {
+      @include subtitulo2(black);
+    }
+  }
+}
+
+.date-content {
+  display: grid;
+  grid-template-columns: 45% 45%;
+  justify-content: space-between;
+
+  ion-label.no-date {
+    opacity: 42%;
+    font-size: 14px;
+    margin: auto;
+  }
+
+  div.date {
+    display: grid;
+    grid-template-columns: 100%;
+
+    ion-label {
+      @include principal5(black);
+      font-style: normal;
+      text-align: center;
+      margin: auto;
+
+      &.label-date {
+        margin-bottom: 0;
+      }
+
+      &.label-hour {
+        margin-top: 0;
+      }
+    }
+  }
+
+  ion-button {
+    label {
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
+}
+
+ion-button.desktop {
+  display: flex;
+}
+
+ion-button.mobile {
+  display: none;
+}
+
+.chat-button,
+.enter-meeting-button {
+  border: 2px solid $interactive;
+  border-radius: 25px;
+  text-transform: none;
+  font-size: 16px;
+  height: 28px;
+  color: black;
+  position: relative;
+  width: 100%;
+  margin: 20px auto;
+  background: white;
+
+  &.declined {
+    background-color: $cancel;
+    border-color: $cancel;
+    color: white;
+
+    i {
+      color: white;
+    }
+  }
+
+  &.celebrated {
+    background-color: $interactive;
+    color: white;
+
+    i {
+      color: white;
+    }
+  }
+
+  i {
+    color: $interactive;
+    font-size: 26px;
+    position: absolute;
+    left: -15px;
+  }
+
+  label {
+    cursor: pointer;
+  }
+}
+
+.line {
+  display: block;
+  height: 1px;
+  background: black;
+  width: 85%;
+  margin: auto;
+}
+
+.title-annotations-container,
+.title-presentation {
+  display: flex;
+  margin: 10px 20px 5px 20px;
+
+  ion-label {
+    @include principal6(black);
+  }
+
+  .optional {
+    color: $secondaryColor;
+    font-size: 14px;
+    text-transform: none;
+    margin: 0 5px;
+    font-style: normal;
+  }
+}
+
+.btn-save-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px 0;
+}
+
+ion-textarea {
+  --padding-top: 3px;
+  --padding-start: 0;
+  --padding-end: 0;
+  background: white;
+  border-radius: 15px;
+  border-bottom-right-radius: 0;
+  border: 1px solid black;
+  width: 100%;
+  margin: auto;
+  padding: 0 20px;
+  font-size: 16px;
+  font-weight: 400;
+  resize: vertical;
+
+  &.readonly {
+    border-color: white;
+    cursor: context-menu;
+    border-bottom-right-radius: 15px;
+  }
+}
+
+.list-files {
+  padding: 0;
+  background: transparent;
+
+  .file-item {
+    --background: transparent;
+    --inner-border-width: 0;
+    --padding-start: 0;
+    --inner-padding-end: 0;
+    margin: 8px;
+    z-index: 1;
+
+    ion-button.delete {
+      height: 90%;
+      margin: auto 5px;
+
+      .icon {
+        font-size: 25px;
+        font-weight: 900;
+        color: $cancel;
+        display: flex;
+        margin: auto 0;
+      }
+    }
+
+    .file-btn-container {
+      position: relative;
+      display: flex;
+      width: 100%;
+      height: 43px;
+      background: white;
+      border: 1px solid black;
+      border-radius: 15px;
+      text-align: left;
+
+      .icon {
+        font-size: 25px;
+        font-weight: 900;
+        color: black;
+        display: flex;
+        margin: auto 0;
+      }
+
+      &:active {
+        border-color: $emphasis;
+
+        .attached-button {
+          color: $selectedText;
+        }
+      }
+
+      &:hover {
+        border-color: $emphasis;
+
+        .arrow-container {
+          i {
+            color: $emphasis;
+          }
+        }
+      }
+
+      .icon-doc-container {
+        position: absolute;
+        width: 50px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+        background: rgba(0, 0, 0, 0.05);
+        cursor: pointer;
+        z-index: 0;
+      }
+
+      .arrow-container {
+        position: absolute;
+        width: 40px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        right: 0;
+        border-left: rgba(0, 0, 0, 0.05) solid 1px;
+        cursor: pointer;
+        z-index: 0;
+
+        i {
+          color: $interactive;
+        }
+      }
+
+      .attached-button {
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        text-transform: inherit;
+        color: black;
+        font-weight: 700;
+        width: 100%;
+        padding: 10px;
+        padding-left: 60px;
+        cursor: pointer;
+        font-size: 15px;
+        z-index: 1;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .content-container {
+    width: 460px !important;
+  }
+
+  .arrow-profile-container {
+    display: flex !important;
+  }
+}
+
+@media screen and (max-width: 1388px) {
+  ion-button.mobile {
+    display: flex !important;
+  }
+
+  ion-button.desktop {
+    display: none !important;
+  }
+}

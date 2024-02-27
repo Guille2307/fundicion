@@ -1,0 +1,807 @@
+@import "effects";
+@import "colors";
+@import "variables";
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
+}
+
+.control-label,
+.has-success .control-label,
+.has-error .control-label,
+.has-warning .control-label {
+    color: $darkerGray;
+    font-weight: 500;
+}
+.has-error .control-label {
+    @extend .control-label;
+    color: $woutickErrorColor;
+}
+
+.label-title {
+    @extend .title;
+    @extend .text-primary;
+    font-size: 1.5em;
+}
+
+.label-optional {
+    font-size: 12px;
+    color: #b3b3b3;
+}
+
+.optional-field-title {
+    margin-left: $margin2XS;
+    color: $lightGray;
+}
+
+.optional-field-title::before {
+    content: "Opcional";
+}
+
+.form-horizontal {
+    .label-title {
+        text-align: left;
+    }
+}
+
+.label-sm {
+    font-size: 1.2em;
+}
+
+.label-light {
+    font-weight: 500;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group-sm {
+    margin-bottom: 5px;
+}
+
+.form-group-spaced {
+    margin-bottom: 30px;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 24px;
+    padding: 0 10px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: $darkerGray;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #c36;
+    border-width: $linesBorderWidth;
+    border-radius: 16px;
+    border-color: $darkGray;
+    border-style: solid;
+    font-weight: normal;
+    box-shadow: none !important;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+
+    &.form-control-box {
+        border-left-width: $linesBorderWidth;
+    }
+}
+
+.form-control:focus {
+    @extend .form-control;
+    color: $darkerGray;
+    border-color: $darkerGray;
+
+    &.form-control-box {
+        border-left-width: $linesBorderFocusWidth;
+    }
+}
+
+.form-control[disabled],
+.form-control.disabled {
+    background-color: $veryLightGray;
+    cursor: not-allowed !important;
+
+    * {
+        cursor: not-allowed !important;
+    }
+}
+
+form.submitted .form-control.ng-invalid,
+form.submitted .form-control:focus.ng-invalid,
+.form-control.ng-invalid.ng-dirty,
+.form-control:focus.ng-invalid.ng-dirty {
+    @extend .form-control;
+    color: $woutickErrorColor;
+    background-color: $woutickLightErrorColor;
+    border-color: $woutickErrorColor;
+}
+
+textarea.form-control,
+textarea.form-control:focus {
+    height: auto;
+}
+
+/*
+.has-success .form-control,
+.has-warning .form-control,
+.has-success .form-control:focus,
+.has-warning .form-control:focus {
+    @extend .form-control;
+}
+*/
+
+textarea.form-control-box {
+    padding-top: 8px !important;
+}
+
+.form-control ~ .clean-button {
+    transform: translateY(-50%);
+    position: absolute;
+    right: $marginS;
+    top: 50%;
+}
+
+.form-control-separated {
+    position: relative;
+    min-height: 24px;
+
+    .form-group:first-child {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+
+        .form-control {
+            border-right: none;
+            border-radius: 16px 0 0 16px;
+        }
+    }
+
+    .form-group:last-child {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+
+        .form-control {
+            border-left: none;
+            border-radius: 0 16px 16px 0;
+        }
+    }
+}
+
+.form-control-separated:after {
+    content: "/";
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.form-control-box.form-control-select ~ .clean-button,
+.form-control-box.form-control-select-no-border ~ .clean-button,
+.form-control-box.form-control-select-subtitle ~ .clean-button {
+    right: $marginL;
+}
+
+.has-error .form-control-box,
+.has-error .form-control-box:focus,
+.has-success .form-control-box,
+.has-success .form-control-box:focus {
+    @extend .form-control-box;
+}
+
+.form-control-round {
+    border-radius: 15px;
+    border: $linesBorderWidth solid $woutickPrimaryColor !important;
+}
+
+.form-control.form-control-select,
+.form-control.form-control-select-no-border,
+.form-control.form-control-select-title,
+.form-control.form-control-select-subtitle,
+.form-control-old.form-control-select,
+.form-control-old.form-control-select-no-border,
+.form-control-old.form-control-select-title,
+.form-control-old.form-control-select-subtitle {
+    position: relative;
+    padding: 0;
+    padding-left: 10px;
+
+    &:disabled {
+        cursor: not-allowed !important;
+    }
+
+    .selectize-input {
+        position: relative;
+        height: 20px;
+        padding: 0;
+        padding-right: 22px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        .ui-select-search {
+            border: none;
+            outline: none;
+            margin-top: -1px;
+            background-color: transparent;
+        }
+
+        .ui-select-search-hidden {
+            pointer-events: none;
+            touch-action: none;
+        }
+
+        .ui-select-match {
+            max-width: 100%;
+            display: inline-block;
+
+            .select-value {
+                display: inline-block;
+                overflow: hidden;
+                max-width: 100%;
+                padding: inherit;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+
+    .selectize-input:before {
+        font-family: woutick !important;
+        speak: none;
+        font-style: normal;
+        font-weight: 400;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        content: "\e901";
+        color: #000;
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: transform 0.2s linear;
+    }
+
+    .ui-select-dropdown {
+        position: relative;
+        overflow-x: hidden;
+        overflow-y: auto;
+        top: 4px;
+        max-height: 300px;
+        margin-bottom: 14px;
+        border: none;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background-color: white;
+        z-index: 1;
+        box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.42);
+
+        .ui-select-choices-row {
+            padding: 5px 10px;
+            color: $darkGray;
+            background-color: white;
+            transition: (background-color 0.1s linear, color 0.1s linear);
+
+            &:hover {
+                color: white;
+                background-color: $woutickPrimaryColor;
+            }
+
+            &:active {
+                color: $darkGray;
+                background-color: $woutickPrimaryColor;
+            }
+
+            &.disabled {
+                background-color: $veryLightGray;
+
+                &:hover {
+                    background-color: $lighterGray;
+                }
+
+                &:active {
+                    background-color: $lighterGray;
+                }
+            }
+        }
+    }
+
+    .icon {
+        position: absolute;
+        right: 5px;
+    }
+
+    &.form-control-select-expand:not(.open) {
+        height: auto;
+
+        .selectize-input {
+            height: auto;
+            min-height: 20px;
+            white-space: normal;
+        }
+    }
+}
+.form-control.form-control-select.open,
+.form-control.form-control-select-no-border.open,
+.form-control.form-control-select-title.open,
+.form-control.form-control-select-subtitle.open,
+.form-control-old.form-control-select.open,
+.form-control-old.form-control-select-no-border.open,
+.form-control-old.form-control-select-title.open,
+.form-control-old.form-control-select-subtitle.open {
+    .selectize-input:before {
+        transform-origin: 50%;
+        transform: rotate(180deg) translateY(25%);
+    }
+}
+
+.form-control-select.disabled,
+.form-control-select:disabled,
+.form-control-select[disabled] {
+    .selectize-input {
+        cursor: not-allowed;
+    }
+}
+
+.input-advanced {
+    position: relative;
+    width: 100%;
+
+    button {
+        text-decoration: none;
+    }
+
+    input {
+        display: block;
+        width: 100%;
+
+        & ~ .loading-spinner-container {
+            position: absolute;
+            top: 0;
+            padding: 5px;
+
+            .loading-spinner {
+                width: 24px;
+                height: 24px;
+                border: 4px solid $veryLightGray;
+                border-top: 4px solid $woutickPrimaryColor;
+                border-radius: 50%;
+
+                &.animation-enabled {
+                    animation: spin 2s linear infinite;
+                }
+            }
+        }
+
+        & ~ button {
+            position: absolute !important;
+            top: 0;
+            font-size: 20px;
+        }
+
+        &.form-control {
+            height: 34px;
+
+            & ~ button {
+                color: $lightGray;
+                width: 34px;
+                height: 34px;
+
+                .icon {
+                    line-height: 34px;
+
+                    &.icon-icon-goback-round {
+                        font-size: 28px;
+                    }
+                }
+
+                &:hover,
+                &:active,
+                &.active {
+                    color: $lightGray;
+                    width: 34px;
+                    height: 34px;
+                }
+            }
+
+            &:focus {
+                & ~ button {
+                    color: $lightGray;
+                    width: 34px;
+                    height: 34px;
+                }
+            }
+
+            &.has-error,
+            &:focus .has-error {
+                & ~ button {
+                    color: $woutickErrorColor;
+                    width: 34px;
+                    height: 34px;
+                }
+            }
+
+            &.ng-valid.ng-not-empty {
+                & ~ button {
+                    color: $woutickPrimaryColor;
+
+                    &:hover,
+                    &:active,
+                    &.active {
+                        color: $woutickDarkSecondaryColor;
+                    }
+                }
+
+                &:focus {
+                    & ~ button {
+                        color: $woutickPrimaryColor;
+
+                        &:hover,
+                        &:active,
+                        &.active {
+                            color: $woutickDarkSecondaryColor;
+                        }
+                    }
+                }
+
+                &.has-error,
+                &:focus .has-error {
+                    & ~ button {
+                        color: $woutickErrorColor;
+                    }
+                }
+            }
+        }
+
+        &.form-control-old {
+            height: 24px;
+
+            & ~ button {
+                color: $lightGray;
+                width: 24px;
+                height: 24px;
+
+                .icon {
+                    line-height: 24px;
+
+                    &.icon-icon-goback-round {
+                        font-size: 28px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.form-control-old {
+    height: 24px;
+    padding: 0 10px;
+    font-weight: normal;
+    border-width: 0;
+    border-bottom-width: $linesBorderWidth;
+    border-radius: 0;
+    border-color: $woutickPrimaryColor;
+    box-shadow: none !important;
+
+    &.form-control-box {
+        border-left-width: $linesBorderWidth;
+    }
+}
+
+.form-control-old:focus {
+    @extend .form-control-old;
+    border-bottom-width: $linesBorderFocusWidth;
+
+    &.form-control-box {
+        border-left-width: $linesBorderFocusWidth;
+    }
+}
+
+.has-error .form-control-old,
+.has-error .form-control-old:focus {
+    @extend .form-control-old;
+    color: white;
+    background-color: $woutickLightErrorColor;
+    border-color: $woutickErrorColor;
+}
+
+.has-success .form-control-old,
+.has-warning .form-control-old,
+.has-success .form-control-old:focus,
+.has-warning .form-control-old:focus {
+    @extend .form-control-old;
+}
+
+textarea.form-control-old,
+textarea.form-control-old:focus {
+    height: auto;
+}
+
+.form-control-old::placeholder,
+.form-control-old::-ms-placeholder,
+.form-control-old:-moz-placeholder,
+.form-control-old::-moz-placeholder,
+.form-control-old::-webkit-input-placeholder,
+.form-control-old::-webkit-placeholder {
+    color: $lightGray;
+}
+
+.form-control-old[disabled],
+.form-control-old.disabled {
+    cursor: not-allowed !important;
+
+    * {
+        cursor: not-allowed !important;
+    }
+}
+
+.input-advanced.button-left {
+    button {
+        left: 0;
+    }
+
+    input {
+        padding-left: 32px;
+    }
+
+    .loading-spinner-container {
+        left: 0;
+    }
+}
+
+.input-advanced.button-right {
+    button {
+        right: 0;
+    }
+
+    input {
+        padding-right: 32px;
+    }
+
+    .loading-spinner-container {
+        right: 0;
+    }
+}
+
+.input-group-addon {
+    padding: 2px 12px;
+    background: none;
+    border: none;
+}
+
+.uib-datepicker-popup {
+    z-index: 10000;
+}
+
+.has-success > .tooltip {
+    pointer-events: none;
+}
+
+.input-focused + .tooltip.has-error,
+.date-picker.opened > .tooltip.has-error {
+    display: none;
+}
+
+.dropdown-menu {
+    right: 0;
+    left: unset;
+    padding: 10px 10px 20px 10px;
+    border: 1px solid #a8a6a6;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: rgb(168, 166, 166);
+    border-top: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    z-index: 1;
+    background-color: #fff;
+
+    .dropdown-menu-container {
+        .dropdown-menu-content {
+            display: block;
+            font-family: Poppins, sans-serif;
+            font-weight: 500;
+            color: #555;
+            text-decoration: none !important;
+        }
+
+        .dropdown-menu-content:hover {
+            background-color: #f5f5f5;
+            text-decoration: none !important;
+        }
+
+        .dropdown-menu-content:focus {
+            background-color: #f5f5f5;
+            text-decoration: none !important;
+        }
+    }
+}
+
+.dropdown-menu > li > a {
+    white-space: normal;
+}
+
+.upload-wrapper {
+    background-color: $woutickLightSecondaryColor;
+    position: relative;
+    padding-bottom: 75%;
+    height: 0;
+    width: 100%;
+    cursor: pointer;
+
+    .tooltip {
+        cursor: auto;
+    }
+
+    .upload-container {
+        position: absolute;
+        height: auto;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+
+        .upload-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+
+            .canvas-event-image {
+                position: absolute;
+                top: 6%;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 80%;
+                overflow: hidden;
+            }
+
+            .canvas-event-image ~ .woutick-icon {
+                position: absolute;
+                top: 44%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-44%);
+                //font-size: calc(4.4vw * (75 / 100));
+                font-size: calc(3 * 1.5vw - 4px);
+            }
+
+            .canvas-ticket-image {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%);
+                width: 90%;
+                overflow: hidden;
+            }
+
+            .canvas-ticket-image ~ .woutick-icon {
+                position: absolute;
+                top: 47%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-47%);
+                font-size: calc(3.5vw * (7.2 / 5.9));
+            }
+
+            .image-wrapper {
+                position: relative;
+                width: 100%;
+                height: 100%;
+
+                .image-container {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    overflow: hidden;
+
+                    .image-preview {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        background-color: white;
+
+                        &.tall-image {
+                            canvas {
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translateX(-50%) translateY(-50%);
+                                overflow: hidden;
+                                width: 100%;
+                                height: auto;
+                            }
+                        }
+
+                        &.tall-image.disable-crop {
+                            canvas {
+                                width: auto;
+                                height: 100%;
+                            }
+                        }
+
+                        &.wide-image {
+                            canvas {
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translateX(-50%) translateY(-50%);
+                                overflow: hidden;
+                                width: auto;
+                                height: 100%;
+                            }
+                        }
+
+                        &.wide-image.disable-crop {
+                            canvas {
+                                width: 100%;
+                                height: auto;
+                            }
+                        }
+                    }
+
+                    .input-container {
+                        position: relative;
+                        display: table;
+                        width: 100%;
+                        height: 100%;
+
+                        label {
+                            position: absolute;
+                            display: table-cell;
+                            left: 0;
+                            top: 0;
+                            width: 100%;
+                            height: 100%;
+                            cursor: pointer;
+                            z-index: 2;
+                        }
+
+                        input {
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            visibility: hidden;
+                        }
+                    }
+                }
+            }
+        }
+
+        .security-zone {
+            position: absolute;
+            display: table;
+            bottom: 0;
+            height: 33.33%;
+            width: 100%;
+            background-color: rgba(100%, 100%, 100%, 0.6);
+
+            span {
+                display: table-cell;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    &.event-image {
+        padding-bottom: 75%;
+        height: 0;
+        width: 100%;
+    }
+
+    &.ticket-image {
+        padding-bottom: percentage(calc(7.2 / 5.9));
+        height: 0;
+        width: 100%;
+    }
+}

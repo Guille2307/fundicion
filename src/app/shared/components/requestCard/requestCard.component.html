@@ -1,0 +1,51 @@
+<ion-card target="_blank" (click)="showRequest(request)">
+  <img
+    src="{{ request.user_id | imageProfile }}"
+    onerror="this.src='assets/img/no_image_user.webp'"
+  />
+  <ion-card-header class="info-container">
+    <div class="field">
+      <ion-card-title class="value" *ngIf="isValueNull(request.name)">
+        {{ request.name }} {{ request.surnames }}
+      </ion-card-title>
+      <ion-card-subtitle class="no-value" *ngIf="!isValueNull(request.name)">
+        {{ "JOB_REQUESTS.card.noName" | translate }}
+      </ion-card-subtitle>
+    </div>
+    <div class="field">
+      <ion-card-subtitle class="value">
+        <label *ngIf="isValueNull(request.profession)">
+          {{ request.profession }} {{ "JOB_REQUESTS.card.on" | translate }}
+          <label class="bold italic">{{ request.company }}</label>
+        </label>
+        <label class="no-value" *ngIf="!isValueNull(request.profession)">
+          <!-- {{ "JOB_REQUESTS.card.noProfession" | translate }} -->
+        </label>
+      </ion-card-subtitle>
+    </div>
+    <div class="field">
+      <ion-card-subtitle
+        class="value"
+        *ngIf="isValueNull(request.presentation)"
+      >
+        {{ request.presentation }}
+      </ion-card-subtitle>
+
+      <ion-card-subtitle
+        class="no-value"
+        *ngIf="!isValueNull(request.presentation)"
+      >
+        {{ "JOB_REQUESTS.card.noRequest" | translate }}
+      </ion-card-subtitle>
+    </div>
+    <div class="field">
+      <ion-card-subtitle class="value" *ngIf="isValueNull(request.title)">
+        Oferta:
+        <span class="boldtext"> {{ request.title }} </span>
+      </ion-card-subtitle>
+    </div>
+  </ion-card-header>
+  <div class="arrow-container">
+    <i class="icon icon_w_icons_arrow_nav_right"></i>
+  </div>
+</ion-card>

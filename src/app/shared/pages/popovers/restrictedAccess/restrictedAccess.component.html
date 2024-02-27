@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-title size="large">
+    {{ "LOGIN.withoutAccount.popover.title" | translate }}
+  </ion-title>
+</ion-header>
+<div class="content">
+  <div class="warning-container">
+    <i class="icon icon_w_icons_information_circle"></i>
+    <ion-label>{{'LOGIN.withoutAccount.popover.info' | translate}}</ion-label>
+  </div>
+
+  <div class="login-container">
+    <div>
+      <ion-label>
+        {{'LOGIN.haveAccount.label' | translate}}
+      </ion-label>
+      <custom-button translation="LOGIN.haveAccount.button" (onClick)="login()"></custom-button>
+    </div>
+    <div>
+      <ion-label>
+        {{'LOGIN.firstTime.label' | translate}}
+      </ion-label>
+      <custom-button translation="LOGIN.firstTime.button" (onClick)="createAccount()"></custom-button>
+    </div>
+  </div>
+
+  <div class="buttons-container">
+    <ion-button fill="clear" class="cancel" (click)="cancelPopOver()">
+      {{ "LOGIN.withoutAccount.popover.btnCancel" | translate }}
+    </ion-button>
+  </div>
+</div>

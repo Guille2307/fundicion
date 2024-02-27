@@ -1,0 +1,20 @@
+<div class="slider no-side" *ngIf="!side && sponsors.length !== 0">
+  <div class="slide-track">
+    <div class="slide" *ngFor="let sponsor of sponsors">
+      <img src="{{ sponsor.id | imageSponsor }}" alt="" />
+    </div>
+    <div class="slide" *ngFor="let sponsor of sponsors">
+      <img src="{{ sponsor.id | imageSponsor }}" alt="" />
+    </div>
+  </div>
+</div>
+<div class="slider" *ngIf="side && sponsors.length !== 0">
+  <div class="slide-track">
+    <div class="slide" *ngFor="let sponsor of sponsors">
+      <img src="{{ sponsor.id | imageSponsor }}" alt="" />
+    </div>
+    <div class="slide" *ngFor="let sponsor of sponsors">
+      <img src="{{ sponsor.id | imageSponsor }}" alt="" />
+    </div>
+  </div>
+</div>

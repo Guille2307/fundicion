@@ -1,0 +1,212 @@
+@mixin gradient-horizontal($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+    background-image: -webkit-linear-gradient(left, $start-color $start-percent, $end-color $end-percent); // Safari 5.1-6, Chrome 10+
+    background-image: -o-linear-gradient(left, $start-color $start-percent, $end-color $end-percent); // Opera 12
+    background-image: linear-gradient(to right, $start-color $start-percent, $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=1); // IE9 and down
+}
+@mixin gradient-vertical($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+    background-image: -webkit-linear-gradient(top, $start-color $start-percent, $end-color $end-percent); // Safari 5.1-6, Chrome 10+
+    background-image: -o-linear-gradient(top, $start-color $start-percent, $end-color $end-percent); // Opera 12
+    background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0); // IE9 and down
+}
+@mixin gradient-directional($start-color: #555, $end-color: #333, $deg: 45deg) {
+    background-repeat: repeat-x;
+    background-image: -webkit-linear-gradient($deg, $start-color, $end-color); // Safari 5.1-6, Chrome 10+
+    background-image: -o-linear-gradient($deg, $start-color, $end-color); // Opera 12
+    background-image: linear-gradient($deg, $start-color, $end-color); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+}
+
+@mixin multiLineEllipsis($maxHeight: 200px, $fontSize: 14px, $bgColor: white) {
+    overflow: hidden;
+    position: relative;
+    height: auto;
+    max-height: $maxHeight;
+    line-height: $fontSize;
+
+    &:before {
+        content: "";
+        float: left;
+        width: 5px;
+        height: auto;
+        height: $maxHeight;
+    }
+
+    &:after {
+        content: "\02026";
+        font-size: $fontSize;
+        box-sizing: content-box;
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        float: right;
+        position: relative;
+        top: -25px;
+        left: 100%;
+        width: 20px;
+        margin-left: -20px;
+        padding-right: 5px;
+        text-align: right;
+    }
+
+    *:first-child {
+        float: right;
+        width: 100%;
+        margin-left: -5px;
+    }
+}
+
+@mixin keyframes ($animation_name) {
+    @-webkit-keyframes #{$animation_name} {
+        @content;
+    }
+
+    @-moz-keyframes #{$animation_name} {
+        @content;
+    }
+
+    @-o-keyframes #{$animation_name} {
+        @content;
+    }
+
+    @keyframes #{$animation_name} {
+        @content;
+    }
+}
+
+.fade-in {
+    &.ng-enter {
+        transition: opacity ease-in-out 0.1s;
+    }
+
+    &.ng-enter {
+        opacity: 0;
+    }
+
+    &.ng-enter.ng-enter-active {
+        opacity: 1;
+    }
+}
+
+.fade-out {
+    &.ng-leave {
+        transition: opacity ease-in-out 0.1s;
+    }
+
+    &.ng-leave {
+        opacity: 1;
+    }
+
+    &.ng-leave.ng-leave-active {
+        opacity: 0;
+    }
+}
+
+.fade-in-parent {
+    &.ng-enter {
+        .fade-in-child {
+            transition: opacity ease-in-out 0.1s;
+        }
+    }
+
+    &.ng-enter {
+        .fade-in-child {
+            opacity: 0;
+        }
+    }
+
+    &.ng-enter.ng-enter-active {
+        .fade-in-child {
+            opacity: 1;
+        }
+    }
+}
+
+.fade-out-parent {
+    &.ng-leave {
+        .fade-out-child {
+            transition: opacity ease-in-out 0.1s;
+        }
+    }
+
+    &.ng-leave {
+        .fade-out-child {
+            opacity: 1;
+        }
+    }
+
+    &.ng-leave.ng-leave-active {
+        .fade-out-child {
+            opacity: 0;
+        }
+    }
+}
+
+.scale-in {
+    &.ng-enter {
+        transition: transform ease-in-out 0.1s;
+    }
+
+    &.ng-enter {
+        transform: scale(1.1);
+    }
+
+    &.ng-enter.ng-enter-active {
+        transform: scale(1);
+    }
+}
+
+.scale-out {
+    &.ng-leave {
+        transition: transform ease-in-out 0.1s;
+    }
+
+    &.ng-leave {
+        transform: scale(1);
+    }
+
+    &.ng-leave.ng-leave-active {
+        transform: scale(1.1);
+    }
+}
+
+.scale-in-parent {
+    &.ng-enter {
+        .scale-in-child {
+            transition: transform ease-in-out 0.1s;
+        }
+    }
+
+    &.ng-enter {
+        .scale-in-child {
+            transform: scale(1.1);
+        }
+    }
+
+    &.ng-enter.ng-enter-active {
+        .scale-in-child {
+            transform: scale(1);
+        }
+    }
+}
+
+.scale-out-parent {
+    &.ng-leave {
+        .scale-out-child {
+            transition: transform ease-in-out 0.1s;
+        }
+    }
+
+    &.ng-leave {
+        .scale-out-child {
+            transform: scale(1);
+        }
+    }
+
+    &.ng-leave.ng-leave-active {
+        .scale-out-child {
+            transform: scale(1.1);
+        }
+    }
+}

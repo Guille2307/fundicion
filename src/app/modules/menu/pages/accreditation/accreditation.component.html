@@ -1,0 +1,21 @@
+<ion-header class="menu">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      {{ "ACCREDITATION.title" | translate }}
+    </ion-title>
+    <ion-buttons slot="end" class="mobile">
+      <chat-and-profile></chat-and-profile>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <iframe
+    *ngIf="sanitizedUrl"
+    [src]="sanitizedUrl"
+    style="width: 100%; height: 100%"
+  ></iframe>
+</ion-content>

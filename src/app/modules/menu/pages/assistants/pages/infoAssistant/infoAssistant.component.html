@@ -1,0 +1,34 @@
+<ion-header class="menu">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="goBack()">
+        <i class="icon icon_w_icons_arrow_nav_left"></i>
+      </ion-button>
+    </ion-buttons>
+    <div *ngIf="assistant">
+      <ion-title *ngIf="assistant.role === 'EMPLOYEE'">
+        {{ "ASSISTANTS.info.title" | translate : { name: assistant.name } }}
+      </ion-title>
+      <ion-title *ngIf="assistant.role !== 'EMPLOYEE'">
+        {{ companyFullName(assistant) }}
+      </ion-title>
+    </div>
+    <!-- <ion-buttons slot="end">
+      <ion-button class="options" fill="clear" (click)="openPopover($event)">
+        <i class="icon icon_w_icons_suspensive"></i>
+      </ion-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <embed-video
+    *ngIf="assistant"
+    [socialmedia]="assistant.socialmedia"
+  ></embed-video>
+  <public-profile-to-show
+    *ngIf="assistant"
+    [profile]="assistant"
+    [type]="getType(assistant)"
+  ></public-profile-to-show>
+</ion-content>

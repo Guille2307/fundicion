@@ -1,0 +1,744 @@
+@import "colors";
+@import "effects";
+@import "variables";
+
+button:not(.disabled) {
+  cursor: pointer;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.btn-min-block {
+  display: block;
+  min-width: 100%;
+}
+
+a.disabled {
+  pointer-events: auto !important;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+  outline: none;
+}
+
+.btn-shadow {
+  box-shadow: 0px 4px 6px 0px $transparentGray !important;
+}
+
+.btn-round,
+.btn-round:focus {
+  display: inline-block;
+  border-radius: 50%;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn-round:hover {
+  font-weight: $boldFontWeight;
+  text-decoration: none;
+  transform: scale(1.05);
+  transition: transform 0.1s linear;
+}
+
+.btn-round-md {
+  height: 50px;
+  width: 50px;
+
+  .icon {
+    font-size: 40px;
+    line-height: 50px;
+  }
+}
+
+.btn-round-sm {
+  height: 30px;
+  width: 30px;
+
+  .icon {
+    font-size: 25px;
+    line-height: 30px;
+  }
+}
+
+.btn-circle,
+.btn-circle:focus {
+  height: 30px;
+  width: 30px;
+  line-height: 30px;
+  font-size: 15px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.btn-square,
+.btn-square:focus,
+.btn-square:active:focus,
+.btn-square:hover,
+.btn-square:active,
+.btn-square:active:hover {
+  border-radius: 0 !important;
+}
+
+.btn-square:hover {
+  text-decoration: none;
+  font-weight: $boldFontWeight;
+  transform: none;
+}
+
+.btn-square-sm {
+  font-size: $fontSizeS;
+  line-height: $fontSizeS;
+  padding: $margin2XS $margin2XS;
+}
+
+.btn-high {
+  font-size: 16px;
+  line-height: 26px;
+
+  .icon,
+  .fa {
+    font-size: 20px;
+    line-height: 26px !important;
+  }
+
+  .img-left,
+  .img-right {
+    height: 28px !important;
+  }
+}
+
+.btn-priority {
+  border-radius: 21px;
+  font-size: 20px;
+  line-height: 36px;
+
+  .icon,
+  .fa {
+    font-size: 20px;
+    line-height: 38px !important;
+
+    &.icon-left {
+      margin-left: 0 !important;
+    }
+
+    &.icon-right {
+      margin-right: 0 !important;
+    }
+  }
+
+  .img-left,
+  .img-right {
+    height: 38px !important;
+  }
+}
+
+.btn-primary:not(.disabled) {
+  cursor: pointer;
+}
+
+.btn-primary,
+.btn-primary:focus {
+  position: relative;
+  @include gradient-vertical(transparent, transparent);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  color: black;
+  height: 34px;
+  font-weight: 900;
+  font-size: 16px;
+  border: 2px solid;
+  border-color: $woutickPrimaryColor;
+  border-radius: 20px;
+  padding: 0 8px;
+  text-shadow: none !important;
+  background: white;
+  transition: border-color 0.2s linear, background-color 0.2s linear;
+
+  &.btn-rectangular {
+    padding: 4px 8px;
+    border-radius: 8px;
+  }
+
+  &:hover {
+    color: white;
+    background-color: $woutickPrimaryColor;
+  }
+
+  &:active,
+  &.active,
+  &:active:hover,
+  &.active:hover {
+    color: $woutickDarkPrimaryColor;
+    box-shadow: none;
+
+    .icon {
+      color: $woutickDarkPrimaryColor;
+    }
+  }
+
+  .icon,
+  .fa {
+    line-height: 20px;
+
+    &.icon-left {
+      float: left;
+      margin-left: -4px;
+      margin-right: 8px;
+    }
+
+    &.icon-right {
+      float: right;
+      margin-left: 8px;
+      margin-right: -4px;
+    }
+  }
+
+  .img-left {
+    float: left;
+    height: 20px;
+  }
+
+  .img-right {
+    float: right;
+    height: 20px;
+  }
+
+  & + .btn-primary:not(.btn-block) {
+    margin-left: 16px;
+  }
+
+  @each $colorScheme in $colorSchemes {
+    &.#{nth($colorScheme, 1)}:not(:disabled):not(.disabled):not([disabled]) {
+      color: nth($colorScheme, 8);
+      border-color: nth($colorScheme, 5);
+      background-color: nth($colorScheme, 2);
+
+      .icon {
+        color: nth($colorScheme, 8);
+      }
+
+      &:hover {
+        color: nth($colorScheme, 9);
+        border-color: nth($colorScheme, 6);
+        background-color: nth($colorScheme, 3);
+
+        .icon {
+          color: nth($colorScheme, 9);
+        }
+      }
+
+      &:active,
+      &.active,
+      &:active:hover,
+      &.active:hover {
+        color: nth($colorScheme, 10);
+        border-color: nth($colorScheme, 7);
+        background-color: nth($colorScheme, 4);
+
+        .icon {
+          color: nth($colorScheme, 10);
+        }
+      }
+    }
+  }
+}
+
+.btn-primary:disabled,
+.btn-primary.disabled,
+.btn-primary[disabled],
+.btn-primary:disabled:focus,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus {
+  @extend .btn-primary;
+  cursor: not-allowed;
+  border-color: $woutickLightPrimaryColor;
+  background-color: white;
+  color: $transparentGray;
+
+  &:active,
+  &.active,
+  &:active:hover,
+  &.active:hover {
+    color: $woutickPrimaryColor;
+    border-color: $woutickLightPrimaryColor;
+    background-color: $woutickLightPrimaryColor;
+
+    .icon {
+      color: $woutickPrimaryColor;
+    }
+  }
+}
+
+.btn-footer,
+.btn-footer:focus {
+  @extend .btn-primary;
+  font-size: 20px;
+  line-height: 40px;
+  border-radius: 100% 100% 0 0;
+}
+
+.btn-round {
+  border-radius: 50%;
+  text-align: center;
+}
+
+.btn-link,
+.btn-link:focus {
+  background: none;
+  border: none;
+  text-decoration: none;
+  transition: color 0.1s linear;
+
+  &:hover {
+    color: $woutickPrimaryColor;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  &:active,
+  &.active,
+  &:active:hover,
+  &.active:hover {
+    color: $woutickPrimaryColor;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  @each $colorScheme in $colorSchemes {
+    &.#{nth($colorScheme, 1)}:not(:disabled):not(.disabled):not([disabled]) {
+      color: nth($colorScheme, 2);
+
+      &:hover {
+        color: nth($colorScheme, 3);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      &:active,
+      &.active,
+      &:active:hover,
+      &.active:hover {
+        color: nth($colorScheme, 4);
+        text-decoration: none;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.btn-link.disabled,
+.btn-link:disabled,
+.btn-link[disabled] {
+  @extend .btn-link;
+  color: $lightGray;
+  cursor: not-allowed;
+
+  &:hover {
+    color: $lightGray;
+  }
+
+  &:active,
+  &.active,
+  &:active:hover,
+  &.active:hover {
+    color: $lightGray;
+  }
+}
+
+a.btn-title {
+  display: inline-block;
+}
+.btn-title {
+  color: white;
+  font-family: "Fjalla One", "Poppins", sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 2em;
+  text-decoration: none;
+  text-shadow: none;
+  border: none;
+  background: none;
+  outline: none;
+  box-shadow: none;
+  transition: text-shadow 0.1s linear;
+
+  &:hover,
+  &:focus {
+    color: white;
+    text-shadow: 0 0 1vw $transparentDarkGray;
+    text-decoration: none;
+    outline: none;
+  }
+
+  &:active,
+  &.active {
+    color: white;
+    text-shadow: 0 0 0.4vw $transparentDarkGray;
+    text-decoration: none;
+  }
+
+  @each $colorScheme in $colorSchemes {
+    &.#{nth($colorScheme, 1)}:not(:disabled):not(.disabled):not([disabled]) {
+      color: nth($colorScheme, 2);
+
+      &:hover,
+      &:focus {
+        color: nth($colorScheme, 3);
+
+        &.active,
+        &:active {
+          color: nth($colorScheme, 4);
+        }
+      }
+
+      &:active,
+      &.active {
+        color: nth($colorScheme, 4);
+      }
+    }
+  }
+}
+
+.btn-image {
+  padding: 0;
+  border-radius: 0;
+}
+
+.left-round-button-container {
+  position: relative;
+
+  > button {
+    position: absolute;
+    height: 100%;
+
+    & + span,
+    & + div {
+      position: relative;
+      margin-left: 28px;
+    }
+  }
+}
+
+.btn-switch-group {
+  line-height: 30px;
+}
+
+.btn-checkbox {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  font-size: 24px;
+  text-align: center;
+
+  input,
+  input:focus {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    border: 2px solid transparent;
+    border-radius: 100%;
+    opacity: 0;
+
+    & ~ label {
+      cursor: pointer;
+      transition: background-color 0.1s linear;
+    }
+
+    &:not(:active):not(.active):not(:checked):not(.checked) {
+      & ~ label {
+        background-color: white;
+
+        .icon {
+          visibility: hidden;
+        }
+      }
+    }
+
+    &:active,
+    &.active,
+    &:checked,
+    &.checked {
+      & ~ label {
+        background-color: $woutickLightPrimaryColor;
+      }
+    }
+
+    &:disabled,
+    &.disabled,
+    &[disabled] {
+      cursor: not-allowed;
+    }
+  }
+
+  label {
+    @extend .btn-icon;
+    width: 26px;
+    height: 26px;
+    border: 2px solid $woutickPrimaryColor !important;
+    border-radius: 100%;
+
+    .icon {
+      display: block;
+    }
+  }
+}
+
+.btn-checkbox-container {
+  display: flex;
+
+  .btn-checkbox {
+    align-self: center;
+  }
+
+  .btn-checkbox-label {
+    flex-grow: 1;
+    align-self: center;
+    margin-left: 10px;
+  }
+}
+
+.btn-icon,
+.btn-icon:focus {
+  background: none;
+  border: none;
+  text-decoration: none;
+  padding: 0;
+  @include gradient-vertical(transparent, transparent);
+  box-shadow: none;
+
+  .icon {
+    transition: color 0.1s linear;
+  }
+
+  &:hover {
+    text-decoration: none;
+    //text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    text-shadow: none;
+  }
+
+  &:active,
+  &.active,
+  &:active:hover,
+  &.active:hover {
+    text-decoration: none;
+    text-shadow: none;
+  }
+
+  &.btn-primary {
+    padding: 4px;
+    font-size: 16px;
+    line-height: 16px;
+  }
+
+  @each $colorScheme in $colorSchemes {
+    &.#{nth($colorScheme, 1)}:not(:disabled):not(.disabled):not([disabled]) {
+      .icon {
+        color: nth($colorScheme, 2);
+      }
+
+      &:hover,
+      &:focus {
+        .icon {
+          color: nth($colorScheme, 3);
+        }
+
+        &.active,
+        &:active {
+          .icon {
+            color: nth($colorScheme, 4);
+          }
+        }
+      }
+
+      &:active,
+      &.active {
+        .icon {
+          color: nth($colorScheme, 4);
+        }
+      }
+    }
+  }
+}
+
+.btn-icon:disabled,
+.btn-icon.disabled,
+.btn-icon[disabled],
+.btn-icon:disabled:focus,
+.btn-icon.disabled:focus,
+.btn-icon[disabled]:focus {
+  @extend .btn-icon;
+  cursor: not-allowed;
+  color: $lighterGray;
+
+  .icon {
+    color: $lighterGray;
+  }
+}
+
+.btn-label {
+  display: inline-block;
+
+  label {
+    position: relative;
+    color: $woutickPrimaryColor;
+    background-color: transparent;
+    border: 2px solid $woutickPrimaryColor;
+    border-color: $woutickPrimaryColor;
+    border-radius: 20px;
+    padding: 0 8px;
+    text-transform: lowercase;
+    background-image: none;
+    font-weight: normal;
+    margin-bottom: 0;
+  }
+
+  label:focus,
+  label:active,
+  label.focus,
+  label.active,
+  label:hover {
+    color: $woutickDarkPrimaryColor;
+    cursor: pointer;
+  }
+
+  input:checked ~ label {
+    @include gradient-vertical(transparent, transparent);
+    box-shadow: none;
+    color: white;
+    background-color: $woutickPrimaryColor;
+    border-color: $woutickPrimaryColor;
+    text-shadow: none;
+  }
+
+  input[disabled] {
+    ~ label {
+      color: $darkGray;
+    }
+
+    ~ label:focus,
+    ~ label:active,
+    ~ label.focus,
+    ~ label.active,
+    ~ label:hover {
+      color: $darkGray;
+      cursor: not-allowed;
+    }
+
+    &:checked ~ label {
+      color: white;
+      background-color: $darkGray;
+      border-color: $darkGray;
+    }
+  }
+
+  @each $colorScheme in $colorSchemes {
+    &.#{nth($colorScheme, 1)}:not(:disabled):not(.disabled):not([disabled]) {
+      .label {
+        color: nth($colorScheme, 8);
+        border-color: nth($colorScheme, 5);
+        background-color: nth($colorScheme, 2);
+
+        .icon {
+          color: nth($colorScheme, 8);
+        }
+      }
+
+      &:hover {
+        .label {
+          color: nth($colorScheme, 9);
+          border-color: nth($colorScheme, 6);
+          background-color: nth($colorScheme, 3);
+
+          .icon {
+            color: nth($colorScheme, 9);
+          }
+        }
+      }
+
+      &:active,
+      &.active,
+      &:active:hover,
+      &.active:hover {
+        .label {
+          color: nth($colorScheme, 10);
+          border-color: nth($colorScheme, 7);
+          background-color: nth($colorScheme, 4);
+
+          .icon {
+            color: nth($colorScheme, 10);
+          }
+        }
+      }
+    }
+  }
+
+  & + .btn-label:not(.btn-block):not(.btn-min-block) {
+    margin-left: 4px;
+  }
+}
+
+.btn-facebook,
+.btn-facebook:focus {
+  @extend .btn-primary;
+  color: white;
+  background-color: $facebookColor;
+  line-height: 35px;
+  font-weight: 600;
+
+  > img {
+    float: left;
+    height: 35px;
+    width: 35px;
+  }
+
+  &:hover,
+  &:active,
+  &.active,
+  &:active:hover,
+  &.active:hover {
+    color: white;
+    border-color: $facebookColor;
+    background-color: $facebookColor;
+  }
+}
+
+.menu-tabs {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid $lighterGray;
+
+  .menu-tab {
+    width: auto;
+    height: 40px;
+    flex-grow: 1;
+    color: $lighterGray;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: center;
+    border: none;
+    border-bottom: 7px solid transparent;
+    background: none;
+
+    &:hover {
+      color: $lightGray;
+      font-weight: 600;
+      border-bottom-color: $woutickLightPrimaryColor;
+    }
+
+    &:active,
+    &.active {
+      color: black;
+      font-weight: 600;
+      border-bottom-color: $woutickPrimaryColor;
+    }
+  }
+}

@@ -1,0 +1,146 @@
+@import "../../../../../assets/scss/partials/variables";
+@import "../../../../../assets/scss/partials/colors";
+@import "../../../../../assets/scss/partials/mixins";
+
+ion-content {
+  --overflow: hidden;
+
+  &.no-background {
+    --background: var(--backgroundColorLogin) !important;
+  }
+
+  .scroll {
+    height: 100%;
+  }
+
+  .scrim {
+    height: 100%;
+    background: rgba(0, 0, 0, 0.42);
+    overflow-y: auto;
+
+    &.no-shadow {
+      background: transparent;
+    }
+  }
+
+  .login-container {
+    width: 100%;
+    padding: 0px 15px;
+    text-align: left;
+    display: grid;
+    grid-template-columns: 100%;
+    color: white;
+
+    .form-group-container {
+      display: grid;
+      width: calc(100% - 16px);
+      margin: 10px 8px;
+      position: relative;
+
+      .pass-container {
+        display: flex;
+        justify-content: space-between;
+
+        input {
+          width: 85%;
+        }
+
+        .show-pass-button {
+          background: transparent;
+          border: 2px solid white;
+          border-radius: 20px;
+          --border-radius: 20px;
+          height: 34px;
+          width: 34px;
+          --padding-start: 0;
+          --padding-end: 0;
+          margin: 0;
+
+          &:active {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.3);
+          }
+
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.3);
+          }
+
+          .icon {
+            font-size: 30px;
+            color: white;
+          }
+        }
+      }
+
+      .form-label {
+        text-transform: uppercase;
+        font-weight: 100;
+        padding: 0 20px;
+        font-size: 16px;
+      }
+
+      .form-input {
+        background: transparent;
+        border: 1px solid white;
+        border-radius: 20px;
+        height: 34px;
+        padding: 0 20px;
+        font-size: 14px;
+
+        &#username {
+          width: 100%;
+        }
+
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.7);
+          opacity: 1;
+        }
+      }
+
+      a {
+        color: white;
+        text-align: center;
+        font-size: 14px;
+        margin: auto;
+      }
+    }
+  }
+
+  .footer {
+    background: transparent;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    margin-top: 20px;
+  }
+}
+
+.button-transparent {
+  @include boton(44px, 2px, white, transparent, white, 20px, $interactive);
+
+  ion-title {
+    font-size: 18px !important;
+    font-weight: bold !important;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  ion-content {
+    .login-container {
+      width: 460px;
+      margin: 30px auto;
+    }
+
+    
+    .form-group-container.button {
+      margin-top: 30px;
+    }
+  }
+}
+
+@media screen and (max-height: 680px) {
+  .footer {
+    position: relative !important;
+  }
+}

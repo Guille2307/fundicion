@@ -1,0 +1,862 @@
+@import "partials/buttons";
+@import "partials/containers";
+@import "partials/forms";
+@import "partials/material";
+@import "partials/texts";
+@import "partials/variables";
+@import "partials/typography";
+@import "partials/mixins";
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,900");
+
+/* GENERAL */
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  box-sizing: border-box;
+  user-select: auto;
+}
+body {
+  // min-height: 900px;
+  height: 100%;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  font-weight: 500;
+  background-color: $backgroundColor;
+  overflow-y: hidden;
+}
+
+button:focus,
+input:focus {
+  outline: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+*:not(i) {
+  font-family: $secondaryTitleFontFamily !important;
+}
+
+/* SCROLLBARS */
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 4px solid transparent;
+  box-shadow: inset 0 0 10px 10px rgba(179, 179, 179, 0.75);
+  transition: box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: inset 0 0 10px 10px rgba(66, 66, 66, 0.85);
+  }
+
+  &:active {
+    box-shadow: inset 0 0 10px 10px rgba(66, 66, 66, 1);
+  }
+}
+
+::-webkit-scrollbar-track {
+  border: 4px solid transparent;
+  box-shadow: inset 0 0 10px 10px rgba(238, 238, 238, 0.4);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(179, 179, 179, 1) rgba(238, 238, 238, 0.4);
+}
+
+menu {
+  margin: auto;
+}
+
+ion-tabs.days {
+  .tabs-inner {
+    background: $backgroundColor !important;
+  }
+}
+
+ion-segment.tabs {
+  background-color: white;
+  border-radius: 0;
+
+  &.small-tabs {
+    height: 48px;
+  }
+
+  &.big-tabs {
+    height: 100px;
+
+    ion-segment-button {
+      max-width: 140px;
+    }
+  }
+
+  ion-segment-button {
+    border-radius: 0;
+    height: 100%;
+    background-color: transparent;
+    --border-width: 0;
+    --indicator-box-shadow: none;
+    font-style: italic;
+    color: $interactive;
+    --background-hover: none;
+    --background-focused: none;
+    --color-checked: none;
+    text-transform: none;
+
+    &.title-container {
+      font-style: italic;
+      padding: 0;
+
+      ion-label {
+        font-style: italic;
+        padding: 0;
+        margin: 4px;
+        display: contents;
+        font-size: 14px;
+        text-align: center;
+
+        &.day {
+          font-size: 20px;
+        }
+
+        &.month-year {
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    &.segment-button-checked {
+      border-bottom: 5px solid $emphasis;
+      font-weight: bold;
+      font-style: normal;
+      color: black;
+      --indicator-height: 0;
+
+      &.title-container {
+        font-style: normal;
+        font-weight: 900;
+
+        ion-label {
+          color: $selectedText;
+          font-style: normal;
+          font-weight: 900;
+        }
+      }
+    }
+  }
+}
+
+.restricted-access {
+  --backdrop-opacity: 0.4;
+  --width: 95%;
+
+  &::part(content) {
+    position: static !important;
+    background: white !important;
+    border-radius: 20px !important;
+    width: 100% !important;
+  }
+
+  .buttons-container {
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 0;
+    padding: 8px 0;
+    width: 100%;
+    border-top: 1px solid black;
+    background-color: white;
+
+    ion-button {
+      border: 2px solid black;
+      border-radius: 25px;
+      font-size: 16px;
+      height: 28px;
+      color: black;
+      width: 45%;
+      background: white;
+
+      &.cancel {
+        border-color: $cancel;
+      }
+
+      &.submit {
+        border-color: $accept;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      &:disabled,
+      &[disabled] {
+        cursor: not-allowed;
+        color: rgba(0, 0, 0, 0.5);
+        border-color: rgba(0, 0, 0, 0.5);
+        --background-hover: transparent;
+      }
+    }
+  }
+}
+
+.inscription-popover {
+  --backdrop-opacity: 0.4;
+  --height: auto;
+  --width: 350px;
+
+  &::part(content) {
+    position: static !important;
+    background: $backgroundColor !important;
+    border-radius: 20px !important;
+    overflow-y: hidden !important;
+  }
+
+  textarea {
+    background: white;
+    border-radius: 20px;
+    border-bottom-right-radius: 0;
+    border: 1px solid #004e71;
+    width: 95%;
+    margin: auto;
+    padding: 5px 10px;
+    font-size: 14px;
+    resize: vertical;
+    max-height: 270px;
+    min-height: 270px;
+    overflow-y: auto;
+  }
+
+  .add-button {
+    border: 2px solid $interactive;
+    border-radius: 25px;
+    text-transform: none;
+    font-size: 16px;
+    height: 28px;
+    color: black;
+    position: relative;
+    max-width: 350px;
+    width: 95%;
+    margin: 10px auto;
+
+    i {
+      color: $interactive;
+      font-size: 26px;
+      position: absolute;
+      left: -15px;
+    }
+  }
+
+  .buttons-container {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    padding: 8px 0;
+    width: 100%;
+    border-top: 1px solid black;
+    background-color: white;
+
+    ion-button {
+      border: 2px solid black;
+      border-radius: 25px;
+      font-size: 16px;
+      height: 28px;
+      color: black;
+      width: 45%;
+      background: white;
+
+      &.cancel {
+        border-color: $cancel;
+      }
+
+      &.submit {
+        border-color: $accept;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+.add-file-popover {
+  --backdrop-opacity: 0.4;
+  --height: auto;
+  --width: 350px;
+
+  &::part(content) {
+    position: static !important;
+    background: $backgroundColor !important;
+    border-radius: 20px !important;
+    overflow-y: hidden !important;
+  }
+
+  .add-button {
+    border: 2px solid $interactive;
+    border-radius: 25px;
+    font-size: 16px;
+    text-transform: none;
+    height: 28px;
+    color: black;
+    position: relative;
+    max-width: 350px;
+    width: 95%;
+    margin: 10px auto;
+    background: white;
+
+    i {
+      color: $interactive;
+      font-size: 26px;
+      position: absolute;
+      left: -15px;
+    }
+  }
+
+  .buttons-container {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    padding: 8px 0;
+    width: 100%;
+    border-top: 1px solid black;
+    background-color: white;
+
+    ion-button {
+      border: 2px solid black;
+      border-radius: 25px;
+      font-size: 16px;
+      height: 28px;
+      color: black;
+      width: 45%;
+
+      &.cancel {
+        border-color: $cancel;
+      }
+
+      &.submit {
+        border-color: $accept;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+.cropper-img-popover {
+  --backdrop-opacity: 0.4;
+  --width: 400px;
+
+  &::part(content) {
+    position: static !important;
+    background: $backgroundColor !important;
+    border-radius: 20px !important;
+    overflow-y: hidden !important;
+  }
+
+  .buttons-container {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    padding: 8px 0;
+    width: 100%;
+    border-top: 1px solid black;
+    background-color: white;
+
+    ion-button {
+      border: 2px solid black;
+      border-radius: 25px;
+      font-size: 16px;
+      height: 28px;
+      color: black;
+      width: 45%;
+      background: white;
+
+      &.cancel {
+        border-color: $cancel;
+      }
+
+      &.submit {
+        border-color: $accept;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      &:disabled,
+      &[disabled] {
+        cursor: not-allowed;
+        color: rgba(0, 0, 0, 0.5);
+        border-color: rgba(0, 0, 0, 0.5);
+        --background-hover: transparent;
+      }
+    }
+  }
+}
+
+.speakers-popover {
+  --height: 40%;
+  --width: 400px;
+}
+
+.calendar-popover {
+  --backdrop-opacity: 0.4;
+  --height: 630px;
+  --width: 400px;
+
+  &::part(content) {
+    position: static !important;
+    background: white !important;
+    border-radius: 20px !important;
+    overflow-y: hidden !important;
+  }
+
+  .add-button {
+    border: 2px solid $interactive;
+    border-radius: 25px;
+    text-transform: none;
+    font-size: 16px;
+    height: 28px;
+    color: black;
+    position: relative;
+    max-width: 350px;
+    width: 95%;
+    margin: 10px auto;
+
+    i {
+      color: $interactive;
+      font-size: 26px;
+      position: absolute;
+      left: -15px;
+    }
+  }
+
+  .buttons-container {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    padding: 8px 0;
+    width: 400px;
+    border-top: 1px solid black;
+    background-color: white;
+
+    ion-button {
+      border: 2px solid black;
+      border-radius: 25px;
+      font-size: 16px;
+      height: 28px;
+      color: black;
+      width: 45%;
+      background: white;
+
+      &.cancel {
+        border-color: $cancel;
+      }
+
+      &.submit {
+        border-color: $accept;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      &:disabled,
+      &[disabled] {
+        cursor: not-allowed;
+        color: rgba(0, 0, 0, 0.5);
+        border-color: rgba(0, 0, 0, 0.5);
+        --background-hover: transparent;
+      }
+    }
+  }
+}
+
+.config-agenda-popover {
+  --backdrop-opacity: 0.4;
+  // --height: 300px;
+  --height: auto;
+  --width: 350px;
+
+  &::part(content) {
+    position: static !important;
+    background: $backgroundColor !important;
+    border-radius: 20px !important;
+    overflow-y: hidden !important;
+  }
+
+  .add-button {
+    border: 2px solid $interactive;
+    border-radius: 25px;
+    text-transform: none;
+    font-size: 16px;
+    height: 28px;
+    color: black;
+    position: relative;
+    max-width: 350px;
+    width: 95%;
+    margin: 10px auto;
+
+    i {
+      color: $interactive;
+      font-size: 26px;
+      position: absolute;
+      left: -15px;
+    }
+  }
+
+  .buttons-container {
+    display: flex;
+    justify-content: space-around;
+    bottom: 0;
+    padding: 8px 0;
+    width: 100%;
+    border-top: 1px solid black;
+    background-color: white;
+
+    ion-button {
+      border: 2px solid black;
+      border-radius: 25px;
+      font-size: 16px;
+      height: 28px;
+      color: black;
+      width: 45%;
+      background: white;
+
+      &.cancel {
+        border-color: $cancel;
+      }
+
+      &.submit {
+        border-color: $accept;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      &:disabled,
+      &[disabled] {
+        cursor: not-allowed;
+        color: rgba(0, 0, 0, 0.5);
+        border-color: rgba(0, 0, 0, 0.5);
+        --background-hover: transparent;
+      }
+    }
+  }
+}
+
+.set-new-password {
+  --backdrop-opacity: 0.4;
+  --height: auto;
+  --width: 400px;
+
+  &::part(content) {
+    position: static !important;
+    background: $backgroundColor !important;
+    border-radius: 20px !important;
+  }
+}
+
+.contextmenu {
+  &::part(content) {
+    border-radius: 16px !important;
+  }
+}
+
+ion-button {
+  letter-spacing: 0 !important;
+}
+
+ion-header.transparent {
+  background: rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(0px);
+
+  &.no-shadow {
+    background: transparent;
+  }
+
+  ion-toolbar {
+    --background: transparent;
+
+    ion-title {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      text-align: left;
+      @include principal6(white);
+      padding-bottom: 0;
+      padding-top: 0;
+      padding-inline-start: 0;
+      padding-left: 60px !important;
+    }
+
+    ion-buttons {
+      &.mobile {
+        display: none;
+      }
+
+      ion-menu-button,
+      ion-back-button {
+        color: white;
+      }
+
+      ion-button {
+        .icon {
+          color: white;
+          font-size: 27px;
+        }
+      }
+    }
+  }
+}
+
+ion-header.menu {
+  background-color: $primaryColor;
+
+  ion-toolbar {
+    --background: transparent;
+
+    ion-buttons {
+      &.mobile {
+        display: none;
+      }
+
+      ion-menu-button,
+      ion-back-button {
+        color: $primaryIcon;
+      }
+
+      ion-button {
+        &.search-button {
+          display: none;
+        }
+
+        .icon {
+          color: $primaryIcon;
+          font-size: 27px;
+
+          &.icon-cancel-circle {
+            color: $cancel !important;
+          }
+        }
+      }
+    }
+
+    ion-title {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      text-align: left;
+      @include principal6($primaryTitle);
+      padding-bottom: 0;
+      padding-top: 0;
+      padding-inline-start: 0;
+      padding-left: 60px !important;
+    }
+  }
+}
+
+ion-menu {
+  border-color: $borderColor;
+  background: $backgroundColor;
+}
+
+ion-select {
+  color: $fontInput;
+  --placeholder-color: var(--backgroundColor);
+  --placeholder-opacity: 0.75;
+}
+
+ion-content {
+  --ion-background-color: var(--backgroundColor);
+  --keyboard-offset: 0 !important;
+  color: $fontColor;
+}
+
+ion-button,
+button {
+  text-transform: uppercase !important;
+}
+
+ion-content.menu-content {
+  position: fixed;
+  // --padding-bottom: 50px;
+  height: calc(100% - 56px);
+}
+
+.mat-sidenav-content {
+  background-color: $backgroundColor;
+}
+
+button.fab-button {
+  position: fixed;
+  z-index: 10;
+  bottom: 5%;
+  right: 0;
+  margin: 25px;
+
+  &.search {
+    background-color: $interactive !important;
+  }
+
+  &.cancel {
+    background-color: $cancel !important;
+
+    .mat-button-wrapper {
+      padding: 0;
+
+      .icon {
+        font-size: 37px;
+      }
+    }
+  }
+
+  .icon {
+    color: $primaryIcon;
+    font-size: 27px;
+  }
+}
+
+.image-popover {
+  .popover-wrapper {
+    height: 100% !important;
+    width: 100% !important;
+  }
+
+  &::part(content) {
+    background: transparent !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+    width: 100% !important;
+    height: 100% !important;
+    left: 0 !important;
+    top: 0 !important;
+
+    image-full-screen {
+      height: 100% !important;
+    }
+  }
+}
+
+ion-card {
+  box-shadow: none !important;
+}
+
+.loading-class {
+  .loading-wrapper {
+    box-shadow: none;
+    background: transparent;
+    height: 100px;
+    width: 100px;
+
+    ion-spinner {
+      height: 60px;
+      width: 60px;
+      color: $emphasis;
+    }
+  }
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  ion-spinner {
+    height: 60px;
+    width: 60px;
+    --color: var(--emphasis);
+  }
+}
+
+cdk-virtual-scroll-viewport {
+  height: 100%;
+  width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+  .cropper-img-popover {
+    .popover-wrapper {
+      width: 95% !important;
+    }
+
+    .popover-content {
+      left: 2% !important;
+      width: 95% !important;
+      margin-left: 10px !important;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .custom-popover {
+    --width: 550px;
+  }
+}
+
+@media screen and (min-width: 1028px) {
+  ion-header.menu {
+    ion-title {
+      text-align: left !important;
+      font-weight: 900 !important;
+    }
+
+    .icon {
+      color: $primaryIcon !important;
+    }
+
+    .search-button {
+      display: flex !important;
+    }
+  }
+
+  button.fab-button {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 1388px) {
+  ion-header.menu.side {
+    background-color: $secondaryColor;
+
+    ion-toolbar {
+      ion-buttons {
+        ion-menu-button,
+        ion-back-button {
+          color: $secondaryIcon;
+        }
+
+        ion-button {
+          color: $secondaryIcon;
+
+          .icon {
+            color: $secondaryIcon;
+          }
+        }
+      }
+
+      ion-title {
+        color: $secondaryTitle;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1388px) {
+  ion-buttons.mobile {
+    display: flex !important;
+  }
+}

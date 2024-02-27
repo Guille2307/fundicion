@@ -1,0 +1,326 @@
+@import "colors";
+@import "effects";
+
+.h1, .h2, .h3, h1, h2, h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.text-primary {
+    color: $woutickPrimaryColor;
+}
+.text-dark-primary {
+    color: $woutickDarkPrimaryColor;
+}
+.text-secondary {
+    color: $woutickSecondaryColor;
+}
+.text-information {
+    color: $woutickInformationColor;
+}
+.text-dark-information {
+    color: $woutickDarkInformationColor;
+}
+.text-white {
+    color: white;
+}
+.text-light {
+    color: $lightGray;
+}
+.text-gray {
+    color: $darkGray;
+}
+.text-black {
+    color: black;
+}
+.text-dark {
+    color: $darkGray;
+}
+.text-darker {
+    color: $darkerGray;
+}
+
+.text-left {
+    text-align: left;
+}
+.text-center {
+    text-align: center;
+}
+.text-right {
+    text-align: right;
+}
+
+.text-xs {
+    font-size: 12px;
+}
+.line-height-xs {
+    line-height: 12px;
+}
+.text-s {
+    font-size: 16px;
+}
+.line-height-s {
+    line-height: 16px;
+}
+.text-sm {
+    font-size: 18px;
+}
+.line-height-sm {
+    line-height: 18px;
+}
+.text-m {
+    font-size: 20px;
+}
+.line-height-m {
+    line-height: 20px;
+}
+.text-l {
+    font-size: 24px;
+}
+.line-height-l {
+    line-height: 24px;
+}
+.text-xl {
+    font-size: 28px;
+}
+.line-height-xl {
+    line-height: 28px;
+}
+.text-xxl {
+    font-size: 32px;
+}
+.line-height-xxl {
+    line-height: 32px;
+}
+
+.light {
+    font-weight: 300;
+}
+.normal {
+    font-weight: 500;
+}
+.strong {
+    font-weight: 600;
+}
+.strikethrough {
+    text-decoration: line-through;
+}
+
+.company-name {
+    @extend .strong;
+    @extend .text-primary;
+}
+
+.title {
+    font-family: 'Fjalla One', 'Poppins', sans-serif;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 2em;
+}
+
+.title-flat {
+    text-shadow: none;
+}
+
+.title-shadow {
+    text-shadow: 2px 2px 10px black, 0px 0px 2px black;
+}
+
+.title-no-margin {
+    margin: 0;
+}
+
+.subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.5em;
+}
+
+.subtitle2 {
+    @extend .subtitle;
+    font-weight: 400;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    margin-bottom: 1em;
+}
+
+.subtitle3 {
+    @extend .subtitle;
+    font-weight: 400;
+    font-size: 0.9em;
+    line-height: 0.9em;
+    margin-bottom: 1em;
+}
+
+// Rotate texts
+[class*="text-rotated-"] {
+    display: inline-block;
+    overflow: hidden;
+    width: 1.5em;
+
+    &:not(button) {
+        cursor: vertical-text;
+    }
+
+    span {
+        display: inline-block;
+        white-space: nowrap;
+    }
+
+    span:before {
+        content: "";
+        float: left;
+        margin-top: 100%;
+    }
+}
+
+.text-rotated-90 {
+    /* this is for shitty "non IE" browsers
+    that don't support writing-mode */
+    -webkit-transform: translate(0, 0) rotate(90deg);
+    -moz-transform: translate(0, 0) rotate(90deg);
+    -o-transform: translate(0, 0) rotate(90deg);
+    transform: translate(0, 0) rotate(90deg);
+    /* IE9+ */
+    -ms-transform: none;
+    -ms-transform-origin: none;
+    /* IE8+ */
+    -ms-writing-mode: tb-rl;
+    /* IE7 and below */
+    *writing-mode: tb-rl;
+    /* forces antialiasing in Chrome */
+    -webkit-backface-visibility: hidden;
+}
+
+.text-rotated-180 {
+    /* this is for shitty "non IE" browsers
+    that don't support writing-mode */
+    -webkit-transform: translate(0, 0) rotate(180deg);
+    -moz-transform: translate(0, 0) rotate(180deg);
+    -o-transform: translate(0, 0) rotate(180deg);
+    transform: translate(0, 0) rotate(180deg);
+    /* IE9+ */
+    -ms-transform: none;
+    -ms-transform-origin: none;
+    /* IE8+ */
+    -ms-writing-mode: tb-rl;
+    /* IE7 and below */
+    *writing-mode: tb-rl;
+    /* forces antialiasing in Chrome */
+    -webkit-backface-visibility: hidden;
+}
+
+.text-rotated-270 {
+    /* this is for shitty "non IE" browsers
+    that don't support writing-mode */
+    -webkit-transform: translate(0, 0) rotate(270deg);
+    -moz-transform: translate(0, 0) rotate(270deg);
+    -o-transform: translate(0, 0) rotate(270deg);
+    transform: translate(0, 0) rotate(270deg);
+    /* IE9+ */
+    -ms-transform: none;
+    -ms-transform-origin: none;
+    /* IE8+ */
+    -ms-writing-mode: tb-rl;
+    /* IE7 and below */
+    *writing-mode: tb-rl;
+    /* forces antialiasing in Chrome */
+    -webkit-backface-visibility: hidden;
+}
+
+// Rotate texts
+[class*="icon-rotated-"] {
+    display: inline-block;
+}
+
+.icon-rotated-90 {
+    /* this is for shitty "non IE" browsers
+    that don't support writing-mode */
+    -webkit-transform: translate(0, 0) rotate(90deg);
+    -moz-transform: translate(0, 0) rotate(90deg);
+    -o-transform: translate(0, 0) rotate(90deg);
+    transform: translate(0, 0) rotate(90deg);
+    /* IE9+ */
+    -ms-transform: none;
+    -ms-transform-origin: none;
+    /* forces antialiasing in Chrome */
+    -webkit-backface-visibility: hidden;
+}
+
+.icon-rotated-180 {
+    /* this is for shitty "non IE" browsers
+    that don't support writing-mode */
+    -webkit-transform: translate(0, 0) rotate(180deg);
+    -moz-transform: translate(0, 0) rotate(180deg);
+    -o-transform: translate(0, 0) rotate(180deg);
+    transform: translate(0, 0) rotate(180deg);
+    /* IE9+ */
+    -ms-transform: none;
+    -ms-transform-origin: none;
+    /* forces antialiasing in Chrome */
+    -webkit-backface-visibility: hidden;
+}
+
+.icon-rotated-270 {
+    /* this is for shitty "non IE" browsers
+    that don't support writing-mode */
+    -webkit-transform: translate(0, 0) rotate(270deg);
+    -moz-transform: translate(0, 0) rotate(270deg);
+    -o-transform: translate(0, 0) rotate(270deg);
+    transform: translate(0, 0) rotate(270deg);
+    /* IE9+ */
+    -ms-transform: none;
+    -ms-transform-origin: none;
+    /* forces antialiasing in Chrome */
+    -webkit-backface-visibility: hidden;
+}
+
+// Marquee effect
+.marquee {
+    position: relative;
+    height: inherit;
+    padding: 0 8px;
+    white-space: nowrap;
+    overflow: hidden;
+
+    div {
+        position: absolute;
+        min-width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+
+        span {
+            margin-right: 16px;
+
+            &:last-child {
+                display: none;
+            }
+        }
+    }
+
+    &.marquee-active {
+        div {
+            animation: marquee 10s linear 2s infinite;
+
+            &:hover {
+                animation-play-state: paused;
+            }
+
+            span {
+                &:last-child {
+                    display: inline;
+                }
+            }
+        }
+    }
+}
+
+@include keyframes(marquee) {
+    0% {
+        transform: translateX(0) translateY(-50%);
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(-50%);
+    }
+}

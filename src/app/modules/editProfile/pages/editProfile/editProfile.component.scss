@@ -1,0 +1,574 @@
+@import "../../../../../assets/scss/partials/variables";
+@import "../../../../../assets/scss/partials/typography";
+@import "../../../../../assets/scss/partials/mixins";
+
+.container {
+  --overflow: auto;
+
+  &.no-background {
+    --background: rgba(0, 0, 0, 0.7) !important;
+  }
+
+  .save-profile-container {
+    z-index: 0;
+    width: 100%;
+    min-height: 100%;
+    // padding: 44px 0;
+    text-align: left;
+    grid-template-columns: 100%;
+    background-color: $backgroundColor;
+    position: relative;
+
+    .img-container {
+      z-index: 2;
+      position: fixed;
+      height: 150px;
+      width: 100%;
+      background-color: $backgroundColor;
+    }
+
+    .info-img-container {
+      z-index: 2;
+      position: fixed;
+      height: 152px;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.56);
+      display: flex;
+      justify-content: space-around;
+
+      .profile-img {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        margin: auto 0;
+        object-fit: cover;
+      }
+
+      .change-img-button {
+        position: absolute;
+        left: 10px;
+        bottom: 20px;
+        --border-color: black;
+        --background: white;
+        --border-radius: 50%;
+        --border-width: 2px;
+        --border-style: solid;
+        --box-shadow: none;
+        --padding-end: 0;
+        --padding-start: 0;
+        margin: auto;
+        height: 40px;
+        width: 40px;
+
+        .icon {
+          color: $interactive;
+          font-size: 30px;
+        }
+      }
+
+      .info-container {
+        width: 60%;
+        padding: 15px 0;
+        display: grid;
+
+        .edit-name-container {
+          display: flex;
+          justify-content: space-between;
+
+          .name-container {
+            width: 80%;
+
+            .form-input-name,
+            .form-input-lastname {
+              background: transparent;
+              border: none;
+              @include principal3(white);
+              width: 100%;
+              border-radius: 0;
+              border-bottom: 1px solid white;
+              text-transform: none;
+              padding: 0;
+
+              &:read-only {
+                border-bottom: none;
+              }
+
+              &::placeholder {
+                color: rgba(255, 255, 255, 0.8);
+              }
+            }
+          }
+          .edit-name-button {
+            --background: white;
+            --border-radius: 50%;
+            --border-width: 2px;
+            --border-style: solid;
+            --border-color: $interactive;
+            --box-shadow: none;
+            --padding-end: 0;
+            --padding-start: 0;
+            margin: auto;
+            height: 40px;
+            width: 40px;
+
+            .icon {
+              color: $interactive;
+              font-size: 30px;
+            }
+          }
+        }
+
+        .info-edit-container {
+          color: white;
+          font-size: 12px;
+          font-weight: 100;
+          padding: 0;
+          max-height: 60px;
+        }
+      }
+    }
+
+    .form-container {
+      padding: 15px;
+      background: transparent;
+      padding-top: 152px;
+      z-index: 0;
+      width: 100%;
+      text-align: left;
+      display: grid;
+      grid-template-columns: 100%;
+
+      .form-group-container {
+        width: 100%;
+        margin: 5px auto;
+
+        &.rrss {
+          .input-container {
+            height: 45px;
+
+            .form-input {
+              width: 87%;
+            }
+          }
+        }
+
+        .pass-container {
+          display: flex;
+          justify-content: space-between;
+
+          input {
+            width: 85%;
+            margin: auto 0;
+          }
+
+          .show-pass-button {
+            background: transparent;
+            border: 2px solid white;
+            border-radius: 20px;
+            height: 30px;
+            width: 30px;
+            padding: 0;
+
+            &:active {
+              background-color: rgba(255, 255, 255, 0.3);
+              border-color: rgba(255, 255, 255, 0.3);
+            }
+
+            &:hover {
+              background-color: rgba(255, 255, 255, 0.3);
+              border-color: rgba(255, 255, 255, 0.3);
+            }
+
+            .icon {
+              font-size: 20px;
+              color: white;
+              display: flex;
+              margin: auto;
+            }
+          }
+        }
+
+        .label-container {
+          display: flex;
+
+          .form-label {
+            text-transform: uppercase;
+            padding: 0 20px;
+            font-size: 16px;
+            color: $fontColor;
+
+            &.info {
+              padding-right: 0;
+            }
+          }
+
+          .label-info {
+            font-weight: 400;
+            font-size: 14px;
+            font-style: italic;
+            margin: auto 0;
+            height: 20px;
+            padding-right: 20px;
+            color: $fontColor;
+          }
+
+          .optional {
+            text-transform: capitalize;
+            padding: 0;
+            font-size: 14px;
+            height: 20px;
+            margin: auto 0;
+            color: rgba($emphasis, 0.7);
+          }
+        }
+
+        .input-container {
+          position: relative;
+          display: flex;
+          height: auto;
+
+          &.array {
+            .form-input {
+              margin: 5px auto;
+            }
+          }
+
+          &.textarea {
+            height: auto;
+          }
+
+          &.attached {
+            height: 40px;
+          }
+
+          .icon {
+            font-size: 28px;
+            margin: auto;
+            color: $fontColor;
+          }
+
+          .attached-button {
+            width: 87%;
+            --padding-end: 5px;
+            --background: transparent;
+            --border-color: transparent;
+            --border-radius: 20px;
+            --border-style: solid;
+            --border-width: 1px;
+            border: 2px solid $interactive;
+            background: $backgroundColor;
+            border-radius: 20px;
+            height: 32px;
+            display: flex;
+            justify-content: space-between;
+
+            ion-label {
+              text-transform: none;
+              color: $fontColor;
+              font-weight: 500;
+              font-size: 16px;
+              width: 100%;
+              text-align: left;
+            }
+
+            .icon {
+              color: $interactive;
+              font-size: 26px;
+            }
+          }
+
+          .form-input {
+            background: $backgroundInput;
+            border: 1px solid $borderInput;
+            border-radius: 20px;
+            height: 28px;
+            width: 78%;
+            margin: auto;
+            padding: 0 10px;
+            font-size: 14px;
+            color: $fontInput;
+
+            &.no-toggle {
+              width: 87%;
+            }
+
+            &::placeholder {
+              color: $placeholderInput;
+              opacity: 1;
+            }
+          }
+
+          .form-textarea {
+            background: $backgroundInput;
+            border-radius: 15px;
+            border-bottom-right-radius: 0;
+            border: 1px solid $borderInput;
+            width: 78%;
+            margin: auto;
+            padding: 5px 10px;
+            font-size: 14px;
+            resize: vertical;
+            color: $fontInput;
+
+            &::placeholder {
+              color: $placeholderInput;
+              opacity: 1;
+            }
+          }
+
+          .public-button {
+            --padding-bottom: 0;
+            --padding-top: 0;
+            --padding-start: 0;
+            --padding-end: 0;
+            --border-radius: 50%;
+            margin: auto;
+            height: 30px;
+            width: 30px;
+            background-color: white;
+            border-radius: 50%;
+            border: 2px solid $interactive;
+            padding: 0;
+
+            .icon {
+              color: $interactive;
+              margin: auto;
+              font-size: 25px;
+            }
+          }
+
+          .private-button {
+            --padding-bottom: 0;
+            --padding-top: 0;
+            --padding-start: 0;
+            --padding-end: 0;
+            --border-radius: 50%;
+            margin: auto;
+            height: 30px;
+            width: 30px;
+            background-color: $interactive;
+            border-radius: 50%;
+            border: 2px solid $interactive;
+            padding: 0;
+
+            .icon {
+              color: white;
+              margin: auto;
+              font-size: 25px;
+            }
+          }
+
+          div.permission {
+            position: relative;
+            display: flex;
+
+            ion-toggle {
+              width: 30px;
+              height: 30px;
+              padding: 0;
+              margin: auto;
+              background: white;
+              border-radius: 50%;
+              border: 2px solid $interactive;
+              z-index: 0;
+              --background: transparent;
+              --background-checked: transparent;
+              --handle-box-shadow: none;
+              --handle-spacing: 0;
+              --handle-height: 30px;
+              --handle-width: 30px;
+              --handle-background: no-repeat center/80%
+                url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Generator: Adobe Illustrator 25.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 24 24' style='enable-background:new 0 0 24 24;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:%23010001;%7D .st1%7Bfill:none;%7D .st2%7Bfill:%23FFFFFF;%7D %0A%3C/style%3E%3Cpath class='st2' d='M17,10l-1,0l0-2.67C16,5.49,13.84,4,12,4S8,5.49,8,7.33L8,10l-1,0c-1.1,0-2,0.9-2,2l0,6c0,1.1,0.9,2,2,2l10,0 c1.1,0,2-0.9,2-2l0-6C19,10.9,18.1,10,17,10z M10,7.33C10,6.23,10.9,6,12,6c1.1,0,2,0.23,2,1.33L14,10l-4,0L10,7.33z'/%3E%3C/svg%3E%0A");
+              --handle-background-checked: no-repeat center/80%
+                url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Generator: Adobe Illustrator 25.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 24 24' style='enable-background:new 0 0 24 24;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:%23010001;%7D .st1%7Bfill:none;%7D .st2%7Bfill:%23FFFFFF;%7D %0A%3C/style%3E%3Cpath class='st2' d='M17,10h-7V7.33C10,6.23,10.9,6,12,6c1.1,0,2,0.23,2,1.33h2C16,5.49,13.84,4,12,4c-1.84,0-4,1.49-4,3.33V10H7 c-1.1,0-2,0.9-2,2v6c0,1.1,0.9,2,2,2l10,0c1.1,0,2-0.9,2-2v-6C19,10.9,18.1,10,17,10z'/%3E%3C/svg%3E%0A");
+              background: $interactive;
+
+              // &.toggle-checked {
+              //   background: $interactive;
+              // }
+            }
+          }
+        }
+      }
+
+      .button-container {
+        display: flex;
+        width: 100%;
+        height: 40px;
+        margin: 5px auto;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      .toggle-container {
+        display: flex;
+        width: 90%;
+        margin: 5px auto;
+
+        label {
+          width: 80%;
+          font-size: 14px;
+          font-weight: 400;
+          font-style: italic;
+          color: $fontColor;
+        }
+
+        ion-toggle {
+          z-index: 0;
+          margin: auto;
+        }
+      }
+    }
+  }
+}
+
+.button-container {
+  position: relative;
+}
+
+.list-files {
+  padding: 0;
+  background: transparent;
+
+  .file-item {
+    --background: transparent;
+    --inner-border-width: 0;
+    --padding-start: 0;
+    --inner-padding-end: 0;
+    margin: 8px 0;
+    z-index: 1;
+
+    ion-button.delete {
+      height: 90%;
+      margin: auto 5px;
+
+      .icon {
+        font-size: 25px;
+        color: $cancel;
+        display: flex;
+        margin: auto 0;
+      }
+    }
+  }
+}
+
+.file-btn-container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 43px;
+  background: $backgroundButton;
+  border: 1px solid $borderButton;
+  border-radius: 15px;
+  text-align: left;
+
+  .icon {
+    font-size: 25px;
+    font-weight: 900;
+    color: $fontButton;
+    display: flex;
+    margin: auto 0;
+  }
+
+  &:active {
+    border-color: $emphasis;
+
+    .attached-button {
+      color: $selectedText;
+    }
+  }
+
+  &:hover {
+    border-color: $emphasis;
+
+    .arrow-container {
+      i {
+        color: $emphasis;
+      }
+    }
+  }
+
+  .icon-doc-container {
+    position: absolute;
+    width: 50px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    background: rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    z-index: 0;
+  }
+
+  .arrow-container {
+    position: absolute;
+    width: 40px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    right: 0;
+    border-left: rgba(0, 0, 0, 0.05) solid 1px;
+    cursor: pointer;
+    z-index: 0;
+
+    i {
+      color: $interactive;
+    }
+  }
+
+  .attached-button {
+    text-decoration: none;
+    display: block;
+    align-items: center;
+    text-transform: inherit;
+    color: $fontColor;
+    font-weight: 700;
+    width: 100%;
+    padding: 10px;
+    padding-left: 60px;
+    padding-right: 20px;
+    cursor: pointer;
+    font-size: 15px;
+    z-index: 1;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .container {
+    .save-profile-container {
+      width: 460px;
+      margin: 0 auto;
+
+      .img-container,
+      .info-img-container {
+        width: 460px;
+      }
+    }
+  }
+}
+
+input {
+  &.ng-invalid {
+    border-color: red !important;
+    border-width: 2px !important;
+
+    &::placeholder {
+      color: rgba(255, 0, 0, 0.6) !important;
+    }
+  }
+}
+
+.submit-button {
+  @include boton(
+    34px,
+    1px,
+    $accept,
+    $backgroundButton,
+    $fontButton,
+    20px,
+    $hoverButton
+  );
+}

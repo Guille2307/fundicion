@@ -1,0 +1,80 @@
+@import "../../../../../assets/scss/partials/variables";
+@import "../../../../../assets/scss/partials/typography";
+
+ion-title {
+  @include cuerpoTexto1(black);
+  margin: 0;
+  padding: 20px;
+  width: auto;
+  height: auto;
+
+  &.no-value {
+    font-style: italic;
+  }
+}
+i {
+  text-align: right;
+  color: #dfdfdf;
+  font-size: 20px;
+  cursor: pointer;
+}
+ion-content {
+  --overflow: auto;
+}
+
+ion-row {
+  display: grid;
+}
+
+ion-footer {
+  bottom: 0;
+  width: 100%;
+}
+
+.message {
+  width: 70%;
+  max-width: 500px;
+  border-radius: 10px;
+  background-color: $emphasis;
+  padding: 10px;
+  display: grid;
+  margin: 10px auto;
+
+  .title {
+    color: $primaryTitle;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .msg {
+    color: $primaryTitle;
+    font-size: 14px;
+  }
+}
+
+.date {
+  text-align: center;
+  margin: 10px auto;
+  padding: 5px 10px;
+  border-radius: 25px;
+  color: $fontColor;
+  background: rgba(0, 108, 129, 0.4);
+}
+
+.time {
+  color: #dfdfdf;
+  float: right;
+  font-size: small;
+}
+ion-input.custom {
+  --background: #072146;
+  --color: #fff;
+  --placeholder-color: #ddd;
+  --placeholder-opacity: 0.8;
+
+  --padding-bottom: 10px;
+  --padding-end: 10px;
+  --padding-start: 10px;
+  --padding-top: 10px;
+  border-radius: 5px;
+}

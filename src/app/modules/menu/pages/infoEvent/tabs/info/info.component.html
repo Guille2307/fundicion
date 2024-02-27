@@ -1,0 +1,32 @@
+<div class="content" *ngIf="event">
+  <div *ngIf="event.video" [innerHtml]="iframeHtml"></div>
+  <div class="title-container">
+    <i class="icon icon_w_icons_suitcase"></i>
+    <h1>{{ "INFO_EVENT.info.organization" | translate }}</h1>
+    <div class="line"></div>
+  </div>
+  <div class="info-content" [innerHTML]="parseBody(event.organizer)"></div>
+  <div *ngIf="event.description" class="title-container">
+    <i class="icon icon_w_icons_information_circle"></i>
+    <h1>{{ "INFO_EVENT.info.info" | translate }}</h1>
+    <div class="line"></div>
+  </div>
+  <div class="info-content" [innerHTML]="parseBody(event.description)"></div>
+  <div *ngIf="event.conditions" class="title-container">
+    <i class="icon icon_w_icons_doc"></i>
+    <h1>{{ "INFO_EVENT.info.terms" | translate }}</h1>
+    <div class="line"></div>
+  </div>
+  <div class="info-content" [innerHTML]="parseBody(event.conditions)"></div>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title></mat-card-title>
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content> </mat-card-content>
+  </mat-card>
+</div>
+<div class="content" *ngIf="!event">
+  <ion-title class="loading">{{ "LOADING" | translate }}</ion-title>
+</div>

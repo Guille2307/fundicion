@@ -1,0 +1,24 @@
+<ion-button
+  *ngIf="modulesSvc.getModules().chat.active"
+  fill="clear"
+  (click)="goToChat()"
+>
+  <div *ngIf="showBadgeChat" class="notifications-badget"></div>
+  <i class="icon icon_w_icons_paper_plane"></i>
+</ion-button>
+<ion-button
+  *ngIf="modulesSvc.getModules().myInfo.active"
+  (click)="goToProfile()"
+>
+  <img
+    *ngIf="userId !== null"
+    src="{{ userId | imageProfile }}"
+    class="profile-img"
+    onerror="this.onerror=null;this.src='assets/img/no_image_user.webp'"
+  />
+  <img
+    *ngIf="userId === null"
+    class="profile-img"
+    src="assets/img/no_image_user.webp"
+  />
+</ion-button>

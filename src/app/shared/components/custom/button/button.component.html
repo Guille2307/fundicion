@@ -1,0 +1,20 @@
+<button *ngIf="!transparent" class="button" type="button" (click)="click($event)">
+  <div class="ion-activatable ripple-parent">
+    <i *ngIf="iconLeft !== ''" class="icon left {{iconLeft}}"></i>
+    <ion-title size="large">
+      {{ translation | translate: translationParams }}
+    </ion-title>
+    <i *ngIf="iconRight !== ''" class="icon right {{iconRight}}"></i>
+    <ion-ripple-effect></ion-ripple-effect>
+  </div>
+</button>
+<button *ngIf="transparent" class="button-transparent" type="button" (click)="click($event)">
+  <div class="ion-activatable ripple-parent">
+    <i *ngIf="iconLeft !== ''" class="icon left {{iconLeft}}"></i>
+    <ion-title size="large">
+      {{ translation | translate: translationParams }}
+    </ion-title>
+    <i *ngIf="iconRight !== ''" class="icon right {{iconRight}}"></i>
+    <ion-ripple-effect></ion-ripple-effect>
+  </div>
+</button>

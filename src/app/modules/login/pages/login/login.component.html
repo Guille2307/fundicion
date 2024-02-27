@@ -1,0 +1,88 @@
+<ion-header
+  [translucent]="true"
+  class="transparent ion-no-border"
+  [ngClass]="{ 'no-shadow': !permissionsSvc.showBackground }"
+>
+  <ion-toolbar>
+    <toolbar></toolbar>
+  </ion-toolbar>
+</ion-header>
+<ion-content
+  [fullscreen]="true"
+  class="img-back"
+  [ngClass]="{ 'no-background': !permissionsSvc.showBackground }"
+  [style]="
+    '--background: ' +
+    ('background' | imageEvent) +
+    ' no-repeat center center / cover'
+  "
+>
+  <div
+    class="scrim"
+    [ngClass]="{ 'no-shadow': !permissionsSvc.showBackground }"
+  >
+    <woutick-logo></woutick-logo>
+    <div class="login-container">
+      <div class="first-time">
+        <ion-label>
+          {{ "LOGIN.firstTime.label" | translate }}
+        </ion-label>
+        <button class="button-transparent" (click)="createAccount()">
+          <div class="ion-activatable ripple-parent">
+            <ion-title size="large">
+              {{ "LOGIN.firstTime.button" | translate }}
+            </ion-title>
+            <i class="icon right icon_w_icons_arrow_nav_right"></i>
+            <ion-ripple-effect></ion-ripple-effect>
+          </div>
+        </button>
+      </div>
+      <div class="have-account">
+        <ion-label>
+          {{ "LOGIN.haveAccount.label" | translate }}
+        </ion-label>
+        <button class="button-transparent" (click)="login()">
+          <div class="ion-activatable ripple-parent">
+            <ion-title size="large">
+              {{ "LOGIN.haveAccount.button" | translate }}
+            </ion-title>
+            <i class="icon right icon_w_icons_arrow_nav_right"></i>
+            <ion-ripple-effect></ion-ripple-effect>
+          </div>
+        </button>
+        <ion-label
+          *ngIf="permissionsSvc.showAccessWithoutAccount"
+          class="without-account"
+          (click)="loginWithoutAccount()"
+        >
+          {{ "LOGIN.withoutAccount.label" | translate }}
+        </ion-label>
+      </div>
+    </div>
+    <div class="footer">
+      <sponsors-ininity-bar></sponsors-ininity-bar>
+      <div class="logged-accounts" *ngIf="thereAreLoggedAccounts">
+        <label class="label">
+          {{ "LOGIN.footer.savedAccounts.label" | translate }}
+        </label>
+        <ion-list class="list-accounts">
+          <div class="account" *ngFor="let user of savedUsers">
+            <!-- <div class="profile-img">
+            <img src="{{user.imgUrl}}">
+          </div> -->
+            <img class="profile-img" src="{{ user.imgUrl }}" />
+            <div class="name-container">
+              <p class="name">{{ user.name }} {{ user.lastname }}</p>
+              <p>@{{ user.username }}</p>
+            </div>
+            <button (click)="accessLoginSaved(user)">
+              {{ "LOGIN.footer.savedAccounts.button" | translate }}
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </button>
+          </div>
+        </ion-list>
+      </div>
+      <footer></footer>
+    </div>
+  </div>
+</ion-content>

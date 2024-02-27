@@ -1,0 +1,13 @@
+<div *ngIf="myAgenda !== null">
+  <div class="content" *ngIf="myAgenda.length !== 0">
+    <activity-card [card]="item" *ngFor="let item of myAgenda"></activity-card>
+  </div>
+  <div class="content" *ngIf=" myAgenda.length === 0">
+    <ion-title class="no-programs">{{ 'AGENDA.noPrograms' | translate }}</ion-title>
+  </div>
+</div>
+<div *ngIf="myAgenda === null">
+  <div class="content">
+    <ion-title class="no-programs">{{ 'LOADING' | translate }}</ion-title>
+  </div>
+</div>

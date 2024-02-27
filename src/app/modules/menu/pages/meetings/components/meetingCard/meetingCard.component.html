@@ -1,0 +1,205 @@
+<div *ngIf="typeSub === 'EMPLOYEE' && user" [ngSwitch]="meet.status" (click)="goToReviewMeet()">
+  <ion-card target="_blank" class="aprobada" *ngSwitchCase="'Approved'" target="_blank">
+    <ion-card-header class="content-img-icon">
+      <div class="field-img">
+        <img *ngIf="user.id !== null" src="{{user.id | imageProfile}}" class="img"
+          onerror="this.src='assets/img/no_image_user.webp'">
+        <img *ngIf="user.id === null" class="img" src="assets/img/no_image_user.webp">
+      </div>
+      <div class="field-img">
+        <i class="icon-meet icon_w_icons_handshake"></i>
+      </div>
+    </ion-card-header>
+    <ion-card-header class="info-container">
+      <div class="field">
+        <i class="icon icon_w_icons_clock"></i>
+        <ion-card-subtitle class="value">
+          {{ getDate(meet.starts) }}
+        </ion-card-subtitle>
+      </div>
+      <div class="field">
+        <ion-card-title class="value">
+          {{ user.name }} {{ user.surnames }}
+        </ion-card-title>
+      </div>
+      <div class="field" *ngIf="user.sector">
+        <i class="icon icon_w_icons_suitcase"></i>
+        <ion-card-subtitle class="label-etiqueta">
+          {{ user.sector }}
+        </ion-card-subtitle>
+      </div>
+      <div class="field" *ngIf="meet.presentation">
+        <i class="icon icon_w_icons_note"></i>
+        <ion-card-subtitle class="label-etiqueta">
+          {{ meet.presentation }}
+        </ion-card-subtitle>
+      </div>
+      <!-- <div class="field">
+        <i class="icon icon_w_icons_location_pin"></i>
+        <ion-card-subtitle class="value">
+          {{ "MEETINGS.viewStudent.labelUbication" | translate }}
+        </ion-card-subtitle>
+      </div> -->
+      <div class="text-large">
+        <p class="parrafo">
+          Haz clic en la tarjeta para acceder
+        </p>
+      </div>
+    </ion-card-header>
+    <div class="arrow-container">
+      <i class="icon icon_w_icons_selection"></i>
+    </div>
+  </ion-card>
+  <ion-card target="_blank" class="celebrada" *ngSwitchCase="'Celebrated'" target="_blank">
+    <ion-card-header class="content-img-icon">
+      <div class="field-img">
+        <img *ngIf="user.id !== null" src="{{user.id | imageProfile}}" class="img"
+          onerror="this.onerror=null;this.src='assets/img/no_image_user.webp'">
+        <img *ngIf="user.id === null" class="img" src="assets/img/no_image_user.webp">
+      </div>
+      <div class="field-img">
+        <i class="icon-meet icon_w_icons_handshake"></i>
+      </div>
+    </ion-card-header>
+    <ion-card-header class="info-container">
+      <div class="field">
+        <ion-card-title class="value">
+          {{ user.name }} {{ user.surnames }}
+        </ion-card-title>
+      </div>
+      <div class="field">
+        <ion-card-title class="reunion-celebrada">
+          {{ "MEETINGS.viewStudent.labelCelebrated" | translate }}
+        </ion-card-title>
+      </div>
+      <div class="text-large">
+        <p class="parrafo" *ngIf="hasAnnotation(annotation)">
+          {{ annotation[0].annotation }}
+        </p>
+        <p class="parrafo no-value" *ngIf="!hasAnnotation(annotation)">
+          {{ "MEETINGS.viewStudent.labelNoAnnotations" | translate }}
+        </p>
+      </div>
+    </ion-card-header>
+    <div class="arrow-container">
+      <i class="icon icon_w_icons_arrow_nav_right"></i>
+    </div>
+  </ion-card>
+  <ion-card target="_blank" class="declinada" *ngSwitchCase="'Denied'" target="_blank">
+    <ion-card-header class="info-container">
+      <img *ngIf="user.id !== null" src="{{user.id | imageProfile}}" class="img"
+        onerror="this.onerror=null;this.src='assets/img/no_image_user.webp'">
+      <img *ngIf="user.id === null" class="img" src="assets/img/no_image_user.webp">
+    </ion-card-header>
+    <div class="estado-declinada">
+      <p class="text-declinada">
+        {{ "MEETINGS.viewStudent.labelDeclined" | translate }}
+      </p>
+    </div>
+  </ion-card>
+</div>
+<div *ngIf="typeSub !== 'EMPLOYEE' && user" [ngSwitch]="meet.status" (click)="goToReviewMeet()">
+  <ion-card target="_blank" class="aprobada-empresa" *ngSwitchCase="'Approved'" target="_blank">
+    <ion-card-header class="content-img-icon">
+      <div class="field-img user">
+        <img *ngIf="user.id !== null" src="{{user.id | imageProfile}}" class="img"
+          onerror="this.src='assets/img/no_image_user.webp'">
+        <img *ngIf="user.id === null" class="img" src="assets/img/no_image_user.webp">
+      </div>
+      <div class="field-img">
+        <i class="icon-meet icon_w_icons_handshake"></i>
+      </div>
+    </ion-card-header>
+    <ion-card-header class="info-container">
+      <div class="field">
+        <i class="icon icon_w_icons_clock"></i>
+        <ion-card-subtitle class="value">
+          {{getDate(meet.starts)}}
+        </ion-card-subtitle>
+      </div>
+      <div class="field">
+        <ion-card-title class="value">
+          {{user.name}} {{user.surnames}}
+        </ion-card-title>
+      </div>
+      <div class="field" *ngIf="user.profession">
+        <i class="icon icon_w_icons_suitcase"></i>
+        <div>
+          <ion-card-subtitle class="value">
+            {{user.profession}}
+          </ion-card-subtitle>
+          <ion-card-subtitle class="label-etiqueta">
+            {{user.user}}
+          </ion-card-subtitle>
+        </div>
+      </div>
+      <div class="field" *ngIf="meet.presentation">
+        <i class="icon icon_w_icons_note"></i>
+        <ion-card-subtitle class="label-etiqueta">
+          {{ meet.presentation }}
+        </ion-card-subtitle>
+      </div>
+      <!-- <div class="field">
+        <i class="icon icon_w_icons_location_pin"></i>
+        <ion-card-subtitle class="value">
+          {{ "MEETINGS.viewStudent.labelUbication" | translate }}
+        </ion-card-subtitle>
+      </div> -->
+      <div class="text-large">
+        <p class="parrafo">
+          Haz clic en la tarjeta para acceder
+        </p>
+      </div>
+    </ion-card-header>
+    <div class="selection-container">
+      <i class="icon icon_w_icons_selection"></i>
+    </div>
+  </ion-card>
+  <ion-card target="_blank" class="celebrada" *ngSwitchCase="'Celebrated'" target="_blank">
+    <ion-card-header class="content-img-icon">
+      <div class="field-img user">
+        <img *ngIf="user.id !== null" src="{{user.id | imageProfile}}" class="img"
+          onerror="this.onerror=null;this.src='assets/img/no_image_user.webp'">
+        <img *ngIf="user.id === null" class="img" src="assets/img/no_image_user.webp">
+      </div>
+      <div class="field-img">
+        <i class="icon-meet icon_w_icons_handshake"></i>
+      </div>
+    </ion-card-header>
+    <ion-card-header class="info-container">
+      <div class="field">
+        <ion-card-title class="value">
+          {{user.name}} {{user.surnames}}
+        </ion-card-title>
+      </div>
+      <div class="field">
+        <ion-card-title class="reunion-celebrada">
+          {{ "MEETINGS.viewCompany.labelCelebrated" | translate }}
+        </ion-card-title>
+      </div>
+      <div class="text-large">
+        <p class="parrafo" *ngIf="hasAnnotation(annotation)">
+          {{annotation[0].annotation}}
+        </p>
+        <p class="parrafo no-value" *ngIf="!hasAnnotation(annotation)">
+          {{ "MEETINGS.viewCompany.labelNoAnnotations" | translate }}
+        </p>
+      </div>
+    </ion-card-header>
+    <div class="arrow-container">
+      <i class="icon icon_w_icons_arrow_nav_right"></i>
+    </div>
+  </ion-card>
+  <ion-card target="_blank" class="declinada" *ngSwitchCase="'Denied'" target="_blank">
+    <ion-card-header class="info-container">
+      <img *ngIf="user.id !== null" src="{{user.id | imageProfile}}" class="img"
+        onerror="this.onerror=null;this.src='assets/img/no_image_user.webp'">
+      <img *ngIf="user.id === null" class="img" src="assets/img/no_image_user.webp">
+    </ion-card-header>
+    <div class="estado-declinada">
+      <p class="text-declinada">
+        {{ "MEETINGS.viewStudent.labelDeclined" | translate }}
+      </p>
+    </div>
+  </ion-card>
+</div>

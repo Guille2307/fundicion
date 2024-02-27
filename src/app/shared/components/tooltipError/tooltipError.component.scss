@@ -1,0 +1,36 @@
+@import "../../../../assets/scss/partials/variables";
+@import "../../../../assets/scss/partials/typography";
+
+.tooltip {
+  position: absolute;
+  top: -25px;
+  left: 35%;
+  background-color: $cancel;
+  padding: 8px;
+  border-radius: 5px;
+
+  &.btn {
+    left: 10%;
+    top: -15px;
+  }
+
+  .text {
+    font-size: 12px;
+    color: white;
+    font-weight: normal;
+    text-transform: none;
+  }
+
+  .arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    bottom: -5px;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px 5px 0;
+    border-top-color: $cancel;
+  }
+}

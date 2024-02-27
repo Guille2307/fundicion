@@ -1,0 +1,55 @@
+@import "../../../../../assets/scss/partials/variables";
+@import "../../../../../assets/scss/partials/typography";
+
+ion-content {
+  --overflow: hidden;
+
+  .content {
+    width: 95%;
+    height: auto;
+    max-height: 100%;
+    overflow-y: auto;
+    margin: auto;
+
+    &.grid {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      overflow-x: hidden;
+    }
+
+    .no-photos {
+      text-align: center;
+      display: grid;
+      height: 100px;
+      @include subtitulo1(rgba(0, 0, 0, 0.5));
+    }
+
+    .image {
+      margin: 4px;
+      display: flex;
+      cursor: pointer;
+
+      .img {
+        margin: auto;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .content {
+    width: 460px !important;
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .content {
+    grid-template-columns: auto auto !important;
+  }
+}
+
+@media screen and (max-width: 1388px) {
+  ion-button.chat {
+    display: flex !important;
+  }
+}

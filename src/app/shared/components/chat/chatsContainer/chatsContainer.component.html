@@ -1,0 +1,53 @@
+<ion-header class="menu side">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button> </ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      {{ "CHAT.title" | translate }}
+    </ion-title>
+    <!-- <ion-buttons slot="primary">
+      <ion-button class="search-button" fill="clear">
+        <i class="icon icon_w_icons_search_small"></i>
+      </ion-button>
+    </ion-buttons> -->
+    <!-- <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="newChat()">
+        <i class="icon icon_w_icons_people"></i>
+      </ion-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <div class="buttons-container">
+    <ion-nav-link
+      *ngIf="permissionsSvc.getPermissions().crearGrupo"
+      [component]="newGroupPage"
+    >
+      <custom-button
+        [iconLeft]="'icon icon_w_icons_add'"
+        [translation]="'CHAT.btnNewGroup'"
+      ></custom-button>
+    </ion-nav-link>
+    <ion-nav-link
+      *ngIf="permissionsSvc.getPermissions().iniciarChat"
+      [component]="newChatPage"
+    >
+      <custom-button
+        [iconLeft]="'icon icon_w_icons_add'"
+        [translation]="'CHAT.btnNewChat'"
+      ></custom-button>
+    </ion-nav-link>
+  </div>
+  <ion-list *ngIf="chats !== undefined && (chats | async) !== null">
+    <chat-item
+      [chat]="chat"
+      *ngFor="let chat of chats | async | filter: query"
+    ></chat-item>
+  </ion-list>
+  <div class="content" *ngIf="chats === undefined || (chats | async) === null">
+    <ion-title size="large" class="no-chat">{{
+      "CHAT.noChat" | translate
+    }}</ion-title>
+  </div>
+</ion-content>

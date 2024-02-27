@@ -1,0 +1,196 @@
+@import "../../../../assets/scss/partials/variables";
+@import "../../../../assets/scss/partials/typography";
+@import "../../../../assets/scss/partials/mixins";
+
+ion-content {
+  --overflow: auto;
+
+  .form-container {
+    width: 90%;
+    height: auto;
+    margin: auto;
+    display: grid;
+    padding-top: 20px;
+    text-align: left;
+    grid-template-columns: 100%;
+    background-color: $backgroundColor;
+
+    .form-group-container {
+      width: 100%;
+      margin: 5px auto;
+
+      .label-container {
+        display: flex;
+
+        .form-label {
+          text-transform: uppercase;
+          padding: 0 20px;
+          font-size: 16px;
+          color: $fontColor;
+
+          &.label-toggle {
+            display: flex;
+            align-items: center;
+          }
+        }
+
+        .optional {
+          text-transform: capitalize;
+          font-weight: 700;
+          padding: 0;
+          font-size: 14px;
+          height: 20px;
+          margin: auto 0;
+          color: $interactive;
+        }
+      }
+
+      .input-container {
+        display: flex;
+        height: 35px;
+        position: relative;
+
+        &.textarea {
+          height: auto;
+        }
+
+        .icon {
+          font-size: 28px;
+          margin: auto;
+        }
+
+        .form-input {
+          background: $backgroundInput;
+          color: $fontInput;
+          border: 1px solid $fontInput;
+          border-radius: 20px;
+          height: 28px;
+          width: 100%;
+          margin: auto;
+          padding: 0 10px;
+          font-size: 14px;
+
+          &.btn {
+            cursor: pointer;
+            border-color: $interactive;
+          }
+
+          &::placeholder {
+            color: $placeholderInput;
+            opacity: 1;
+          }
+        }
+
+        .form-textarea {
+          background: $backgroundInput;
+          color: $fontInput;
+          border-radius: 15px;
+          border-bottom-right-radius: 0;
+          border: 1px solid $borderInput;
+          width: 100%;
+          margin: auto;
+          padding: 5px 10px;
+          font-size: 14px;
+          resize: vertical;
+
+          &::placeholder {
+            color: $placeholderInput;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+.change-img-button {
+  position: absolute;
+  left: 10px;
+  bottom: 20px;
+  --border-color: black;
+  --background: white;
+  --border-radius: 50%;
+  --border-width: 2px;
+  --border-style: solid;
+  --box-shadow: none;
+  --padding-end: 0;
+  --padding-start: 0;
+  margin: auto;
+  height: 40px;
+  width: 40px;
+
+  .icon {
+    color: $interactive;
+    font-size: 30px;
+  }
+}
+
+.img-container {
+  z-index: 1;
+  border: 1px solid black;
+  position: relative;
+  height: 390px;
+  width: 390px;
+  margin: 20px auto;
+  background-color: rgba(0, 0, 0, 0.56);
+  // background: url("../../../../assets/img/no_image_user.webp") no-repeat center center / cover;
+}
+
+speakers {
+  display: flex;
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  margin: 20px 10px;
+  position: relative;
+
+  &.delete {
+    width: 250px;
+    margin: auto;
+  }
+}
+
+.btn-form {
+  @include boton(
+    24px,
+    1px,
+    $accept,
+    $backgroundButton,
+    $fontButton,
+    30px,
+    $hoverButton
+  );
+
+  &.delete {
+    @include boton(
+      24px,
+      1px,
+      $cancel,
+      $backgroundButton,
+      $fontButton,
+      25px,
+      $hoverButton
+    );
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .form-container {
+    width: 460px !important;
+    margin: 0 auto;
+  }
+}
+
+input,
+textarea {
+  &.ng-invalid {
+    border-color: red !important;
+    border-width: 2px !important;
+
+    &::placeholder {
+      color: rgba(255, 0, 0, 0.6) !important;
+    }
+  }
+}

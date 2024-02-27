@@ -1,0 +1,12 @@
+<div class="tooltip" *ngIf="!isButton">
+  <div class="text">
+    {{'TOOLTIP.required' | translate}}
+  </div>
+  <div class="arrow"></div>
+</div>
+<div class="tooltip btn" *ngIf="isButton">
+  <div class="text">
+    {{'TOOLTIP.button' | translate}}
+  </div>
+  <div class="arrow"></div>
+</div>

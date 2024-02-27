@@ -1,0 +1,138 @@
+@import "../../../../../../../assets/scss/partials/variables";
+@import "../../../../../../../assets/scss/partials/typography";
+
+ion-card.no-info {
+  position: relative;
+  background: white;
+  border-radius: 20px;
+  height: 130px;
+  cursor: pointer;
+  margin: 10px;
+  text-align: center;
+
+  .img-container {
+    height: 100%;
+    display: inline;
+
+    img {
+      padding-right: 50px;
+      max-width: 260px;
+      max-height: 100px;
+      margin: auto;
+      object-fit: cover;
+    }
+  }
+
+  .arrow-container {
+    position: absolute;
+    width: 40px;
+    height: 110px;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-left: rgba(0, 0, 0, 0.05) solid 2px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    z-index: 0;
+
+    i {
+      color: $interactive;
+      height: auto;
+      margin: auto;
+      font-size: 30px;
+    }
+  }
+}
+
+ion-card.with-info {
+  position: relative;
+  background: white;
+  border-radius: 20px;
+  height: 120px;
+  cursor: pointer;
+  margin: 10px;
+  text-align: left;
+  display: flex;
+
+  .img-container {
+    height: 100%;
+    display: flex;
+
+    img {
+      margin-left: 10px;
+      margin: auto;
+      padding: 5px;
+      max-width: 60px;
+      max-height: 60px;
+    }
+  }
+
+  .info-container {
+    display: grid;
+    align-content: center;
+    margin: 5px;
+    width: calc(100% - 110px);
+
+    ion-title {
+      padding: 0;
+      display: inline-grid;
+    }
+
+    i {
+      font-size: 27px;
+    }
+
+    span {
+      font-size: 17px;
+      height: auto;
+    }
+
+    .sector {
+      font-size: 15px;
+      margin-left: 5px;
+    }
+  }
+
+  .arrow-container {
+    position: absolute;
+    width: 40px;
+    height: 75px;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-left: rgba(0, 0, 0, 0.05) solid 2px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    z-index: 0;
+
+    i {
+      display: inline;
+      color: $interactive;
+      height: auto;
+      margin: auto;
+      font-size: 30px;
+      width: 15px;
+      height: 15px;
+    }
+
+    .iconos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+.iconoInternet {
+  font-size: 22px !important;
+
+  font-weight: 700;
+}

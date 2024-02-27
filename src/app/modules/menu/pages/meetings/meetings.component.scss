@@ -1,0 +1,48 @@
+@import "../../../../../assets/scss/partials/variables";
+@import "../../../../../assets/scss/partials/typography";
+
+ion-content {
+  --overflow: auto;
+  height: calc(100% - 56px);
+  // --padding-top: 20px;
+  // --padding-bottom: 20px;
+
+  ion-tabs {
+    ion-tab-bar {
+      background: white;
+      overflow-x: hidden;
+
+      ion-tab-button {
+        background-color: white;
+
+        &.tab-selected {
+          border-bottom: 5px solid $emphasis;
+
+          ion-label {
+            color: $selectedText;
+            font-weight: 900;
+            font-style: normal;
+          }
+        }
+
+        ion-label {
+          text-transform: none;
+          font-size: 14px;
+          color: $interactive;
+          font-style: italic;
+        }
+      }
+    }
+  }
+}
+.hidden {
+  display: none;
+}
+.no-assistants,
+.loading {
+  text-align: center;
+  padding: 0;
+  display: flex;
+  height: 500px;
+  @include subtitulo1(rgba($fontColor, 0.5));
+}

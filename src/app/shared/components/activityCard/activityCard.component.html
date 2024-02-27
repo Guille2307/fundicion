@@ -1,0 +1,71 @@
+<ion-card target="_blank">
+  <img
+    src="{{ card.photo | imageSchedule }}"
+    class="schedule"
+    onerror="this.onerror=null;this.src='assets/img/no_image_user.webp'"
+    (click)="showInfo()"
+  />
+  <ion-card-header class="info-container" (click)="showInfo()">
+    <div class="field">
+      <i class="icon icon_w_icons_clock"></i>
+      <ion-card-subtitle class="value">
+        {{ getDate(card.starts) }}
+      </ion-card-subtitle>
+    </div>
+    <div class="field">
+      <ion-card-title class="value">
+        {{ card.title }}
+      </ion-card-title>
+    </div>
+    <div class="field">
+      <i class="icon icon_w_icons_location_pin"></i>
+      <ion-card-subtitle
+        class="value"
+        *ngIf="card.location !== null && card.location !== ''"
+      >
+        {{ card.location }}
+      </ion-card-subtitle>
+      <ion-card-subtitle
+        class="no-value"
+        *ngIf="card.location === null || card.location === ''"
+      >
+        {{ "AGENDA.activityCard.noLocation" | translate }}
+      </ion-card-subtitle>
+    </div>
+    <div class="field">
+      <i class="icon icon_w_icons_mic"></i>
+      <ion-card-subtitle class="value" *ngIf="card.speakers.length !== 0">
+        <label *ngFor="let speaker of card.speakers; last as isLast"
+          >{{ speaker.name }}{{ isLast ? "" : ", " }}</label
+        >
+      </ion-card-subtitle>
+      <ion-card-subtitle class="no-value" *ngIf="card.speakers.length === 0">
+        {{ "AGENDA.activityCard.noSpeaker" | translate }}
+      </ion-card-subtitle>
+    </div>
+  </ion-card-header>
+  <div *ngIf="!showBell" class="icon-container" (click)="showInfo()">
+    <i class="icon icon_w_icons_arrow_nav_right"></i>
+  </div>
+  <ion-button
+    *ngIf="showBell && !editCard"
+    fill="clear"
+    class="icon-container"
+    (click)="activateNotifications(card)"
+  >
+    <i *ngIf="!card.assistance" class="icon icon_w_icons_bell_outline"></i>
+    <i *ngIf="card.assistance" class="icon icon_w_icons_bell"></i>
+  </ion-button>
+  <div *ngIf="editCard" class="edit-container">
+    <ion-button
+      fill="clear"
+      class="icon-container"
+      (click)="duplicateCard(card)"
+    >
+      <i class="icon duplicate icon_w_icons_copy"></i>
+    </ion-button>
+    <ion-button fill="clear" class="icon-container" (click)="deleteCard(card)">
+      <i class="icon cancel icon_w_icons_cancel_circle"></i>
+    </ion-button>
+  </div>
+</ion-card>

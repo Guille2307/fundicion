@@ -1,0 +1,27 @@
+@import "../../../../../assets/scss/partials/variables";
+@import "../../../../../assets/scss/partials/typography";
+
+ion-header {
+  height: 40px;
+  background: #1d1d1b;
+  display: flex;
+
+  ion-title {
+    text-align: center;
+    @include principal5(white);
+    margin: auto;
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 100%;
+  margin: auto;
+  max-height: 500px;
+  overflow-x: auto;
+  padding-bottom: 63px;
+
+  .input-file {
+    margin: 10px;
+  }
+}

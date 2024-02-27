@@ -1,0 +1,741 @@
+{
+  "LANGUAGE": {
+    "title": "Idioma",
+    "name": "Español",
+    "id": "ES",
+    "flag": "assets/img/flags/es.webp"
+  },
+  "LOGIN": {
+    "firstTime": {
+      "label": "Ésta es mi primera vez",
+      "button": "Crear cuenta"
+    },
+    "haveAccount": {
+      "label": "Ya tengo cuenta",
+      "button": "Iniciar sesión"
+    },
+    "withoutAccount": {
+      "label": "Acceder sin cuenta",
+      "popover": {
+        "title": "Acceso restringido",
+        "info": "Para acceder a esta opción es necesario que inicies sesión en la aplicación.",
+        "btnCancel": "Cancelar"
+      }
+    },
+    "footer": {
+      "savedAccounts": {
+        "label": "Cuentas guardadas",
+        "button": "Acceder"
+      },
+      "info": {
+        "privacyPolicies": "Políticas de Privacidad",
+        "termsOfUse": "Condiciones de uso",
+        "development": "Desarrollado por woutick!"
+      }
+    }
+  },
+  "SAVED_LOGIN": {
+    "label": "Hola de nuevo",
+    "button": "Acceder a mi cuenta",
+    "notTheUser": {
+      "label": "No soy",
+      "button": "Iniciar sesión con otra cuenta"
+    }
+  },
+  "LOGIN_ACCOUNT": {
+    "title": "Inicio de sesión",
+    "labelUser": "Correo",
+    "labelPass": "Contraseña",
+    "labelForget": "He olvidado mi contraseña",
+    "button": "Iniciar sesión",
+    "error": "Correo o contraseña erróneos",
+    "alert": {
+      "error": {
+        "title": "Error",
+        "message": "No se ha podido iniciar sesión,"
+      },
+      "errorMail": {
+        "title": "Error",
+        "message": "Introduce una dirección de correo válida."
+      }
+    }
+  },
+  "TOOLTIP": {
+    "required": "Campo obligatorio",
+    "button": "Faltan datos por cubrir. Revisa los campos en rojo."
+  },
+  "CREATE_ACCOUNT": {
+    "title": "Registro",
+    "labelName": "Nombre",
+    "labelLastname": "Apellidos",
+    "labelUsername": "Nombre de usuario",
+    "labelMail": "Correo",
+    "labelPass": "Contraseña",
+    "labelRepPass": "Repite contraseña",
+    "labelRemAccess": "Recordar mi acceso",
+    "labelPolitics": "He leído y acepto las Políticas de Privacidad, las Condiciones de Uso y las Políticas de Cookies",
+    "labelComercial": "Acepto recibir comunicaciones comerciales y/o de marketing",
+    "labelOptional": "Opcional",
+    "button": "Aceptar",
+    "alert": {
+      "success": {
+        "title": "¡GENIAL!",
+        "message": "Ya tienes cuenta en la aplicación, En el siguiente paso podrás completar tu perfil con la información que consideres oportuna,"
+      },
+      "error": {
+        "title": "Error",
+        "message": "No se ha podido completar el registro,"
+      }
+    }
+  },
+  "MENU": {
+    "dateSameMonth": "Del {{dayStart}} al\n {{dayEnd}} {{monthEnd}} {{year}}",
+    "dateDifferentMonth": "Del {{dayStart}} {{monthStart}} al\n {{dayEnd}} {{monthEnd}} {{year}}",
+    "agenda": "Agenda",
+    "tickets": "Entradas",
+    "infoEvent": "Información",
+    "infoEventTabs": {
+      "info": "Información",
+      "program": "Programa",
+      "artists": "Ponentes",
+      "gallery": "Galería",
+      "participants": "Participantes",
+      "galleryExterna": "Imágenes"
+    },
+    "activities": "Actividades y otros",
+    "activitiesTabs": {
+      "foodtrucks": "Foodtrucks",
+      "polls": "Encuestas"
+    },
+    "streamings": "Retransmisiones",
+    "coworking": "Coworking",
+    "mapEvent": "Mapa del evento",
+    "myProfile": "Mi perfil",
+    "myProfileTabs": {
+      "myInfo": "Mi perfil",
+      "myPurse": "Mi monedero",
+      "myCompanyProfile": "Perfil de mi empresa",
+      "myMeetings": "Mis reuniones"
+    },
+    "jobOffers": "Ofertas de empleo",
+    "meetings": "Reuniones",
+    "assistants": "Asistentes",
+    "chat": "Mensajes",
+    "sponsors": "Patrocinadores",
+    "companies": "Expositores participantes",
+    "exhibitors": "Expositores",
+    "chatHelp": "Atención al cliente",
+    "legalInfo": "Información legal",
+    "logout": "Cerrar sesión",
+    "notifications": "Notificaciones",
+    "gamification": "Gamificación",
+    "accreditation": "Acreditaciones",
+    "plan": "Tour virtual"
+  },
+  "NOTIFICATIONS_CHAT": {
+    "title": "Notificaciones",
+    "input": "Escribe aquí...",
+    "notification": "Notificación"
+  },
+  "EDIT_PROFILE": {
+    "title": "Editando mi perfil",
+    "infoEdit": "Edita tu información y decide si quieres declararla como información pública o privada",
+    "labelName": "Nombre",
+    "labelLastname": "Apellidos",
+    "labelUsername": "Nombre de usuario",
+    "labelMail": "Correo",
+    "labelJob": "Cargo laboral",
+    "labelStudies": "Titulación académica",
+    "labelCompany": "Empresa",
+    "labeluniversity": "Universidad",
+    "labelSector": "Sector",
+    "labelPhone": "Teléfono",
+    "labelLocation": "Ubicación",
+    "labelInfo": "Información",
+    "labelBirthdate": "Fecha de nacimiento",
+    "labelAttached": "Adjunto",
+    "buttonAttached": "Adjuntar archivo en pdf",
+    "labelMaxSize": "(Máx. 2MB)",
+    "labelOtherRRSS": "Redes sociales",
+    "labelSite": "Web",
+    "labelVideoUrl": "Enlace vídeo promocional",
+    "labelOptional": "Opcional",
+    "buttonChangePass": "Cambiar mi contraseña",
+    "buttonManageNoti": "Gestionar notificaciones",
+    "labelComercial": "Acepto recibir comunicaciones comerciales y/o de marketing",
+    "toastPublic": "El campo {{field}} ahora es público",
+    "toastPrivate": "El campo {{field}} ahora es privado",
+    "editProfileImg": {
+      "title": "Editar foto",
+      "buttonGoBack": "Volver",
+      "buttonConfirm": "Confirmar"
+    },
+    "alertImage": {
+      "title": "Atención",
+      "message": "La imagen tiene que ser en formato .jpg con un tamaño inferior a 2MB."
+    },
+    "alert": {
+      "success": {
+        "title": "Éxito",
+        "message": "Los cambios se han guardado satisfatoriamente"
+      },
+      "error": {
+        "title": "Error",
+        "message": "No se han podido guardar los cambios,"
+      }
+    },
+    "socialmedia": {
+      "linkedin": "https://www.linkedin.com/in/...",
+      "twitter": "https://twitter.com/...",
+      "facebook": "https://www.facebook.com/...",
+      "instagram": "https://www.instagram.com/...",
+      "spotify": "https://open.spotify.com/user/..."
+    }
+  },
+  "AGENDA": {
+    "labelTab1": "Programa",
+    "labelTab2": "Mi agenda",
+    "info": "Haz clic en la campanita para que te avisemos cuando vaya a realizarse el evento. Puedes buscar tus eventos marcados desde el buscador.",
+    "infoEdit": "Haz clic en la tarjeta para editarla, y en la equis para borrarla.",
+    "edit": {
+      "buttonCreate": "Nuevo evento",
+      "deleteCard": {
+        "alert": {
+          "title": "Eliminar evento",
+          "message": "¿Estás seguro que deseas eliminar este evento?"
+        }
+      },
+      "setEvent": {
+        "title": "Nuevo evento",
+        "titleEdit": "Editar evento",
+        "labelTitleEvent": "Nombre del evento",
+        "labelCategoryEvent": "Categoría del evento",
+        "labelSpeaker": "Ponente",
+        "labelLocation": "Ubicación del evento",
+        "labelDate": "Fecha",
+        "labelTime": "Hora",
+        "placeholderTime": "HH:MM",
+        "labelDateTime": "Fecha y hora",
+        "placeholderDateTime": "AAAA-MM-DD HH:MM:SS",
+        "labelInfo": "Información",
+        "labelIframe": "Código del iframe",
+        "urlSale": "Url de venta",
+        "labelStreaming": "¿Tiene streaming?",
+        "newEventButton": "Crear evento",
+        "editEventButton": "Actualizar evento",
+        "alert": {
+          "success": {
+            "title": "Éxito",
+            "message": "Se ha creado el evento satisfactoriamente,"
+          }
+        }
+      },
+      "alert": {
+        "title": "Éxito",
+        "message": "El evento se ha actualizado correctamente"
+      },
+      "labelOptional": "Opcional"
+    },
+    "activityCard": {
+      "noSpeaker": "Sin ponente",
+      "noLocation": "Sin ubicación"
+    },
+    "noEvents": "No hay programa disponible",
+    "infoActivity": {
+      "title": "Ponencia",
+      "speaker": "Ponente",
+      "labelInfo": "Información",
+      "noSpeaker": "Sin ponente",
+      "noLocation": "Sin ubicación",
+      "noInfo": "Sin información",
+      "buttonStreaming": "Ir al streaming",
+      "buttonUrlSale": "Comprar entradas"
+    },
+    "noPrograms": "No has añadido ninguna charla",
+    "schedule": {
+      "weekdays": {
+        "0": "Domingo",
+        "1": "Lunes",
+        "2": "Martes",
+        "3": "Miércoles",
+        "4": "Jueves",
+        "5": "Viernes",
+        "6": "Sábado"
+      },
+      "abbreviations": {
+        "0": "Dom.",
+        "1": "Lun.",
+        "2": "Mar.",
+        "3": "Mié.",
+        "4": "Jue.",
+        "5": "Vie.",
+        "6": "Sáb."
+      },
+      "months": {
+        "0": "enero",
+        "1": "febrero",
+        "2": "marzo",
+        "3": "abril",
+        "4": "mayo",
+        "5": "junio",
+        "6": "julio",
+        "7": "agosto",
+        "8": "septiembre",
+        "9": "octubre",
+        "10": "noviembre",
+        "11": "diciembre",
+        "all": "todos"
+      }
+    }
+  },
+  "PROFILE": {
+    "button": "Editar perfil",
+    "labelTab1": "Mi QR",
+    "labelTab2": "Perfil público",
+    "labelTab3": "Perfil privado",
+    "noUsername": "No ha especificado su nombre de usuario",
+    "noJob": "No ha especificado su puesto de trabajo",
+    "noCompany": "No ha especificado su empresa",
+    "noStudies": "No ha especificado su titulación académica",
+    "noPhone": "No ha especificado su teléfono",
+    "noBirthdate": "No ha especificado su fecha de nacimiento",
+    "noEmail": "No ha especificado su correo",
+    "noLocation": "No ha especificado su ubicación",
+    "noInfo": "No ha especificado su descripción",
+    "noAttached": "No dispone de ningún adjunto",
+    "noSite": "No ha especificado ningún enlace",
+    "noSector": "No ha especificado su sector",
+    "studientOf": "Estudiante de {{study}}",
+    "on": "en",
+    "labelInfo": "Información",
+    "labelTags": "Etiquetas",
+    "labelOptional": "Opcional",
+    "labelAddTags": "Añade etiquetas para filtrar contactos",
+    "labelAnnotations": "Anotaciones",
+    "annotationsPlaceholder": "Haz aquí los apuntes que necesites",
+    "labelParticipeIn": "Participa en",
+    "labelMyCatalog": "Mi catálogo",
+    "btnAddOffer": "Añadir oferta de empleo",
+    "labelContact": "Contacto"
+  },
+  "ASSISTANTS": {
+    "noAssistants": "No hay asistentes",
+    "info": {
+      "title": "Perfil de {{name}}",
+      "buttonMessage": "Chat",
+      "contextmenu": {
+        "mute": "Silenciar",
+        "unmute": "Desilenciar",
+        "ban": "Bloquear",
+        "unban": "Desbloquear"
+      }
+    }
+  },
+  "COMPANIES": {
+    "noCompanies": "No hay empresas",
+    "info": {
+      "title": "Perfil de bodega",
+      "buttonMessage": "Chat",
+      "buttonMeeting": "Meeting"
+    },
+    "profile": {
+      "titleInfo": "Información",
+      "titleContact": "Contacto y Notas",
+      "titleOffers": "Ofertas de Empleo",
+      "buttonChat": "Abrir chat con {{name}}",
+      "buttonMeets": "Solicitar entrevista con {{name}}"
+    }
+  },
+  "JOB_OFFERS": {
+    "noOffers": "No hay ofertas de empleo",
+    "noRequests": "No hay solicitudes",
+    "title": "Mis ofertas",
+    "tabMyOffers": "Solicitantes",
+    "noPremiumCompany": "No tienes disponible esta funcionabilidad.",
+    "card": {
+      "noTitle": "Sin nombre de puesto",
+      "noLocation": "Sin localización",
+      "noCompany": "Sin especificar",
+      "noContract": "Sin tipo de contrato",
+      "noSalary": "Sin especificar",
+      "noSchedule": "Sin horario",
+      "noSector": "Sin sector",
+      "noRequirements": "No hay requisitos mínimos",
+      "noDescription": "No hay descripción del puesto"
+    },
+    "btnInscription": "Inscribirme en la oferta",
+    "btnReviewRequest": "Revisar solicitud",
+    "alreadryRequested": "Ya te has inscrito en esta oferta",
+    "labelSector": "Sector Empresarial",
+    "labelNVacancies": "Número de vacantes",
+    "labelType": "Tipo de contrato",
+    "labelSchedule": "Horario",
+    "labelRequirements": "Requisitos mínimos",
+    "description": "Descripción",
+    "inscription": {
+      "title": "Inscripción",
+      "request": "Solicitud",
+      "textarea": "Escribe tu mensaje para solicitar la reunión...",
+      "addButton": "Añadir adjunto PDF",
+      "cancelButton": "Volver",
+      "submitButton": "Aceptar",
+      "addFiles": {
+        "title": "Añadir adjunto",
+        "chooseFiles": "Elige adjuntos",
+        "max": "Máximo 1",
+        "addFilesButton": "Añadir adjuntos desde el dispositivo",
+        "goBackButton": "Volver",
+        "addButton": "Añadir"
+      },
+      "alert": {
+        "success": {
+          "title": "Éxito",
+          "message": "Se ha realizado la inscripción satisfactoriamente"
+        },
+        "error": {
+          "title": "Error",
+          "message": "No se ha podido realizar la inscripción,"
+        }
+      }
+    },
+    "setOffer": {
+      "title": "Nueva oferta de empleo",
+      "labelTitleOffer": "Nombre del puesto ofertado",
+      "labelSector": "Sector Empresarial",
+      "labelLocation": "Lugar",
+      "labelNVacancies": "Número de vacantes",
+      "labelType": "Tipo de contrato",
+      "labelSchedule": "Horario",
+      "labelRequirements": "Requisitos mínimos",
+      "labelDescription": "Descripción",
+      "newOfferButton": "Crear oferta",
+      "alert": {
+        "success": {
+          "title": "Éxito",
+          "message": "Se ha creado la oferta de empleo satisfactoriamente,"
+        },
+        "error": {
+          "title": "Error",
+          "message": "No se ha podido crear la oferta de empleo,"
+        }
+      }
+    },
+    "deleteOffer": {
+      "alert": {
+        "title": "Eliminar oferta",
+        "message": "¿Estás seguro que deseas eliminar esta oferta de empleo?"
+      }
+    },
+    "editOffer": {
+      "title": "Editando oferta",
+      "saveButton": "Guardar oferta",
+      "deleteButton": "Eliminar oferta",
+      "alert": {
+        "title": "Éxito",
+        "message": "La oferta de empleo se ha actualizado correctamente"
+      }
+    }
+  },
+  "JOB_REQUESTS": {
+    "card": {
+      "noName": "Sin nombre",
+      "on": "en",
+      "noProfession": "No estudia actualmente",
+      "noRequest": "Sin solicitud"
+    }
+  },
+  "INFO_EVENT": {
+    "info": {
+      "organization": "Organiza",
+      "info": "Información",
+      "terms": "Condiciones"
+    },
+    "speakers": {
+      "noCategory": "No ha especificado categoría",
+      "noSector": "No ha especificado su sector",
+      "noPhone": "No ha especificado su teléfono",
+      "noEmail": "No ha especificado su correo",
+      "noLocation": "No ha especificado su ubicación",
+      "noSite": "No ha especificado ningún enlace",
+      "noInfo": "No ha especificado su descripción"
+    }
+  },
+  "GALLERY": {
+    "title": "Imágenes",
+    "noPhotos": "Actualmente no hay niguna fotografía"
+  },
+  "STREAMINGS": {
+    "noStreamings": "No hay  retransmisiones en este momento",
+    "room": "Sala {{room}}",
+    "live": "Emitiendo",
+    "notLive": "Pendiente de emisión",
+    "end": "Emisión finalizada",
+    "tabs": {
+      "info": "Información",
+      "chat": "Chat",
+      "assistants": "Asistentes"
+    },
+    "noInfo": "Sin información",
+    "input": "Escribe aquí..."
+  },
+  "CHAT": {
+    "title": "Mensajes",
+    "noChat": "No tienes ninguna conversación",
+    "yesterday": "Ayer",
+    "today": "Hoy",
+    "btnNewGroup": "Nuevo grupo",
+    "btnNewChat": "Nuevo chat",
+    "btnCancel": "Cancelar",
+    "btnNext": "Sig.",
+    "btnBack": "Atrás",
+    "inputNameGroup": "Nombre del grupo",
+    "me": "Yo:",
+    "noMessages": "Todavía no hay mensajes",
+    "enterVideocall": "Pulsa aquí para entrar en la videollamada",
+    "chatInfo": "Info. del chat",
+    "groupInfo": "Info. del grupo",
+    "admin": "Admin.",
+    "addPeople": "Añadir participantes",
+    "groupNamePlaceholder": "Nombre del grupo",
+    "saveNameGroup": "Guardar",
+    "add": "Añadir",
+    "leaveGroup": "Salir del grupo",
+    "remove": "Eliminar",
+    "removeUser": "¿Quieres eliminar a {{name}} del grupo?",
+    "discard": "Descartar",
+    "discardUser": "¿Quieres descartar como admin. a {{name}}?",
+    "makeAdmin": "Hacer admin.",
+    "makeAdminUser": "¿Quieres hacer admin. a {{name}}?",
+    "leave": "Salir",
+    "leaveUser": "¿Salir de {{nameGroup}}?",
+    "contextmenu": {
+      "showProfile": "Ver perfil",
+      "remove": "Eliminar",
+      "removeAdmin": "Descartar como admin.",
+      "makeAdmin": "Hacer admin."
+    }
+  },
+  "LEGAL_INFO": {
+    "title": "Información legal",
+    "cookies": {
+      "title": "Políticas de Cookies"
+    },
+    "privacy": {
+      "title": "Política de Privacidad"
+    },
+    "terms": {
+      "title": "Condiciones de Uso"
+    }
+  },
+  "LOADING": "Cargando...",
+  "NO_RESULTS": "No hay resultados",
+  "UPLOAD_IMG": {
+    "alert": {
+      "success": {
+        "title": "¡ÉXITO!",
+        "message": "Imagen actualizada correctamente"
+      },
+      "error": {
+        "title": "Error",
+        "message": "No se ha podido actualizar la imagen"
+      }
+    }
+  },
+  "UPLOAD_FILE": {
+    "alert": {
+      "success": {
+        "title": "¡ÉXITO!",
+        "message": "Adjunto actualizado correctamente"
+      },
+      "error": {
+        "title": "Error",
+        "message": "No se ha podido actualizar el archivo adjunto"
+      }
+    }
+  },
+  "CHANGE_PASS": {
+    "title": "Cambio de contraseña",
+    "labelPass": "Nueva contraseña",
+    "labelRepPass": "Repite contraseña",
+    "button": "Guardar contraseña",
+    "back": "Volver",
+    "forgot": {
+      "lbl": "Introduce tu correo para buscar tu cuenta",
+      "placeholder": "Correo",
+      "button": "Comprobar correo",
+      "alert": {
+        "title": "Éxito",
+        "message": "Si tu correo electrónico está en nuestra base de datos, te llegará un correo para cambiar tu contraseña."
+      }
+    },
+    "alert": {
+      "success": {
+        "title": "Éxito",
+        "message": "Los cambios se han guardado satisfatoriamente"
+      },
+      "error": {
+        "title": "Error",
+        "message": "No se han podido guardar los cambios"
+      }
+    },
+    "toastLength": "La contraseña tienes que ser más de 6 caracteres",
+    "toastDifferentPass": "Las contraseñas no coinciden"
+  },
+  "SPONSORS": {
+    "noSponsors": "Actualmente no hay ningún patrocinador",
+    "PATROCINADOR": "Patrocinador",
+    "PATROCINADOR PRINCIPAL": "Patrocinador principal"
+  },
+  "MEETINGS": {
+    "title": "Reuniones",
+    "noMeetings": "No tienes reuniones programadas",
+    "noCompanies": "No hay empresas para solicitar reuniones",
+    "requestMeeting": {
+      "title": "Solicita una reunión",
+      "labelRequest": "Solicitud",
+      "textarea": "Escribe tu mensaje para solicitar la reunion...",
+      "buttonAdd": "Añadir adjunto PDF",
+      "labelTemplateMeeting": "Usar mensaje como plantilla para solicitar reuniones",
+      "labelWarning1": "Este contacto te responderá por métodos ajenos a esta app",
+      "labelNoDate": "Sin cita",
+      "buttonChooseDate": "Elegir cita",
+      "buttonModifyDate": "Modificar cita",
+      "buttonAccept": "Aceptar y enviar solicitud"
+    },
+    "reviewMeeting": {
+      "title": "Revisando reunión",
+      "titleOffer": "Revisando solicitud",
+      "labelRequest": "Solicitud por la oferta",
+      "labelJob": "{{profession}} en {{company}}",
+      "status": {
+        "timeLeft": "Faltan {{timeLeft}}",
+        "enterMeeting": "Entrar en la reunión",
+        "aproved": "Aprobada",
+        "celebrated": "Celebrada",
+        "declined": "Declinada"
+      },
+      "labelOpenChat": "Abrir chat con {{name}}",
+      "labelAnnotations": "Anotaciones",
+      "labelOptional": "Opcional",
+      "labelPresentation": "Mensaje original"
+    },
+    "startMeeting": {
+      "title": "ESTÁS EN UN MEET CON...",
+      "labelTiempoRestante": "TIEMPO RESTANTE",
+      "labelReunionFinalizada": "Reunión finalizada",
+      "tabs": {
+        "0": "Chat",
+        "1": "Meeter",
+        "2": "Anotaciones",
+        "meet": {
+          "labelBtnInfoStudent": "Ver perfil de {{name}}",
+          "labelProfession": "en",
+          "labelInformacion": "INFORMACIÓN",
+          "labelSiguienteReunion": "Siguiente reunión a las",
+          "labelCargoEn": "Cargo en "
+        },
+        "annotations": {
+          "labelEtiqueta": "ETIQUETAS",
+          "labelOpcional": "Opcional",
+          "lableAnotaciones": "ANOTACIONES",
+          "label1": "Añade etiquetas para filtrar meeters",
+          "label2": "Haz aquí los apuntes que necesites",
+          "buttonSave": "Guardar anotación",
+          "toast": "Anotación guardada"
+        }
+      },
+      "lableVerPerfil": "Ver perfil de",
+      "lableInformacion": "INFORMACIÓN",
+      "labelSiguienteReunion": "Siguiente reunión a las",
+      "labelCargo": "Cargo en",
+      "tabAnotaciones": {
+        "labelValoraMeet": "VALORA EL MEET",
+        "labelOpcional": "Opcional",
+        "labelEtiquetas": "ETIQUETAS",
+        "textEtiquetas": "Añade etiquetas para filtrar meeters",
+        "labelAnotaciones": "ANOTACIONES",
+        "textAnotaciones": "Haz aquí los apuntes que necesites"
+      },
+      "tabChat": {
+        "labelEscribe": "Escribe en el chat..."
+      },
+      "popOverEndMeet": {
+        "title": "¿QUÉ TE HA PARECIDO EL MEET?",
+        "labelEtiquetas": "ETIQUETAS",
+        "labelAnotaciones": "ANOTACIONES",
+        "lableBtnFavoritos": "Favoritos",
+        "labelTextArea": "Haz aquí los apuntes que necesites",
+        "labelOpcional": "Opcional",
+        "labelBtnAceptExit": "Aceptar y salir",
+        "labelBtnNextMeet": "SIGUIENTE REUNIÓN"
+      },
+      "labelNoMeets": "No tienes más reuniones"
+    },
+    "calendar": {
+      "title": "Elegir cita",
+      "labelAvailable": "Disponible el {{date}}...",
+      "labelHourSelect": "Selecciona una fecha para mostrar las horas",
+      "buttonGoBack": "Volver atrás",
+      "buttonConfirm": "Confirmar",
+      "weekdays": {
+        "monday": "L",
+        "tuesday": "M",
+        "wednesday": "X",
+        "thursday": "J",
+        "friday": "V",
+        "saturday": "S",
+        "domingo": "D"
+      }
+    },
+    "viewStudent": {
+      "labelRequest": "Solicitar",
+      "labelRequested": "Solicitada",
+      "labelDeclined": "Declinada",
+      "labelUbication": "Online a través de la app",
+      "labelInfo": "Haz click en la tarjeta para acceder",
+      "labelCelebrated": "Reunión celebrada",
+      "labelNoAnnotations": "No hay anotaciones"
+    },
+    "viewCompany": {
+      "labelCelebrated": "Reunión celebrada",
+      "labelNoAnnotations": "No hay anotaciones"
+    },
+    "setUpMeetingHours": {
+      "title": "Configurar mi agenda",
+      "cardAvailble": "Disponible",
+      "cardUnavailble": "No disponible",
+      "cardReserved": "Reservada",
+      "popover": {
+        "title": "Configurar cita",
+        "date": "{{date}} de {{hour}} a {{endHour}}",
+        "labelToggle": "Mostrar como \"NO DISPONIBLE\"",
+        "buttonGoBack": "Volver",
+        "buttonAccept": "Aplicar"
+      }
+    },
+    "associateNewMeetDate": {
+      "title": "ASOCIAR NUEVA CITA",
+      "labelButtonAvailable": "Mantener cita disponible sin reserva",
+      "labelPendientesReserva": "PENDIENTES DE RESERVA",
+      "labelDenegados": "DENEGADOS",
+      "labelReservadosOtraCita": "RESERVADOS EN OTRA CITA",
+      "labelButtonOtrasCitas": "SOLICITAR OTRAS CITAS",
+      "labelCargoEn": "Cargo en "
+    }
+  },
+  "ACCREDITATION": {
+    "title": "Acreditaciones"
+  },
+  "SEARCHBAR": "Escribe qué quieres buscar...",
+  "NOTIFICATIONS": {
+    "title": "Notificación",
+    "go": "Ir"
+  },
+  "PLAN": {
+    "title": "Plano"
+  },
+  "EXTERNAL_LINK": {
+    "tourGuide": "Turismo",
+    "howToGet": "¿Cómo llegar?"
+  }
+}

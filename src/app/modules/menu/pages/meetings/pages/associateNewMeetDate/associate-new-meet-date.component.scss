@@ -1,0 +1,439 @@
+@import "../../../../../../../assets/scss/partials/variables";
+@import "../../../../../../../assets/scss/partials/typography";
+
+ion-header {
+  background-color: $interactive;
+
+  ion-toolbar {
+    --background: transparent;
+
+    ion-buttons {
+      ion-menu-button {
+        color: $primaryIcon;
+      }
+
+      ion-button {
+        &.chat {
+          display: none;
+        }
+
+        .icon {
+          color: $primaryIcon;
+          font-size: 27px;
+        }
+      }
+    }
+
+    ion-title {
+      text-transform: uppercase;
+      font-style: italic;
+      font-weight: 700;
+      color: $secondaryTitle;
+      // padding: 0 50px;
+      // text-align: center;
+    }
+  }
+}
+ion-content {
+  --overflow: auto;
+
+  ion-segment {
+    background: white;
+    overflow-x: hidden;
+
+    ion-segment-button {
+      background-color: white;
+      width: 100%;
+      max-width: 100%;
+      &.segment-button-checked {
+        border-bottom: 5px solid $interactive;
+        --indicator-color: none;
+
+        ion-label {
+          color: $selectedText;
+          font-weight: 900;
+          font-style: normal;
+        }
+      }
+
+      ion-label {
+        text-transform: none;
+        font-size: 11px;
+        color: $emphasis;
+        font-style: italic;
+      }
+    }
+  }
+}
+
+ion-item-divider {
+  border-bottom: none; 
+  background: $backgroundColor;
+
+  .ion-color-light {
+    --ion-color-base: #eeeeee !important;
+  } 
+}
+
+//CONTENT GLOBAL
+.content-global {
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  overflow: auto;
+  .linea {
+    width: 100%;
+    height: 2px;
+  }
+  .linea2 {
+    width: 100%;
+    height: 2px;
+    vertical-align: top;
+  }
+  .line {
+    display: block;
+    height: 2px;
+    background: black;
+    width: 100%;
+    margin: auto;
+  }
+  .content-btn-show-date-availables {
+    width: 100%;
+    height: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    .btn-date-available {
+      width: 100%;
+      height: 28px;
+      --border-radius: 20px;
+      border-radius: 20px;
+      --background: #ffffff;
+      border: solid 2px $emphasis;
+
+      .label-available {
+        @include boton1(black);
+      }
+    }
+  }
+  .content-pendiente-reserva {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    .label-pendiente {
+      @include botonAssociateMeet(black);
+    }
+
+    ion-card {
+      position: relative;
+      background: white;
+      border-radius: 20px;
+      height: 130px;
+      cursor: pointer;
+      margin: 10px;
+      display: flex;
+
+      img {
+        max-width: 60px;
+        max-height: 100px;
+        margin: auto;
+        object-fit: cover;
+      }
+
+      .info-container {
+        width: 100%;
+        padding-right: 40px;
+        display: grid;
+
+        .field {
+          display: flex;
+          margin: auto 0;
+
+          .icon {
+            font-size: 18px;
+            padding-right: 5px;
+            color: black;
+            margin: auto 0;
+          }
+
+          ion-card-title {
+            @include boton1(black);
+          }
+
+          ion-card-subtitle {
+            @include cuerpoTexto1(black);
+          }
+        }
+        .text-large {
+          width: 100%;
+          height: 50%;
+          .parrafo {
+            font-size: 12px;
+            color: #000000;
+          }
+        }
+        .label-etiqueta {
+          margin-left: 5px;
+          font-weight: bold !important;
+          color: #000000 !important;
+        }
+      }
+
+      .arrow-container {
+        position: absolute;
+        width: 40px;
+        height: 110px;
+        top: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        border-left: rgba(0, 0, 0, 0.05) solid 2px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        z-index: 0;
+
+        i {
+          color: $emphasis;
+          height: auto;
+          margin: auto;
+          font-size: 30px;
+        }
+      }
+    }
+  }
+  .content-denegados {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    .label-denegados {
+      @include botonAssociateMeet(black);
+    }
+    ion-card {
+      position: relative;
+      background: white;
+      border-radius: 20px;
+      height: 130px;
+      cursor: pointer;
+      margin: 10px;
+      border: solid 2px red;
+      display: flex;
+
+      .img-opacity {
+        max-width: 60px;
+        max-height: 100px;
+        margin: auto;
+        object-fit: cover;
+        opacity: 42%;
+      }
+
+      .info-container {
+        width: 100%;
+        padding-right: 40px;
+        display: grid;
+        opacity: 42%;
+        .field {
+          display: flex;
+          margin: auto 0;
+
+          .icon {
+            font-size: 18px;
+            padding-right: 5px;
+            color: black;
+            margin: auto 0;
+          }
+
+          ion-card-title {
+            @include boton1(black);
+          }
+
+          ion-card-subtitle {
+            @include cuerpoTexto1(black);
+          }
+        }
+        .text-large {
+          width: 100%;
+          height: 50%;
+          .parrafo {
+            font-size: 12px;
+            color: #000000;
+          }
+        }
+        .label-etiqueta {
+          margin-left: 5px;
+          font-weight: bold !important;
+          color: #000000 !important;
+        }
+      }
+
+      .arrow-container {
+        position: absolute;
+        width: 40px;
+        height: 110px;
+        top: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        border-left: #000000 solid 2px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        z-index: 0;
+
+        i {
+          color: $emphasis;
+          height: auto;
+          margin: auto;
+          font-size: 30px;
+        }
+      }
+    }
+  }
+  .content-resev-otra-cita {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+
+    .label-reservados {
+      @include boton1(black);
+    }
+    ion-card {
+      position: relative;
+      background: white;
+      border-radius: 20px;
+      height: 130px;
+      cursor: pointer;
+      margin: 10px;
+      display: flex;
+      border: solid 2px $interactive;
+
+      .content-img-icon {
+        text-align: center;
+        padding-left: 8px;
+        padding-right: 2px;
+        img {
+          max-width: 60px;
+          max-height: 100px;
+          margin: auto;
+          object-fit: cover;
+          border-radius: 20px;
+        }
+        .icon-meet {
+          max-width: 60px;
+          max-height: 100px;
+          margin: auto;
+          font-size: 43px;
+          object-fit: cover;
+          color: $interactive;
+        }
+      }
+
+      .info-container {
+        width: 100%;
+        padding-right: 40px;
+        display: grid;
+
+        .field {
+          display: flex;
+          margin: auto 0;
+
+          .icon {
+            font-size: 18px;
+            padding-right: 5px;
+            color: black;
+            margin: auto 0;
+          }
+
+          ion-card-title {
+            @include boton1(black);
+          }
+
+          ion-card-subtitle {
+            @include cuerpoTexto1(black);
+          }
+        }
+        .text-large {
+          width: 100%;
+          height: 10%;
+          .parrafo {
+            font-size: 10px;
+            color: $interactive;
+          }
+        }
+        .label-etiqueta {
+          margin-left: 5px;
+          font-weight: bold !important;
+          color: #000000 !important;
+        }
+      }
+
+      .selection-container {
+        position: absolute;
+        width: 40px;
+        height: 110px;
+        top: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        z-index: 0;
+
+        i {
+          color: $interactive;
+          height: auto;
+          margin: auto;
+          font-size: 30px;
+        }
+      }
+    }
+  }
+  .content-btn-otras-citas {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    text-align: center;
+    .btn-otras-citas{
+      width: 75%;
+      height: 35px;
+      --border-radius: 20px;
+      border-radius: 20px;
+      --background: #ffffff;
+      border: solid 2px $emphasis;
+      .label-otras-citas {
+        @include boton1(black);
+      }
+    }
+  }
+}
+@media screen and (min-width: 1028px) {
+    //CONTENT GLOBAL
+    .content-global {
+      width: 81%;
+      margin-left: 11%;
+    }
+}
+
+@media screen and (min-width: 1388px) and (max-width: 1600px) {
+  //CONTENT GLOBAL
+  .content-global {
+    width: 81%;
+    margin-left: 11%;
+  }
+}
+
+@media screen and (min-width: 1599px) and (max-width: 1924px)  {
+  //CONTENT GLOBAL
+  .content-global {
+    width: 66%;
+    margin-left: 19%;
+  }
+}
+

@@ -1,0 +1,60 @@
+<ion-header *ngIf="!goToCreateGroup" class="menu side">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="goBack()">
+        <i class="icon icon_w_icons_arrow_nav_left"></i>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      {{ "CHAT.btnNewGroup" | translate }}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button disabled="{{listUsers.length === 0 || listUsers.length > 24}}" class="next" fill="clear"
+        (click)="next()">
+        {{ "CHAT.btnNext" | translate }}
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding *ngIf="!goToCreateGroup">
+  <list-assistants-group (chatGroup)="receiveChatGroup($event)"></list-assistants-group>
+</ion-content>
+
+<ion-header *ngIf="goToCreateGroup" class="menu side">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button class="back" fill="clear" (click)="back()">
+        <ion-icon name="arrow-back" class="icon"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      {{ "CHAT.btnNewGroup" | translate }}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear"
+        disabled="{{groupName === undefined || listUsers.length === 0 || groupName.trim() === ''}}"
+        (click)="createGroup()">
+        <i class="icon icon_w_icons_check_circle"></i>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding *ngIf="goToCreateGroup">
+  <div class="input-container">
+    <ion-input class="input" placeholder="{{ 'CHAT.inputNameGroup' | translate }}" [(ngModel)]="groupName"></ion-input>
+  </div>
+  <ion-list class="list-selected-users">
+    <ion-item detail="false" class="assistant" *ngFor="let assistant of listUsers">
+      <img *ngIf="assistant.id !== null" class="profile-img" src="{{assistant.id | imageProfile}}"
+        onerror="this.src='assets/img/no_image_user.webp';">
+      <img *ngIf="assistant.id === null" class="profile-img" src="assets/img/no_image_user.webp">
+      <div class="username-container">
+        <ion-title class="fullname">{{assistant.name}} {{assistant.surnames}}</ion-title>
+        <ion-title class="username" *ngIf="isValueNull(assistant.username)">@{{assistant.username}}</ion-title>
+      </div>
+      <ion-button class="delete" fill="clear" (click)="delete(assistant.id)">
+        <i class="icon icon_w_icons_cancel"></i>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

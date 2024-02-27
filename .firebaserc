@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "cashless-system"
+  },
+  "targets": {
+    "cashless-system": {
+      "hosting": {
+        "app": [
+          "cashless-system"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+<ion-card
+  [ngClass]="{'available': status === 'available','unavailable': status === 'unavailable','reserved': status === 'reserved'}"
+  target="_blank" (click)="showPopOver()">
+  <ion-card-header class="info-container">
+    <div class="field">
+      <ion-card-subtitle class="value">
+        {{hour}} - {{getEndHour(hour)}}
+      </ion-card-subtitle>
+    </div>
+    <div class="field" [ngSwitch]='status'>
+      <ion-card-title class="value" *ngSwitchCase="'available'">
+        {{"MEETINGS.setUpMeetingHours.cardAvailble" | translate}}
+      </ion-card-title>
+      <ion-card-title class="value" *ngSwitchCase="'unavailable'">
+        {{"MEETINGS.setUpMeetingHours.cardUnavailble" | translate}}
+      </ion-card-title>
+      <ion-card-title class="value" *ngSwitchCase="'reserved'">
+        {{"MEETINGS.setUpMeetingHours.cardReserved" | translate}}
+      </ion-card-title>
+    </div>
+  </ion-card-header>
+  <div class="arrow-container" *ngIf="status !== 'reserved'">
+    <i class="icon icon_w_icons_edit_box"></i>
+  </div>
+</ion-card>

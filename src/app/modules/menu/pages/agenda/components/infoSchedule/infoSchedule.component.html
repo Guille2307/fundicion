@@ -1,0 +1,76 @@
+<div class="content" *ngIf="activity">
+  <div class="header-container">
+    <div *ngIf="activity" id="img-container" class="img-container"></div>
+    <div class="title-img-container" *ngIf="activity !== null">
+      <div class="title-container">
+        <ion-title size="small" *ngIf="activity.title !== undefined">{{activity.title}}</ion-title>
+      </div>
+
+      <ion-button class="add-button" (click)="addToSchedule()">
+        <i *ngIf="!activity.assistance" class="icon icon_w_icons_bell_outline"></i>
+        <i *ngIf="activity.assistance" class="icon icon_w_icons_bell"></i>
+      </ion-button>
+    </div>
+  </div>
+
+  <div class="body-container">
+    <div class="button-container" *ngIf="streaming">
+      <button class="btn-streaming" (click)="goToStreaming()">
+        <div class="ion-activatable ripple-parent">
+          <ion-title size="large">
+            {{"AGENDA.infoActivity.buttonStreaming" | translate}}
+          </ion-title>
+          <ion-ripple-effect></ion-ripple-effect>
+        </div>
+      </button>
+    </div>
+    <div class="button-container" *ngIf="activity.url_venta">
+      <button class="btn-sale" (click)="goToTicketsSale()">
+        <div class="ion-activatable ripple-parent">
+          <ion-title size="large">
+            {{"AGENDA.infoActivity.buttonUrlSale" | translate}}
+          </ion-title>
+          <i class="icon right icon_w_icons_open_in_new"></i>
+          <ion-ripple-effect></ion-ripple-effect>
+        </div>
+      </button>
+    </div>
+    <div class="title-container auto" *ngFor="let speaker of activity.speakers">
+      <i class="icon icon_w_icons_mic"></i>
+      <div class="ion-title-container name">
+        <p class="uppercase">{{"AGENDA.infoActivity.speaker" | translate}}</p>
+        <ion-title id="name-speaker" class="name">{{speaker.name}}</ion-title>
+        <p *ngIf="activity.category" class="italic">{{activity.category}}</p>
+      </div>
+      <img id="img-profile" class="profile-img" src="{{ speaker.speaker_id | imageSpeaker }}"
+        onerror="this.onerror=null;this.src='assets/img/no_image_user.webp'" (click)="infoSpeaker(speaker.speaker_id)">
+    </div>
+    <div class="title-container">
+      <i class="icon icon_w_icons_clock"></i>
+      <div class="ion-title-container">
+        <ion-title>{{getDate(activity.starts)}}</ion-title>
+      </div>
+    </div>
+    <div class="title-container">
+      <i class="icon icon_w_icons_location_pin_circle"></i>
+      <div class="ion-title-container">
+        <ion-title *ngIf="activity.location">{{activity.location}}</ion-title>
+        <ion-title *ngIf="!activity.location" class="no-value">{{"AGENDA.infoActivity.noLocation" | translate}}
+        </ion-title>
+      </div>
+    </div>
+    <div class="title-container">
+      <i class="icon icon_w_icons_information_circle"></i>
+      <div class="ion-title-container">
+        <ion-title class="title info">{{"AGENDA.infoActivity.labelInfo" | translate}}</ion-title>
+      </div>
+      <div class="line"></div>
+    </div>
+    <div *ngIf="activity.description" class="info-content" [innerHTML]="parseBody(activity.description)">
+    </div>
+    <div *ngIf="!activity.description" class="info-content no-value">
+      {{"AGENDA.infoActivity.noInfo" | translate}}
+    </div>
+    <iframe *ngIf="activity.iframe" [src]="sanitizedUrl" style="width: 100%; height: 700px;" ></iframe>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+<mat-sidenav-container style="height: 100%; background: transparent">
+  <mat-sidenav-content>
+    <ion-header class="menu">
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+          {{ "MENU.companies" | translate }}
+        </ion-title>
+        <ion-buttons slot="primary">
+          <ion-button
+            class="search-button"
+            fill="clear"
+            (click)="sideSearchbar.toggle()"
+          >
+            <i class="icon icon_w_icons_search_small"></i>
+          </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end" class="mobile">
+          <chat-and-profile></chat-and-profile>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content padding class="menu-content">
+      <button
+        mat-fab
+        class="fab-button search"
+        (click)="sideSearchbar.toggle()"
+      >
+        <i class="icon icon_w_icons_search_small"></i>
+      </button>
+      <cdk-virtual-scroll-viewport
+        *ngIf="companies"
+        itemSize="120"
+        minBufferPx="900"
+        maxBufferPx="1350"
+      >
+        <ion-list class="content">
+          <company-card
+            *cdkVirtualFor="let company of companies | filter : query"
+            [company]="company"
+          >
+          </company-card>
+          <ion-title
+            class="no-companies"
+            *ngIf="(companies | filter : query).length === 0"
+          >
+            {{ "NO_RESULTS" | translate }}
+          </ion-title>
+        </ion-list>
+      </cdk-virtual-scroll-viewport>
+      <div class="spinner">
+        <ion-spinner *ngIf="!companies"></ion-spinner>
+      </div>
+    </ion-content>
+  </mat-sidenav-content>
+  <mat-sidenav
+    id="sideSearchbar"
+    #sideSearchbar
+    mode="over"
+    position="end"
+    style="width: 80%"
+  >
+    <searchbar
+      [sideNav]="sideSearchbar"
+      (sendQuery)="query = $event"
+    ></searchbar>
+  </mat-sidenav>
+</mat-sidenav-container>

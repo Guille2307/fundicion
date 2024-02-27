@@ -1,0 +1,14 @@
+@import "../../../../../assets/scss/partials/variables";
+@import "../../../../../assets/scss/partials/typography";
+
+.img-container {
+  display: flex;
+  background: transparent;
+  height: 100%;
+
+  img {
+    margin: auto;
+    max-height: 80%;
+    max-width: 80%;
+  }
+}

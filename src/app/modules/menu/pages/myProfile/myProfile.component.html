@@ -1,0 +1,37 @@
+<ion-header class="menu">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      {{ "MENU.myProfile" | translate }}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="edit-profile" fill="clear" (click)="editProfile()">
+        <i class="icon icon_w_icons_edit_box"></i>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding [ngSwitch]="sub">
+  <my-info *ngIf="sub === 'EMPLOYEE' || sub === 'ADMIN'"></my-info>
+  <my-company-profile
+    *ngIf="sub !== 'EMPLOYEE' && sub !== 'ADMIN'"
+  ></my-company-profile>
+  <!-- <ion-tabs>
+    <ion-tab-bar slot="top">
+      <ion-tab-button tab="my-info">
+        <ion-label class="title">{{ "MENU.myProfileTabs.myInfo" | translate }}</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="my-purse">
+        <ion-label class="title">{{ "MENU.myProfileTabs.myPurse" | translate }}</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="my-company-profile">
+        <ion-label class="title">{{ "MENU.myProfileTabs.myCompanyProfile" | translate }}</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="my-meetings">
+        <ion-label class="title">{{ "MENU.myProfileTabs.myMeetings" | translate }}</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs> -->
+</ion-content>

@@ -1,0 +1,79 @@
+<ion-card
+  target="_blank"
+  [ngClass]="{
+    pending: requested && status === 'pending',
+    aproved: requested && status === 'aproved',
+    declined: requested && status === 'declined'
+  }"
+>
+  <img
+    src="{{ offer.user_id | imageProfile }}"
+    onerror="this.src='assets/img/no_image_user.webp'"
+    (click)="showOffer(offer)"
+  />
+  <ion-card-header class="info-container" (click)="showOffer(offer)">
+    <div class="field">
+      <i class="icon icon_w_icons_doc"></i>
+      <ion-card-subtitle class="value">
+        <label *ngIf="isValueNull(offer.contract)">
+          {{ offer.contract }}
+        </label>
+        <label class="no-value" *ngIf="!isValueNull(offer.contract)">
+          {{ "JOB_OFFERS.card.noContract" | translate }}
+        </label>
+        |
+        <label *ngIf="isValueNull(offer.schedule)">
+          {{ offer.schedule }}
+        </label>
+        <label class="no-value" *ngIf="!isValueNull(offer.schedule)">
+          {{ "JOB_OFFERS.card.noSchedule" | translate }}
+        </label>
+        <!-- |
+        <label *ngIf="isValueNull(offer.salary)">
+          {{offer.salary}}
+        </label>
+        <label class="no-value" *ngIf="!isValueNull(offer.salary)">
+          {{ "JOB_OFFERS.card.noSalary" | translate }}
+        </label> -->
+      </ion-card-subtitle>
+    </div>
+    <div class="field">
+      <ion-card-title class="value" *ngIf="isValueNull(offer.title)">
+        {{ offer.title }}
+      </ion-card-title>
+      <ion-card-subtitle class="no-value" *ngIf="!isValueNull(offer.title)">
+        {{ "JOB_OFFERS.card.noTitle" | translate }}
+      </ion-card-subtitle>
+    </div>
+    <div class="field">
+      <i class="icon icon_w_icons_exhibitor"></i>
+      <ion-card-subtitle class="value" *ngIf="isValueNull(offer.company)">
+        {{ offer.company }}
+      </ion-card-subtitle>
+      <ion-card-subtitle class="no-value" *ngIf="!isValueNull(offer.company)">
+        {{ "JOB_OFFERS.card.noCompany" | translate }}
+      </ion-card-subtitle>
+    </div>
+    <div class="field">
+      <i class="icon icon_w_icons_location_pin"></i>
+      <ion-card-subtitle class="value" *ngIf="isValueNull(offer.location)">
+        {{ offer.location }}
+      </ion-card-subtitle>
+      <ion-card-subtitle class="no-value" *ngIf="!isValueNull(offer.location)">
+        {{ "JOB_OFFERS.card.noLocation" | translate }}
+      </ion-card-subtitle>
+    </div>
+  </ion-card-header>
+  <div class="arrow-container" *ngIf="showArrow" (click)="showOffer(offer)">
+    <i *ngIf="!requested" class="icon icon_w_icons_arrow_nav_right"></i>
+    <i *ngIf="requested" class="icon icon_w_icons_selection"></i>
+  </div>
+  <ion-button
+    fill="clear"
+    class="delete-button"
+    *ngIf="!showArrow"
+    (click)="deleteOffer(offer)"
+  >
+    <i class="icon icon_w_icons_remove_circle remove"></i>
+  </ion-button>
+</ion-card>

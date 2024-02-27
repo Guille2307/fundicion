@@ -1,0 +1,117 @@
+<div class="image-container">
+  <img
+    src="{{ offer.user_id | imageProfile }}"
+    onerror="this.src='assets/img/no_image_user.webp'"
+  />
+</div>
+<div class="info-container">
+  <div class="title-container">
+    <ion-title size="small" *ngIf="isValueNull(offer.title)">
+      {{ offer.title }}
+    </ion-title>
+    <ion-title size="small" *ngIf="!isValueNull(offer.title)">
+      {{ "JOB_OFFERS.card.noTitle" | translate }}
+    </ion-title>
+    <label *ngIf="isValueNull(offer.company)">
+      {{ offer.company }}
+    </label>
+    <label class="no-value" *ngIf="!isValueNull(offer.company)">
+      {{ "JOB_OFFERS.card.noCompany" | translate }}
+    </label>
+  </div>
+  <div class="btn-container" *ngIf="sub === 'EMPLOYEE'">
+    <button *ngIf="!offerRequested" (click)="openPopover($event)">
+      {{ "JOB_OFFERS.btnInscription" | translate }}
+    </button>
+    <ion-label *ngIf="offerRequested">{{
+      "JOB_OFFERS.alreadryRequested" | translate
+    }}</ion-label>
+    <br />
+    <!-- <button *ngIf="offerRequested" (click)="goToReviewRequest()">
+      {{ "JOB_OFFERS.btnReviewRequest" | translate }}
+    </button> -->
+  </div>
+  <ion-list class="offer-container">
+    <ion-item detail="false" class="data">
+      <i class="icon icon_w_icons_location_pin_circle"></i>
+      <ion-title size="small" *ngIf="isValueNull(offer.location)">
+        {{ offer.location }}
+      </ion-title>
+      <ion-title
+        class="no-value"
+        size="small"
+        *ngIf="!isValueNull(offer.location)"
+      >
+        {{ "JOB_OFFERS.card.noLocation" | translate }}
+      </ion-title>
+    </ion-item>
+    <ion-item detail="false" class="data">
+      <i class="icon icon_w_icons_doc margin-top"></i>
+      <ul>
+        <li>
+          <label class="statement"
+            >{{ "JOB_OFFERS.labelSector" | translate }}:</label
+          >
+          <label class="value" *ngIf="isValueNull(offer.sector)">{{
+            offer.sector
+          }}</label>
+          <label class="no-value" *ngIf="!isValueNull(offer.sector)">{{
+            "JOB_OFFERS.card.noSector" | translate
+          }}</label>
+        </li>
+        <li>
+          <label class="statement"
+            >{{ "JOB_OFFERS.labelNVacancies" | translate }}:</label
+          >
+          <label class="value">{{ offer.vacancies }}</label>
+        </li>
+        <li>
+          <label class="statement"
+            >{{ "JOB_OFFERS.labelType" | translate }}:</label
+          >
+          <label class="value" *ngIf="isValueNull(offer.contract)">{{
+            offer.contract
+          }}</label>
+          <label class="no-value" *ngIf="!isValueNull(offer.contract)">{{
+            "JOB_OFFERS.card.noContract" | translate
+          }}</label>
+        </li>
+        <li>
+          <label class="statement"
+            >{{ "JOB_OFFERS.labelSchedule" | translate }}:</label
+          >
+          <label class="value" *ngIf="isValueNull(offer.schedule)">{{
+            offer.schedule
+          }}</label>
+          <label class="no-value" *ngIf="!isValueNull(offer.schedule)">{{
+            "JOB_OFFERS.card.noSchedule" | translate
+          }}</label>
+        </li>
+        <li>
+          <label class="statement"
+            >{{ "JOB_OFFERS.labelRequirements" | translate }}:</label
+          >
+          <label class="value" *ngIf="isValueNull(offer.requirements)">{{
+            offer.requirements
+          }}</label>
+          <label class="no-value" *ngIf="!isValueNull(offer.requirements)">{{
+            "JOB_OFFERS.card.noRequirements" | translate
+          }}</label>
+        </li>
+      </ul>
+    </ion-item>
+  </ion-list>
+  <div class="description-container">
+    <div class="title">
+      <i class="icon icon_w_icons_information_circle"></i>
+      <label>{{ "JOB_OFFERS.description" | translate }}</label>
+      <div class="line"></div>
+    </div>
+    <div *ngIf="isValueNull(offer.description)" class="description">
+      {{ offer.description }}
+    </div>
+    <div *ngIf="!isValueNull(offer.description)" class="description no-value">
+      {{ "JOB_OFFERS.card.noDescription" | translate }}
+    </div>
+  </div>
+</div>

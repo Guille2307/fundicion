@@ -1,0 +1,21 @@
+<ion-header class="menu">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      {{ "GALLERY.title" | translate }}
+    </ion-title>
+    <ion-buttons slot="end" class="mobile">
+      <chat-and-profile></chat-and-profile>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <div class="content" *ngIf="gallery.length === 0">
+    <ion-title size="large" class="no-photos">{{
+      "GALLERY.noPhotos" | translate
+    }}</ion-title>
+  </div>
+  <div id="gallery-content" class="content grid"></div>
+</ion-content>

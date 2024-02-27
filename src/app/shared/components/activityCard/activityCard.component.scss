@@ -1,0 +1,92 @@
+@import "../../../../assets/scss/partials/variables";
+@import "../../../../assets/scss/partials/typography";
+
+ion-card {
+  position: relative;
+  background: $backgroundCards;
+  border-radius: 20px;
+  height: 130px;
+  cursor: pointer;
+  margin: 10px;
+  display: flex;
+
+  img {
+    max-width: 100px;
+    max-height: 100px;
+    padding: 0 5px;
+    margin: auto;
+    object-fit: cover;
+
+    &.schedule {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      max-height: 100%;
+    }
+  }
+
+  .info-container {
+    width: 80%;
+    padding: 5px;
+    display: grid;
+
+    .field {
+      display: flex;
+      margin: auto 10px;
+
+      .icon {
+        font-size: 18px;
+        padding-right: 5px;
+        color: $fontCards;
+        margin: auto 0;
+      }
+
+      ion-card-title,
+      ion-title {
+        @include boton1($fontCards);
+      }
+
+      ion-card-subtitle {
+        @include cuerpoTexto1($fontCards);
+
+        &.no-value {
+          opacity: 42%;
+          font-style: italic;
+        }
+      }
+    }
+  }
+
+  .icon-container {
+    width: 50px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-left: rgba(0, 0, 0, 0.05) solid 2px;
+    margin: 0;
+    cursor: pointer;
+
+    i {
+      color: $interactive;
+      height: auto;
+      margin: auto;
+      font-size: 30px;
+
+      &.cancel {
+        color: $cancel;
+      }
+
+      &.duplicate {
+        color: $interactive;
+      }
+    }
+  }
+
+  .edit-container {
+    .icon-container {
+      height: 50%;
+    }
+  }
+}

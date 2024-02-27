@@ -1,0 +1,21 @@
+<ion-card target="_blank" (click)="showInfo()">
+  <img *ngIf="card.id !== null" src="{{card.id | imageSpeaker}}" onerror="this.onerror=null;this.src='assets/img/no_image_user.webp'">
+  <img *ngIf="card.id === null" class="no-img" src="assets/img/no_image_user.webp">
+  <ion-card-header class="values-container">
+    <div class="field">
+      <!-- <i class="icon icon_w_icons_mic"></i> -->
+      <ion-card-title class="value">
+        {{card.name}}
+      </ion-card-title>
+    </div>
+    <!-- <div class="field">
+      <i class="icon icon_w_icons_clock"></i>
+      <ion-card-subtitle class="value">
+        {{getDate(card.starts)}}
+      </ion-card-subtitle>
+    </div> -->
+  </ion-card-header>
+  <div class="arrow-container">
+    <i class="icon icon_w_icons_arrow_nav_right"></i>
+  </div>
+</ion-card>

@@ -1,0 +1,9 @@
+<cdk-virtual-scroll-viewport itemSize="20" class="content" *ngIf="schedule">
+  <ion-list>
+    <activity-card [card]="item" *cdkVirtualFor="let item of schedule | filter: query"></activity-card>
+    <ion-title *ngIf="schedule.length === 0" class="no-content">{{ 'NO_RESULTS' | translate }}</ion-title>
+  </ion-list>
+</cdk-virtual-scroll-viewport>
+<div class="content" *ngIf="!schedule">
+  <ion-title class="loading">{{ 'LOADING' | translate }}</ion-title>
+</div>

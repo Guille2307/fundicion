@@ -1,0 +1,65 @@
+<ion-header class="menu side">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="goBack()">
+        <i class="icon icon_w_icons_arrow_nav_left"></i>
+      </ion-button>
+    </ion-buttons>
+      <ion-title *ngIf="!(isGroup | async)">
+        {{"CHAT.chatInfo" | translate}}
+      </ion-title>
+      <ion-title *ngIf="isGroup | async">
+        {{"CHAT.groupInfo" | translate}}
+      </ion-title>
+    <ion-buttons *ngIf="(isGroup | async) && admin" slot="end">
+      <ion-button [ngClass]="{ 'disabled': name.trim() === nameGroup.trim()}" fill="clear" (click)="saveNewNameGroup()">
+        {{"CHAT.saveNameGroup" | translate}}
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="input-container" *ngIf="(isGroup | async) && admin">
+    <input type="text" [(ngModel)]="nameGroup" placeholder='{{"CHAT.groupNamePlaceholder" | translate}}'>
+  </div>
+  <div class="label-container" *ngIf="(isGroup | async) && !admin">
+    <label>{{nameGroup}}</label>
+  </div>
+  <ion-list class="list-users">
+    <ion-nav-link [component]="addPeoplePage">
+      <ion-item *ngIf="admin" detail="false" class="add-user" button>
+        <div class="icon-container">
+          <i class="icon icon_w_icons_add"></i>
+        </div>
+        <div class="title-container">
+          <ion-title size="large">{{"CHAT.addPeople" | translate}}</ion-title>
+        </div>
+      </ion-item>
+    </ion-nav-link>
+    <div class="user-container" *ngFor="let user of users | async">
+      <ion-item detail="false" class="user">
+        <img *ngIf="user.id !== null" class="profile-img" src="{{user.id | imageProfile}}"
+          onerror="this.src='assets/img/no_image_user.webp';">
+        <img *ngIf="user.id === null" class="profile-img" src="assets/img/no_image_user.webp">
+        <div class="username-container">
+          <ion-title class="fullname">{{user.name}} {{user.surnames}}</ion-title>
+          <ion-title class="username" *ngIf="isValueNull(user.username)">@{{user.username}}</ion-title>
+        </div>
+      </ion-item>
+      <div *ngIf="user.admin" class="admin">
+        {{"CHAT.admin" | translate}}
+      </div>
+      <ion-button *ngIf="id !== user.id" class="options" fill="clear" (click)="openPopover(user, $event)">
+        <ion-icon class="icon" name="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-list>
+  <ion-item *ngIf="(isGroup | async)" detail="false" class="leave-group" button (click)="leaveGroup()">
+    <div class="icon-container">
+      <i class="icon icon_w_icons_exit"></i>
+    </div>
+    <div class="title-container">
+      <ion-title>{{"CHAT.leaveGroup" | translate}}</ion-title>
+    </div>
+  </ion-item>
+</ion-content>

@@ -1,0 +1,193 @@
+<ion-header class="menu">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="goBack()">
+        <i class="icon icon_w_icons_arrow_nav_left"></i>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      {{ "MEETINGS.associateNewMeetDate.title" | translate }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-segment (ionChange)="segmentChanged($event)"[(ngModel)]="selectedTab" >
+        <!-- <ion-segment-button *ngFor="let tab of etiquetas" value="{{tab.id}}" [checked]="currentTab === tab.id" (click)="onClickTab(tab)">
+          <ion-label class="title">{{
+            "MEETINGS.tabs." + tab.id | translate
+            }}</ion-label>
+        </ion-segment-button> -->
+        <ion-segment-button value="todo">
+          <ion-label>Todo</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="favoritos">
+         <ion-label>Favoritos</ion-label> 
+        </ion-segment-button>
+        <ion-segment-button value="interesante">
+          <ion-label>Interesante</ion-label> 
+        </ion-segment-button>
+        <ion-segment-button value="aRevisar">
+          <ion-label>A Revisar</ion-label> 
+        </ion-segment-button>
+        <ion-segment-button value="rechazada">
+          <ion-label>Rechazada</ion-label> 
+        </ion-segment-button>
+    </ion-segment>
+  <!-- <div *ngFor="let tab of etiquetas" >  </div>
+    <div *ngIf="tab.id === currentTab">   </div> -->
+      <!-- <div [ngSwitch]="selectedTab" class="content-global">
+          <div *ngSwitchCase="todo">
+          </div>
+          <div *ngSwitchCase="favoritos">
+            
+          </div>
+          <div *ngSwitchCase="interesante">
+            
+          </div>
+          <div *ngSwitchCase="aRevisar">
+            
+          </div>
+          <div *ngSwitchCase="rechazada">
+            
+          </div>
+      </div> -->
+      <div class="content-global">
+        <div class="content-btn-show-date-availables">
+          <ion-button class="btn-date-available" (click)="goBack()">
+            <label class="label-available">
+              {{"MEETINGS.associateNewMeetDate.labelButtonAvailable" | translate}}
+            </label>
+          </ion-button>
+        </div>
+        <img src="../../../../../../../assets/img/associate_meet_line.png" class="linea">
+        <div class="content-pendiente-reserva">
+          <ion-item-divider>
+            <ion-label class="label-pendiente">{{"MEETINGS.associateNewMeetDate.labelPendientesReserva" | translate}}</ion-label>
+            <div class="line"></div>
+          </ion-item-divider>
+          <ion-card *ngFor="let card of pendientes" target="_blank" (click)="sendUserSelect()">
+            <img src="../../../../../../../assets/img/no_image_user.webp">
+            <ion-card-header class="info-container">
+              <div class="field">
+                <ion-card-title class="value">
+                  {{offert}}
+                </ion-card-title>
+              </div>
+              <div class="field">
+                <ion-card-subtitle class="value">
+                  {{"MEETINGS.associateNewMeetDate.labelCargoEn" | translate}}
+                </ion-card-subtitle>
+                <ion-card-subtitle class="label-etiqueta">
+                  {{company}}
+                </ion-card-subtitle>
+              </div>
+              <div class="text-large">
+                <p class="parrafo">
+                  Lorem ipsum dolor sit amet,
+                  consectetur adipiscing elit,sed diam
+                  nonymmy nibh euismod tinc...
+                </p>
+              </div>
+            </ion-card-header>
+            <div class="arrow-container">
+              <i class="icon icon_w_icons_arrow_nav_right"></i>
+            </div>
+          </ion-card>
+        </div>
+        <div class="content-denegados">
+          <ion-item-divider>
+            <ion-label class="label-denegados">{{"MEETINGS.associateNewMeetDate.labelDenegados" | translate}}</ion-label>
+            <div class="line"></div>
+          </ion-item-divider>
+          <ion-card *ngFor="let card of denegados" target="_blank" (click)="goToReviewMeet(card)">
+              <img class="img-opacity" src="../../../../../../../assets/img/no_image_user.webp">
+              <ion-card-header class="info-container">
+                <div class="field">
+                  <ion-card-title class="value">
+                    Puesto ofertado
+                  </ion-card-title>
+                </div>
+                <div class="field">
+                  <ion-card-subtitle class="value">
+                    {{"MEETINGS.associateNewMeetDate.labelCargoEn" | translate}}
+                  </ion-card-subtitle>
+                  <ion-card-subtitle class="label-etiqueta">
+                    Empresa
+                  </ion-card-subtitle>
+                </div>
+                <div class="text-large">
+                  <p class="parrafo">
+                    Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit,sed diam
+                    nonymmy nibh euismod tinc...
+                  </p>
+                </div>
+              </ion-card-header>
+            <div class="arrow-container">
+              <i class="icon icon_w_icons_arrow_nav_right"></i>
+            </div>
+          </ion-card>
+        </div>
+        <div class="content-resev-otra-cita">
+          <ion-item-divider>
+            <label class="label-reservados">
+              {{"MEETINGS.associateNewMeetDate.labelReservadosOtraCita" | translate}}
+            </label>
+            <div class="line"></div>
+          </ion-item-divider>
+            <ion-card *ngFor="let card of reservados" target="_blank" (click)="goToReviewMeet(card)">
+              <ion-card-header class="content-img-icon">
+                <div class="field">
+                  <img src="../../../../../../../assets/img/no_image_user.webp">
+                </div>
+                <div class="field">
+                  <i class="icon-meet icon_w_icons_handshake"></i>
+                </div>
+              </ion-card-header>
+              <ion-card-header class="info-container">
+                <div class="field">
+                  <ion-card-subtitle class="value">
+                    <i class="icon icon_w_icons_clock"></i>
+                    DD/MM/AAAA - 18:05h
+                  </ion-card-subtitle>
+                </div>
+                <div class="field">
+                  <ion-card-title class="value">
+                    NOMBRE APELLIDO APELLIDO
+                  </ion-card-title>
+                </div>
+                <div class="field">
+                  <ion-card-subtitle class="value">
+                    <i class="icon icon_w_icons_suitcase"></i>
+                    {{"MEETINGS.associateNewMeetDate.labelCargoEn" | translate}}
+                  </ion-card-subtitle>
+                  <ion-card-subtitle class="label-etiqueta">
+                    Empresa
+                  </ion-card-subtitle>
+                </div>
+                <div class="field">
+                  <ion-card-subtitle class="value">
+                    <i class="icon icon_w_icons_location_pin"></i>
+                    Online a través de la app
+                  </ion-card-subtitle>
+                </div>
+                <div class="text-large">
+                  <p class="parrafo">
+                    Haz clic en la tarjeta para acceder
+                  </p>
+                </div>
+              </ion-card-header>
+              <div class="selection-container">
+                <i class="icon icon_w_icons_selection"></i>
+              </div>
+            </ion-card>
+        </div>
+        <!-- <div class="content-btn-otras-citas">
+          <ion-button class="btn-otras-citas">
+            <label class="label-otras-citas">
+              {{"MEETINGS.associateNewMeetDate.labelButtonOtrasCitas" | translate}}
+            </label>
+          </ion-button>
+        </div> -->
+      </div>
+</ion-content>

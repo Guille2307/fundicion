@@ -1,0 +1,129 @@
+@import "../../../../../../../assets/scss/partials/variables";
+@import "../../../../../../../assets/scss/partials/typography";
+
+ion-card {
+  position: relative;
+  background: white;
+  border-radius: 20px;
+  height: 130px;
+  cursor: pointer;
+  margin: 10px;
+  display: flex;
+
+  .room {
+    width: 60px;
+    height: 100%;
+    margin: auto;
+    object-fit: cover;
+    background-color: $secondaryColor;
+    display: flex;
+    position: relative;
+
+    p {
+      @include principal5($secondaryTitle);
+      transform: rotate(-90deg);
+      width: 100px;
+      text-align: center;
+      margin: auto;
+      position: absolute;
+      top: 55px;
+      left: -25px;
+    }
+  }
+
+  .info-container {
+    width: 100%;
+    padding-right: 40px;
+    display: grid;
+
+    .field {
+      display: flex;
+      margin: auto 0;
+
+      &.info {
+        display: grid;
+      }
+
+      .icon {
+        font-size: 18px;
+        padding-right: 5px;
+        color: black;
+        margin: auto 0;
+      }
+
+      ion-card-title {
+        @include boton1(black);
+      }
+
+      ion-card-subtitle {
+        @include cuerpoTexto1(black);
+        margin: 0;
+
+        &.no-value {
+          font-style: italic;
+        }
+      }
+
+      .live {
+        color: $accept !important;
+      }
+
+      .not-live {
+        color: $cancel !important;
+      }
+
+      .end {
+        font-weight: 700 !important;
+      }
+    }
+  }
+
+  .circle {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    display: flex;
+    margin: auto 0;
+    margin-right: 5px;
+
+    &.live {
+      background-color: $accept;
+    }
+
+    &.not-live {
+      background-color: $cancel;
+    }
+
+    &.end {
+      background-color: transparent;
+    }
+  }
+
+  .italic {
+    font-style: italic;
+  }
+
+  .arrow-container {
+    position: absolute;
+    width: 40px;
+    height: 110px;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-left: rgba(0, 0, 0, 0.05) solid 2px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    z-index: 0;
+
+    i {
+      color: $interactive;
+      height: auto;
+      margin: auto;
+      font-size: 30px;
+    }
+  }
+}

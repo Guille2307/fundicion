@@ -1,0 +1,86 @@
+<mat-sidenav-container style="height: 100%; background: transparent">
+  <mat-sidenav-content>
+    <ion-header class="menu">
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+          {{ "MENU.infoEvent" | translate }}
+        </ion-title>
+        <ion-buttons
+          slot="primary"
+          *ngIf="currentTab === 'participants' || currentTab === 'program'"
+        >
+          <ion-button
+            class="search-button"
+            fill="clear"
+            (click)="sideSearchbar.toggle()"
+          >
+            <i class="icon icon_w_icons_search_small"></i>
+          </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end" class="mobile">
+          <chat-and-profile></chat-and-profile>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content padding class="menu-content">
+      <button
+        mat-fab
+        class="fab-button search"
+        *ngIf="currentTab === 'participants' || currentTab === 'program'"
+        (click)="sideSearchbar.toggle()"
+      >
+        <i class="icon icon_w_icons_search_small"></i>
+      </button>
+      <ion-segment
+        class="tabs small-tabs"
+        (ionChange)="segmentChanged($event)"
+        [(ngModel)]="currentTab"
+      >
+        <ion-segment-button
+          *ngIf="modulesSvc.infoTabs.info.show"
+          class="title-container"
+          value="info"
+        >
+          <ion-label>{{ "MENU.infoEventTabs.info" | translate }}</ion-label>
+        </ion-segment-button>
+        <ion-segment-button
+          *ngIf="modulesSvc.infoTabs.program.show"
+          class="title-container"
+          value="program"
+        >
+          <ion-label>{{ "MENU.infoEventTabs.program" | translate }}</ion-label>
+        </ion-segment-button>
+        <ion-segment-button
+          *ngIf="modulesSvc.infoTabs.participants.show"
+          class="title-container"
+          value="participants"
+        >
+          <ion-label>{{
+            "MENU.infoEventTabs.participants" | translate
+          }}</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+      <div [ngSwitch]="currentTab" style="overflow: auto; height: 95%">
+        <info *ngSwitchCase="'info'"></info>
+        <program [query]="query" *ngSwitchCase="'program'"></program>
+        <artists [query]="query" *ngSwitchCase="'participants'"></artists>
+      </div>
+    </ion-content>
+  </mat-sidenav-content>
+  <mat-sidenav
+    id="sideSearchbar"
+    #sideSearchbar
+    mode="over"
+    position="end"
+    style="width: 80%"
+  >
+    <searchbar
+      [sideNav]="sideSearchbar"
+      (sendQuery)="query = $event"
+    ></searchbar>
+  </mat-sidenav>
+</mat-sidenav-container>

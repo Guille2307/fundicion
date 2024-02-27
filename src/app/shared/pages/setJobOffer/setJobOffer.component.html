@@ -1,0 +1,235 @@
+<ion-header class="menu">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" type="button" class="back" (click)="goBack()">
+        <i class="icon icon_w_icons_arrow_nav_left"></i>
+      </ion-button>
+    </ion-buttons>
+    <ion-title size="small" *ngIf="editOfferId === undefined">
+      {{ "JOB_OFFERS.setOffer.title" | translate }}
+    </ion-title>
+    <ion-title size="small" *ngIf="editOfferId !== undefined">
+      {{ "JOB_OFFERS.editOffer.title" | translate }}
+    </ion-title>
+    <!-- <ion-buttons slot="end" class="mobile">
+      <chat-and-profile></chat-and-profile>
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <form
+    [formGroup]="offerForm"
+    (ngSubmit)="setOffer()"
+    accept-charset="utf-8"
+    class="form-container"
+  >
+    <div class="form-group-container">
+      <div class="label-container">
+        <label class="form-label">{{
+          "JOB_OFFERS.setOffer.labelTitleOffer" | translate
+        }}</label>
+        <!-- <label class="optional">{{"EDIT_PROFILE.labelOptional" | translate}}</label> -->
+      </div>
+      <div class="input-container">
+        <input
+          type="text"
+          formControlName="title"
+          class="form-input"
+          placeholder="{{ 'JOB_OFFERS.setOffer.labelTitleOffer' | translate }}"
+        />
+        <tooltip-error
+          *ngIf="offerForm.controls.title.invalid && showTooltip"
+        ></tooltip-error>
+      </div>
+    </div>
+
+    <div class="form-group-container">
+      <div class="label-container">
+        <label class="form-label">{{
+          "JOB_OFFERS.setOffer.labelLocation" | translate
+        }}</label>
+        <!-- <label class="optional">{{"EDIT_PROFILE.labelOptional" | translate}}</label> -->
+      </div>
+      <div class="input-container">
+        <input
+          type="text"
+          formControlName="location"
+          class="form-input"
+          placeholder="{{ 'JOB_OFFERS.setOffer.labelLocation' | translate }}"
+        />
+        <tooltip-error
+          *ngIf="offerForm.controls.location.invalid && showTooltip"
+        ></tooltip-error>
+      </div>
+    </div>
+
+    <div class="form-group-container">
+      <div class="label-container">
+        <label class="form-label">{{
+          "JOB_OFFERS.setOffer.labelSector" | translate
+        }}</label>
+        <!-- <label class="optional">{{"EDIT_PROFILE.labelOptional" | translate}}</label> -->
+      </div>
+      <div class="input-container">
+        <input
+          type="text"
+          formControlName="sector"
+          class="form-input"
+          placeholder="{{ 'JOB_OFFERS.setOffer.labelSector' | translate }}"
+        />
+        <tooltip-error
+          *ngIf="offerForm.controls.sector.invalid && showTooltip"
+        ></tooltip-error>
+      </div>
+    </div>
+
+    <div class="form-group-container">
+      <div class="label-container">
+        <label class="form-label">Empresa</label>
+        <!-- <label class="optional">{{"EDIT_PROFILE.labelOptional" | translate}}</label> -->
+      </div>
+      <div class="input-container">
+        <input
+          type="text"
+          formControlName="company"
+          class="form-input"
+          placeholder="Empresa"
+        />
+        <tooltip-error
+          *ngIf="offerForm.controls.company && showTooltip"
+        ></tooltip-error>
+      </div>
+    </div>
+    <div class="form-group-container">
+      <div class="label-container">
+        <label class="form-label">{{
+          "JOB_OFFERS.setOffer.labelNVacancies" | translate
+        }}</label>
+        <!-- <label class="optional">{{"EDIT_PROFILE.labelOptional" | translate}}</label> -->
+      </div>
+      <div class="input-container">
+        <input
+          type="number"
+          formControlName="vacancies"
+          class="form-input"
+          placeholder="{{ 'JOB_OFFERS.setOffer.labelNVacancies' | translate }}"
+        />
+        <tooltip-error
+          *ngIf="offerForm.controls.vacancies.invalid && showTooltip"
+        ></tooltip-error>
+      </div>
+    </div>
+
+    <div class="form-group-container">
+      <div class="label-container">
+        <label class="form-label">{{
+          "JOB_OFFERS.setOffer.labelType" | translate
+        }}</label>
+        <!-- <label class="optional">{{"EDIT_PROFILE.labelOptional" | translate}}</label> -->
+      </div>
+      <div class="input-container">
+        <input
+          type="text"
+          formControlName="contract"
+          class="form-input"
+          placeholder="{{ 'JOB_OFFERS.setOffer.labelType' | translate }}"
+        />
+        <tooltip-error
+          *ngIf="offerForm.controls.contract.invalid && showTooltip"
+        ></tooltip-error>
+      </div>
+    </div>
+
+    <div class="form-group-container">
+      <div class="label-container">
+        <label class="form-label">{{
+          "JOB_OFFERS.setOffer.labelSchedule" | translate
+        }}</label>
+        <!-- <label class="optional">{{"EDIT_PROFILE.labelOptional" | translate}}</label> -->
+      </div>
+      <div class="input-container">
+        <input
+          type="text"
+          formControlName="schedule"
+          class="form-input"
+          placeholder="{{ 'JOB_OFFERS.setOffer.labelSchedule' | translate }}"
+        />
+        <tooltip-error
+          *ngIf="offerForm.controls.schedule.invalid && showTooltip"
+        ></tooltip-error>
+      </div>
+    </div>
+
+    <div class="form-group-container">
+      <div class="label-container">
+        <label class="form-label">{{
+          "JOB_OFFERS.setOffer.labelRequirements" | translate
+        }}</label>
+        <!-- <label class="optional">{{"EDIT_PROFILE.labelOptional" | translate}}</label> -->
+      </div>
+      <div class="input-container">
+        <input
+          type="text"
+          formControlName="requirements"
+          class="form-input"
+          placeholder="{{
+            'JOB_OFFERS.setOffer.labelRequirements' | translate
+          }}"
+        />
+        <tooltip-error
+          *ngIf="offerForm.controls.requirements.invalid && showTooltip"
+        ></tooltip-error>
+      </div>
+    </div>
+
+    <div class="form-group-container" id="textarea-container">
+      <div class="label-container">
+        <label class="form-label">{{
+          "JOB_OFFERS.setOffer.labelDescription" | translate
+        }}</label>
+        <!-- <label class="optional">{{"EDIT_PROFILE.labelOptional" | translate}}</label> -->
+      </div>
+      <div class="input-container textarea">
+        <textarea
+          formControlName="description"
+          rows="2"
+          class="form-textarea"
+          maxlength="500"
+          placeholder="{{ 'JOB_OFFERS.setOffer.labelDescription' | translate }}"
+        ></textarea>
+        <tooltip-error
+          *ngIf="offerForm.controls.description.invalid && showTooltip"
+        ></tooltip-error>
+      </div>
+    </div>
+    <div class="button-container">
+      <button
+        type="submit"
+        class="btn-form"
+        [ngClass]="{ disabled: !isFormDisabled() }"
+        *ngIf="editOfferId === undefined"
+      >
+        {{ "JOB_OFFERS.setOffer.newOfferButton" | translate }}
+      </button>
+      <tooltip-error
+        [isButton]="true"
+        *ngIf="showTooltip && !isFormDisabled()"
+      ></tooltip-error>
+      <button
+        type="submit"
+        class="btn-form"
+        [ngClass]="{ disabled: !isFormDisabled() }"
+        *ngIf="editOfferId !== undefined"
+      >
+        {{ "JOB_OFFERS.editOffer.saveButton" | translate }}
+      </button>
+    </div>
+  </form>
+  <button
+    class="btn-form delete"
+    *ngIf="editOfferId !== undefined"
+    (click)="deleteOffer()"
+  >
+    {{ "JOB_OFFERS.editOffer.deleteButton" | translate }}
+  </button>
+</ion-content>

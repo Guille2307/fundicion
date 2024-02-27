@@ -1,0 +1,25 @@
+<div class="search-bar">
+  <i class="icon icon_w_icons_search_small"></i>
+  <input id="searchbar" placeholder="{{ 'SEARCHBAR' | translate}}" type="search" autocomplete="off" [(ngModel)]="query">
+  <button *ngIf="query.trim() !== ''" (click)="deleteQueryValue()">
+    <i class="icon icon_w_icons_cancel_circle"></i>
+  </button>
+</div>
+<ion-virtual-scroll *ngIf="assistants.length !== 0" [items]="assistants | filter: query" [headerFn]="separateLetter">
+  <ion-item-divider *virtualHeader="let header" color="light">
+    <ion-label>{{header}}</ion-label>
+    <div class="line"></div>
+  </ion-item-divider>
+  <ion-item detail="false" class="assistant" *virtualItem="let assistant">
+    <checkbox (sendEvent)="receiveValueCheckbox($event, assistant)"></checkbox>
+    <img *ngIf="assistant.id !== null" class="profile-img" src="{{assistant.id | imageProfile}}"
+      onerror="this.src='assets/img/no_image_user.webp';">
+    <img *ngIf="assistant.id === null" class="profile-img" src="assets/img/no_image_user.webp">
+    <div class="username-container">
+      <ion-title class="fullname">{{assistant.name}} {{assistant.surnames}}</ion-title>
+      <ion-title class="username" *ngIf="isValueNull(assistant.username)">@{{assistant.username}}</ion-title>
+    </div>
+    <!-- <ion-checkbox slot="start" [(ngModel)]="assistant.isChecked"></ion-checkbox> -->
+  </ion-item>
+</ion-virtual-scroll>
+<ion-title class="no-assistants" *ngIf="assistants.length === 0">{{ 'LOADING' | translate }}</ion-title>

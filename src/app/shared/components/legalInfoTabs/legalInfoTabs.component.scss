@@ -1,0 +1,30 @@
+@import "../../../../assets/scss/partials/variables";
+@import "../../../../assets/scss/partials/colors";
+
+ion-tabs {
+  ion-tab-bar {
+    background: $backgroundTabs;
+    overflow-x: hidden;
+
+    ion-tab-button {
+      background-color: $backgroundTabs;
+
+      &.tab-selected {
+        border-bottom: 5px solid $emphasis;
+
+        ion-label {
+          color: $selectedText;
+          font-weight: 900;
+          font-style: normal;
+        }
+      }
+
+      ion-label {
+        text-transform: none;
+        font-size: 14px;
+        color: $interactive;
+        font-style: italic;
+      }
+    }
+  }
+}

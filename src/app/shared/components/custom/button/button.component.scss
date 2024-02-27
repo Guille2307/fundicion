@@ -1,0 +1,10 @@
+@import "../../../../../assets/scss/partials/colors";
+@import "../../../../../assets/scss/partials/mixins";
+
+.button {
+    @include boton(24px, 1px, $interactive, $backgroundButton, $fontButton, 20px, $hoverButton);
+}
+
+.button-transparent {
+    @include boton(24px, 1px, white, transparent, white, 20px, $interactive);
+}

@@ -1,0 +1,63 @@
+@import "../../../../assets/scss/partials/variables";
+@import "../../../../assets/scss/partials/typography";
+
+.title-container {
+  display: flex;
+  height: 40px;
+  margin: 10px 0;
+  padding: 0 16px;
+
+  &.textarea {
+    height: 82px;
+  }
+  .ion-title-container {
+    margin: auto 10px;
+    width: 90%;
+
+    .title {
+      @include principal5(black);
+    }
+
+    .tag-annotation {
+      padding: 0;
+      text-transform: uppercase;
+      font-style: italic;
+    }
+
+    .optional {
+      color: $interactive;
+      text-transform: none;
+      font-style: normal;
+      font-size: 14px;
+    }
+  }
+
+  .annotations {
+    --padding-top: 3px;
+    --padding-start: 0;
+    --padding-end: 0;
+    background: white;
+    border-radius: 15px;
+    border-bottom-right-radius: 0;
+    border: 1px solid black;
+    width: 75%;
+    margin: auto;
+    padding: 0 20px;
+    font-size: 16px;
+    font-weight: 400;
+    resize: vertical;
+  }
+
+  .icon {
+    font-size: 25px;
+    margin: auto 0;
+    display: flex;
+  }
+}
+
+.btn-save-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 16px;
+}

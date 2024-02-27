@@ -1,0 +1,160 @@
+<ion-header class="menu">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="goBack()">
+        <i class="icon icon_w_icons_arrow_nav_left"></i>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      {{ "MEETINGS.requestMeeting.title" | translate }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="header-container" (click)="goToProfile()">
+    <div id="img-container" class="img-container"></div>
+    <div *ngIf="company !== undefined" class="info-img-container">
+      <img
+        *ngIf="companyId !== null"
+        src="{{ companyId | imageProfile }}"
+        class="profile-img"
+        onerror="this.onerror=null;this.src='assets/img/no_image_user.webp'"
+      />
+      <img
+        *ngIf="companyId === null"
+        class="profile-img"
+        src="assets/img/no_image_user.webp"
+      />
+      <div class="edit-profile-container">
+        <div class="name-container">
+          <ion-title
+            size="large"
+            *ngIf="isValueNull(company.name) && isValueNull(company.surnames)"
+            >{{ company.name }} {{ company.surnames }}</ion-title
+          >
+          <ion-title
+            size="large"
+            *ngIf="isValueNull(company.name) && !isValueNull(company.surnames)"
+            >{{ company.name }}
+          </ion-title>
+          <ion-title
+            size="large"
+            *ngIf="!isValueNull(company.name) && isValueNull(company.surnames)"
+          >
+            {{ company.surnames }}</ion-title
+          >
+          <ion-title
+            size="large"
+            class="username"
+            *ngIf="isValueNull(company.username)"
+            >@{{ company.username }}
+          </ion-title>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content-container">
+    <div class="title-cont-container">
+      <ion-label>
+        {{ "MEETINGS.requestMeeting.labelRequest" | translate }}
+      </ion-label>
+      <div class="cont">[{{ cont }}/1000]</div>
+    </div>
+    <ion-textarea
+      placeholder="{{ 'MEETINGS.requestMeeting.textarea' | translate }}"
+      maxLength="1000"
+      rows="15"
+      autoGrow="false"
+      [(ngModel)]="textRequest"
+      (ionChange)="getCharsCount($event)"
+    >
+    </ion-textarea>
+    <ion-button
+      *ngIf="profileFiles.length !== 0"
+      fill="clear"
+      class="add-button"
+      (click)="openPopOverFiles($event)"
+    >
+      <i class="icon icon_w_icons_doc"></i>
+      {{ "JOB_OFFERS.inscription.addButton" | translate }}
+    </ion-button>
+    <input
+      type="file"
+      id="file-selector-no-profile"
+      multiple
+      accept="application/pdf"
+      style="display: none"
+    />
+    <ion-button
+      *ngIf="profileFiles.length === 0"
+      fill="clear"
+      class="add-button"
+      (click)="addFile()"
+    >
+      <i class="icon icon_w_icons_doc"></i>
+      {{ "JOB_OFFERS.inscription.addButton" | translate }}
+      <label style="margin-left: 5px; font-style: italic">(Máx. 2Mb)</label>
+    </ion-button>
+    <ion-list class="list-files">
+      <ion-item
+        detail="false"
+        class="file-item"
+        *ngFor="let file of files; let i = index"
+      >
+        <ion-button
+          fill="clear"
+          type="button"
+          class="delete"
+          (click)="deleteFile(file, i)"
+        >
+          <i class="icon icon_w_icons_remove_circle"></i>
+        </ion-button>
+        <div class="file-btn-container">
+          <div class="icon-doc-container">
+            <i class="icon icon_w_icons_doc"></i>
+          </div>
+          <ion-title class="attached-button" size="large">{{
+            setDocName(file.document)
+          }}</ion-title>
+        </div>
+      </ion-item>
+    </ion-list>
+    <div class="line"></div>
+    <div class="date-content">
+      <ion-label *ngIf="fullDate === undefined" class="no-date">
+        {{ "MEETINGS.requestMeeting.labelNoDate" | translate }}
+      </ion-label>
+      <div *ngIf="fullDate !== undefined" class="date">
+        <ion-label class="label-date">
+          {{ textDate }}
+        </ion-label>
+        <ion-label class="label-hour">
+          {{ textHour }}
+        </ion-label>
+      </div>
+      <ion-button
+        class="select-date-button"
+        fill="clear"
+        (click)="openPopover()"
+      >
+        <i class="icon icon_w_icons_clock"></i>
+        <label *ngIf="fullDate === undefined">
+          {{ "MEETINGS.requestMeeting.buttonChooseDate" | translate }}
+        </label>
+        <label *ngIf="fullDate !== undefined">
+          {{ "MEETINGS.requestMeeting.buttonModifyDate" | translate }}
+        </label>
+      </ion-button>
+    </div>
+    <button
+      [ngClass]="{
+        disabled: textRequest.trim() === '' || fullDate === undefined
+      }"
+      class="button-send"
+      (click)="acceptAndSend()"
+    >
+      {{ "MEETINGS.requestMeeting.buttonAccept" | translate }}
+    </button>
+  </div>
+</ion-content>

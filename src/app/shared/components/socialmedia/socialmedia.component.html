@@ -1,0 +1,7 @@
+<div class="container">
+  <div class="content" *ngFor="let item of socialmedia | keys" [ngClass]="{'no-margin': !isValueNull(item.value) || speaker}">
+    <a target="_blank" href="{{item.value}}" *ngIf="isValueNull(item.value)" [ngClass]="{ 'speaker': speaker }">
+      <i class="icon icon_w_icons_social_{{item.key}}"></i>
+    </a>
+  </div>
+</div>

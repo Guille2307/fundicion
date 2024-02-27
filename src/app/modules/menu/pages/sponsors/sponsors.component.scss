@@ -1,0 +1,111 @@
+@import "../../../../../assets/scss/partials/variables";
+@import "../../../../../assets/scss/partials/typography";
+
+ion-content {
+  --overflow: auto;
+}
+
+.content {
+  width: 100%;
+  background: transparent;
+  display: grid;
+  grid-template-columns: auto;
+  overflow-y: auto;
+
+  ion-item-divider {
+    margin-top: 5px;
+    transform: translate3d(0px, 0px, 0px);
+    background: transparent;
+    border: none;
+
+    ion-label,
+    label {
+      @include principal5(black);
+      width: auto;
+      position: absolute;
+      background: $backgroundColor;
+      border-right: 10px solid $backgroundColor;
+    }
+
+    .line {
+      display: block;
+      height: 2px;
+      background: black;
+      width: 100%;
+      margin: auto;
+    }
+  }
+
+  ion-card {
+    position: relative;
+    display: flex;
+    background: white;
+    border-radius: 20px;
+    height: 130px;
+    cursor: pointer;
+    margin: 10px;
+    text-align: center;
+
+    .img-container {
+      height: 100%;
+      display: flex;
+      margin: auto;
+
+      img {
+        max-width: 260px;
+        max-height: 100px;
+        margin: auto;
+        object-fit: cover;
+      }
+    }
+
+    .arrow-container {
+      position: absolute;
+      width: 40px;
+      height: 110px;
+      top: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 15px;
+      border-left: rgba(0, 0, 0, 0.05) solid 2px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      z-index: 0;
+
+      i {
+        color: $interactive;
+        height: auto;
+        margin: auto;
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+.no-sponsors {
+  text-align: center;
+  display: grid;
+  height: 100px;
+  @include subtitulo1(rgba(0, 0, 0, 0.5));
+}
+
+@media screen and (min-width: 600px) {
+  .content {
+    margin: auto;
+    width: 460px;
+
+    img {
+      max-width: 320px !important;
+      max-height: 110px !important;
+    }
+  }
+}
+
+@media screen and (max-width: 1388px) {
+  ion-button.chat {
+    display: flex !important;
+  }
+}

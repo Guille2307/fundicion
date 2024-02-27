@@ -1,0 +1,38 @@
+<mat-sidenav-container style="height: 100%; background: transparent;">
+  <mat-sidenav-content>
+    <ion-header class="menu">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      {{ "MENU.streamings" | translate }}
+    </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button class="search-button" fill="clear" (click)="sideSearchbar.toggle()">
+        <i class="icon icon_w_icons_search_small"></i>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end" class="mobile">
+      <chat-and-profile></chat-and-profile>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="menu-content">
+  <button mat-fab class="fab-button search" (click)="sideSearchbar.toggle()">
+    <i class="icon icon_w_icons_search_small"></i>
+  </button>
+  <div class="content" *ngIf="streamings.length === 0">
+    <i class="icon icon_w_icons_play_button"></i>
+    <ion-title size="small" class="no-streamings">{{ 'STREAMINGS.noStreamings' | translate }}</ion-title>
+  </div>
+  <ion-virtual-scroll class="content" [items]="streamings | filter: query">
+    <room-card [room]="item" *virtualItem="let item; let i = index" [roomNumber]="i + 1"></room-card>
+  </ion-virtual-scroll>
+</ion-content>
+</mat-sidenav-content>
+<mat-sidenav id="sideSearchbar" #sideSearchbar mode="over" position="end" style="width: 80%;">
+  <searchbar [sideNav]="sideSearchbar" (sendQuery)="query = $event"></searchbar>
+</mat-sidenav>
+</mat-sidenav-container>

@@ -1,0 +1,56 @@
+<ion-card
+  class="no-info"
+  *ngIf="!modulesSvc.showInfoCompanyCard"
+  target="_blank"
+  (click)="showCompany(company)"
+>
+  <div class="img-container">
+    <img
+      src="{{ company.id | imageProfile }}"
+      onerror="this.onerror=null;this.src='assets/img/no_image_user.webp'"
+    />
+  </div>
+  <div class="arrow-container">
+    <i class="icon icon_w_icons_arrow_nav_right"></i>
+  </div>
+</ion-card>
+<ion-card
+  class="with-info"
+  *ngIf="modulesSvc.showInfoCompanyCard"
+  target="_blank"
+  (click)="showCompany(company)"
+>
+  <div class="img-container">
+    <img
+      src="{{ company.id | imageProfile }}"
+      onerror="this.onerror=null;this.src='assets/img/no_image_user.webp'"
+    />
+  </div>
+  <div class="info-container">
+    <ion-title [ngClass]="!getBoolValues() ? 'center' : 'text'" size="large">{{
+      company.name
+    }}</ion-title>
+
+    <span
+      *ngIf="company.sector"
+      style="height: 21px; position: relative"
+      class="sector"
+      >{{ setUpperCase(company.sector) }}</span
+    >
+
+    <span>
+      <i *ngIf="company.phone" class="icon icon_w_icons_phone"></i>
+      <i *ngIf="company.email" class="icon icon_w_icons_envelope"></i>
+      <i *ngIf="company.site" class="icon icon-internet iconoInternet"></i>
+    </span>
+
+    <!-- <div class="iconos">
+      <span *ngFor="let k of social">
+        <i *ngIf="values[k]" class="icon icon_w_icons_social_{{ k }}"></i>
+      </span>
+    </div> -->
+  </div>
+  <div class="arrow-container">
+    <i class="icon icon_w_icons_arrow_nav_right"></i>
+  </div>
+</ion-card>

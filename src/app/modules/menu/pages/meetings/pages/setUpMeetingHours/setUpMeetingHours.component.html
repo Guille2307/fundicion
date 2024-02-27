@@ -1,0 +1,56 @@
+<ion-header class="menu">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="goBack()">
+        <i class="icon icon_w_icons_arrow_nav_left"></i>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      {{ "MEETINGS.setUpMeetingHours.title" | translate }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-segment
+    class="tabs big-tabs"
+    (ionChange)="segmentChanged($event)"
+    [(ngModel)]="currentTab"
+  >
+    <ion-segment-button
+      class="title-container segment-button"
+      *ngFor="let day of daysTabs"
+      value="{{ day.fulldate }}"
+      id="{{ day.fulldate }}"
+    >
+      <ion-label class="month-year"
+        >{{ "AGENDA.schedule.months." + day.month | translate }}
+        {{ day.year }}</ion-label
+      >
+      <div style="width: 100%">
+        <ion-label class="day">{{ day.day }}</ion-label>
+      </div>
+      <ion-label>{{
+        "AGENDA.schedule.weekdays." + day.weekday | translate
+      }}</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="currentTab" style="height: calc(100% - 100px)">
+    <div
+      id="{{ day.fulldate }}"
+      *ngFor="let day of daysTabs"
+      [ngClass]="{ selected: selectedDiv(day.fulldate) }"
+    >
+      <ion-list class="content-cards" *ngSwitchCase="day.fulldate">
+        <meeting-hour-card
+          *ngFor="let hour of getHours(day.day)"
+          [hour]="hour"
+          [fulldate]="day.fulldate"
+          [meetings]="dataMeeting"
+          (actionMeeting)="this.getPetitionsMeetEmployees()"
+        ></meeting-hour-card>
+      </ion-list>
+    </div>
+  </div>
+</ion-content>

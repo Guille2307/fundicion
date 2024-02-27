@@ -1,0 +1,137 @@
+<ion-header>
+  <ion-title size="large">
+    {{ "MEETINGS.calendar.title" | translate }}
+  </ion-title>
+</ion-header>
+<div class="content">
+  <div class="content-calendar">
+    <div class="content-month">
+      <div class="year">
+        <ion-button fill="clear" (click)="previousYear()">
+          <i class="icon icon_w_icons_arrow_function_left"></i>
+        </ion-button>
+        <ion-label class="label-year" *ngIf="date">{{
+          date.format("YYYY")
+        }}</ion-label>
+        <ion-button fill="clear" (click)="nextYear()">
+          <i class="icon icon_w_icons_arrow_function_right"></i>
+        </ion-button>
+      </div>
+      <div class="month">
+        <ion-button fill="clear" (click)="previousMonth()">
+          <i class="icon icon_w_icons_arrow_function_left"></i>
+        </ion-button>
+        <ion-label class="label-month" *ngIf="date">{{
+          date.format("MMM")
+        }}</ion-label>
+        <ion-button fill="clear" (click)="nextMonth()">
+          <i class="icon icon_w_icons_arrow_function_right"></i>
+        </ion-button>
+      </div>
+    </div>
+    <div class="content-week">
+      <label>{{ "MEETINGS.calendar.weekdays.monday" | translate }}</label>
+      <label>{{ "MEETINGS.calendar.weekdays.tuesday" | translate }}</label>
+      <label>{{ "MEETINGS.calendar.weekdays.wednesday" | translate }}</label>
+      <label>{{ "MEETINGS.calendar.weekdays.thursday" | translate }}</label>
+      <label>{{ "MEETINGS.calendar.weekdays.friday" | translate }}</label>
+      <label>{{ "MEETINGS.calendar.weekdays.saturday" | translate }}</label>
+      <label>{{ "MEETINGS.calendar.weekdays.domingo" | translate }}</label>
+    </div>
+    <ion-list class="button-days-content">
+      <ion-radio-group class="radio-group" [(ngModel)]="dateSelected">
+        <div *ngFor="let day of days">
+          <ion-item
+            *ngIf="day !== null"
+            class="button-day"
+            [ngClass]="{ disabled: disabledDay(day.fulldate) }"
+            (click)="selectedDate(day)"
+          >
+            <div class="label" [ngClass]="{ today: todayCheck(day.day) }">
+              {{ day.value }}
+            </div>
+            <ion-radio
+              value="{{ day.fulldate }}"
+              style="
+                --color: transparent;
+                --color-checked: transparent;
+                width: 0px;
+                height: 0px;
+                margin: 0;
+              "
+            >
+            </ion-radio>
+          </ion-item>
+        </div>
+      </ion-radio-group>
+    </ion-list>
+  </div>
+  <div class="form-group-container" *ngIf="dateSelected && setEvent">
+    <div class="label-container">
+      <label class="form-label">{{
+        "AGENDA.edit.setEvent.labelTime" | translate
+      }}</label>
+    </div>
+    <div class="input-container">
+      <input
+        type="text"
+        class="form-input"
+        maxlength="5"
+        [(ngModel)]="time"
+        placeholder="{{ 'AGENDA.edit.setEvent.placeholderTime' | translate }}"
+      />
+    </div>
+  </div>
+  <div *ngIf="dateSelected && !setEvent" class="title-date-selected">
+    <label>
+      {{
+        "MEETINGS.calendar.labelAvailable"
+          | translate : { date: titleDateSelected }
+      }}
+    </label>
+  </div>
+  <ion-list *ngIf="dateSelected && !setEvent" class="button-hours-content">
+    <ion-radio-group class="radio-group" [(ngModel)]="hourSelected">
+      <ion-item
+        class="button-hour"
+        *ngFor="let hour of hours"
+        [ngClass]="{ disabled: disabledHour(hour) }"
+      >
+        <ion-label>{{ hour }}</ion-label>
+        <ion-radio
+          value="{{ hour }}"
+          style="
+            --color: transparent;
+            --color-checked: transparent;
+            width: 0px;
+            height: 0px;
+            margin: 0;
+          "
+        ></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+  <div *ngIf="!dateSelected" class="content-no-date">
+    <label>
+      {{ "MEETINGS.calendar.labelHourSelect" | translate }}
+    </label>
+  </div>
+  <div class="buttons-container">
+    <ion-button
+      fill="clear"
+      class="cancel"
+      (click)="cancelPopOver()"
+      size="small"
+      >{{ "MEETINGS.calendar.buttonGoBack" | translate }}</ion-button
+    >
+    <ion-button
+      fill="clear"
+      class="submit"
+      [disabled]="enableSubmitButton()"
+      (click)="closePopover()"
+      size="small"
+    >
+      {{ "MEETINGS.calendar.buttonConfirm" | translate }}
+    </ion-button>
+  </div>
+</div>

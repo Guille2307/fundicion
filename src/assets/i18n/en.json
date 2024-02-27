@@ -1,0 +1,740 @@
+{
+    "LANGUAGE": {
+        "title": "Language",
+        "name": "English",
+        "id": "EN",
+        "flag": "assets/img/flags/en.webp"
+    },
+    "LOGIN": {
+        "firstTime": {
+            "label": "First time here",
+            "button": "Sign up"
+        },
+        "haveAccount": {
+            "label": "I'm already registered",
+            "button": "Login"
+        },
+        "withoutAccount": {
+            "label": "Login without account",
+            "popover": {
+                "title": "Restricted access",
+                "info": "You need to log in to continue.",
+                "btnCancel": "Cancel"
+            }
+        },
+        "footer": {
+            "savedAccounts": {
+                "label": "Saved accounts",
+                "button": "Login"
+            },
+            "info": {
+                "privacyPolicies": "Privacy Policies",
+                "termsOfUse": "Terms of Service",
+                "development": "Developed by woutick!"
+            }
+        }
+    },
+    "SAVED_LOGIN": {
+        "label": "Hi there",
+        "button": "Go to my account",
+        "notTheUser": {
+            "label": "Not me",
+            "button": "Login with another account"
+        }
+    },
+    "LOGIN_ACCOUNT": {
+        "title": "Login",
+        "labelUser": "Email or username",
+        "labelPass": "Password",
+        "labelForget": "Forgot my password",
+        "button": "Login",
+        "error": "Wrong email or password",
+        "alert": {
+            "error": {
+                "title": "Error",
+                "message": "Login failed,"
+            },
+            "errorMail": {
+                "title": "Error",
+                "message": "Please enter a valid email address."
+            }
+        }
+    },
+    "TOOLTIP": {
+        "required": "Obligatory field",
+        "button": "Data missing. Please check red fields."
+    },
+    "CREATE_ACCOUNT": {
+        "title": "Sign up",
+        "labelName": "Name",
+        "labelLastname": "Surname",
+        "labelUsername": "Username",
+        "labelMail": "Email",
+        "labelPass": "Password",
+        "labelRepPass": "Repeat password",
+        "labelRemAccess": "Remember my login",
+        "labelPolitics": "I've read and I agree with the Privacy Policies, Terms of Service and Cookies Policy",
+        "labelComercial": "I agree receiving commercial and/or marketing communications",
+        "labelOptional": "Optional",
+        "button": "Submit",
+        "alert": {
+            "success": {
+                "title": "NICE!",
+                "message": "You already have an account in this app, In the next step you can complete your profile with the information you consider,"
+            },
+            "error": {
+                "title": "Error",
+                "message": "Registration could not be completed,"
+            }
+        }
+    },
+    "MENU": {
+        "dateSameMonth": "From {{dayStart}} to\n {{dayEnd}} {{monthEnd}} {{year}}",
+        "dateDifferentMonth": "From {{dayStart}} {{monthStart}} to\n {{dayEnd}} {{monthEnd}} {{year}}",
+        "agenda": "Schedule",
+        "tickets": "Tickets",
+        "infoEvent": "Info",
+        "infoEventTabs": {
+            "info": "Info",
+            "program": "Schedule",
+            "artists": "Artists",
+            "gallery": "Gallery",
+            "participants": "Participants"
+        },
+        "activities": "Activities and more",
+        "activitiesTabs": {
+            "foodtrucks": "Foodtrucks",
+            "polls": "Polls"
+        },
+        "streamings": "Streaming",
+        "coworking": "Coworking",
+        "mapEvent": "Event map",
+        "myProfile": "My profile",
+        "myProfileTabs": {
+            "myInfo": "My profile",
+            "myPurse": "Mi coin purse",
+            "myCompanyProfile": "My company profile",
+            "myMeetings": "My meetings"
+        },
+        "jobOffers": "Job offers",
+        "meetings": "Meetings",
+        "assistants": "Attendees",
+        "chat": "Messages",
+        "sponsors": "Sponsors",
+        "companies": "Participating companies",
+        "exhibitors": "Exhibitors",
+        "chatHelp": "Customer support",
+        "legalInfo": "Legal info",
+        "logout": "Sign off",
+        "notifications": "Notifications",
+        "gamification": "Games",
+        "accreditation": "Accreditation",
+        "plan": "Plan"
+    },
+    "NOTIFICATIONS_CHAT": {
+        "title": "Notifications",
+        "input": "You can write here...",
+        "notification": "Notification"
+    },
+    "EDIT_PROFILE": {
+        "title": "Editing my profile",
+        "infoEdit": "Edit your information and decide if you want to declare it as public or private information",
+        "labelName": "Name",
+        "labelLastname": "Surname",
+        "labelUsername": "Username",
+        "labelMail": "Email",
+        "labelJob": "Job title",
+        "labelStudies": "Academic degree",
+        "labelCompany": "Company",
+        "labeluniversity": "University/College",
+        "labelSector": "Sector",
+        "labelPhone": "Phone number",
+        "labelLocation": "Location",
+        "labelInfo": "Information",
+        "labelBirthdate": "Birth date",
+        "labelAttached": "Attachment",
+        "buttonAttached": "PDF attachment",
+        "labelMaxSize": "(2MB max)",
+        "labelOtherRRSS": "Socials",
+        "labelSite": "Web",
+        "labelVideoUrl": "Promo video link",
+        "labelOptional": "Optional",
+        "buttonChangePass": "Change password",
+        "buttonManageNoti": "Manage notifications",
+        "labelComercial": "I agree recieving commercial and/or marketing communications",
+        "toastPublic": "{{field}} is now a public field",
+        "toastPrivate": "{{field}} is now a private field",
+        "editProfileImg": {
+            "title": "Edit photo",
+            "buttonGoBack": "Back",
+            "buttonConfirm": "Save"
+        },
+        "alertImage": {
+            "title": "Warning",
+            "message": "Image must be .jpg format and less than 2MB."
+        },
+        "alert": {
+            "success": {
+                "title": "Success",
+                "message": "Changes successfully saved"
+            },
+            "error": {
+                "title": "Error",
+                "message": "Changes couldn't be saved,"
+            }
+        },
+        "socialmedia": {
+            "linkedin": "https://www.linkedin.com/in/...",
+            "twitter": "https://twitter.com/...",
+            "facebook": "https://www.facebook.com/...",
+            "instagram": "https://www.instagram.com/...",
+            "spotify": "https://open.spotify.com/user/..."
+        }
+    },
+    "AGENDA": {
+        "labelTab1": "Schedule",
+        "labelTab2": "My Schedule",
+        "info": "Click on the bell to let you know when the event is going to take place. You can search for your marked events from the searcher.",
+        "infoEdit": "Click on the card to edit, or click on the X to delete it.",
+        "edit": {
+            "buttonCreate": "New event",
+            "deleteCard": {
+                "alert": {
+                    "title": "Delete event",
+                    "message": "Are you sure you want to delete this event?"
+                }
+            },
+            "setEvent": {
+                "title": "New event",
+                "titleEdit": "Edit event",
+                "labelTitleEvent": "Event name",
+                "labelCategoryEvent": "Event category",
+                "labelSpeaker": "Speaker",
+                "labelLocation": "Event location",
+                "labelDate": "Date",
+                "labelTime": "Time",
+                "placeholderTime": "HH:MM",
+                "labelDateTime": "Date and time",
+                "placeholderDateTime": "AAAA-MM-DD HH:MM:SS",
+                "labelInfo": "Info",
+                "labelIframe": "Iframe code",
+                "urlSale": "Selling Url",
+                "labelStreaming": "streaming?",
+                "newEventButton": "Create event",
+                "editEventButton": "Update event",
+                "alert": {
+                    "success": {
+                        "title": "Success",
+                        "message": "Event created succesfully,"
+                    }
+                }
+            },
+            "alert": {
+                "title": "Success",
+                "message": "Event updated succesfully"
+            },
+            "labelOptional": "Optional"
+        },
+        "activityCard": {
+            "noSpeaker": "No speaker",
+            "noLocation": "No location"
+        },
+        "noEvents": "There's no schedule yet",
+        "infoActivity": {
+            "title": "Presentation",
+            "speaker": "Speaker",
+            "labelInfo": "Info",
+            "noSpeaker": "No speaker",
+            "noLocation": "No location",
+            "noInfo": "No info",
+            "buttonStreaming": "Go to streaming",
+            "buttonUrlSale": "Buy tickets"
+        },
+        "noPrograms": "No chatting added",
+        "schedule": {
+            "weekdays": {
+                "0": "Sunday",
+                "1": "Monday",
+                "2": "Tuesday",
+                "3": "Wednesday",
+                "4": "Thursday",
+                "5": "Friday",
+                "6": "Saturday"
+            },
+            "abbreviations": {
+                "0": "Sun.",
+                "1": "Mon.",
+                "2": "Tue.",
+                "3": "Wed.",
+                "4": "Thu.",
+                "5": "Fri.",
+                "6": "Sat."
+            },
+            "months": {
+                "0": "January",
+                "1": "February",
+                "2": "March",
+                "3": "April",
+                "4": "May",
+                "5": "June",
+                "6": "July",
+                "7": "August",
+                "8": "September",
+                "9": "October",
+                "10": "November",
+                "11": "December",
+                "all": "Every month"
+            }
+        }
+    },
+    "PROFILE": {
+        "button": "Edit profile",
+        "labelTab1": "My QR",
+        "labelTab2": "Public profile",
+        "labelTab3": "Private profile",
+        "noUsername": "No username specified",
+        "noJob": "No job title specified",
+        "noCompany": "No company specified",
+        "noStudies": "No academic studies specified",
+        "noPhone": "No phone number specified",
+        "noBirthdate": "No birth date specified",
+        "noEmail": "No email specified",
+        "noLocation": "No location specified",
+        "noInfo": "No description specified",
+        "noAttached": "There're no attachments",
+        "noSite": "There're no links",
+        "noSector": "No laboral sector specified",
+        "studientOf": "{{study}} student",
+        "on": "at",
+        "labelInfo": "Info",
+        "labelTags": "Tags",
+        "labelOptional": "Optional",
+        "labelAddTags": "Add tags to filter contacts",
+        "labelAnnotations": "Notes",
+        "annotationsPlaceholder": "You can write here whatever you need to",
+        "labelParticipeIn": "Partaker on",
+        "labelMyCatalog": "My catalogue",
+        "btnAddOffer": "Add job offer",
+        "labelContact": "Contact"
+    },
+    "ASSISTANTS": {
+        "noAssistants": "There are no attendants",
+        "info": {
+            "title": "{{name}} profile",
+            "buttonMessage": "Chat",
+            "contextmenu": {
+                "mute": "Mute",
+                "unmute": "Unmute",
+                "ban": "Block",
+                "unban": "Unblock"
+            }
+        }
+    },
+    "COMPANIES": {
+        "noCompanies": "There are no companies",
+        "info": {
+            "title": "Profile",
+            "buttonMessage": "Chat",
+            "buttonMeeting": "Meeting"
+        },
+        "profile": {
+            "titleInfo": "Info",
+            "titleContact": "Contact info and Notes",
+            "titleOffers": "Job offers",
+            "buttonChat": "Chat with {{name}}",
+            "buttonMeets": "Request interview with {{name}}"
+        }
+    },
+    "JOB_OFFERS": {
+        "noOffers": "There are no job offers",
+        "noRequests": "There are no requests",
+        "title": "My offers",
+        "tabMyOffers": "Applicants",
+        "noPremiumCompany": "You don't have this function available.",
+        "card": {
+            "noTitle": "No job title specified",
+            "noLocation": "No location specified",
+            "noCompany": "No company specified",
+            "noContract": "No type of contract specified",
+            "noSalary": "No salary specified",
+            "noSchedule": "No working hours specified",
+            "noSector": "No laboral sector specified",
+            "noRequirements": "No minimum requirements specified",
+            "noDescription": "No job description specified"
+        },
+        "btnInscription": "Apply to this job offer",
+        "btnReviewRequest": "Review application",
+        "alreadryRequested": "You already applied to this offer",
+        "labelSector": "Laboral sector",
+        "labelNVacancies": "Vacancies",
+        "labelType": "Type of contract",
+        "labelSchedule": "Working hours",
+        "labelRequirements": "Minimum requisites",
+        "description": "Description",
+        "inscription": {
+            "title": "Enrollment",
+            "request": "Application",
+            "textarea": "Write your application message...",
+            "addButton": "Attach PDF",
+            "cancelButton": "Back",
+            "submitButton": "Apply",
+            "addFiles": {
+                "title": "Add attachments",
+                "chooseFiles": "Choose files",
+                "max": "1 max.",
+                "addFilesButton": "Attach from device",
+                "goBackButton": "Back",
+                "addButton": "Attach"
+            },
+            "alert": {
+                "success": {
+                    "title": "Success",
+                    "message": "Succesful application"
+                },
+                "error": {
+                    "title": "Error",
+                    "message": "Application failed,"
+                }
+            }
+        },
+        "setOffer": {
+            "title": "New job offer",
+            "labelTitleOffer": "Job title name",
+            "labelSector": "Laboral sector",
+            "labelLocation": "Location",
+            "labelNVacancies": "Vacancies",
+            "labelType": "Type of contract",
+            "labelSchedule": "Working hours",
+            "labelRequirements": "Minimum requisites",
+            "labelDescription": "Description",
+            "newOfferButton": "Create offer",
+            "alert": {
+                "success": {
+                    "title": "Success",
+                    "message": "Job offer created succesfully,"
+                },
+                "error": {
+                    "title": "Error",
+                    "message": "Job offer creation failed,"
+                }
+            }
+        },
+        "deleteOffer": {
+            "alert": {
+                "title": "Remove offer",
+                "message": "Do you really want to remove this job offer?"
+            }
+        },
+        "editOffer": {
+            "title": "Editing offer",
+            "saveButton": "Save offer",
+            "deleteButton": "Delete offer",
+            "alert": {
+                "title": "Success",
+                "message": "Job offer updated succesfully"
+            }
+        }
+    },
+    "JOB_REQUESTS": {
+        "card": {
+            "noName": "No name",
+            "on": "at",
+            "noProfession": "Currently not working",
+            "noRequest": "No applications"
+        }
+    },
+    "INFO_EVENT": {
+        "info": {
+            "organization": "Organizing",
+            "info": "Info",
+            "terms": "Conditions"
+        },
+        "speakers": {
+            "noCategory": "No category specified",
+            "noSector": "No laboral sector specified",
+            "noPhone": "No phone number specified",
+            "noEmail": "No contact email specified",
+            "noLocation": "No location specified",
+            "noSite": "No links specified",
+            "noInfo": "No info specified"
+        }
+    },
+    "GALLERY": {
+        "title": "Gallery",
+        "noPhotos": "No photos yet"
+    },
+    "STREAMINGS": {
+        "noStreamings": "There are no livestreams for this event",
+        "room": "Room: {{room}}",
+        "live": "Live",
+        "notLive": "Currently offline",
+        "end": "Streaming ended",
+        "tabs": {
+            "info": "Info",
+            "chat": "Chat",
+            "assistants": "Attendants"
+        },
+        "noInfo": "No info",
+        "input": "Chat..."
+    },
+    "CHAT": {
+        "title": "Chats",
+        "noChat": "No chats yet",
+        "yesterday": "Yesterday",
+        "today": "Today",
+        "btnNewGroup": "New chat group",
+        "btnNewChat": "New chat",
+        "btnCancel": "Cancel",
+        "btnNext": "Next",
+        "btnBack": "Back",
+        "inputNameGroup": "Chat group name",
+        "me": "Me:",
+        "noMessages": "There are no messages yet",
+        "enterVideocall": "Touch here to access the videocall",
+        "chatInfo": "Chat info",
+        "groupInfo": "Group info",
+        "admin": "Admin",
+        "addPeople": "Add chatter",
+        "groupNamePlaceholder": "Chat group name",
+        "saveNameGroup": "Save",
+        "add": "Add",
+        "leaveGroup": "Leave chat group",
+        "remove": "Remove",
+        "removeUser": "Are you sure you want to remove {{name}} from chat group?",
+        "discard": "Dismiss",
+        "discardUser": "Are you sure you want to remove {{name}} as an admin?",
+        "makeAdmin": "Make admin",
+        "makeAdminUser": "Are you sure you want to make {{name}} an admin?",
+        "leave": "Leave",
+        "leaveUser": "Do you want to leave {{nameGroup}}?",
+        "contextmenu": {
+            "showProfile": "Go to profile",
+            "remove": "Remove",
+            "removeAdmin": "Remove as an admin",
+            "makeAdmin": "Make admin"
+        }
+    },
+    "LEGAL_INFO": {
+        "title": "Legal",
+        "cookies": {
+            "title": "Cookies Policies"
+        },
+        "privacy": {
+            "title": "Privacy Policies"
+        },
+        "terms": {
+            "title": "Terms of Service"
+        }
+    },
+    "LOADING": "Loading...",
+    "NO_RESULTS": "No results",
+    "UPLOAD_IMG": {
+        "alert": {
+            "success": {
+                "title": "SUCCESS!",
+                "message": "Image updated sucessfully"
+            },
+            "error": {
+                "title": "Error",
+                "message": "Image update failed"
+            }
+        }
+    },
+    "UPLOAD_FILE": {
+        "alert": {
+            "success": {
+                "title": "SUCCESS!",
+                "message": "Attachment updated sucessfully"
+            },
+            "error": {
+                "title": "Error",
+                "message": "Attachment update failed"
+            }
+        }
+    },
+    "CHANGE_PASS": {
+        "title": "Change password",
+        "labelPass": "New password",
+        "labelRepPass": "Repeat password",
+        "button": "Save password",
+        "back": "Back",
+        "forgot": {
+            "lbl": "Enter your email to find your account",
+            "placeholder": "Email",
+            "button": "Check email",
+            "alert": {
+                "title": "Success",
+                "message": "If your email is in our database, you will receive an email to change your password."
+            }
+        },
+        "alert": {
+            "success": {
+                "title": "Success",
+                "message": "Changes saved successfully,"
+            },
+            "error": {
+                "title": "Error",
+                "message": "Changes saving failed,"
+            }
+        },
+        "toastLength": "The password must be more than 6 characters",
+        "toastDifferentPass": "Passwords do not match"
+    },
+    "SPONSORS": {
+        "noSponsors": "There are no sponsors yet",
+        "PATROCINADOR": "Sponsor",
+        "PATROCINADOR PRINCIPAL": "Principal sponsor"
+    },
+    "MEETINGS": {
+        "title": "Meetings",
+        "noMeetings": "There are no meetings scheduled",
+        "noCompanies": "There are no exhibitors to request meetings from",
+        "requestMeeting": {
+            "title": "Request meeting from...",
+            "labelRequest": "Application",
+            "textarea": "Write a message for your application...",
+            "buttonAdd": "Attach PDF",
+            "labelTemplateMeeting": "Use this as a template for future requests",
+            "labelWarning1": "This lead will respond by methods outside this app",
+            "labelNoDate": "No date",
+            "buttonChooseDate": "Choose date",
+            "buttonModifyDate": "Edit date",
+            "buttonAccept": "Send application"
+        },
+        "reviewMeeting": {
+            "title": "Checking meeting",
+            "titleOffer": "Checking meeting request",
+            "labelRequest": "Job offer requesting",
+            "labelJob": "{{profession}} at {{company}}",
+            "status": {
+                "timeLeft": "{{timeLeft}} left",
+                "enterMeeting": "Get in the meeting",
+                "aproved": "Approved",
+                "celebrated": "Ended",
+                "declined": "Declined"
+            },
+            "labelOpenChat": "Chat with {{name}}",
+            "labelAnnotations": "Notes",
+            "labelOptional": "Optional",
+            "labelPresentation": "Original message"
+        },
+        "startMeeting": {
+            "title": "MEETING WITH...",
+            "labelTiempoRestante": "TIME LEFT",
+            "labelReunionFinalizada": "Meeting ended",
+            "tabs": {
+                "0": "Chat",
+                "1": "Meeter",
+                "2": "Notes",
+                "meet": {
+                    "labelBtnInfoStudent": "Go to {{name}} profile",
+                    "labelProfession": "at",
+                    "labelInformacion": "INFO",
+                    "labelSiguienteReunion": "Next meeting:",
+                    "labelCargoEn": "Work as "
+                },
+                "annotations": {
+                    "labelEtiqueta": "TAGS",
+                    "labelOpcional": "Optional",
+                    "lableAnotaciones": "NOTES",
+                    "label1": "Add tags to filter meeters",
+                    "label2": "Write here your notes",
+                    "buttonSave": "Save notes",
+                    "toast": "Notes saved"
+                }
+            },
+            "lableVerPerfil": "Go to profile",
+            "lableInformacion": "INFO",
+            "labelSiguienteReunion": "Next meeting:",
+            "labelCargo": "Work as ",
+            "tabAnotaciones": {
+                "labelValoraMeet": "RATE THE MEETING",
+                "labelOpcional": "Optional",
+                "labelEtiquetas": "TAGS",
+                "textEtiquetas": "Add tags to filter meeters",
+                "labelAnotaciones": "NOTES",
+                "textAnotaciones": "Write here your notes"
+            },
+            "tabChat": {
+                "labelEscribe": "Chat..."
+            },
+            "popOverEndMeet": {
+                "title": "THOUGHTS ABOUT THE MEETING?",
+                "labelEtiquetas": "TAGS",
+                "labelAnotaciones": "NOTES",
+                "lableBtnFavoritos": "Favorites",
+                "labelTextArea": "Write here your notes",
+                "labelOpcional": "Optional",
+                "labelBtnAceptExit": "Save and exit",
+                "labelBtnNextMeet": "NEXT MEETING"
+            },
+            "labelNoMeets": "No more meetings"
+        },
+        "calendar": {
+            "title": "Choose your deate",
+            "labelAvailable": "Available {{date}}...",
+            "labelHourSelect": "Choose any date to show the available schedule",
+            "buttonGoBack": "Back",
+            "buttonConfirm": "Save",
+            "weekdays": {
+                "monday": "M",
+                "tuesday": "Tu",
+                "wednesday": "W",
+                "thursday": "Th",
+                "friday": "F",
+                "saturday": "Sa",
+                "domingo": "Su"
+            }
+        },
+        "viewStudent": {
+            "labelRequest": "Apply",
+            "labelRequested": "Applied",
+            "labelDeclined": "Denied",
+            "labelUbication": "Online through app",
+            "labelInfo": "Click card to enter",
+            "labelCelebrated": "Meeting ended",
+            "labelNoAnnotations": "There are no notes"
+        },
+        "viewCompany": {
+            "labelCelebrated": "Meeting ended",
+            "labelNoAnnotations": "There are no notes"
+        },
+        "setUpMeetingHours": {
+            "title": "Set my schedule",
+            "cardAvailble": "Available",
+            "cardUnavailble": "Unavailable",
+            "cardReserved": "Reserved",
+            "popover": {
+                "title": "Set date",
+                "date": "{{date}} from {{hour}} to {{endHour}}",
+                "labelToggle": "Show as \"UNAVAILABLE\"",
+                "buttonGoBack": "Back",
+                "buttonAccept": "Save"
+            }
+        },
+        "associateNewMeetDate": {
+            "title": "GIVE NEW DATE",
+            "labelButtonAvailable": "Keep available date without reservation",
+            "labelPendientesReserva": "RESERVAION PENDING",
+            "labelDenegados": "DENIED",
+            "labelReservadosOtraCita": "RESERVATION WITH ANOTHER DATE",
+            "labelButtonOtrasCitas": "REQUEST ANOTHER DATE",
+            "labelCargoEn": "Work as "
+        }
+    },
+    "ACCREDITATION": {
+        "title": "Accreditations"
+    },
+    "SEARCHBAR": "Search...",
+    "NOTIFICATIONS": {
+        "title": "Notification",
+        "go": "Go"
+    },
+    "PLAN": {
+        "title": "Plan"
+    },
+    "EXTERNAL_LINK": {
+        "tourGuide": "Tour guide",
+        "howToGet": "How to get"
+    }
+}

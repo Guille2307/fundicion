@@ -1,0 +1,47 @@
+<ion-header class="menu">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="goBack()">
+        <i class="icon icon_w_icons_arrow_nav_left"></i>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      {{ speaker.name }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div [innerHtml]="iframeHtml"></div>
+  <div *ngIf="speaker" class="header-container">
+    <div id="img-container-speaker" class="img-container"></div>
+    <div class="title-img-container">
+      <img class="profile-img" src="{{speaker.id | imageSpeaker}}"
+        onerror="this.onerror=null;this.src='assets/img/no_image_user.webp'" (click)="showImage(speaker.id)">
+      <div class="title-header">
+        <ion-title size="large">
+          {{speaker.name}}
+        </ion-title>
+        <socialmedia *ngIf="speaker.socialmedia" style="width: 100%;" [speaker]="true" [socialmedia]="speaker.socialmedia"></socialmedia>
+      </div>
+    </div>
+    <ion-list class="description-container">
+      <ion-item detail="false" class="data site" *ngIf="speaker.web">
+        <i class="icon icon_w_icons_world"></i>
+        <ion-card-subtitle>
+          <a target="_blank" class="value" href="{{speaker.web}}">{{speaker.web}}</a>
+        </ion-card-subtitle>
+      </ion-item>
+      <ion-item detail="false" class="data info" *ngIf="speaker.title">
+        <i class="icon icon_w_icons_information_circle"></i>
+        <ion-card-subtitle>
+          <ion-title>{{'PROFILE.labelInfo' | translate}}</ion-title>
+        </ion-card-subtitle>
+        <div class="line"></div>
+      </ion-item>
+      <ion-item detail="false" class="data info" *ngIf="speaker.title">
+        <div class="value">{{speaker.title}}</div>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

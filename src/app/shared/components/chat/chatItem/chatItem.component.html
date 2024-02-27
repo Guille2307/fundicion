@@ -1,0 +1,49 @@
+<ion-nav-link [component]="nextPage">
+  <ion-item lines="none" (click)="goToChat(chat)" button detail="false">
+    <ion-avatar slot="start" *ngIf="!chat.isGroup">
+      <img
+        *ngIf="idUser !== null"
+        src="{{ idUser | imageProfile }}"
+        alt=""
+        onerror="this.onerror=null;this.src='assets/img/no_image_user.webp'"
+      />
+      <img *ngIf="idUser === null" src="assets/img/no_image_user.webp" alt="" />
+    </ion-avatar>
+    <ion-avatar slot="start" *ngIf="chat.isGroup">
+      <img src="assets/img/image_group.webp" alt="" />
+    </ion-avatar>
+    <ion-label>
+      <h2>
+        <b *ngIf="chat.isGroup">{{ chat.name }}</b>
+        <b *ngIf="!chat.isGroup">{{ userMsg | async }}</b>
+      </h2>
+      <p class="info-last-msg" *ngIf="chat.isGroup">
+        <ion-title *ngIf="chat.messages.length !== 0">
+          {{ userMsg | async | translate }}
+          {{ lastMsg | translate }}
+        </ion-title>
+        <ion-title class="italic" *ngIf="chat.messages.length === 0">
+          {{ "CHAT.noMessages" | translate }}
+        </ion-title>
+      </p>
+      <p class="info-last-msg" *ngIf="!chat.isGroup">
+        <i class="icon icon_w_icons_check" *ngIf="itsMe"></i>
+        <ion-title [ngClass]="{ bold: contUnseenMsgs !== 0 }">{{
+          lastMsg | translate
+        }}</ion-title>
+      </p>
+    </ion-label>
+    <div class="time-bubble-container">
+      <div class="time-container" [ngClass]="{ unseen: contUnseenMsgs !== 0 }">
+        {{ setDate(timeLastMsg) | translate }}
+      </div>
+      <div class="container-msg-count">
+        <div *ngIf="contUnseenMsgs !== 0">
+          <div>
+            <!-- {{ contUnseenMsgs }} -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-item>
+</ion-nav-link>

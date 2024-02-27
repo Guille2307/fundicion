@@ -1,0 +1,18 @@
+@import "../../../../../assets/scss/partials/variables";
+
+.toolbar {
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 15px;
+
+  img {
+    height: 32px;
+    margin: auto 0;
+    cursor: pointer;
+  }
+
+  language-selection {
+    margin: auto 0;
+  }
+}

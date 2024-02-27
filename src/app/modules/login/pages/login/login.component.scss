@@ -1,0 +1,171 @@
+@import "../../../../../assets/scss/partials/variables";
+@import "../../../../../assets/scss/partials/mixins";
+
+ion-content {
+  --overflow: hidden;
+
+  &.no-background {
+    --background: var(--backgroundColorLogin) !important;
+  }
+
+  .scrim {
+    height: 100%;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.42);
+
+    &.no-shadow {
+      background: transparent;
+    }
+  }
+
+  .login-container {
+    width: 350px;
+    margin: auto;
+    padding: 0px 15px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 100%;
+
+    .have-account {
+      margin-top: 3vh;
+    }
+
+    .first-time,
+    .have-account {
+      display: grid;
+
+      ion-label {
+        margin: 10px 0;
+        color: white;
+
+        &.without-account {
+          text-decoration: underline;
+          cursor: pointer;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  .footer {
+    background: transparent;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-top: 20px;
+
+    .logged-accounts {
+      color: white;
+      max-width: 530px;
+      padding: 0 2vh;
+      margin: 2vh auto;
+
+      .label {
+        font-size: 16px;
+        font-style: italic;
+      }
+
+      .list-accounts {
+        background: transparent;
+        max-height: 18vh;
+        overflow: auto;
+
+        .account {
+          --background: transparent;
+          display: flex;
+          color: white;
+          height: 10vh;
+          justify-content: space-around;
+
+          ion-icon {
+            color: white;
+            width: 20%;
+            font-size: 5vh;
+            margin: auto;
+          }
+
+          .profile-img {
+            height: 70px;
+            width: 70px;
+            border-radius: 50%;
+            padding: 5px;
+            margin: auto;
+            object-fit: cover;
+          }
+
+          .name-container {
+            width: 60%;
+            height: 56px;
+            margin: auto;
+
+            p {
+              margin: 0;
+              font-size: 16px;
+
+              &.name {
+                font-weight: 900;
+                font-size: 18px;
+              }
+            }
+          }
+
+          button {
+            position: relative;
+            background: transparent;
+            border: 1px solid white;
+            border-radius: 20vh;
+            color: white;
+            font-weight: 100;
+            text-transform: uppercase;
+            height: 34px;
+            width: 130px;
+            margin: auto;
+            cursor: pointer;
+            font-size: 16px;
+            padding-right: 20px;
+
+            &:active {
+              background-color: rgba(255, 255, 255, 0.3);
+              border-color: rgba(255, 255, 255, 0.3);
+            }
+
+            &:hover {
+              background-color: rgba(255, 255, 255, 0.3);
+              border-color: rgba(255, 255, 255, 0.3);
+            }
+
+            ion-icon {
+              position: absolute;
+              font-size: 18px;
+              top: 7px;
+              right: 0;
+              font-weight: 900;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.button-transparent {
+  @include boton(44px, 2px, white, transparent, white, 20px, $interactive);
+
+  ion-title {
+    font-size: 18px !important;
+    font-weight: bold !important;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .profile-img {
+    height: 90px;
+    width: 90px;
+  }
+}
+
+@media screen and (max-height: 780px) {
+  .footer {
+    position: relative !important;
+  }
+}

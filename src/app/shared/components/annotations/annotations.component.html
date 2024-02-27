@@ -1,0 +1,18 @@
+<div class="title-container">
+  <i class="icon icon_w_icons_note"></i>
+  <div class="ion-title-container">
+    <ion-title class="tag-annotation">
+      {{ "PROFILE.labelAnnotations" | translate }}
+      <label class="optional">{{ "PROFILE.labelOptional" | translate }}</label>
+    </ion-title>
+  </div>
+</div>
+<div class="title-container textarea">
+  <ion-textarea class="annotations" placeholder="{{ 'PROFILE.annotationsPlaceholder' | translate }}" autoGrow="false"
+    rows="3" maxLength="1000" [(ngModel)]="annotations">
+  </ion-textarea>
+</div>
+<div class="btn-save-container">
+  <button-save [title]="'MEETINGS.startMeeting.tabs.annotations.buttonSave'" (click)="saveAnnotation()">
+  </button-save>
+</div>

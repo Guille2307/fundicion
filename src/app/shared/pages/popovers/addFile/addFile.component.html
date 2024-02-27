@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-title size="large">
+    {{ 'JOB_OFFERS.inscription.addFiles.title' | translate }}
+  </ion-title>
+</ion-header>
+<div class="content">
+  <input type="file" id="file-selector" multiple accept="application/pdf"
+    style="display: none;">
+  <ion-button fill="clear" class="add-button" (click)="addFile()">
+    <i class="icon icon_w_icons_doc"></i>
+    {{"JOB_OFFERS.inscription.addFiles.addFilesButton" | translate}}
+  </ion-button>
+  <ion-list class="list-files">
+    <ion-item detail="false" class="file-item" *ngFor="let file of files; let i = index" (click)="selectFile(file)">
+      <div class="file-btn-container">
+        <div class="icon-doc-container">
+          <i class="icon icon_w_icons_doc"></i>
+        </div>
+        <ion-title class="attached-button" size="small">{{setDocName(file.document)}}</ion-title>
+        <!-- <a target="_blank" class="attached-button" href="{{file.document | fileUser}}">{{setDocName(file.document)}}</a> -->
+        <div class="arrow-container">
+          <i class="icon icon_w_icons_arrow_nav_right"></i>
+        </div>
+        <!-- <ion-checkbox slot="end" mode="ios" [(ngModel)]="assistant.isChecked"></ion-checkbox> -->
+      </div>
+    </ion-item>
+  </ion-list>
+  <div class="buttons-container">
+    <ion-button fill="clear" class="cancel" (click)="cancelButtonClick()">
+      {{"JOB_OFFERS.inscription.cancelButton" | translate}}
+    </ion-button>
+    <!-- <ion-button fill="clear" class="submit">
+      {{"JOB_OFFERS.inscription.submitButton" | translate}}
+    </ion-button> -->
+  </div>
+</div>

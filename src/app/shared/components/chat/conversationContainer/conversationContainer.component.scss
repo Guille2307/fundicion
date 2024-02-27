@@ -1,0 +1,166 @@
+@import "../../../../../assets/scss/partials/variables";
+@import "../../../../../assets/scss/partials/typography";
+
+ion-content {
+  --overflow: auto;
+  // height: calc(100% - (56px * 2));
+  --offset-top: var(--offset-top) !important;
+  &.ion-padding {
+    --padding-top: 0 !important;
+    --padding-bottom: 20px !important;
+  }
+
+  .content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto;
+    overflow-y: auto;
+  }
+
+  ion-list {
+    background: transparent;
+  }
+
+  ion-item {
+    --inner-padding-top: 10px;
+    --inner-padding-bottom: 10px;
+    --background: transparent;
+  }
+}
+
+.message-container {
+  display: grid;
+
+  .date {
+    text-align: center;
+    margin: 10px auto;
+    padding: 5px 10px;
+    border-radius: 25px;
+    color: $fontColor;
+    background: rgba(0, 108, 129, 0.4);
+  }
+}
+
+ion-footer {
+  ion-toolbar {
+    ion-button {
+      display: flex;
+
+      .icon {
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+ion-textarea {
+  color: black;
+  overflow-y: auto;
+}
+
+.msg-btn {
+  --padding-start: 10px;
+  --padding-end: 10px;
+  --border-radius: 50%;
+}
+
+.message-input {
+  width: 100%;
+  border: 1px solid var(--ion-color-medium);
+  border-radius: 6px;
+  background: #fff;
+  resize: none;
+  margin-top: 0px;
+  --padding-start: 8px;
+}
+
+.message {
+  padding: 10px !important;
+  border-radius: 10px !important;
+  margin-bottom: 4px !important;
+  white-space: pre-wrap;
+
+  &.videocall {
+    text-align: center;
+    cursor: pointer;
+    color: $fontColor;
+    background: rgba(0, 108, 129, 0.4);
+  }
+}
+
+.my-message {
+  background: $emphasis;
+  color: #fff;
+}
+
+.other-message {
+  background: grey;
+  color: #fff;
+}
+
+.name-msg-group {
+  font-weight: bold;
+  color: $interactive;
+}
+
+.time {
+  color: #dfdfdf;
+  float: right;
+  font-size: small;
+}
+
+ion-grid,
+.content,
+ion-list {
+  margin: auto;
+  width: auto;
+}
+
+.first-msg {
+  position: relative;
+
+  &.my-message {
+    border-top-right-radius: 0 !important;
+
+    .corner {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-color: transparent;
+      border-style: solid;
+      top: -1px;
+      right: -9px;
+      margin-left: 0;
+      border-width: 7px 7px 0px;
+      border-top-color: $emphasis;
+      transform: rotate(135deg);
+    }
+  }
+
+  &.other-message {
+    border-top-left-radius: 0 !important;
+
+    .corner {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-color: transparent;
+      border-style: solid;
+      top: -1px;
+      left: -9px;
+      margin-left: 0;
+      border-width: 7px 7px 0px;
+      border-top-color: grey;
+      transform: rotate(225deg);
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  ion-grid {
+    &.width-desktop {
+      margin: auto;
+      width: 460px;
+    }
+  }
+}

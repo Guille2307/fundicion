@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title size="large">
+      {{ "CHAT.addPeople" | translate }}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button disabled="{{listUsers.length === 0 || listUsers.length > 24}}" class="add" fill="clear" (click)="addPeople()">
+        {{ "CHAT.add" | translate }}
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <list-assistants-group (chatGroup)="receiveUsers($event)"></list-assistants-group>
+</ion-content>

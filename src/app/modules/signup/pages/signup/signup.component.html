@@ -1,0 +1,122 @@
+<ion-header [translucent]="true" class="transparent ion-no-border" [ngClass]="{'no-shadow': !permissionsSvc.showBackground}">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button fill="clear" type="button" class="back" (click)="goBack()">
+                <i class="icon icon_w_icons_arrow_nav_left"></i>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+            {{ "CREATE_ACCOUNT.title" | translate }}
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" [ngClass]="{'no-background': !permissionsSvc.showBackground}"
+[style]="'--background: ' + ('background' | imageEvent) + ' no-repeat center center / cover'">
+    <div class="scrim" [ngClass]="{'no-shadow': !permissionsSvc.showBackground}"></div>
+    <div class="form">
+        <form [formGroup]="createAccountForm" (ngSubmit)="createAccount()" accept-charset="utf-8"
+            class="create-account-container">
+            <div class="name form-group-container">
+                <label class="form-label" for="name">
+                    {{ "CREATE_ACCOUNT.labelName" | translate }}
+                </label>
+                <input type="text" id="name" name="name" formControlName="name" class="form-input"
+                    placeholder="{{ 'CREATE_ACCOUNT.labelName' | translate }}" />
+                <tooltip-error *ngIf="createAccountForm.controls.name.invalid && showTooltip"></tooltip-error>
+            </div>
+            <div class="lastname form-group-container">
+                <label class="form-label" for="surnames">{{
+                    "CREATE_ACCOUNT.labelLastname" | translate
+                    }}</label>
+                <input type="text" id="lastname" name="surnames" formControlName="surnames" class="form-input"
+                    placeholder="{{ 'CREATE_ACCOUNT.labelLastname' | translate }}" />
+                <tooltip-error *ngIf="createAccountForm.controls.surnames.invalid && showTooltip"></tooltip-error>
+            </div>
+            <div class="username form-group-container">
+                <div class="flex">
+                    <label class="form-label" for="username">{{
+                        "CREATE_ACCOUNT.labelUsername" | translate
+                        }}</label>
+                    <!-- <label class="optional">{{"CREATE_ACCOUNT.labelOptional" | translate}}</label> -->
+                </div>
+                <div class="flex">
+                    <ion-icon name="at-outline" class="at-icon"></ion-icon>
+                    <input type="text" id="username" name="username" formControlName="username" class="form-input"
+                        placeholder="{{ 'CREATE_ACCOUNT.labelUsername' | translate }}" />
+                    <tooltip-error *ngIf="createAccountForm.controls.username.invalid && showTooltip"></tooltip-error>
+                </div>
+            </div>
+            <div class="email form-group-container">
+                <label class="form-label" for="email">{{
+                    "CREATE_ACCOUNT.labelMail" | translate
+                    }}</label>
+                <input type="text" id="email" name="email" formControlName="email" class="form-input"
+                    placeholder="{{ 'CREATE_ACCOUNT.labelMail' | translate }}" />
+                <tooltip-error *ngIf="createAccountForm.controls.email.invalid && showTooltip"></tooltip-error>
+            </div>
+            <div class="password form-group-container">
+                <label class="form-label" for="password">{{
+                    "CREATE_ACCOUNT.labelPass" | translate
+                    }}</label>
+                <div class="pass-container">
+                    <input type="password" id="password" name="password" formControlName="password" class="form-input"
+                        placeholder="{{ 'CREATE_ACCOUNT.labelPass' | translate }}" />
+                    <tooltip-error *ngIf="createAccountForm.controls.password.invalid && showTooltip"></tooltip-error>
+                    <ion-button fill="clear" class="show-pass-button" (click)="showHidePass(1)">
+                        <ion-icon *ngIf="!showPass" name="eye-outline"></ion-icon>
+                        <ion-icon *ngIf="showPass" name="eye-off-outline"></ion-icon>
+                    </ion-button>
+                </div>
+            </div>
+            <div class="rep-password form-group-container">
+                <label class="form-label" for="repPassword">{{
+                    "CREATE_ACCOUNT.labelRepPass" | translate
+                    }}</label>
+                <div class="pass-container">
+                    <input type="password" id="repPassword" name="repPassword" formControlName="repPassword"
+                        class="form-input" placeholder="{{ 'CREATE_ACCOUNT.labelRepPass' | translate }}" />
+                    <tooltip-error *ngIf="
+              createAccountForm.controls.repPassword.invalid && showTooltip
+            ">
+                    </tooltip-error>
+                    <ion-button fill="clear" class="show-pass-button" (click)="showHidePass(2)">
+                        <ion-icon *ngIf="!showRepPass" name="eye-outline"></ion-icon>
+                        <ion-icon *ngIf="showRepPass" name="eye-off-outline"></ion-icon>
+                    </ion-button>
+                </div>
+            </div>
+            <ion-list class="checkboxes">
+                <ion-item detail="false" class="checkbox">
+                    <ion-checkbox mode="ios" color="light" formControlName="remember" checked="falsse"></ion-checkbox>
+                    <label>{{ "CREATE_ACCOUNT.labelRemAccess" | translate }}</label>
+                </ion-item>
+                <div class="checkbox div">
+                    <ion-checkbox mode="ios" color="light" formControlName="readPolitics" checked="false"
+                        id="check-politics"></ion-checkbox>
+                    <tooltip-error *ngIf="
+              createAccountForm.controls.readPolitics.invalid && showTooltip
+            ">
+                    </tooltip-error>
+                    <a (click)="goToPoliciesPrivacy()">{{
+                        "CREATE_ACCOUNT.labelPolitics" | translate
+                        }}</a>
+                    <!-- <a href="/legal-info/policies-privacy">{{'CREATE_ACCOUNT.labelPolitics' | translate}}</a> -->
+                </div>
+                <ion-item detail="false" class="checkbox">
+                    <ion-checkbox mode="ios" color="light" formControlName="acceptCommunications" checked="false">
+                    </ion-checkbox>
+                    <label>{{ "CREATE_ACCOUNT.labelComercial" | translate }}</label>
+                </ion-item>
+            </ion-list>
+
+            <button type="submit" class="button-transparent" [ngClass]="{ 'disabled': !isRegisterDisabled() }">
+                <div class="ion-activatable ripple-parent">
+                    <ion-title size="large">
+                        {{ "CREATE_ACCOUNT.button" | translate }}
+                    </ion-title>
+                    <ion-ripple-effect></ion-ripple-effect>
+                </div>
+            </button>
+        </form>
+    </div>
+</ion-content>

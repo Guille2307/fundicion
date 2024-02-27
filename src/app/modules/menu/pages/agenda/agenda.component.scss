@@ -1,0 +1,162 @@
+@import "../../../../../assets/scss/partials/variables";
+@import "../../../../../assets/scss/partials/typography";
+@import "../../../../../assets/scss/partials/mixins";
+
+ion-content {
+  --overflow: hidden;
+
+  .content-days {
+    // height: calc(100% - 100px);
+    // overflow: auto;
+    position: relative;
+    padding-bottom: 50px;
+  }
+
+  .day-content {
+    height: auto;
+    width: 100%;
+    background: transparent;
+    z-index: 1;
+  }
+}
+
+ion-item-divider {
+  margin-top: 5px;
+  transform: translate3d(0px, 0px, 0px);
+  background: transparent;
+  border: none;
+
+  ion-label,
+  label {
+    @include principal5($fontColor);
+    width: auto;
+    position: absolute;
+    background: $backgroundColor;
+    &.border {
+      border-right: 10px solid $backgroundColor;
+    }
+  }
+
+  .line {
+    display: block;
+    height: 2px;
+    background: $fontColor;
+    width: 100%;
+    margin: auto;
+  }
+}
+
+.dropdown-container {
+  padding: 0 10px;
+  background: $backgroundTabs;
+}
+
+.dropdown-button-container {
+  height: 48px;
+  display: flex;
+  align-items: center;
+
+  .dropdown-button {
+    @include boton(
+      24px,
+      1px,
+      $interactive,
+      $backgroundTabs,
+      $fontTabs,
+      20px,
+      $secondaryTitle
+    );
+
+    .name-container {
+      justify-content: flex-start !important;
+    }
+
+    ion-label {
+      font-weight: 900 !important;
+    }
+  }
+}
+
+ion-virtual-scroll {
+  overflow-y: hidden !important;
+}
+
+ion-virtual-scroll.content-cards > .virtual-item {
+  position: initial !important;
+  transform: initial !important;
+}
+
+.no-events {
+  text-align: center;
+  padding: 0;
+  display: grid;
+  height: 100px;
+  top: 80px;
+  @include subtitulo1(rgba($fontColor, 0.5));
+}
+
+.content-cards {
+  width: 100%;
+  background: transparent;
+  display: grid;
+  grid-template-columns: auto;
+  overflow-y: auto;
+  height: 100%;
+  margin: 0 auto;
+  min-height: 100px;
+}
+
+.explanation-container {
+  width: 90%;
+  display: flex;
+  margin: 10px auto;
+
+  i {
+    display: flex;
+    margin: auto 20px;
+    font-size: 22px;
+    color: $emphasis;
+  }
+
+  ion-label {
+    color: $emphasis;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.button-create-container {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  margin: 5px auto;
+  justify-content: center;
+  flex-direction: column;
+}
+
+// .tabs.big-tabs {
+//   display: none;
+// }
+
+@media screen and (min-width: 600px) {
+  .content-cards,
+  .button-create-container {
+    margin: auto;
+    width: 460px !important;
+  }
+
+  .explanation-container {
+    width: 460px !important;
+  }
+}
+
+@media screen and (max-width: 1028px) {
+  .tabs.desktop {
+    display: none;
+  }
+
+  .tabs.big-tabs {
+    display: flex !important;
+  }
+}

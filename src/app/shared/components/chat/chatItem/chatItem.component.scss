@@ -1,0 +1,75 @@
+@import "../../../../../assets/scss/partials/variables";
+@import "../../../../../assets/scss/partials/typography";
+
+ion-item {
+  --inner-padding-top: 10px;
+  --inner-padding-bottom: 10px;
+  --background: transparent;
+  height: 88px;
+  min-height: 88px;
+}
+
+ion-label {
+  height: 45px;
+  min-height: 45px;
+}
+
+.info-last-msg {
+  display: flex;
+
+  ion-title {
+    padding: 0;
+    display: contents;
+    font-size: 14px;
+    font-weight: 400;
+    width: 90%;
+    text-align: left;
+  }
+
+  i {
+    font-size: 22px;
+    display: flex;
+    margin: auto;
+  }
+}
+
+.time-bubble-container {
+  display: grid;
+
+  .time-container {
+    font-size: 12px;
+
+    &.unseen {
+      color: $emphasis;
+    }
+  }
+
+  .container-msg-count {
+    width: 25px;
+    height: 25px;
+    margin-left: auto;
+
+    .bubble {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      background-color: $emphasis;
+      border-radius: 50%;
+      
+      .msg-count {
+        color: white;
+        font-weight: bold;
+        margin: auto;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.bold {
+  font-weight: bold !important;
+}
+
+.italic {
+  font-style: italic;
+}

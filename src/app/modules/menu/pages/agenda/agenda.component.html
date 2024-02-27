@@ -1,0 +1,71 @@
+<mat-sidenav-container style="height: 100%; background: transparent">
+  <mat-sidenav-content>
+    <ion-header class="menu">
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+          {{
+            (modulesSvc.tickets ? "MENU.tickets" : "MENU.agenda") | translate
+          }}
+        </ion-title>
+        <ion-buttons
+          slot="primary"
+          *ngIf="permissionsSvc.getPermissions().crearEvento"
+        >
+          <ion-button fill="clear" (click)="editAgenda = !editAgenda">
+            <i *ngIf="!editAgenda" class="icon icon_w_icons_edit_box"></i>
+            <i *ngIf="editAgenda" class="icon icon_w_icons_check_circle"></i>
+          </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="primary">
+          <ion-button
+            class="search-button"
+            fill="clear"
+            (click)="sideSearchbar.toggle()"
+          >
+            <i class="icon icon_w_icons_search_small"></i>
+          </ion-button>
+        </ion-buttons>
+        <!-- <ion-buttons slot="end">
+          <ion-segment class="tabs desktop" (ionChange)="segmentChanged($event)" [(ngModel)]="currentTab">
+            <ion-segment-button class="title-container segment-button" *ngFor="let day of daysTabs" value="{{day.fulldate}}" id="{{day.fulldate}}">
+              <ion-label>{{'AGENDA.schedule.abbreviations.' + day.weekday | translate}}</ion-label>
+              <ion-label>&nbsp;{{day.day}}&nbsp;</ion-label>
+              <ion-label class="month-year">{{'AGENDA.schedule.months.' + day.month | translate}} {{day.year}}</ion-label>
+            </ion-segment-button>
+          </ion-segment>
+        </ion-buttons> -->
+        <ion-buttons slot="end" class="mobile">
+          <chat-and-profile></chat-and-profile>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <whub-agenda
+      *ngIf="selectedEvent && translations"
+      [selectedEvent]="selectedEvent"
+      [sideSearchbar]="sideSearchbar"
+      [editAgenda]="editAgenda"
+      [translations]="translations"
+      [selectedMonth]="selectedMonth"
+      [query]="query"
+      (newEvent)="newEvent()"
+      (openMonthsPopover)="openMonthsPopover($event)"
+      (actionCard)="receiveActionCard($event)"
+    ></whub-agenda>
+  </mat-sidenav-content>
+  <mat-sidenav
+    id="sideSearchbar"
+    #sideSearchbar
+    mode="over"
+    position="end"
+    style="width: 80%"
+  >
+    <searchbar
+      [sideNav]="sideSearchbar"
+      (sendQuery)="query = $event"
+    ></searchbar>
+  </mat-sidenav>
+</mat-sidenav-container>

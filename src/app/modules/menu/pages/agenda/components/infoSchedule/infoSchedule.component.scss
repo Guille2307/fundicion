@@ -1,0 +1,218 @@
+@import "../../../../../../../assets/scss/partials/variables";
+@import "../../../../../../../assets/scss/partials/typography";
+@import "../../../../../../../assets/scss/partials/mixins";
+
+.content {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: auto;
+  overflow-y: auto;
+
+  .header-container {
+    .img-container {
+      z-index: 1;
+      position: static;
+      height: 174px;
+      width: 100%;
+    }
+
+    .title-img-container {
+      z-index: 2;
+      position: absolute;
+      top: 0;
+      height: 174px;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.56);
+      display: flex;
+      justify-content: space-around;
+
+      .title-container {
+        display: grid;
+        height: 100%;
+        width: 70%;
+
+        ion-title {
+          @include principal5(white);
+          text-align: left;
+          padding: 0;
+          display: inline-flex;
+          width: 100%;
+          display: flex;
+          text-align: center;
+        }
+      }
+    }
+
+    .add-button {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      border: 2px solid $interactive;
+      border-radius: 50%;
+      background: white;
+      border-radius: 50%;
+      --background: transparent;
+      --border-radius: 50%;
+      --box-shadow: none;
+      --padding-end: 0;
+      --padding-start: 0;
+      margin: auto;
+      height: 40px;
+      width: 40px;
+
+      .icon {
+        color: $interactive;
+        font-size: 25px;
+      }
+    }
+  }
+
+  .body-container {
+    width: 100%;
+    overflow-y: auto;
+    padding-top: 20px;
+    background: transparent;
+    padding: 15px 30px;
+
+    .button-container {
+      width: 100%;
+      height: 64px;
+
+      .btn-streaming {
+        @include boton(
+          24px,
+          1px,
+          $interactive,
+          $backgroundButton,
+          $fontButton,
+          30px,
+          $secondaryTitle
+        );
+      }
+
+      .btn-sale {
+        @include boton(
+          24px,
+          1px,
+          $interactive,
+          white,
+          black,
+          20px,
+          $secondaryTitle
+        );
+      }
+    }
+
+    .title-container {
+      display: flex;
+      height: 40px;
+      justify-content: space-between;
+      margin: 1px;
+
+      &.auto {
+        height: auto;
+        margin-bottom: 10px;
+      }
+
+      p {
+        margin: 0;
+
+        &.uppercase {
+          text-transform: uppercase;
+        }
+
+        &.italic {
+          font-style: italic;
+        }
+      }
+
+      .profile-img {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        margin: auto;
+        object-fit: cover;
+        border: 2px solid $interactive;
+        cursor: pointer;
+      }
+
+      .icon {
+        font-size: 24px;
+        margin: auto 0;
+
+        &.info {
+          width: 44px;
+        }
+      }
+
+      .ion-title-container {
+        margin: auto 10px;
+        width: 100%;
+
+        &.name {
+          width: 80%;
+        }
+      }
+
+      ion-title {
+        padding: 0 10px;
+        @include subtitulo1(black);
+        font-style: normal;
+        margin: auto;
+        height: 20px;
+        display: contents;
+        text-align: left;
+
+        &.title {
+          @include principal5(black);
+        }
+
+        &.name {
+          @include principal5(black);
+          font-style: normal;
+        }
+      }
+
+      .line {
+        display: block;
+        height: 2px;
+        background: black;
+        width: 100%;
+        margin: auto;
+      }
+    }
+
+    .info-content,
+    .iframe-content {
+      margin-top: 10px;
+      margin-bottom: 25px;
+      @include cuerpoTexto1(black);
+    }
+  }
+}
+
+.no-value {
+  text-transform: inherit !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+}
+
+@media screen and (min-width: 600px) {
+  .body-container {
+    margin: auto;
+    width: 460px !important;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .title-container {
+    width: 90% !important;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .title-container {
+    width: 100% !important;
+  }
+}

@@ -1,0 +1,21 @@
+<ion-header class="menu">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" type="button" class="back" (click)="goBack()">
+        <i class="icon icon_w_icons_arrow_nav_left"></i>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      {{ "LEGAL_INFO.title" | translate }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="img-back">
+  <div class="scrim">
+    <ion-content class="tabs-container">
+      <legal-info-tabs></legal-info-tabs>
+    </ion-content>
+  </div>
+</ion-content>

@@ -1,0 +1,5 @@
+@import "../../../../assets/scss/partials/mixins";
+
+.btn {
+  @include boton(24px, 1px, $accept, white, black, 30px, $secondaryTitle);
+}

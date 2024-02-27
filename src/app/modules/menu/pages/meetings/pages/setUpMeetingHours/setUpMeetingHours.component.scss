@@ -1,0 +1,27 @@
+@import "../../../../../../../assets/scss/partials/variables";
+@import "../../../../../../../assets/scss/partials/typography";
+
+ion-content {
+  --overflow: hidden;
+}
+
+.content-cards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  background: transparent;
+  overflow-y: auto;
+  max-height: 100%;
+  margin: 0 auto;
+}
+
+div.selected {
+  height: 100%;
+}
+
+@media screen and (min-width: 600px) {
+  .content-cards {
+    margin: auto !important;
+    width: 460px !important;
+  }
+}

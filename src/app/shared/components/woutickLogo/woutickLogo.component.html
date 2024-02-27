@@ -1,0 +1,7 @@
+<div class="woutick-logo-container">
+  <!-- <img class="logo" src="assets/img/wtkLogo.svg"> -->
+  <!-- <h1 class="title">woutick<h1 class="exclamation">!</h1></h1> -->
+  <img class="logo" [ngClass]="{'no-corners': permissionsSvc.styleLogo === 1, 'round': permissionsSvc.styleLogo === 2}"
+    src="{{'logo' | imageEvent}}">
+  <h1 class="title" *ngIf="permissionsSvc.showName">{{eventName}}</h1>
+</div>

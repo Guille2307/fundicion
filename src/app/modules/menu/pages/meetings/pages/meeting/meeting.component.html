@@ -1,0 +1,89 @@
+<ion-header class="menu">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="goBack()">
+        <i class="icon icon_w_icons_arrow_nav_left"></i>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      {{ "MEETINGS.startMeeting.title" | translate }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<div class="meet-container">
+  <div class="meeting">
+    <div class="name-time-container">
+      <ion-title size="large" *ngIf="otherProfile">
+        {{ getFullName() }}
+      </ion-title>
+      <div class="time-left-container">
+        <div class="title-time">
+          {{ 'MEETINGS.startMeeting.labelTiempoRestante' | translate }}
+        </div>
+        <div class="time-left" [ngClass]="{'little-time': littleTime}">
+          {{ timeLeft }}
+        </div>
+      </div>
+    </div>
+    <ion-content #meeting id="meeting">
+      <ion-title *ngIf="timeLeft === '00:00'" class="finished-meeting" size="small">
+        {{ 'MEETINGS.startMeeting.labelReunionFinalizada' | translate }}
+      </ion-title>
+    </ion-content>
+  </div>
+  <div>
+    <ion-segment *ngIf="getSize()" class="tabs small-tabs" (ionChange)="segmentChanged($event)"
+      [(ngModel)]="selectedTab">
+      <ion-segment-button value="chat">
+        <ion-label>{{ 'MEETINGS.startMeeting.tabs.0' | translate }}</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="meeter">
+        <ion-label>{{ 'MEETINGS.startMeeting.tabs.1' | translate }}</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+    <div id="switch-container" class="switch-container height" [ngSwitch]="selectedTab">
+      <div *ngSwitchCase="'chat'" class="chat">
+        <conversation-container [showHeader]="false"></conversation-container>
+      </div>
+      <div *ngSwitchCase="'meeter'" class="meeter">
+        <div class="img-container" *ngIf="sub === 'EMPLOYEE' && otherProfile" (click)="goToProfile()">
+          <img src="{{otherProfile.id | imageProfile}}">
+        </div>
+        <div *ngIf="sub !== 'EMPLOYEE' && otherProfile">
+          <ion-button class="profile-button" fill="clear" (click)="goToProfile()">
+            <ion-label>{{ "MEETINGS.startMeeting.tabs.meet.labelBtnInfoStudent" | translate: { name: otherProfile.name }
+              }}</ion-label>
+          </ion-button>
+          <div class="data">
+            <i class="icon icon_w_icons_suitcase"></i>
+            <ion-card-subtitle [ngSwitch]="comparison(otherProfile.profession, otherProfile.company)">
+              <ion-title size="small" class="value" *ngSwitchCase="0">
+                {{'PROFILE.studientOf' | translate: { study: otherProfile.profession } }} {{'PROFILE.on' | translate}}
+                <label class="bold">{{otherProfile.company}}</label>
+              </ion-title>
+              <ion-title size="small" class="value" *ngSwitchCase="1">{{otherProfile.profession}}</ion-title>
+              <ion-title size="small" class="value" *ngSwitchCase="2">{{otherProfile.company}}</ion-title>
+              <ion-title size="small" class="no-value" *ngSwitchCase="3">{{'PROFILE.noStudies' | translate}}
+              </ion-title>
+            </ion-card-subtitle>
+          </div>
+        </div>
+        <div *ngIf="otherProfile" style="padding-bottom: 30px;">
+          <div class="line-container">
+            <i class="icon icon_w_icons_information_circle"></i>
+            <label>
+              {{'PROFILE.labelInfo' | translate}}
+            </label>
+            <div class="line"></div>
+          </div>
+          <div class="info">
+            <div class="value" *ngIf="isValueNull(otherProfile.information)">{{otherProfile.information}}</div>
+            <div class="no-value" *ngIf="!isValueNull(otherProfile.information)">{{'PROFILE.noInfo' | translate}}</div>
+          </div>
+          <annotations [otherUserId]="otherProfile.id"></annotations>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

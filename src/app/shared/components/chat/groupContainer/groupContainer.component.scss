@@ -1,0 +1,88 @@
+@import "../../../../../assets/scss/partials/variables";
+@import "../../../../../assets/scss/partials/typography";
+
+ion-content {
+  --overflow: auto;
+  --padding-bottom: 30px;
+  height: calc(100% - 56px);
+
+  .input-container {
+    height: 60px;
+    padding: 0 30px;
+
+    .input {
+      height: 100%;
+      font-size: 18px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .list-selected-users {
+    background: transparent;
+    margin-top: 20px;
+
+    .assistant {
+      --inner-border-width: 0;
+      --background: transparent;
+      padding-left: 10px;
+      height: 70px;
+      display: flex;
+
+      .profile-img {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        margin: auto 0;
+        object-fit: cover;
+      }
+
+      .username-container {
+        width: 80%;
+        padding-left: 10px;
+
+        ion-title {
+          @include subtitulo2(black);
+          display: contents;
+          text-align: left;
+
+          &.fullname {
+            font-size: 18px;
+            margin: 5px 0;
+            height: 22px;
+            text-transform: capitalize;
+          }
+
+          &.username {
+            font-size: 16px;
+            font-weight: 400;
+            margin: 5px 0;
+            height: 18px;
+          }
+        }
+      }
+
+      ion-button.delete {
+        height: 35px;
+        width: 35px;
+        margin: auto 0;
+        border-radius: 50%;
+        background: $cancel;
+
+        .icon {
+          color: white;
+          font-size: 35px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  ion-list,
+  ion-virtual-scroll {
+    &.width-desktop {
+      margin: auto;
+      width: 460px;
+    }
+  }
+}

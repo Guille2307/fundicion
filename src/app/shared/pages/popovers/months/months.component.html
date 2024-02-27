@@ -1,0 +1,30 @@
+<ion-content>
+  <ion-list>
+    <ion-item detail="false" button (click)="select('all')" detail="false">
+      <ion-label class="text-wrap">
+        {{ "AGENDA.schedule.months.all" | translate }}
+      </ion-label>
+      <ion-icon
+        slot="end"
+        name="checkmark"
+        *ngIf="selected === 'all'"
+      ></ion-icon>
+    </ion-item>
+    <ion-item
+      detail="false"
+      button
+      *ngFor="let month of monthsArray"
+      (click)="select(month)"
+      detail="false"
+    >
+      <ion-label class="text-wrap">
+        {{ "AGENDA.schedule.months." + month | translate }}
+      </ion-label>
+      <ion-icon
+        slot="end"
+        name="checkmark"
+        *ngIf="month == selected"
+      ></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>

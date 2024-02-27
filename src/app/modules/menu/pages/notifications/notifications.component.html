@@ -1,0 +1,49 @@
+<ion-header class="menu">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      {{ "NOTIFICATIONS_CHAT.title" | translate }}
+    </ion-title>
+    <ion-buttons slot="end" class="mobile">
+      <chat-and-profile></chat-and-profile>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="true">
+  <ion-grid>
+    <ion-row *ngFor="let message of messages | async; let i = index">
+      <div class="date" *ngIf="showDate(message.createdAt, i)">
+        {{ setDate(message.createdAt) | translate | titlecase }}<br />
+      </div>
+      <div class="message">
+        <i
+          class="icon icon_w_icons_delete"
+          (click)="delete()"
+          *ngIf="permissionsSvc.getPermissions().crearNotificacionesGlobal"
+        ></i>
+        <span class="title"
+          >{{ "NOTIFICATIONS_CHAT.notification" | translate }}
+        </span>
+        <span class="msg">{{ message.msg }}</span>
+
+        <div class="time ion-text-right">
+          <br />{{ message.createdAt | date : "HH:mm" }}
+        </div>
+      </div>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer *ngIf="permissionsSvc.getPermissions().crearNotificacionesGlobal">
+  <ion-toolbar color="light">
+    <ion-item>
+      <ion-input
+        [(ngModel)]="newMsg"
+        placeholder="{{ 'NOTIFICATIONS_CHAT.input' | translate }}"
+        (keyup.enter)="sendMessage()"
+      ></ion-input>
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>

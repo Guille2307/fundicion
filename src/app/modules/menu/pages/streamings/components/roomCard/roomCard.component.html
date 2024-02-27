@@ -1,0 +1,37 @@
+<ion-card target="_blank" (click)="enterRoom(room)">
+  <div class="room">
+    <p>
+      {{ 'STREAMINGS.room' | translate : { room: roomNumber } }}
+    </p>
+  </div>
+  <ion-card-header class="info-container">
+    <div class="field">
+      <ion-card-title class="value">
+        {{room.title}}
+      </ion-card-title>
+    </div>
+    <div class="field" [ngSwitch]="roomType(room.starts, room.ends)">
+      <div class="circle {{roomType(room.starts, room.ends)}}"></div>
+      <ion-card-subtitle class="italic live" *ngSwitchCase="'live'">
+        {{ 'STREAMINGS.live' | translate }}
+      </ion-card-subtitle>
+      <ion-card-subtitle class="italic not-live" *ngSwitchCase="'not-live'">
+        {{ 'STREAMINGS.notLive' | translate }}
+      </ion-card-subtitle>
+      <ion-card-subtitle class="end" *ngSwitchCase="'end'">
+        {{ 'STREAMINGS.end' | translate }}
+      </ion-card-subtitle>
+    </div>
+    <div class="field">
+      <ion-card-subtitle class="value" *ngIf="isValueNull(room.information)">
+        {{room.info}}
+      </ion-card-subtitle>
+      <ion-card-subtitle class="no-value" *ngIf="!isValueNull(room.information)">
+        {{ 'STREAMINGS.noInfo' | translate }}
+      </ion-card-subtitle>
+    </div>
+  </ion-card-header>
+  <div class="arrow-container">
+    <i class="icon icon_w_icons_arrow_nav_right"></i>
+  </div>
+</ion-card>

@@ -1,0 +1,245 @@
+@import "../../../../../../../assets/scss/partials/variables";
+@import "../../../../../../../assets/scss/partials/typography";
+
+.meet-container {
+  width: 100%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  height: 100%;
+
+  .meeting {
+    display: grid;
+    grid-template-rows: 50px auto;
+  }
+
+  ion-content {
+    --overflow: hidden;
+    --background: black;
+
+    .finished-meeting {
+      @include principal5(white);
+      text-align: center;
+    }
+  }
+}
+
+.name-time-container {
+  display: flex;
+  position: relative;
+  justify-content: flex-end;
+
+  ion-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 12.5px 0;
+    height: 50%;
+    width: 100%;
+    text-align: left;
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: 700;
+    color: black;
+    font-size: 18px;
+    padding-bottom: 0;
+    padding-top: 0;
+    padding-inline-start: 20px !important;
+    padding-inline-end: 45% !important;
+  }
+
+  .time-left-container {
+    width: 160px;
+    text-align: center;
+    display: grid;
+    font-size: 16px;
+
+    .title-time {
+      height: auto;
+      margin: auto;
+    }
+
+    .time-left {
+      font-weight: bold;
+
+      &.little-time {
+        color: red;
+      }
+    }
+  }
+}
+
+.switch-container {
+  height: 100%;
+  overflow-y: auto;
+  background: $backgroundColor;
+
+  &.height {
+    height: calc(100% - 50px);
+  }
+}
+
+.meeter {
+  max-width: 550px;
+  margin: auto;
+  padding-top: 20px;
+}
+
+.chat,
+.meeter {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: $backgroundColor;
+}
+
+.profile-button {
+  position: relative;
+  background: white;
+  border: 2px solid $interactive;
+  border-radius: 25px;
+  --border-radius: 25px;
+  color: $fontColor;
+  font-weight: 600;
+  text-transform: none;
+  height: 34px;
+  width: 80%;
+  margin: 10px 10%;
+  cursor: pointer;
+  font-size: 18px;
+  --background-hover: rgba(0, 0, 0, 0.2);
+  --background-hover-opacity: 0.5;
+
+  &:active {
+    --background: rgba(0, 0, 0, 0.05);
+    color: $selectedText;
+  }
+
+  &:hover {
+    color: $selectedText;
+  }
+
+  ion-label,
+  ion-title {
+    padding: 0;
+    font-size: 16px;
+    text-align: center;
+  }
+}
+
+.img-container {
+  height: 100px;
+  display: flex;
+  margin: auto;
+  background-color: white;
+  cursor: pointer;
+
+  img {
+    max-width: 260px;
+    max-height: 90px;
+    margin: auto;
+    object-fit: cover;
+  }
+}
+
+.data {
+  padding: 10px 16px;
+  display: flex;
+
+  .icon {
+    font-size: 25px;
+    font-weight: 900;
+    color: black;
+    display: flex;
+    margin: auto 0;
+  }
+
+  ion-card-subtitle {
+    margin-left: 10px;
+    width: 90%;
+  }
+
+  ion-title {
+    width: 90%;
+    margin: auto;
+    display: contents;
+    text-align: left;
+
+    &.value {
+      @include subtitulo1(black);
+      font-style: normal;
+    }
+
+    &.no-value {
+      @include subtitulo1(rgba(0, 0, 0, 0.3));
+    }
+  }
+}
+
+.line-container {
+  display: flex;
+  padding: 0 16px;
+  margin: 11.5px 1px;
+  position: relative;
+  height: 23px;
+
+  .icon {
+    font-size: 25px;
+    font-weight: 900;
+    color: black;
+    display: flex;
+    margin: auto 0;
+  }
+
+  label {
+    @include principal5(black);
+    width: auto;
+    position: absolute;
+    background: $backgroundColor;
+    border-right: 10px solid $backgroundColor;
+    border-left: 10px solid $backgroundColor;
+    left: 40px;
+  }
+
+  .line {
+    display: block;
+    height: 2px;
+    background: black;
+    width: 100%;
+    margin: auto;
+  }
+}
+
+.info {
+  padding: 0 16px;
+
+  div {
+    width: 90%;
+    margin: auto;
+    display: contents;
+    text-align: left;
+
+    &.value {
+      @include subtitulo1(black);
+      font-style: normal;
+    }
+
+    &.no-value {
+      @include subtitulo1(rgba(0, 0, 0, 0.3));
+    }
+  }
+}
+
+@media screen and (max-width: 1700px) {
+  .meet-container {
+    grid-template-columns: 100% !important;
+    grid-template-rows: auto 400px;
+  }
+}
+
+@media screen and (max-width: 1388px) and (orientation: landscape) {
+  .meet-container {
+    grid-template-columns: 70% 30% !important;
+    grid-template-rows: auto;
+  }
+}

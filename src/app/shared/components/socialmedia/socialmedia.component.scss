@@ -1,0 +1,31 @@
+@import "../../../../assets/scss/partials/variables";
+@import "../../../../assets/scss/partials/typography";
+
+.container {
+  display: flex;
+  background-color: transparent;
+  align-items: center;
+  height: 48px;
+  width: 100%;
+
+  .content {
+    margin: auto;
+
+    &.no-margin {
+      margin: 0;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: $interactive;
+
+    &.speaker {
+      color: white !important;
+    }
+  }
+
+  .icon {
+    font-size: 40px;
+  }
+}

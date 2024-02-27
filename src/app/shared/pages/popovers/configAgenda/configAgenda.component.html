@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-title size="large">
+    {{ "MEETINGS.setUpMeetingHours.popover.title" | translate }}
+  </ion-title>
+</ion-header>
+<div class="content">
+  <h1 class="date" size="large">
+    {{ 'MEETINGS.setUpMeetingHours.popover.date' | translate : { date: spanishDate(), hour: hour, endHour: endHour } }}
+  </h1>
+  <div class="toggle-container">
+    <label>{{"MEETINGS.setUpMeetingHours.popover.labelToggle" | translate}}</label>
+    <ion-toggle [(ngModel)]="toggle"></ion-toggle>
+  </div>
+  <div class="buttons-container">
+    <ion-button fill="clear" class="cancel" (click)="cancelButtonClick()">
+      {{"MEETINGS.setUpMeetingHours.popover.buttonGoBack" | translate}}
+    </ion-button>
+    <ion-button fill="clear" class="submit" (click)="acceptButtonClick()">
+      {{"MEETINGS.setUpMeetingHours.popover.buttonAccept" | translate}}
+    </ion-button>
+  </div>
+</div>

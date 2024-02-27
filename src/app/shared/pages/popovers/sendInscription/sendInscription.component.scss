@@ -1,0 +1,156 @@
+@import "../../../../../assets/scss/partials/variables";
+@import "../../../../../assets/scss/partials/typography";
+
+ion-header {
+  height: 40px;
+  background: #1d1d1b;
+  display: flex;
+
+  ion-title {
+    text-align: center;
+    @include principal5(white);
+    margin: auto;
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 100%;
+  margin: auto;
+  padding-bottom: 53px;
+
+  .request {
+    display: flex;
+    height: 40px;
+    justify-content: space-between;
+    padding: 0 20px;
+
+    ion-label {
+      height: 24px;
+      margin: auto 0;
+
+      &.title {
+        font-size: 16px;
+        text-transform: uppercase;
+        font-style: italic;
+      }
+
+      &.caracteres {
+        color: rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+  
+  .list-files {
+    padding: 0;
+    background: transparent;
+    overflow-y: auto;
+    max-height: 180px;
+
+    .file-item {
+      --background: transparent;
+      --inner-border-width: 0;
+      --padding-start: 0;
+      --inner-padding-end: 0;
+      margin: 8px;
+      z-index: 1;
+
+      ion-button.delete {
+        height: 90%;
+        margin: auto 5px;
+
+        .icon {
+          font-size: 25px;
+          font-weight: 900;
+          color: $cancel;
+          display: flex;
+          margin: auto 0;
+        }
+      }
+    }
+  }
+
+  .file-btn-container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    max-width: 270px;
+    height: 43px;
+    background: white;
+    border: 1px solid black;
+    border-radius: 15px;
+    text-align: left;
+  
+    .icon {
+      font-size: 25px;
+      font-weight: 900;
+      color: black;
+      display: flex;
+      margin: auto 0;
+    }
+  
+    &:active {
+      border-color: $emphasis;
+  
+      .attached-button {
+        color: $selectedText;
+      }
+    }
+  
+    &:hover {
+      border-color: $emphasis;
+  
+      .arrow-container {
+        i {
+          color: $emphasis;
+        }
+      }
+    }
+  
+    .icon-doc-container {
+      position: absolute;
+      width: 50px;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+      background: rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+      z-index: 0;
+    }
+  
+    .arrow-container {
+      position: absolute;
+      width: 40px;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 15px;
+      right: 0;
+      border-left: rgba(0, 0, 0, 0.05) solid 1px;
+      cursor: pointer;
+      z-index: 0;
+  
+      i {
+        color: $interactive;
+      }
+    }
+  
+    .attached-button {
+      text-decoration: none;
+      display: block;
+      text-align: left;
+      text-transform: inherit;
+      color: black;
+      font-weight: 700;
+      width: 100%;
+      padding: 10px;
+      padding-left: 60px;
+      cursor: pointer;
+      font-size: 15px;
+      z-index: 1;
+    }
+  }
+}

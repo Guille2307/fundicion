@@ -1,0 +1,42 @@
+<ion-header class="menu">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      {{ "MENU.sponsors" | translate }}
+    </ion-title>
+    <ion-buttons slot="end" class="mobile">
+      <chat-and-profile></chat-and-profile>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-virtual-scroll
+    class="content"
+    *ngIf="sponsors.length !== 0"
+    [items]="sponsors | filter: query"
+    [headerFn]="separateType"
+  >
+    <ion-item-divider *virtualHeader="let header" color="light">
+      <label>{{ "SPONSORS." + header | translate }}</label>
+      <div class="line"></div>
+    </ion-item-divider>
+    <ion-card
+      target="_blank"
+      (click)="goToSponsorProfile(sponsor)"
+      *virtualItem="let sponsor"
+    >
+      <div class="img-container">
+        <img src="{{ sponsor.id | imageSponsor }}" />
+      </div>
+      <div class="arrow-container">
+        <i class="icon icon_w_icons_arrow_nav_right"></i>
+      </div>
+    </ion-card>
+  </ion-virtual-scroll>
+  <ion-title class="no-sponsors" *ngIf="sponsors.length === 0"
+    >{{ "SPONSORS.noSponsors" | translate }}
+  </ion-title>
+</ion-content>

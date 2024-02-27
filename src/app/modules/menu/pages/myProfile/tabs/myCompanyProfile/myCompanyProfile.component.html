@@ -1,0 +1,455 @@
+<ion-content class="container">
+  <embed-video
+    *ngIf="company"
+    [socialmedia]="company.socialmedia"
+  ></embed-video>
+
+  <div class="header-container">
+    <div id="img-container" class="img-container"></div>
+    <div class="info-img-container">
+      <img
+        *ngIf="companyId !== null"
+        src="{{ companyId | imageProfile }}"
+        class="profile-img"
+        onerror="this.onerror=null;this.src='assets/img/no_image_user.jpg'"
+      />
+      <img
+        *ngIf="companyId === null"
+        class="profile-img"
+        src="assets/img/no_image_user.jpg"
+      />
+      <div class="edit-profile-container">
+        <div class="name-container">
+          <ion-title
+            size="small"
+            *ngIf="isValueNull(company.name) && isValueNull(company.surnames)"
+            >{{ company.name }} {{ company.surnames }}</ion-title
+          >
+          <ion-title
+            size="large"
+            *ngIf="isValueNull(company.name) && !isValueNull(company.surnames)"
+            >{{ company.name }}
+          </ion-title>
+          <ion-title
+            size="small"
+            *ngIf="!isValueNull(company.name) && isValueNull(company.surnames)"
+          >
+            {{ company.surnames }}</ion-title
+          >
+        </div>
+      </div>
+      <div class="btn-container">
+        <button class="edit-profile-button" (click)="editProfile()">
+          <ion-label>{{ "PROFILE.button" | translate }}</ion-label>
+          <i class="icon-btn icon_w_icons_edit_box"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <ion-list class="list-content" *ngIf="sub === 'PREMIUM'">
+    <div class="column-left">
+      <ion-item detail="false" class="data job">
+        <i class="icon icon_w_icons_suitcase"></i>
+        <ion-card-subtitle>
+          <ion-title
+            size="large"
+            class="value"
+            *ngIf="isValueNull(company.sector)"
+          >
+            {{ company.sector }}</ion-title
+          >
+          <ion-title
+            size="large"
+            class="no-value"
+            *ngIf="!isValueNull(company.sector)"
+          >
+            {{ "PROFILE.noSector" | translate }}
+          </ion-title>
+        </ion-card-subtitle>
+      </ion-item>
+      <ion-item detail="false" class="data phone">
+        <i class="icon icon_w_icons_phone"></i>
+        <ion-card-subtitle>
+          <ion-title
+            size="large"
+            class="value"
+            *ngIf="isValueNull(company.phone)"
+            >{{ company.phone }}</ion-title
+          >
+          <ion-title class="no-value" *ngIf="!isValueNull(company.phone)">{{
+            "PROFILE.noPhone" | translate
+          }}</ion-title>
+        </ion-card-subtitle>
+      </ion-item>
+      <ion-item detail="false" class="data email">
+        <i class="icon icon_w_icons_envelope"></i>
+        <ion-card-subtitle>
+          <ion-title
+            size="large"
+            class="value"
+            *ngIf="isValueNull(company.email)"
+            >{{ company.email }}</ion-title
+          >
+          <ion-title
+            size="large"
+            class="no-value"
+            *ngIf="!isValueNull(company.email)"
+            >{{ "PROFILE.noEmail" | translate }}
+          </ion-title>
+        </ion-card-subtitle>
+      </ion-item>
+      <ion-item detail="false" class="data location">
+        <i class="icon icon_w_icons_location_pin_circle"></i>
+        <ion-card-subtitle>
+          <ion-title
+            size="large"
+            class="value"
+            *ngIf="isValueNull(company.location)"
+            >{{ company.location }}</ion-title
+          >
+          <ion-title
+            size="large"
+            class="no-value"
+            *ngIf="!isValueNull(company.location)"
+          >
+            {{ "PROFILE.noLocation" | translate }}</ion-title
+          >
+        </ion-card-subtitle>
+      </ion-item>
+      <ion-item detail="false" class="data site">
+        <i class="icon icon-internet internet"></i>
+        <ion-card-subtitle>
+          <a
+            target="_blank"
+            class="value"
+            href="{{ setUrl(company.site) }}"
+            *ngIf="isValueNull(company.site)"
+            >{{ company.site }}</a
+          >
+          <ion-title
+            size="large"
+            class="no-value"
+            *ngIf="!isValueNull(company.site)"
+          >
+            {{ "PROFILE.noSite" | translate }}</ion-title
+          >
+        </ion-card-subtitle>
+      </ion-item>
+      <div class="line-container">
+        <i class="icon icon_w_icons_information_circle"></i>
+        <label>
+          {{ "PROFILE.labelInfo" | translate }}
+        </label>
+        <div class="line"></div>
+      </div>
+      <ion-item detail="false" class="data info">
+        <div class="value" *ngIf="isValueNull(company.information)">
+          {{ company.information }}
+        </div>
+        <div class="no-value" *ngIf="!isValueNull(company.information)">
+          {{ "PROFILE.noInfo" | translate }}
+        </div>
+      </ion-item>
+      <ion-item detail="false" class="data file" *ngFor="let file of filenames">
+        <div class="file-btn-container">
+          <div class="icon-doc-container">
+            <i class="icon icon_w_icons_doc"></i>
+          </div>
+          <a
+            target="_blank"
+            class="attached-button"
+            href="{{ file.document | fileUser }}"
+            >{{ setDocName(file.document) }}</a
+          >
+          <div class="arrow-container">
+            <i class="icon icon_w_icons_arrow_nav_right"></i>
+          </div>
+        </div>
+      </ion-item>
+    </div>
+    <div class="column-right">
+      <div class="line-container no-icon">
+        <label>
+          {{ "PROFILE.labelMyCatalog" | translate }}
+        </label>
+        <div class="line"></div>
+      </div>
+      <ion-list class="offercards-content">
+        <offer-card
+          [showArrow]="false"
+          *ngFor="let offer of jobOffers"
+          [offer]="offer"
+        ></offer-card>
+      </ion-list>
+      <ion-title class="no-offers" *ngIf="jobOffers.length === 0"
+        >{{ "JOB_OFFERS.noOffers" | translate }}
+      </ion-title>
+      <button class="add-offer" (click)="addOffer()">
+        {{ "PROFILE.btnAddOffer" | translate }}
+      </button>
+    </div>
+  </ion-list>
+  <ion-list class="list-content-no-premium no-grid" *ngIf="sub !== 'PREMIUM'">
+    <ion-item detail="false" class="data job">
+      <i class="icon icon_w_icons_suitcase"></i>
+      <ion-card-subtitle>
+        <ion-title
+          size="large"
+          class="value"
+          *ngIf="isValueNull(company.sector)"
+        >
+          {{ company.sector }}</ion-title
+        >
+        <ion-title
+          size="large"
+          class="no-value"
+          *ngIf="!isValueNull(company.sector)"
+        >
+          {{ "PROFILE.noSector" | translate }}
+        </ion-title>
+      </ion-card-subtitle>
+    </ion-item>
+    <ion-item detail="false" class="data phone">
+      <i class="icon icon_w_icons_phone"></i>
+      <ion-card-subtitle>
+        <ion-title
+          size="large"
+          class="value"
+          *ngIf="isValueNull(company.phone)"
+          >{{ company.phone }}</ion-title
+        >
+        <ion-title class="no-value" *ngIf="!isValueNull(company.phone)">{{
+          "PROFILE.noPhone" | translate
+        }}</ion-title>
+      </ion-card-subtitle>
+    </ion-item>
+    <ion-item detail="false" class="data email">
+      <i class="icon icon_w_icons_envelope"></i>
+      <ion-card-subtitle>
+        <ion-title
+          size="large"
+          class="value"
+          *ngIf="isValueNull(company.email)"
+          >{{ company.email }}</ion-title
+        >
+        <ion-title
+          size="large"
+          class="no-value"
+          *ngIf="!isValueNull(company.email)"
+          >{{ "PROFILE.noEmail" | translate }}
+        </ion-title>
+      </ion-card-subtitle>
+    </ion-item>
+    <ion-item detail="false" class="data location">
+      <i class="icon icon_w_icons_location_pin_circle"></i>
+      <ion-card-subtitle>
+        <ion-title
+          size="large"
+          class="value"
+          *ngIf="isValueNull(company.location)"
+          >{{ company.location }}</ion-title
+        >
+        <ion-title
+          size="large"
+          class="no-value"
+          *ngIf="!isValueNull(company.location)"
+        >
+          {{ "PROFILE.noLocation" | translate }}</ion-title
+        >
+      </ion-card-subtitle>
+    </ion-item>
+    <ion-item detail="false" class="data site">
+      <i class="icon icon_w_icons_world"></i>
+      <ion-card-subtitle>
+        <a
+          target="_blank"
+          class="value"
+          href="{{ setUrl(company.site) }}"
+          *ngIf="isValueNull(company.site)"
+          >{{ company.site }}</a
+        >
+        <ion-title
+          size="large"
+          class="no-value"
+          *ngIf="!isValueNull(company.site)"
+        >
+          {{ "PROFILE.noSite" | translate }}</ion-title
+        >
+      </ion-card-subtitle>
+    </ion-item>
+    <div class="line-container">
+      <i class="icon icon_w_icons_information_circle"></i>
+      <label>
+        {{ "PROFILE.labelInfo" | translate }}
+      </label>
+      <div class="line"></div>
+    </div>
+    <ion-item detail="false" class="data info">
+      <div class="value" *ngIf="isValueNull(company.information)">
+        {{ company.information }}
+      </div>
+      <div class="no-value" *ngIf="!isValueNull(company.information)">
+        {{ "PROFILE.noInfo" | translate }}
+      </div>
+    </ion-item>
+    <ion-item detail="false" class="data file" *ngFor="let file of filenames">
+      <div class="file-btn-container">
+        <div class="icon-doc-container">
+          <i class="icon icon_w_icons_doc"></i>
+        </div>
+        <a
+          target="_blank"
+          class="attached-button"
+          href="{{ file.document | fileUser }}"
+          >{{ setDocName(file.document) }}</a
+        >
+        <div class="arrow-container">
+          <i class="icon icon_w_icons_arrow_nav_right"></i>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+  <mat-tab-group
+    class="small"
+    mat-align-tabs="center"
+    [disableRipple]="true"
+    animationDuration="0ms"
+    *ngIf="sub === 'PREMIUM'"
+  >
+    <mat-tab label="{{ 'PROFILE.labelInfo' | translate }}">
+      <ng-template matTabContent>
+        <div class="content">
+          <div class="body-container">
+            <div class="title-container">
+              <i class="icon icon_w_icons_suitcase"></i>
+              <div class="ion-title-container">
+                <ion-title *ngIf="isValueNull(company.sector)">{{
+                  company.sector
+                }}</ion-title>
+                <ion-title
+                  class="no-value"
+                  *ngIf="!isValueNull(company.sector)"
+                >
+                  {{ "INFO_EVENT.speakers.noSector" | translate }}
+                </ion-title>
+              </div>
+            </div>
+            <div class="title-container">
+              <i class="icon icon_w_icons_phone"></i>
+              <div class="ion-title-container">
+                <ion-title *ngIf="isValueNull(company.phone)">{{
+                  company.phone
+                }}</ion-title>
+                <ion-title class="no-value" *ngIf="!isValueNull(company.phone)">
+                  {{ "INFO_EVENT.speakers.noPhone" | translate }}
+                </ion-title>
+              </div>
+            </div>
+            <div class="title-container">
+              <i class="icon icon_w_icons_envelope"></i>
+              <div class="ion-title-container">
+                <ion-title *ngIf="isValueNull(company.email)">{{
+                  company.email
+                }}</ion-title>
+                <ion-title class="no-value" *ngIf="!isValueNull(company.email)">
+                  {{ "INFO_EVENT.speakers.noEmail" | translate }}
+                </ion-title>
+              </div>
+            </div>
+            <div class="title-container">
+              <i class="icon icon_w_icons_location_pin_circle"></i>
+              <div class="ion-title-container">
+                <ion-title *ngIf="isValueNull(company.location)">{{
+                  company.location
+                }}</ion-title>
+                <ion-title
+                  class="no-value"
+                  *ngIf="!isValueNull(company.location)"
+                >
+                  {{ "INFO_EVENT.speakers.noLocation" | translate }}
+                </ion-title>
+              </div>
+            </div>
+            <div class="title-container">
+              <i class="icon icon_w_icons_world"></i>
+              <div class="ion-title-container">
+                <a
+                  target="_blank"
+                  class="value"
+                  href="{{ setUrl(company.site) }}"
+                  *ngIf="isValueNull(company.site)"
+                  >{{ company.site }}</a
+                >
+                <ion-title
+                  size="large"
+                  class="no-value"
+                  *ngIf="!isValueNull(company.site)"
+                >
+                  {{ "PROFILE.noSite" | translate }}</ion-title
+                >
+              </div>
+            </div>
+            <div class="line-container">
+              <i class="icon icon_w_icons_information_circle"></i>
+              <label>
+                {{ "PROFILE.labelInfo" | translate }}
+              </label>
+              <div class="line"></div>
+            </div>
+            <div class="info-content" *ngIf="isValueNull(company.information)">
+              {{ company.information }}
+            </div>
+            <div
+              class="info-content no-value"
+              *ngIf="!isValueNull(company.information)"
+            >
+              {{ "INFO_EVENT.speakers.noInfo" | translate }}
+            </div>
+            <ion-item
+              detail="false"
+              class="data file"
+              *ngFor="let file of filenames"
+            >
+              <div class="file-btn-container">
+                <div class="icon-doc-container">
+                  <i class="icon icon_w_icons_doc"></i>
+                </div>
+                <a
+                  target="_blank"
+                  class="attached-button"
+                  href="{{ file.document | fileUser }}"
+                  >{{ setDocName(file.document) }}</a
+                >
+                <div class="arrow-container">
+                  <i class="icon icon_w_icons_arrow_nav_right"></i>
+                </div>
+              </div>
+            </ion-item>
+          </div>
+        </div>
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="{{ 'PROFILE.labelMyCatalog' | translate }}">
+      <ng-template matTabContent>
+        <div class="content">
+          <div class="body-container">
+            <ion-list class="offercards-content">
+              <offer-card
+                [showArrow]="false"
+                *ngFor="let offer of jobOffers"
+                [offer]="offer"
+              ></offer-card>
+            </ion-list>
+            <ion-title class="no-offers" *ngIf="jobOffers.length === 0"
+              >{{ "JOB_OFFERS.noOffers" | translate }}
+            </ion-title>
+            <button class="add-offer" (click)="addOffer()">
+              {{ "PROFILE.btnAddOffer" | translate }}
+            </button>
+          </div>
+        </div>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+</ion-content>

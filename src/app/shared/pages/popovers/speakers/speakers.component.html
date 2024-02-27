@@ -1,0 +1,15 @@
+<!-- <ion-select [value]="selectedSpeakerId" [(ngModel)]="selectedSpeakerId" (ionChange)="ionChange($event)"
+  interface="popover" [placeholder]="'AGENDA.edit.setEvent.labelSpeaker' | translate">
+  <ion-select-option *ngFor="let speaker of speakers" [value]="speaker.id">{{speaker.name}}</ion-select-option>
+</ion-select> -->
+
+<ion-content>
+  <ion-list>
+    <ion-item detail="false" button *ngFor="let speaker of speakers" (click)="select(speaker)" detail="false">
+      <ion-label class="text-wrap">
+        {{speaker.name}}
+      </ion-label>
+      <ion-icon slot="end" name="checkmark" *ngIf="speaker.id == selectedSpeakerId"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,152 @@
+<ion-header class="menu">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" type="button" class="back" (click)="goBack()">
+        <i class="icon icon_w_icons_arrow_nav_left"></i>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      {{ "EDIT_PROFILE.title" | translate }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="container" [ngClass]="{'no-background': !permissionsSvc.showBackground}"
+  [style]="'--background: ' + ('background' | imageEvent) + ' no-repeat center center / cover'">
+  <form [formGroup]="form" (ngSubmit)="saveProfile()" accept-charset="utf-8" class="save-profile-container">
+    <div id="img-container-edit" class="img-container"></div>
+    <div class="info-img-container">
+      <img src="{{userId | imageProfile}}" class="profile-img" id="img-profile"
+        onerror="this.src='assets/img/no_image_user.webp'">
+      <ion-button fill="clear" class="change-img-button" id="add-button" (click)="addImage($event)">
+        <i class="icon icon_w_icons_picture_add"></i>
+      </ion-button>
+      <div class="info-container">
+        <div class="edit-name-container">
+          <div class="name-container">
+            <div style="position: relative;">
+              <input type="text" id="name" name="name" formControlName="name" class="form-input-name"
+                placeholder='{{"EDIT_PROFILE.labelName" | translate}}'>
+              <tooltip-error *ngIf="form.controls.name.invalid && showTooltip"></tooltip-error>
+            </div>
+            <div style="position: relative;">
+              <input type="text" id="surnames" name="surnames" formControlName="surnames" class="form-input-lastname"
+                placeholder='{{"EDIT_PROFILE.labelLastname" | translate}}'>
+              <tooltip-error *ngIf="form.controls.surnames.invalid && showTooltip"></tooltip-error>
+            </div>
+          </div>
+          <!-- <ion-button class="edit-name-button" (click)="editNameAndLastname()">
+            <i class="icon icon_w_icons_edit_box"></i>
+          </ion-button> -->
+        </div>
+        <ion-title size="small" class="info-edit-container">
+          {{ "EDIT_PROFILE.infoEdit" | translate }}
+        </ion-title>
+      </div>
+    </div>
+
+    <div class="form-container">
+      <div *ngFor="let item of profileSvc.data; let i = index">
+        <div class="form-group-container" *ngIf="item.show && getSub(item.sub)">
+          <div class="label-container">
+            <label class="form-label">{{item.translation | translate}}</label>
+            <label class="optional" *ngIf="!item.required">{{"EDIT_PROFILE.labelOptional" | translate}}</label>
+          </div>
+          <div [ngSwitch]="item.component">
+            <div class="input-container"
+              *ngSwitchCase="item.component === 'input' || item.component === 'textarea' || item.component === 'url' ? item.component : '' ">
+              <i class="icon {{item.icon}}"></i>
+              <input *ngSwitchCase="'input'" [type]="item.type" [formControlName]="item.formControlName"
+                class="form-input" [placeholder]='(item.placeholder ? item.placeholder : item.translation) | translate'
+                [ngClass]="{'no-toggle': !item.showToggle}">
+              <input *ngSwitchCase="'url'" [type]="item.type" [formControlName]="item.formControlName"
+                class="form-input" [placeholder]='(item.placeholder ? item.placeholder : item.translation) | translate'
+                [ngClass]="{'no-toggle': !item.showToggle}">
+              <textarea *ngSwitchCase="'textarea'" [formControlName]="item.formControlName" rows="3"
+                class="form-textarea" maxlength="500" [placeholder]='item.translation | translate'></textarea>
+              <tooltip-error *ngIf="item.required && this.form.controls[item.formControlName].invalid && showTooltip">
+              </tooltip-error>
+              <div *ngIf="item.showToggle" class="permission" formGroupName="permission">
+                <ion-toggle #toggle [formControlName]="item.formControlName"
+                  (click)="presentToast(toggle.checked, item.translation)"></ion-toggle>
+              </div>
+            </div>
+            <div *ngSwitchCase="'array'" class="form-group-container" [formGroupName]="item.formGroupName">
+              <div *ngFor="let value of item.array">
+                <div class="input-container array" *ngIf="value.show && getSub(value.sub)">
+                  <i class="icon {{value.icon}}"></i>
+                  <input [type]="value.type" [formControlName]="value.formControlName" class="form-input no-toggle"
+                    [placeholder]='value.translation | translate'>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="attached form-group-container" *ngIf="profileSvc.getAttachedData()">
+        <div class="label-container">
+          <label class="form-label info" for="attached">{{"EDIT_PROFILE.labelAttached" | translate}}</label>
+          <label class="label-info">{{"EDIT_PROFILE.labelMaxSize" | translate}}</label>
+          <label class="optional">{{"EDIT_PROFILE.labelOptional" | translate}}</label>
+        </div>
+        <div class="input-container attached">
+          <input name="image" type="file" id="file-selector" multiple class="input-file" accept="application/pdf"
+            style="display: none;">
+          <i class="icon icon_w_icons_doc"></i>
+          <custom-button [translation]="'EDIT_PROFILE.buttonAttached'" [iconRight]="'icon_w_icons_edit_box'"
+            (onClick)="addFile()"></custom-button>
+        </div>
+        <ion-list class="list-files">
+          <ion-item detail="false" class="file-item" *ngFor="let fileProfile of filesProfile; let i = index">
+            <ion-button fill="clear" type="button" class="delete" (click)="deleteProfileFile(i)">
+              <i class="icon icon_w_icons_remove_circle"></i>
+            </ion-button>
+            <div class="file-btn-container">
+              <div class="icon-doc-container">
+                <i class="icon icon_w_icons_doc"></i>
+              </div>
+              <ion-title class="attached-button" size="small">{{fileProfile.name}}</ion-title>
+              <!-- <div class="arrow-container">
+                <i class="icon icon_w_icons_arrow_nav_right"></i>
+              </div> -->
+            </div>
+          </ion-item>
+          <ion-item detail="false" class="file-item" *ngFor="let file of files; let i = index">
+            <ion-button fill="clear" class="delete" (click)="deleteFile(file, i)">
+              <i class="icon icon_w_icons_remove_circle"></i>
+            </ion-button>
+            <div class="file-btn-container">
+              <div class="icon-doc-container">
+                <i class="icon icon_w_icons_doc"></i>
+              </div>
+              <ion-title class="attached-button" size="small">{{setDocName(file.document)}}</ion-title>
+              <!-- <a target="_blank" class="attached-button" href="{{file.document | fileUser}}">{{setDocName(file.document)}}</a> -->
+              <!-- <div class="arrow-container">
+                <i class="icon icon_w_icons_arrow_nav_right"></i>
+              </div> -->
+            </div>
+          </ion-item>
+        </ion-list>
+      </div>
+
+      <div class="button-container">
+        <custom-button [translation]="'EDIT_PROFILE.buttonChangePass'" (onClick)="goToChangePass()"></custom-button>
+      </div>
+
+      <div class="toggle-container">
+        <label>{{"EDIT_PROFILE.labelComercial" | translate}}</label>
+        <ion-toggle color="success" id="toggleCommunications" checked formControlName="commercial"></ion-toggle>
+      </div>
+
+      <button type="submit" class="submit-button">
+        <div class="ion-activatable ripple-parent">
+          <ion-title size="large">
+            {{ "CREATE_ACCOUNT.button" | translate }}
+          </ion-title>
+          <ion-ripple-effect></ion-ripple-effect>
+        </div>
+      </button>
+    </div>
+
+  </form>
+</ion-content>

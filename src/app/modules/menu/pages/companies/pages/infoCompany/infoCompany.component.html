@@ -1,0 +1,24 @@
+<ion-header class="menu">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="goBack()">
+        <i class="icon icon_w_icons_arrow_nav_left"></i>
+      </ion-button>
+    </ion-buttons>
+    <ion-title *ngIf="company">
+      {{ companyFullName(company) }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <embed-video
+    *ngIf="company"
+    [socialmedia]="company.socialmedia"
+  ></embed-video>
+  <public-profile-to-show
+    *ngIf="company"
+    [profile]="company"
+    [type]="2"
+  ></public-profile-to-show>
+</ion-content>

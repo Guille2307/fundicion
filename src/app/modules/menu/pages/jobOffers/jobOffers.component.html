@@ -1,0 +1,111 @@
+<mat-sidenav-container style="height: 100%; background: transparent">
+  <mat-sidenav-content>
+    <ion-header class="menu">
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+          {{ "MENU.jobOffers" | translate }}
+        </ion-title>
+        <ion-buttons
+          slot="primary"
+          *ngIf="sub === 'PREMIUM' || sub === 'EMPLOYEE'"
+        >
+          <ion-button
+            class="search-button"
+            fill="clear"
+            (click)="sideSearchbar.toggle()"
+          >
+            <i class="icon icon_w_icons_search_small"></i>
+          </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end" class="mobile">
+          <chat-and-profile></chat-and-profile>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content
+      padding
+      class="menu-content"
+      *ngIf="sub === 'PREMIUM' || sub === 'EMPLOYEE'"
+    >
+      <button
+        mat-fab
+        class="fab-button search"
+        (click)="sideSearchbar.toggle()"
+      >
+        <i class="icon icon_w_icons_search_small"></i>
+      </button>
+      <ion-segment
+        class="tabs small-tabs"
+        *ngIf="sub === 'PREMIUM'"
+        (ionChange)="segmentChanged($event)"
+        [(ngModel)]="selectedTab"
+      >
+        <ion-segment-button value="offers">
+          <ion-label>{{ "JOB_OFFERS.title" | translate }}</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="myOffers">
+          <ion-label>{{ "JOB_OFFERS.tabMyOffers" | translate }}</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+      <div [ngSwitch]="selectedTab">
+        <div *ngSwitchCase="'offers'">
+          <ion-virtual-scroll
+            class="content"
+            [items]="jobOffers | filter : query"
+          >
+            <offer-card *virtualItem="let offer" [offer]="offer"></offer-card>
+          </ion-virtual-scroll>
+          <ion-title
+            class="no-offers"
+            *ngIf="(jobOffers | filter : query).length === 0"
+            >{{ "JOB_OFFERS.noOffers" | translate }}
+          </ion-title>
+        </div>
+        <div *ngSwitchCase="'myOffers'">
+          <ion-virtual-scroll
+            class="content"
+            [items]="requests | filter : query"
+          >
+            <request-card
+              *virtualItem="let request"
+              [request]="request"
+            ></request-card>
+          </ion-virtual-scroll>
+          <ion-title
+            class="no-offers"
+            *ngIf="(requests | filter : query).length === 0"
+            >{{ "JOB_OFFERS.noRequests" | translate }}
+          </ion-title>
+        </div>
+      </div>
+    </ion-content>
+    <ion-content
+      padding
+      class="menu-content"
+      *ngIf="sub !== 'PREMIUM' && sub !== 'EMPLOYEE'"
+    >
+      <div class="icon-container">
+        <i class="icon icon_w_icons_suitcase"></i>
+      </div>
+      <ion-title class="no-premium"
+        >{{ "JOB_OFFERS.noPremiumCompany" | translate }}
+      </ion-title>
+    </ion-content>
+  </mat-sidenav-content>
+  <mat-sidenav
+    id="sideSearchbar"
+    #sideSearchbar
+    mode="over"
+    position="end"
+    style="width: 80%"
+  >
+    <searchbar
+      [sideNav]="sideSearchbar"
+      (sendQuery)="query = $event"
+    ></searchbar>
+  </mat-sidenav>
+</mat-sidenav-container>

@@ -1,0 +1,54 @@
+<ion-header [translucent]="true" class="transparent ion-no-border" [ngClass]="{'no-shadow': !permissionsSvc.showBackground}">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" type="button" class="back" (click)="goBack()">
+        <i class="icon icon_w_icons_arrow_nav_left"></i>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      {{ "LOGIN_ACCOUNT.title" | translate }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" class="img-back" [ngClass]="{'no-background': !permissionsSvc.showBackground}"
+[style]="'--background: ' + ('background' | imageEvent) + ' no-repeat center center / cover'">
+  <div class="scrim" [ngClass]="{'no-shadow': !permissionsSvc.showBackground}">
+    <woutick-logo></woutick-logo>
+    <form [formGroup]="loginForm" (ngSubmit)="login()" accept-charset="utf-8" class="login-container">
+      <div class="form-group-container">
+        <label class="form-label" for="username">{{"LOGIN_ACCOUNT.labelUser" | translate}}</label>
+        <input type="text" id="username" name="username" formControlName="username" class="form-input"
+          placeholder='{{"LOGIN_ACCOUNT.labelUser" | translate}}'>
+        <tooltip-error *ngIf="loginForm.controls.username.invalid && showTooltip"></tooltip-error>
+      </div>
+      <div class="form-group-container">
+        <label class="form-label" for="password">{{"LOGIN_ACCOUNT.labelPass" | translate}}</label>
+        <div class="pass-container">
+          <input type="password" id="password" name="password" formControlName="password" class="form-input"
+            placeholder='{{"LOGIN_ACCOUNT.labelPass" | translate}}'>
+          <tooltip-error *ngIf="loginForm.controls.password.invalid && showTooltip"></tooltip-error>
+          <ion-button fill="clear" class="show-pass-button" (click)="showHidePass()">
+            <i *ngIf="showPass" class="icon icon_w_icons_eye_open"></i>
+            <i *ngIf="!showPass" class="icon icon_w_icons_eye_closed"></i>
+          </ion-button>
+        </div>
+      </div>
+      <div class="form-group-container">
+        <a id="password-recover-button" [routerLink]="['/forgot-password']">
+          {{"LOGIN_ACCOUNT.labelForget" | translate}}
+        </a>
+      </div>
+      <button type="submit" class="button-transparent" [ngClass]="{ 'disabled': !isLoginDisabled() }">
+        <div class="ion-activatable ripple-parent">
+          <ion-title size="large">
+            {{ "LOGIN_ACCOUNT.button" | translate }}
+          </ion-title>
+          <ion-ripple-effect></ion-ripple-effect>
+        </div>
+      </button>
+    </form>
+    <div class="footer">
+      <footer></footer>
+    </div>
+  </div>
+</ion-content>

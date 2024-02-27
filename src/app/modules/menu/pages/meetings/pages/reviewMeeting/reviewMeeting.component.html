@@ -1,0 +1,234 @@
+<ion-header class="menu">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="goBack()">
+        <i class="icon icon_w_icons_arrow_nav_left"></i>
+      </ion-button>
+    </ion-buttons>
+    <ion-title *ngIf="infoMeeting.offer === '' || offer === undefined">
+      {{ "MEETINGS.reviewMeeting.title" | translate }}
+    </ion-title>
+    <ion-title *ngIf="infoMeeting.offer !== '' && offer !== undefined">
+      {{ "MEETINGS.reviewMeeting.titleOffer" | translate }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <div class="header-container" (click)="goToProfile()">
+    <div id="img-container" class="img-container"></div>
+    <div *ngIf="infoUser !== undefined" class="info-img-container">
+      <img
+        *ngIf="infoUser !== null"
+        src="{{ infoUser.id | imageProfile }}"
+        class="profile-img"
+        onerror="this.onerror=null;this.src='assets/img/no_image_user.webp'"
+      />
+      <img
+        *ngIf="infoUser === null"
+        class="profile-img"
+        src="assets/img/no_image_user.webp"
+      />
+      <div class="edit-profile-container">
+        <div class="name-container">
+          <ion-title
+            size="large"
+            *ngIf="isValueNull(infoUser.name) && isValueNull(infoUser.surnames)"
+            >{{ infoUser.name }} {{ infoUser.surnames }}</ion-title
+          >
+          <ion-title
+            size="large"
+            *ngIf="
+              isValueNull(infoUser.name) && !isValueNull(infoUser.surnames)
+            "
+          >
+            {{ infoUser.name }}</ion-title
+          >
+          <ion-title
+            size="large"
+            *ngIf="
+              !isValueNull(infoUser.name) && isValueNull(infoUser.surnames)
+            "
+          >
+            {{ infoUser.surnames }}</ion-title
+          >
+          <ion-title
+            size="large"
+            class="username"
+            *ngIf="isValueNull(infoUser.username)"
+            >@{{ infoUser.username }}
+          </ion-title>
+          <ion-title
+            *ngIf="
+              infoUser.role === 'EMPLOYEE' && isValueNull(infoUser.profession)
+            "
+            size="large"
+            class="studies"
+          >
+            {{
+              "MEETINGS.reviewMeeting.labelJob"
+                | translate
+                  : {
+                      profession: infoUser.profession,
+                      company: infoUser.company
+                    }
+            }}
+          </ion-title>
+        </div>
+      </div>
+      <div class="arrow-profile-container">
+        <i class="icon icon_w_icons_next"></i>
+      </div>
+    </div>
+  </div>
+  <div class="content-container">
+    <div class="info-offer-container" *ngIf="offers.length !== 0">
+      <label>
+        {{ "MEETINGS.reviewMeet.labelRequest" | translate }}
+      </label>
+      <label class="offer-name" *ngFor="let offer of offers">
+        {{ offer.title }}
+      </label>
+    </div>
+    <div
+      class="date-content"
+      *ngIf="infoUser !== undefined"
+      [ngSwitch]="meetingStatus"
+    >
+      <div class="date">
+        <ion-label class="label-date">
+          {{ getDate(infoMeeting.starts) }}
+        </ion-label>
+        <ion-label class="label-hour">
+          {{ getTime(infoMeeting.starts) }}
+        </ion-label>
+      </div>
+      <ion-button
+        *ngSwitchCase="'Approved'"
+        class="enter-meeting-button"
+        fill="clear"
+        (click)="enterMeet()"
+      >
+        <!-- <i class="icon icon_w_icons_clock"></i> -->
+        <label *ngIf="!enterMeeting">
+          {{
+            "MEETINGS.reviewMeeting.status.timeLeft"
+              | translate : { timeLeft: timeLeft }
+          }}
+        </label>
+        <label *ngIf="enterMeeting">
+          {{ "MEETINGS.reviewMeeting.status.enterMeeting" | translate }}
+        </label>
+      </ion-button>
+      <ion-button
+        *ngSwitchCase="'Celebrated'"
+        class="enter-meeting-button celebrated"
+        disabled
+        fill="clear"
+      >
+        <!-- <i class="icon icon_w_icons_clock"></i> -->
+        <label class="espacio">
+          {{ "MEETINGS.reviewMeeting.status.celebrated" | translate }}
+        </label>
+      </ion-button>
+      <ion-button
+        *ngSwitchCase="'Declined'"
+        class="enter-meeting-button declined"
+        disabled
+        fill="clear"
+      >
+        <!-- <i class="icon icon_w_icons_clock"></i> -->
+        <label class="espacio">
+          {{ "MEETINGS.reviewMeeting.status.declined" | translate }}
+        </label>
+      </ion-button>
+    </div>
+    <div class="line"></div>
+    <ion-button
+      *ngIf="infoUser !== undefined"
+      fill="clear"
+      class="chat-button mobile"
+      (click)="goToChatMobile()"
+    >
+      <i class="icon icon_w_icons_paper_plane"></i>
+      {{
+        "MEETINGS.reviewMeeting.labelOpenChat"
+          | translate : { name: infoUser.name }
+      }}
+    </ion-button>
+    <ion-button
+      *ngIf="infoUser !== undefined"
+      fill="clear"
+      class="chat-button desktop"
+      (click)="goToChatDesktop()"
+    >
+      <i class="icon icon_w_icons_paper_plane"></i>
+      {{
+        "MEETINGS.reviewMeeting.labelOpenChat"
+          | translate : { name: infoUser.name }
+      }}
+    </ion-button>
+    <!-- TODO enviar anotaciones  -->
+    <!-- <div class="title-annotations-container">
+      <ion-label>
+        {{ "MEETINGS.reviewMeeting.labelAnnotations" | translate }}
+      </ion-label>
+      <ion-label class="optional">
+        {{ "MEETINGS.reviewMeeting.labelOptional" | translate }}
+      </ion-label>
+    </div> -->
+    <!-- <ion-textarea
+      maxLength="1000"
+      cols="3"
+      placeholder="{{ 'MEETINGS.reviewMeeting.labelAnnotations' | translate }}"
+      rows="8"
+      [(ngModel)]="annotations"
+    >
+    </ion-textarea>
+    <div class="btn-save-container">
+      <button-save
+        [title]="'MEETINGS.startMeeting.tabs.annotations.buttonSave'"
+        (click)="saveAnnotation()"
+      >
+      </button-save>
+    </div> -->
+    <div class="title-presentation">
+      <ion-label>
+        {{ "MEETINGS.reviewMeeting.labelPresentation" | translate }}
+      </ion-label>
+    </div>
+    <ion-textarea
+      class="readonly"
+      cols="3"
+      rows="8"
+      readonly="true"
+      [(ngModel)]="meetingPresentation"
+    >
+    </ion-textarea>
+
+    <ion-list class="list-files">
+      <ion-item
+        detail="false"
+        class="file-item"
+        *ngFor="let file of fileNames; let i = index"
+      >
+        <!-- <ion-button fill="clear" type="button" class="delete" (click)="deleteFile(file, i)">
+        <i class="icon icon_w_icons_remove_circle"></i>
+      </ion-button> -->
+        <div class="file-btn-container">
+          <div class="icon-doc-container">
+            <i class="icon icon_w_icons_doc"></i>
+          </div>
+          <a
+            target="_blank"
+            class="attached-button"
+            href="{{ file.document | fileUser }}"
+            >{{ setDocName(file.document) }}</a
+          >
+          <div class="arrow-container">
+            <i class="icon icon_w_icons_arrow_nav_right"></i>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

@@ -1,0 +1,56 @@
+<cdk-virtual-scroll-viewport
+  itemSize="150"
+  minBufferPx="900"
+  maxBufferPx="1350"
+>
+  <ion-list class="meetings">
+    <meeting-card
+      *cdkVirtualFor="let meet of meetings | filter: query"
+      [meet]="meet"
+      [typeSub]="typeSub"
+      [user]="getUser(meet)"
+    ></meeting-card>
+  </ion-list>
+  <ion-title
+    class="no-meetings"
+    *ngIf="meetings.length === 0 && typeSub !== 'EMPLOYEE'"
+  >
+    {{ "MEETINGS.noMeetings" | translate }}
+  </ion-title>
+  <ion-list class="companies" *ngIf="companies">
+    <div *cdkVirtualFor="let company of companies | filter: query">
+      <!-- <ion-item-divider *virtualHeader="let header" color="light">
+        <div style="height: 30px; width: 100%; display: contents;" *ngIf="!thereIsOneRole && companies.length !== 0">
+          <label>{{header}}</label>
+          <div class="line"></div>
+        </div>
+      </ion-item-divider> -->
+      <ion-card
+        target="_blank"
+        *ngIf="similarIdCompany(company.id)"
+        (click)="goToRequestMeeting(company)"
+      >
+        <div class="img-container">
+          <img
+            src="{{ company.id | imageProfile }}"
+            onerror="this.onerror=null;this.src='assets/img/no_image_user.webp'"
+          />
+        </div>
+        <div class="request-container">
+          <p class="request-text">
+            {{ "MEETINGS.viewStudent.labelRequest" | translate }}
+          </p>
+        </div>
+      </ion-card>
+    </div>
+    <ion-title
+      class="no-companies"
+      *ngIf="
+        companies.length === 0 &&
+        (typeSub === 'EMPLOYEE' || typeSub === 'ADMIN')
+      "
+    >
+      {{ "MEETINGS.noCompanies" | translate }}
+    </ion-title>
+  </ion-list>
+</cdk-virtual-scroll-viewport>

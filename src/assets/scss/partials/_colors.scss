@@ -1,0 +1,216 @@
+/* COLORS */
+/* GENERAL */
+*,
+:root {
+  --primaryColor: #e30707 !important;
+  --secondaryColor: #000000 !important;
+  --emphasis: #e30707 !important;
+  --interactive: #e30707 !important;
+  --selectedText: black !important;
+
+  --backgroundColorLogin: #101015;
+  --backgroundColor: #eeeeee;
+
+  --tick: #cd3467;
+  --pro: #6cc4c7;
+  --pass: #33cc33;
+  --pal: #ff6633;
+  --hub: #f9b100;
+}
+
+$backgroundColor: #eeeeee;
+$fontColor: black;
+$borderColor: rgba(0, 0, 0, 0.3);
+
+$primaryColor: var(--primaryColor);
+$primaryTitle: white;
+$primaryIcon: #eeeeee;
+
+$secondaryColor: var(--secondaryColor);
+$secondaryTitle: white;
+$secondaryIcon: #eeeeee;
+
+$emphasis: var(--emphasis);
+$interactive: var(--interactive);
+$selectedText: var(--selectedText);
+
+$alert: red;
+$error: #ef8080;
+
+$cancel: #cc3333;
+$accept: #33cc33;
+
+/*  WOUTICK */
+$tick: var(--tick);
+$pro: var(--pro);
+$pass: var(--pass);
+$pal: var(--pal);
+$hub: var(--hub);
+
+$colors: (
+  primaryColor: var(--primaryColor),
+  secondaryColor: var(--secondaryColor),
+  emphasis: var(--emphasis),
+  interactive: var(--interactive),
+  selectedText: var(--selectedText),
+);
+
+/* CARDS */
+$backgroundCards: white;
+$fontCards: black;
+
+/* TABS */
+$backgroundTabs: white;
+$fontTabs: black;
+
+/* INPUTS */
+$backgroundInput: white;
+$fontInput: black;
+$borderInput: black;
+$placeholderInput: rgba($fontInput, 0.7);
+
+/* BUTTONS */
+$backgroundButton: white;
+$fontButton: black;
+$borderButton: $interactive;
+$hoverButton: white;
+
+$backgroundEmphasis: #e10707;
+@mixin backgroundEmphasis($percentage) {
+  background-color: rgba($backgroundEmphasis, $percentage);
+}
+
+/* TRANSPARENT COLORS */
+$transparentGray: rgba(0, 0, 0, 0.3);
+$transparentDarkGray: rgba(0, 0, 0, 0.7);
+$transparentBlack: rgba(0, 0, 0, 0.65);
+
+$transparentWhite: rgba(255, 255, 255, 0.6);
+$transparentDarkWhite: rgba(255, 255, 255, 0.8);
+$transparentWoutickColor: rgba(204, 51, 102, 0.8);
+
+/* BACKGROUND COLORS */
+$backgroundColor: #eeeeee;
+
+/* APP COLORS */
+$woutickPrimaryColor: #9999cc;
+$woutickSecondaryColor: #aed081;
+$woutickInformationColor: #959dc7;
+$woutickErrorColor: #ef8080;
+
+$woutickLightPrimaryColor: scale-color($woutickPrimaryColor, $lightness: 50%);
+$woutickLightSecondaryColor: scale-color(
+  $woutickSecondaryColor,
+  $lightness: 50%
+);
+$woutickLightInformationColor: scale-color(
+  $woutickInformationColor,
+  $lightness: 50%
+);
+$woutickLightErrorColor: scale-color($woutickErrorColor, $lightness: 50%);
+
+$woutickDarkPrimaryColor: scale-color($woutickPrimaryColor, $lightness: -50%);
+$woutickDarkSecondaryColor: scale-color(
+  $woutickSecondaryColor,
+  $lightness: -50%
+);
+$woutickDarkInformationColor: scale-color(
+  $woutickInformationColor,
+  $lightness: -50%
+);
+$woutickDarkErrorColor: scale-color($woutickErrorColor, $lightness: -50%);
+
+/* BASIC COLORS */
+$lightBlack: #353535;
+$darkerGray: #424242;
+$darkGray: #525252;
+$lightGray: #a8a6a6;
+$lighterGray: #b3b3b3;
+$veryLightGray: #eeeeee;
+
+/* SOCIAL NETWORKS COLORS */
+$twitterColor: #5990cc;
+$instagramColor: #050006;
+$facebookColor: #475994;
+$youtubeColor: #9d2e31;
+$linkedinColor: #4274ad;
+$spotifyColor: #1ed760;
+
+$twitterLightColor: scale-color($twitterColor, $lightness: 50%);
+$instagramLightColor: scale-color($instagramColor, $lightness: 50%);
+$facebookLightColor: scale-color($facebookColor, $lightness: 50%);
+$youtubeLightColor: scale-color($youtubeColor, $lightness: 50%);
+$linkedinLightColor: scale-color($linkedinColor, $lightness: 50%);
+$spotifyLightColor: scale-color($spotifyColor, $lightness: 50%);
+
+$twitterDarkColor: scale-color($twitterColor, $lightness: -50%);
+$instagramDarkColor: scale-color($instagramColor, $lightness: -50%);
+$facebookDarkColor: scale-color($facebookColor, $lightness: -50%);
+$youtubeDarkColor: scale-color($youtubeColor, $lightness: -50%);
+$linkedinDarkColor: scale-color($linkedinColor, $lightness: -50%);
+$spotifyDarkColor: scale-color($spotifyColor, $lightness: -50%);
+
+// Class name    Idle color    Hover color    Active color    Idle border color   Hover border color    Active border color   Idle text color   Hover text color    Active text color
+$woutickPrimaryColorScheme: "color-primary", $woutickPrimaryColor,
+  $woutickDarkPrimaryColor, $woutickPrimaryColor, $woutickPrimaryColor,
+  $woutickDarkPrimaryColor, $woutickPrimaryColor, white, white,
+  $woutickDarkPrimaryColor;
+$woutickPrimaryColorSchemeInverse: "color-primary-inverse", white,
+  $woutickPrimaryColor, $woutickPrimaryColor, $woutickPrimaryColor,
+  $woutickPrimaryColor, $woutickPrimaryColor, $darkerGray, white, $darkerGray;
+$woutickLightPrimaryColorScheme: "color-light-primary",
+  $woutickLightPrimaryColor, $woutickPrimaryColor, $woutickLightPrimaryColor,
+  $woutickLightPrimaryColor, $woutickPrimaryColor, $woutickLightPrimaryColor,
+  white, white, $woutickPrimaryColor;
+$woutickSecondaryColorScheme: "color-secondary", $woutickSecondaryColor,
+  $woutickDarkSecondaryColor, $woutickSecondaryColor, $woutickSecondaryColor,
+  $woutickDarkSecondaryColor, $woutickSecondaryColor, white, white,
+  $woutickDarkSecondaryColor;
+$woutickSecondaryColorSchemeInverse: "color-secondary-inverse", white,
+  $woutickSecondaryColor, $woutickSecondaryColor, $woutickSecondaryColor,
+  $woutickSecondaryColor, $woutickSecondaryColor, $darkerGray, white,
+  $darkerGray;
+$woutickLightSecondaryColorScheme: "color-light-secondary",
+  $woutickLightSecondaryColor, $woutickLightSecondaryColor,
+  $woutickLightSecondaryColor, $woutickLightSecondaryColor,
+  $woutickLightSecondaryColor, $woutickLightSecondaryColor, white, white,
+  $woutickSecondaryColor;
+$woutickInformationColorScheme: "color-information", $woutickInformationColor,
+  $woutickDarkInformationColor, $woutickInformationColor,
+  $woutickInformationColor, $woutickDarkInformationColor,
+  $woutickInformationColor, white, white, $woutickDarkInformationColor;
+$woutickInformationColorSchemeInverse: "color-information-inverse", white,
+  $woutickInformationColor, $woutickInformationColor, $woutickInformationColor,
+  $woutickInformationColor, $woutickInformationColor, $woutickInformationColor,
+  white, $darkerGray;
+$woutickLightInformationColorScheme: "color-light-information",
+  $woutickLightInformationColor, $woutickInformationColor,
+  $woutickLightInformationColor, $woutickLightInformationColor,
+  $woutickInformationColor, $woutickLightInformationColor, white, white,
+  $woutickInformationColor;
+$woutickWhiteColorScheme: "color-white", $veryLightGray, $veryLightGray,
+  $veryLightGray, $veryLightGray, $veryLightGray, $veryLightGray, white, white,
+  white;
+$woutickLightGrayColorScheme: "color-light-gray", $lightGray, $darkGray,
+  $lightGray, $lightGray, $darkGray, $lightGray, white, white, $darkGray;
+$woutickBlackColorScheme: "color-black", $darkerGray, $veryLightGray,
+  $darkerGray, $darkerGray, $veryLightGray, $darkerGray, white, white,
+  $veryLightGray;
+$woutickBlackColorInverseScheme: "color-black-inverse", white, $darkerGray,
+  $darkerGray, $darkerGray, $darkerGray, $darkerGray, $darkerGray, white,
+  $lighterGray;
+$woutickErrorColorScheme: "color-error", $woutickLightErrorColor,
+  $woutickErrorColor, $woutickLightErrorColor, $woutickLightErrorColor,
+  $woutickErrorColor, $woutickLightErrorColor, white, white, $woutickErrorColor;
+$facebookColorScheme: "color-facebook", $facebookColor, $facebookLightColor,
+  $facebookColor, $facebookColor, $facebookLightColor, $facebookColor, white,
+  white, $facebookLightColor;
+
+$colorSchemes: $woutickPrimaryColorScheme, $woutickPrimaryColorSchemeInverse,
+  $woutickLightPrimaryColorScheme, $woutickSecondaryColorScheme,
+  $woutickSecondaryColorSchemeInverse, $woutickLightSecondaryColorScheme,
+  $woutickInformationColorScheme, $woutickInformationColorSchemeInverse,
+  $woutickLightInformationColorScheme, $woutickWhiteColorScheme,
+  $woutickLightGrayColorScheme, $woutickBlackColorScheme,
+  $woutickBlackColorInverseScheme, $woutickErrorColorScheme,
+  $facebookColorScheme;

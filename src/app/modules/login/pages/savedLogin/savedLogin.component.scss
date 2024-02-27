@@ -1,0 +1,170 @@
+@import "../../../../../assets/scss/partials/variables";
+
+ion-content {
+  --background: url("../../../../../assets/img/background.webp") no-repeat center
+    center / cover;
+
+    .scrim {
+      height: 100%;
+      background: rgba(0, 0, 0, 0.42);
+    }
+
+  .login-container {
+    width: 100%;
+    margin: 20px auto;
+    padding: 20px 15px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 100%;
+
+    .profile-img {
+      height: 130px;
+      width: 130px;
+      border-radius: 50%;
+      padding: 1.5vh;
+      margin: auto;
+      object-fit: cover;
+    }
+
+    .label {
+      color: white;
+      font-size: 16px;
+      font-weight: 100;
+    }
+
+    .name-container {
+      color: white;
+      margin-bottom: 2vh;
+
+      h1 {
+        margin: 0;
+        margin-top: 10px;
+        font-weight: 900;
+        font-style: italic;
+        text-transform: uppercase;
+        font-size: 34px;
+        height: 34px;
+      }
+
+      p {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 100;
+        font-style: italic;
+      }
+    }
+
+    button {
+      position: relative;
+      background: transparent;
+      border: 2px solid white;
+      border-radius: 20vh;
+      color: white;
+      font-weight: 900;
+      text-transform: uppercase;
+      height: 44px;
+      width: 300px;
+      margin: auto;
+      cursor: pointer;
+      font-size: 18px;
+
+      &:active {
+        background-color: rgba(255, 255, 255, 0.3);
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+
+      ion-icon {
+        position: absolute;
+        font-size: 18px;
+        top: 10px;
+        right: 10px;
+        font-weight: 900;
+      }
+    }
+
+    .notTheUser {
+      display: grid;
+      margin-top: 20vh;
+
+      .label-container {
+        display: flex;
+        justify-content: center;
+        color: white;
+        margin-bottom: 10px;
+        font-size: 16px;
+
+        label {
+          font-weight: 100;
+          font-style: italic;
+
+          &.name {
+            font-weight: 900;
+            font-style: normal;
+            margin-left: 5px;
+          }
+        }
+      }
+
+      button {
+        position: relative;
+        background: transparent;
+        border: 1px solid white;
+        border-radius: 20vh;
+        color: white;
+        font-weight: 100;
+        text-transform: uppercase;
+        height: 34px;
+        width: 300px;
+        margin: auto;
+        cursor: pointer;
+        font-size: 14px;
+
+        &:active {
+          background-color: rgba(255, 255, 255, 0.3);
+          border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.3);
+          border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        ion-icon {
+          position: absolute;
+          font-size: 18px;
+          top: 7px;
+          right: 7px;
+          font-weight: 900;
+        }
+      }
+    }
+  }
+
+  .footer {
+    background: transparent;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  ion-content {
+    .login-container {
+      width: 460px;
+      border-radius: 20px;
+      background-color: rgba(0, 0, 0, 0.3);
+      margin: 30px auto;
+
+      .profile-img {
+        height: 200px;
+        width: 200px;
+      }
+    }
+  }
+}

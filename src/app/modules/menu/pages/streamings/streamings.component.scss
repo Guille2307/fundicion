@@ -1,0 +1,40 @@
+@import "../../../../../assets/scss/partials/variables";
+@import "../../../../../assets/scss/partials/typography";
+
+ion-content {
+  overflow-y: hidden;
+
+  .content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto;
+    overflow-y: auto;
+
+    .icon {
+      color: rgba(0, 0, 0, 0.5);
+      margin: auto;
+      font-size: 170px;
+    }
+
+    .no-streamings {
+      text-align: center;
+      margin: auto;
+      display: grid;
+      height: 100px;
+      @include principal5(rgba(0, 0, 0, 0.5));
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .content {
+    margin: auto;
+    width: 460px !important;
+  }
+}
+
+@media screen and (max-width: 1388px) {
+  ion-button.chat {
+    display: flex !important;
+  }
+}

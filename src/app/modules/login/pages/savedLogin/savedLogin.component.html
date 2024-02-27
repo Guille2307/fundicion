@@ -1,0 +1,30 @@
+<ion-content class="img-back">
+  <div class="scrim">
+    <toolbar></toolbar>
+    <div class="login-container">
+      <img class="profile-img" src="{{selectedUser.imgUrl}}">
+      <label class="label">{{ "SAVED_LOGIN.label" | translate }}</label>
+      <div class="name-container">
+        <h1>{{selectedUser.name}}</h1>
+        <p>@{{selectedUser.username}}</p>
+      </div>
+      <button>
+        {{ "SAVED_LOGIN.button" | translate }}
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </button>
+      <div class="notTheUser">
+        <div class="label-container">
+          <label>{{ "SAVED_LOGIN.notTheUser.label" | translate }}</label>
+          <label class="name">{{selectedUser.name}}</label>
+        </div>
+        <button (click)="loginOtherAccount()">
+          {{ "SAVED_LOGIN.notTheUser.button" | translate }}
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </button>
+      </div>
+    </div>
+    <div class="footer">
+      <footer></footer>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,17 @@
+<div class="language-container" *ngIf="!sidemenu">
+  <button class="language-button" (click)="openLanguagePopover($event)">
+    <ion-img class="flag" [src]='"LANGUAGE.flag" | translate'></ion-img>
+    <label class="language-id">{{"LANGUAGE.id" | translate}}</label>
+    <i class="icon icon_w_icons_arrow_function_down"></i>
+  </button>
+</div>
+<div class="language-container-sidemenu" *ngIf="sidemenu">
+  <button class="language-button" (click)="openLanguagePopover($event)">
+    <div class="name-container">
+      <ion-img class="flag" [src]='"LANGUAGE.flag" | translate'></ion-img>
+      <ion-label>{{ "LANGUAGE.title" | translate}}:</ion-label>
+      <ion-label class="language-name">{{"LANGUAGE.name" | translate}}</ion-label>
+      <i class="icon right icon_w_icons_arrow_function_down"></i>
+    </div>
+  </button>
+</div>

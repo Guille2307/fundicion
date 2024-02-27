@@ -1,0 +1,9 @@
+<cdk-virtual-scroll-viewport itemSize="20" class="content" *ngIf="speakers">
+  <ion-list>
+    <speaker-card [card]="speaker" *cdkVirtualFor="let speaker of speakers | filter: query"></speaker-card>
+    <ion-title *ngIf="speakers.length === 0" class="no-content">{{ 'NO_RESULTS' | translate }}</ion-title>
+  </ion-list>
+</cdk-virtual-scroll-viewport>
+<div class="content" *ngIf="!speakers">
+  <ion-title class="loading">{{ 'LOADING' | translate }}</ion-title>
+</div>

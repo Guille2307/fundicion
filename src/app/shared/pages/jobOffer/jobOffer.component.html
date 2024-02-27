@@ -1,0 +1,26 @@
+<ion-header class="menu">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="goBack()">
+        <i class="icon icon_w_icons_arrow_nav_left"></i>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      {{ "JOB_OFFERS.title" | translate }}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button
+        *ngIf="sub === 'PREMIUM' && showEditButton"
+        class="edit-profile"
+        fill="clear"
+        (click)="editOffer()"
+      >
+        <i class="icon icon_w_icons_edit_box"></i>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <info-offer-for-assistant></info-offer-for-assistant>
+</ion-content>

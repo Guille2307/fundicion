@@ -1,0 +1,44 @@
+<ion-header class="menu">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="goBack()">
+        <i class="icon icon_w_icons_arrow_nav_left"></i>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      {{ selectedSponsor.name }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <div *ngIf="this.selectedSponsor.video" [innerHtml]="iframeHtml"></div>
+  <div class="img-container">
+    <img src="{{ selectedSponsor.id | imageSponsor }}" />
+  </div>
+  <ion-list>
+    <ion-item detail="false" class="data">
+      <i class="icon icon_w_icons_star-podium"></i>
+      <ion-card-subtitle>
+        <ion-title size="large" class="value type">{{
+          selectedSponsor.type
+        }}</ion-title>
+      </ion-card-subtitle>
+    </ion-item>
+    <ion-item detail="false" class="data" *ngIf="selectedSponsor.email">
+      <i class="icon icon_w_icons_envelope"></i>
+      <ion-card-subtitle>
+        <ion-title size="large" class="value">{{
+          selectedSponsor.email
+        }}</ion-title>
+      </ion-card-subtitle>
+    </ion-item>
+    <ion-item detail="false" class="data web" *ngIf="selectedSponsor.site">
+      <i class="icon icon-internet"></i>
+      <ion-card-subtitle>
+        <a target="_blank" class="value" href="{{ selectedSponsor.site }}">{{
+          selectedSponsor.site
+        }}</a>
+      </ion-card-subtitle>
+    </ion-item>
+  </ion-list>
+</ion-content>

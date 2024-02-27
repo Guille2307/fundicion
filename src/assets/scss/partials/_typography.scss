@@ -1,0 +1,156 @@
+@import "colors";
+
+@mixin principal1($color) {
+  color: $color;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  font-size: 34px;
+}
+
+@mixin principal2($color) {
+  color: $color;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 28px;
+}
+
+@mixin principal3($color) {
+  color: $color;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 24px;
+}
+
+@mixin principal4($color) {
+  color: $color;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 24px;
+}
+
+@mixin principal5($color) {
+  color: $color;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+@mixin principal6($color) {
+  color: $color;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+@mixin principal7($color) {
+  color: $color;
+  font-weight: 400;
+  font-style: italic;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+@mixin principal8($color) {
+  color: $color;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+@mixin subtitulo1($color) {
+  color: $color;
+  font-weight: 400;
+  font-style: italic;
+  text-transform: none;
+  font-size: 14px;
+}
+
+@mixin subtitulo2($color) {
+  color: $color;
+  font-weight: 900;
+  text-transform: none;
+  font-size: 14px;
+}
+
+@mixin subtitulo3($color) {
+  color: $color;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 12px;
+}
+
+@mixin cuerpoTexto1($color) {
+  color: $color;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 14px;
+}
+
+@mixin cuerpoTexto2($color) {
+  color: $color;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 12px;
+}
+
+@mixin boton1($color) {
+  color: $color;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+@mixin botonWeek($color) {
+  color: $color;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+@mixin botonAssociateMeet($color) {
+  color: $color;
+  font-weight: 900;
+  font-size: 16px;
+  text-transform: uppercase;
+  background: #eeeeee;
+  width: auto;
+  position: absolute;
+  border-right: 10px solid #eeeeee;
+  font-size: 16px;
+}
+
+@mixin botonMeet($color) {
+  color: $color;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+@mixin boton2($color) {
+  color: $color;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 14px;
+}
+
+@mixin leyenda1($color) {
+  color: $color;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 12px;
+}
+
+@mixin leyenda2($color) {
+  color: $color;
+  font-weight: 900;
+  text-transform: none;
+  font-size: 12px;
+}
+
+@mixin overline($color) {
+  color: $color;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 14px;
+}

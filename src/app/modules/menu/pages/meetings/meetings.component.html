@@ -1,0 +1,69 @@
+<mat-sidenav-container style="height: 100%; background: transparent">
+  <mat-sidenav-content>
+    <ion-header class="menu">
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+          {{ "MENU.meetings" | translate }}
+        </ion-title>
+        <ion-buttons slot="primary">
+          <ion-button
+            *ngIf="typeSub === 'PREMIUM'"
+            class="agenda-button"
+            fill="clear"
+            (click)="goToConfigMeeting()"
+          >
+            <i class="icon icon_w_icons_calendar"></i>
+          </ion-button>
+          <ion-button
+            class="search-button"
+            fill="clear"
+            (click)="sideSearchbar.toggle()"
+          >
+            <i class="icon icon_w_icons_search_small"></i>
+          </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end" class="mobile">
+          <chat-and-profile></chat-and-profile>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="menu-content">
+      <button
+        mat-fab
+        class="fab-button search"
+        (click)="sideSearchbar.toggle()"
+      >
+        <i class="icon icon_w_icons_search_small"></i>
+      </button>
+      <content-cards
+        [query]="query"
+        [typeSub]="typeSub"
+        [meetings]="meetings"
+        [ngClass]="(meetings | filter : query).length === 0 && 'hidden'"
+      ></content-cards>
+      <div *ngIf="meetings">
+        <ion-title
+          class="no-assistants"
+          *ngIf="(meetings | filter : query).length === 0"
+        >
+          {{ "NO_RESULTS" | translate }}
+        </ion-title>
+      </div>
+    </ion-content>
+  </mat-sidenav-content>
+  <mat-sidenav
+    id="sideSearchbar"
+    #sideSearchbar
+    mode="over"
+    position="end"
+    style="width: 80%"
+  >
+    <searchbar
+      [sideNav]="sideSearchbar"
+      (sendQuery)="query = $event"
+    ></searchbar>
+  </mat-sidenav>
+</mat-sidenav-container>

@@ -1,0 +1,79 @@
+@import "../../../../../../../assets/scss/partials/variables";
+@import "../../../../../../../assets/scss/partials/typography";
+
+ion-content {
+  --overflow: auto;
+
+  .img-container {
+    height: 150px;
+    display: flex;
+    margin: auto;
+    background: white;
+
+    img {
+      max-height: 130px;
+      height: auto;
+      margin: auto;
+      object-fit: cover;
+    }
+  }
+
+  ion-list {
+    padding: 0;
+    background: transparent;
+    width: 460px;
+    margin: 0 auto;
+
+    .data {
+      --background: transparent;
+      --inner-border-width: 0;
+
+      &.no-padding {
+        --padding-start: 0;
+        --inner-padding-end: 0;
+      }
+
+      .bold {
+        font-weight: 900;
+      }
+
+      .icon {
+        font-size: 25px;
+        font-weight: 900;
+        color: black;
+        display: flex;
+        margin: auto 0;
+        margin-right: 10px;
+      }
+
+      .value {
+        width: 90%;
+        @include subtitulo1(black);
+        font-style: normal;
+        margin: auto;
+        display: contents;
+        text-align: left;
+
+        &.type {
+          text-transform: uppercase;
+          font-weight: 700;
+        }
+      }
+
+      .no-value {
+        width: 90%;
+        @include subtitulo1(rgba(0, 0, 0, 0.3));
+        margin: auto;
+        display: contents;
+        text-align: left;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .margin {
+    width: 100% !important;
+    background: transparent !important;
+  }
+}

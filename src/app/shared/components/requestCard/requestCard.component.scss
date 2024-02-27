@@ -1,0 +1,95 @@
+@import "../../../../assets/scss/partials/variables";
+@import "../../../../assets/scss/partials/typography";
+
+ion-card {
+  position: relative;
+  background: white;
+  border-radius: 20px;
+  height: 130px;
+  cursor: pointer;
+  margin: 10px;
+  display: flex;
+
+  img {
+    max-width: 60px;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .info-container {
+    // width: calc(100% - 40px);
+    width: 100%;
+    padding: 5px;
+    padding-right: 40px;
+    // display: grid;
+
+    .boldtext {
+      font-weight: 700;
+    }
+    .field {
+      display: flex;
+      margin: 5px;
+
+      .icon {
+        font-size: 18px;
+        padding-right: 5px;
+        color: black;
+        margin: auto 0;
+      }
+
+      ion-card-title {
+        @include boton1(black);
+      }
+
+      ion-card-subtitle {
+        @include cuerpoTexto1(black);
+
+        label {
+          cursor: pointer;
+        }
+      }
+
+      .no-value {
+        font-style: italic;
+        color: grey;
+      }
+    }
+  }
+
+  .arrow-container,
+  .delete-button {
+    position: absolute;
+    width: 40px;
+    height: 110px;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-left: rgba(0, 0, 0, 0.05) solid 2px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    z-index: 1;
+
+    i {
+      color: $interactive;
+      height: auto;
+      margin: auto;
+      font-size: 30px;
+
+      &.remove {
+        color: $cancel;
+      }
+    }
+  }
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}

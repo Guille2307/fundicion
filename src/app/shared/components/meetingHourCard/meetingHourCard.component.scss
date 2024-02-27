@@ -1,0 +1,96 @@
+@import "../../../../assets/scss/partials/variables";
+@import "../../../../assets/scss/partials/colors";
+@import "../../../../assets/scss/partials/typography";
+
+ion-card {
+  position: relative;
+  background: white;
+  border-radius: 15px;
+  border: solid 1px $accept;
+  height: 58px;
+  cursor: pointer;
+  margin: 10px 5px;
+  display: flex;
+  box-shadow: none;
+
+  .info-container {
+    width: 100%;
+    display: grid;
+    padding: 5px 40px 5px 20px;
+
+    .field {
+      display: flex;
+      margin: auto 0;
+
+      .icon {
+        font-size: 18px;
+        padding-right: 5px;
+        color: black;
+        margin: auto 0;
+      }
+
+      ion-card-title {
+        @include boton1($accept);
+      }
+
+      ion-card-subtitle {
+        @include cuerpoTexto1(black);
+      }
+    }
+  }
+  
+  .arrow-container {
+    position: absolute;
+    width: 40px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-left: rgba(0, 0, 0, 0.05) solid 2px;
+    cursor: pointer;
+    z-index: 0;
+
+    i {
+      color: $emphasis;
+      height: auto;
+      margin: auto;
+      font-size: 30px;
+    }
+  }
+
+  &.unavailable {
+    border-color: $cancel;
+    
+    ion-card-title {
+      color: $cancel !important;
+    }
+  }
+
+  &.reserved {
+    border-color: rgba(0, 0, 0, 0.3);
+    cursor: default;
+    
+    ion-card-title {
+      color: rgba(0, 0, 0, 0.3) !important;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  ion-card {
+    .info-container {
+      padding: 5px 30px 5px 10px !important;
+    }
+
+    .arrow-container {
+      width: 30px !important;
+
+      i {
+        font-size: 25px !important;
+      }
+    }
+  }
+}

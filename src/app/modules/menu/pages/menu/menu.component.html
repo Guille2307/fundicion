@@ -1,0 +1,190 @@
+<ion-split-pane when="(min-width: 1028px)" contentId="content">
+  <ion-menu contentId="content" type="overlay">
+    <ion-header
+      [ngClass]="{ 'no-background': !permissionsSvc.showBackground }"
+      [style]="
+        'background: ' +
+        ('background' | imageEvent) +
+        ' no-repeat center center / cover'
+      "
+    >
+      <div class="event-container">
+        <img
+          class="event-img"
+          [ngClass]="{
+            center: !permissionsSvc.showName,
+            'no-corners': permissionsSvc.styleLogo === 1,
+            round: permissionsSvc.styleLogo === 2
+          }"
+          src="{{ 'logo' | imageEvent }}"
+        />
+
+        <div
+          class="title-container"
+          *ngIf="
+            (selectedEvent && permissionsSvc.showName) ||
+            permissionsSvc.showDate
+          "
+        >
+          <!-- <div>
+            <h3>WoutickShow</h3>
+            <p>1 al 3 de Junio 2023</p>
+          </div> -->
+
+          <ion-title
+            class="title"
+            size="small"
+            *ngIf="permissionsSvc.showName"
+            >{{ selectedEvent.event_name }}</ion-title
+          >
+          <div
+            *ngIf="getDays()[5] - getDays()[2] < 1 && permissionsSvc.showDate"
+          >
+            <ion-title
+              class="subtitle"
+              size="small"
+              *ngIf="
+                getDays()[0] === getDays()[3] && getDays()[4] === getDays()[1]
+              "
+            >
+              {{ getDays()[0] }}
+              {{ "AGENDA.schedule.months." + getDays()[1] | translate }}
+              {{ getDays()[2] }}
+            </ion-title>
+            <ion-title
+              class="subtitle"
+              size="small"
+              *ngIf="getDays()[4] !== getDays()[1]"
+            >
+              {{
+                "MENU.dateDifferentMonth"
+                  | translate
+                    : {
+                        dayStart: getDays()[0],
+                        monthStart:
+                          "AGENDA.schedule.months." + getDays()[1] | translate,
+                        dayEnd: getDays()[3],
+                        monthEnd:
+                          "AGENDA.schedule.months." + getDays()[4] | translate,
+                        year: getDays()[2]
+                      }
+              }}
+            </ion-title>
+            <ion-title
+              class="subtitle"
+              size="small"
+              *ngIf="getDays()[4] === getDays()[1]"
+            >
+              {{
+                "MENU.dateSameMonth"
+                  | translate
+                    : {
+                        dayStart: getDays()[0],
+                        dayEnd: getDays()[3],
+                        monthEnd:
+                          "AGENDA.schedule.months." + getDays()[4] | translate,
+                        year: getDays()[2]
+                      }
+              }}
+            </ion-title>
+          </div>
+        </div>
+      </div>
+    </ion-header>
+    <sponsors-ininity-bar [side]="true"></sponsors-ininity-bar>
+    <ion-content>
+      <ion-list>
+        <div
+          *ngFor="let module of modulesSvc.getActiveModulesBySub()"
+          class="page-container"
+          [id]="module.id"
+        >
+          <ion-menu-toggle class="page" auto-hide="false">
+            <ion-item
+              *ngIf="module.route"
+              class="{{ module.id }}"
+              [ngClass]="{ 'no-border': module.id !== 'chat' }"
+              detail="false"
+              [routerLink]="module.route"
+              routerDirection="root"
+              [class.active-item]="
+                setActiveItem(module.route, null, selectedPath)
+              "
+              (click)="isGuest(module.guest)"
+            >
+              <i class="icon {{ module.icon }}"></i>
+              <ion-label>{{ module.translation | translate }}</ion-label>
+              <i
+                *ngIf="isBlocked(module.guest)"
+                class="icon icon_w_icons_lock"
+              ></i>
+            </ion-item>
+            <ion-item
+              *ngIf="module.href"
+              class="no-border"
+              detail="false"
+              target="_blank"
+              [href]="module.href"
+              (click)="isGuest(module.guest)"
+            >
+              <i class="icon {{ module.icon }}"></i>
+              <ion-label>{{ module.translation | translate }}</ion-label>
+              <i
+                *ngIf="isBlocked(module.guest)"
+                class="icon icon_w_icons_lock"
+              ></i>
+            </ion-item>
+          </ion-menu-toggle>
+        </div>
+
+        <div class="footer-options" id="footer-options">
+          <div
+            *ngIf="languageService.getLanguages().length > 1"
+            class="language-container"
+          >
+            <ion-item detail="false">
+              <language-selection [sidemenu]="true"></language-selection>
+            </ion-item>
+          </div>
+          <div class="legal-container">
+            <ion-menu-toggle class="page" auto-hide="false">
+              <ion-item
+                detail="false"
+                [routerLink]="'/menu/legal-info'"
+                routerDirection="root"
+                [class.active-item]="
+                  selectedPath === '/menu/legal-info/terms-of-use' ||
+                  selectedPath === '/menu/legal-info/policies-cookies' ||
+                  selectedPath === '/menu/legal-info/policies-privacy'
+                "
+              >
+                <i class="icon icon_w_icons_doc"></i>
+                <ion-label>{{ "MENU.legalInfo" | translate }}</ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+          </div>
+          <div class="logout-container">
+            <ion-item detail="false" (click)="logout()" button>
+              <i class="icon icon_w_icons_exit"></i>
+              <ion-label>{{ "MENU.logout" | translate }}</ion-label>
+            </ion-item>
+          </div>
+        </div>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="content" main></ion-router-outlet>
+  <ion-menu
+    *ngIf="
+      modulesSvc.getModules().chat.active &&
+      !isBlocked(modulesSvc.getModules().chat.guest)
+    "
+    [style.display]="styleSideChat"
+    class="chat"
+    side="end"
+    type="push"
+    swipe-gesture="false"
+  >
+    <ion-nav [root]="rootPage"></ion-nav>
+  </ion-menu>
+</ion-split-pane>

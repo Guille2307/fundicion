@@ -1,0 +1,24 @@
+@import "../../../../../assets/scss/partials/variables";
+@import "../../../../../assets/scss/partials/typography";
+
+ion-tabs {
+  ion-tab-bar {
+    background: $interactive;
+
+    ion-tab-button {
+      background: transparent;
+      &.tab-selected {
+        .icon {
+          background: $emphasis;
+          border-radius: 50%;
+          padding: 5px;
+        }
+      }
+
+      .icon {
+        font-size: 30px;
+        color: $primaryIcon;
+      }
+    }
+  }
+}

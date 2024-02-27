@@ -1,0 +1,19 @@
+@import "../../../../../assets/scss/partials/variables";
+@import "../../../../../assets/scss/partials/typography";
+
+ion-item {
+  padding: 5px 0;
+
+  img {
+    height: 30px;
+  }
+
+  ion-label {
+    font-weight: bold;
+    color: $fontColor;
+  }
+
+  ion-icon {
+    color: $fontColor;
+  }
+}

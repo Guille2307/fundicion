@@ -1,0 +1,41 @@
+@import "../../../../assets/scss/partials/variables";
+
+.woutick-logo-container {
+  width: 100%;
+  text-align: center;
+
+  .logo {
+    max-width: 50%;
+    height: auto;
+    max-height: 250px;
+    padding: 10px;
+
+    &.no-corners {
+      border-radius: 25px;
+    }
+
+    &.round {
+      border-radius: 50%;
+    }
+  }
+
+  .title {
+    margin: 0;
+    font-weight: 900;
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-size: 28px;
+    text-transform: capitalize;
+
+    .exclamation {
+      margin: 0;
+      font-weight: 900;
+      font-style: italic;
+      font-size: 28px;
+    }
+  }
+  // img {
+  //   background-color: white;
+  // }
+}

@@ -1,0 +1,6 @@
+<div class="content" *ngIf="schedule !== null">
+  <activity-card [card]="item" *ngFor="let item of schedule"></activity-card>
+</div>
+<div class="content" *ngIf="schedule === null">
+  <ion-title class="loading">{{ "LOADING" | translate }}</ion-title>
+</div>

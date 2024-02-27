@@ -1,0 +1,25 @@
+<ion-header class="menu">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      {{ "MENU.activities" | translate }}
+    </ion-title>
+    <ion-buttons slot="end" class="mobile">
+      <chat-and-profile></chat-and-profile>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-tabs>
+    <ion-tab-bar slot="top">
+      <ion-tab-button tab="foodtrucks">
+        <ion-label class="title">{{ "MENU.activitiesTabs.foodtrucks" | translate }}</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="polls">
+        <ion-label class="title">{{ "MENU.activitiesTabs.polls" | translate }}</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

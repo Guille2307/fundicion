@@ -1,0 +1,55 @@
+@import "../../../../../../../assets/scss/partials/variables";
+@import "../../../../../../../assets/scss/partials/typography";
+
+ion-header {
+  background-color: $secondaryColor;
+
+  ion-toolbar {
+    --background: transparent;
+
+    ion-buttons {
+      min-width: 50px;
+
+      ion-menu-button,
+      ion-back-button {
+        color: $secondaryIcon;
+      }
+
+      ion-nav-link {
+        height: 30px;
+      }
+
+      ion-button {
+        color: $secondaryIcon;
+        --color: white;
+        font-size: 16px;
+        text-transform: none;
+
+        .icon {
+          color: $secondaryIcon;
+          font-size: 27px;
+        }
+      }
+    }
+
+    ion-title {
+        text-transform: uppercase;
+        font-style: italic;
+        font-weight: 700;
+        font-size: 16px;
+        color: $secondaryTitle;
+        padding: 0;
+        text-align: left;
+        height: 24px;
+        margin: 16px auto;
+        top: -5px;
+        left: auto;
+    }
+  }
+}
+
+ion-content {
+  --overflow: auto;
+  --padding-bottom: 30px;
+  height: calc(100% - 56px);
+}
